@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Ethereum Foundation`,
+    description: `The Ethereum Foundation is a non-profit organization dedicated to supporting the Ethereum blockchain and related technologies.`,
+    author: `@ethereum`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
