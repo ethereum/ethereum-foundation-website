@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
           }}
         >
           <main>{children}</main>
-          <footer>© Ethereum Foundation, {new Date().getFullYear()}</footer>
+          {/* <footer>© Ethereum Foundation, {new Date().getFullYear()}</footer> */}
         </div>
       </StyledFullBackground>
     </>

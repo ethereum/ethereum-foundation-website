@@ -19,6 +19,12 @@ export const StyledFullScreenWrapper = styled.div`
   overflow: hidden;
 `
 
+export const StyledAbsoluteCenter = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+`
+
 // export const StyledContentCenterWrapper = styled.div`
 //   display: flex;
 //   text-align: center;

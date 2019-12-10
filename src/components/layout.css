@@ -620,3 +620,18 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* logo */
+
+/* #ethereum-foundation-logo {
+  width: 230px;
+  height: 71px;
+  background-image: url(../images/ethereum-foundation-logo.svg);
+  background-size: 230px 71px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 10000;
+} */

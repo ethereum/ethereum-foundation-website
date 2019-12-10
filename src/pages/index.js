@@ -1,42 +1,50 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+// import { Link, graphql } from "gatsby"
+// import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
+import Constellation from "../components/Constellation"
 import SEO from "../components/SEO"
+import efLogo from "../images/ethereum-foundation-logo.svg"
+// import constellation from "../images/constellation.svg"
 
-const IndexPage = ({ data }) => (
+import { StyledAbsoluteCenter } from "../components/SharedStyledComponents"
+
+const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Img
-      className="img-ef-logo"
-      fluid={data.file.childImageSharp.fluid}
-      alt="Ethereum Foundation Logo"
+    <div id="ethereum-foundation-logo"></div>
+    <img
+      style={{
+        position: `absolute`,
+        top: `50%`,
+        left: `50%`,
+        transform: `translate(-50%, -55%)`,
+        zIndex: `10`,
+      }}
+      src={efLogo}
+      alt=""
     />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/about/">Go to about page</Link>
-    <br />
-    <Link to="/philosophy/">Go to philosophy page</Link>
-    <br />
-    <Link to="/esp/">Go to esp page</Link>
-    <br />
-    <Link to="/ethereum/">Go to ethereum page</Link>
+    <StyledAbsoluteCenter
+      style={{
+        transform: `translate(-50%, -45%)`,
+      }}
+    >
+      <Constellation />
+    </StyledAbsoluteCenter>
   </Layout>
 )
 
-// TODO get a better image
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "ef-logo-transparent.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 540) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query {
+//     file(relativePath: { eq: "ef-logo-transparent.png" }) {
+//       childImageSharp {
+//         fluid(maxWidth: 540) {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default IndexPage
