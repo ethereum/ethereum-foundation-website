@@ -13,24 +13,24 @@ import { StyledAbsoluteCenter } from "../components/SharedStyledComponents"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div id="ethereum-foundation-logo"></div>
-    <img
-      style={{
-        position: `absolute`,
-        top: `50%`,
-        left: `50%`,
-        transform: `translate(-50%, -55%)`,
-        zIndex: `10`,
-      }}
-      src={efLogo}
-      alt=""
-    />
     <StyledAbsoluteCenter
       style={{
         transform: `translate(-50%, -45%)`,
+        top: `35%`,
       }}
     >
       <Constellation />
+      <img
+        src={efLogo}
+        alt="Ethereum Foundation Logo"
+        style={{
+          position: `absolute`,
+          top: `50%`,
+          left: `50%`,
+          transform: `translate(-50%, -55%)`,
+          zIndex: `10`,
+        }}
+      />
     </StyledAbsoluteCenter>
   </Layout>
 )

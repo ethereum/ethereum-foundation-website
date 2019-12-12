@@ -610,20 +610,7 @@ pre tt:after {
   }
 }
 
-/* logo */
-
-/* #ethereum-foundation-logo {
-  width: 230px;
-  height: 71px;
-  background-image: url(../images/ethereum-foundation-logo.svg);
-  background-size: 230px 71px;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
-  z-index: 10000;
-} */
+/* Site-specific styles */
 
 .constellation-star {
   width: 40px;

@@ -1,11 +1,44 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import styled from "styled-components"
 import StyledFullBackground from "./FullBackground"
 
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  const StyledFooter = styled.footer`
+    background-color: rgba(255, 255, 255, 0.15);
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  `
+
+  const StyledFooterChildDiv = styled.div`
+    @media (max-width: 768px) {
+      padding: 16px;
+      flex: 0;
+    }
+  `
+  const StyledFooterDivContact = styled(StyledFooterChildDiv)`
+    flex: 0 1 200px;
+  `
+  const StyledFooterDivCanary = styled(StyledFooterChildDiv)`
+    flex: 0 1 600px;
+    /* TODO confirm with Tomo */
+    font-size: 0.75rem;
+  `
+  const StyledFooterDivLinks = styled(StyledFooterChildDiv)`
+    display: flex;
+    justify-content: space-between;
+    flex: 0 1 200px;
+  `
+
   return (
     <>
       <StyledFullBackground>
@@ -19,7 +52,8 @@ const Layout = ({ children }) => {
           }}
         >
           <div className="layout-content-top">
-            <main>{children}</main>
+            {/* 55px === EF copyright */}
+            <main style={{ height: `calc(100vh - 55px)` }}>{children}</main>
           </div>
           <div className="layout-content-bottom">
             <div
@@ -30,22 +64,18 @@ const Layout = ({ children }) => {
             >
               © Ethereum Foundation, {new Date().getFullYear()}
             </div>
-            <footer
-              style={{
-                backgroundColor: `rgba(255, 255, 255, 0.15)`,
-                bottom: `0`,
-                display: `flex`,
-                justifyContent: `space-between`,
-                padding: `32px`,
-              }}
-            >
-              <div style={{ flex: `0 1 200px` }}>
+            <StyledFooter>
+              <StyledFooterDivContact>
                 <strong>General Contact:</strong>
-                <div>info@ethereum.org</div>
+                <div style={{ marginBottom: `16px` }}>
+                  <a href="mailto:info@ethereum.org">info@ethereum.org</a>
+                </div>
                 <strong>Press Contact:</strong>
-                <div>press@ethereum.org</div>
-              </div>
-              <div style={{ flex: `0 1 600px` }}>
+                <div style={{ marginBottom: `16px` }}>
+                  <a href="mailto:press@ethereum.org">press@ethereum.org</a>
+                </div>
+              </StyledFooterDivContact>
+              <StyledFooterDivCanary>
                 <p>
                   The Ethereum Foundation (Stiftung Ethereum) has never been
                   contacted by any agency anywhere in the world in a way which
@@ -56,18 +86,29 @@ const Layout = ({ children }) => {
                   from government agencies that falls outside the scope of
                   regular business operations.
                 </p>
-              </div>
-              <div
-                style={{
-                  flex: `0 1 200px`,
-                  display: `flex`,
-                  justifyContent: `space-between`,
-                }}
-              >
-                <div>Devcon.org</div>
-                <div>Blog</div>
-              </div>
-            </footer>
+              </StyledFooterDivCanary>
+              <StyledFooterDivLinks>
+                <div>
+                  {/* TODO style links */}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://devcon.org"
+                  >
+                    Devcon.org
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://blog.ethereum.org"
+                  >
+                    Blog
+                  </a>
+                </div>
+              </StyledFooterDivLinks>
+            </StyledFooter>
           </div>
         </div>
       </StyledFullBackground>
