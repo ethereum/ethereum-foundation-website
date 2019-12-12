@@ -635,3 +635,11 @@ pre tt:after {
   transform: translate(-50%, -55%);
   z-index: 10000;
 } */
+
+.constellation-star {
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/star.png);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+}
