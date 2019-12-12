@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "author": "Sam Richards <sam.richards@ethereum.org>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "framer-motion": "^1.6.18",
     "gatsby": "^2.17.11",
     "gatsby-background-image": "^0.9.11",
