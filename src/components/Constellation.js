@@ -24,6 +24,8 @@ const Constellation = () => {
       >
         {/* TODO: how to avoid cutting off circle? */}
         {/* TODO: class with images on these points? or style stars? */}
+        {/* TODO scale up stars on hover */}
+        {/* TODO display page link text on hover */}
         <Link to="/about/">
           <image href={star} x="174" y="0" height="50px" width="50px" />
           {/* <circle cx="174" cy="0" r="10" fill="white" /> */}
