@@ -18,7 +18,16 @@ const Layout = ({ children }) => {
           }}
         >
           <main>{children}</main>
-          {/* <footer>© Ethereum Foundation, {new Date().getFullYear()}</footer> */}
+        </div>
+        <div
+          style={{
+            position: `fixed`,
+            bottom: `8px`,
+            left: `8px`,
+            color: `white`, // TODO use variable
+          }}
+        >
+          © Ethereum Foundation, {new Date().getFullYear()}
         </div>
       </StyledFullBackground>
     </>
