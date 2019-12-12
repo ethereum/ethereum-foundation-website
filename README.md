@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8097623/70676240-56ebcc80-1c40-11ea-9aa8-51b7f75af8ba.png" width="60%" alt="Ethereum Foundation">
+</p>
+
 <h1 align="center">
   Ethereum Foundation
 </h1>
