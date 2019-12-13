@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
         className="layout-content-top"
         style={{ height: `100vh`, position: `relative` }}
       >
-        <main>{children}</main>
+        {children}
       </div>
       <div
         className="layout-content-bottom"

@@ -619,3 +619,16 @@ pre tt:after {
   background-size: 50px 50px;
   background-repeat: no-repeat;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a > svg:hover {
+  color: #41c2e6;
+}
+
+a:hover {
+  color: #41c2e6;
+}

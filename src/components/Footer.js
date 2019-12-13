@@ -106,7 +106,9 @@ const Footer = () => {
           padding: `32px`,
         }}
       >
-        <div>© Ethereum Foundation, {new Date().getFullYear()}</div>
+        <div style={{ fontSize: `0.75rem` }}>
+          © Ethereum Foundation, {new Date().getFullYear()}
+        </div>
         {/* TODO star image behind chevron */}
         <IconContainer onClick={() => toggleOpen(!isOpen)}>
           <FontAwesomeIcon icon={footerToggleIcon} />

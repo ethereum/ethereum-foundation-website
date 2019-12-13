@@ -12,6 +12,13 @@ const icon = {
   },
 }
 
+/*
+  TODOs
+  - Add link text next to stars. Opacity 0 -> 1 w/ transition on hover
+  - Mobile treatment?
+  - Page transitions? Spin link to the right & zoom in???
+*/
+
 const Constellation = () => {
   return (
     // TODO adjust size based on device/viewport

@@ -12,6 +12,9 @@ import styled from "styled-components"
 //   place-content: start;
 // `
 
+// TODO create breakpoints
+// https://getbootstrap.com/docs/4.3/layout/overview/#responsive-breakpoints
+
 export const StyledFullScreenWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
