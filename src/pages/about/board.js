@@ -9,7 +9,7 @@ import Profile from "../../components/Profile"
 import SEO from "../../components/SEO"
 
 const PageContainer = styled.div`
-  margin: 6rem auto 0;
+  margin: 6rem auto 4rem;
   max-width: 1140px;
   padding: 2rem;
 `
