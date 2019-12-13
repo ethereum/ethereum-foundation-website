@@ -623,8 +623,10 @@ pre tt:after {
 a {
   text-decoration: none;
   color: black;
+  transition: 0.5s;
 }
 
+/* TODO fix */
 a > svg:hover {
   color: #41c2e6;
 }

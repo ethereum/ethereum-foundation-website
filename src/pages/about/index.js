@@ -2,6 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
+
 import Layout from "../../components/Layout"
 import Subpage from "../../components/Subpage"
 import SEO from "../../components/SEO"
@@ -10,6 +13,32 @@ const PageContainer = styled.div`
   margin: 6rem auto 4rem;
   max-width: 760px;
   padding: 2rem;
+`
+
+const Icon = styled(FontAwesomeIcon)`
+  margin-left: 1rem;
+  color: white;
+`
+
+const ButtonContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+`
+
+const Button = styled(Link)`
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2.5px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  @media (max-width: 380px) {
+    width: 100%;
+  }
 `
 
 const AboutPage = () => (
@@ -35,7 +64,11 @@ const AboutPage = () => (
           voice within the Ethereum ecosystem, and be an advocate for Ethereum
           to the outside world.
         </p>
-        <Link to="/about/board">Meet the Executive Board</Link>
+        <ButtonContainer>
+          <Button to="/about/board">
+            Meet the Executive Board <Icon icon={faChevronRight} />
+          </Button>
+        </ButtonContainer>
       </PageContainer>
     </Subpage>
   </Layout>
