@@ -1,34 +1,25 @@
 import React from "react"
 import PropTypes from "prop-types"
-
 import { Link } from "gatsby"
+import styled from "styled-components"
 
 import EFLogo from "../images/ethereum-logo.svg"
+
+const Image = styled.img`
+  position: absolute;
+  top: 20px;
+  left: 40px;
+`
 
 const Subpage = ({ children }) => (
   <div>
     <nav>
       <Link to="/">
-        <img
-          style={{
-            position: `absolute`,
-            top: `20px`,
-            left: `40px`,
-          }}
-          src={EFLogo}
-          alt="Ethereum Logo"
-        />
+        <Image src={EFLogo} alt="Ethereum Logo" />
       </Link>
     </nav>
-    <div
-      style={{
-        margin: `12rem auto 0`,
-        maxWidth: 960,
-        padding: `2rem`,
-      }}
-    >
-      <main>{children}</main>
-    </div>
+
+    <main>{children}</main>
   </div>
 )
 
