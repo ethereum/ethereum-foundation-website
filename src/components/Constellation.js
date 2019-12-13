@@ -34,11 +34,11 @@ const Constellation = () => {
         {/* TODO scale up stars on hover */}
         {/* TODO display page link text on hover */}
         <Link to="/about/">
-          <image href={star} x="174" y="0" height="50px" width="50px" />
+          <image href={star} x="150" y="-20" height="50px" width="50px" />
           {/* <circle cx="174" cy="0" r="10" fill="white" /> */}
         </Link>
         <Link to="/esp/">
-          <image href={star} x="450" y="125" height="50px" width="50px" />
+          <image href={star} x="450" y="100" height="50px" width="50px" />
           {/* <circle cx="480" cy="125" r="10" fill="white" /> */}
         </Link>
         <Link to="/ethereum/">
@@ -46,7 +46,7 @@ const Constellation = () => {
           {/* <circle cx="352" cy="386" r="10" fill="white" /> */}
         </Link>
         <Link to="/philosophy/">
-          <image href={star} x="0" y="230" height="50px" width="50px" />
+          <image href={star} x="-20" y="210" height="50px" width="50px" />
           {/* <circle cx="0" cy="235" r="10" fill="white" /> */}
         </Link>
         <g
