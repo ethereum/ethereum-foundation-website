@@ -11,14 +11,20 @@ import styled from "styled-components"
 import devconLogo from "../images/devcon-logo.svg"
 import blogLogo from "../images/ethereum-line-logo.svg"
 import canary from "../images/canary.svg"
-
-// TODO use gatsby-image for star
-// import star from "../images/star.png"
+import star from "../images/star.png"
 
 const StyledFooter = styled(motion.footer)`
   background-color: rgba(255, 255, 255, 0.15);
   bottom: 0;
   font-size: 0.875rem;
+`
+
+const FooterToggleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 8px 24px;
 `
 
 const FooterContentDiv = styled(motion.div)`
@@ -81,6 +87,16 @@ const FooterDivLinks = styled(FooterChildDiv)`
 `
 
 const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-image: url(${star});
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+
   &:hover {
     cursor: pointer;
   }
@@ -92,28 +108,21 @@ const ImageAndTextLink = styled.a`
 `
 
 // TODO footer should "push up" the rest of the content (including constellation)
+// How? Shrink height of top content?
 const Footer = () => {
   const [isOpen, toggleOpen] = useState(false)
 
   const footerToggleIcon = isOpen ? faChevronDown : faChevronUp
   return (
     <>
-      <div
-        style={{
-          display: `flex`,
-          justifyContent: `space-between`,
-          color: `white`,
-          padding: `32px`,
-        }}
-      >
+      <FooterToggleContainer>
         <div style={{ fontSize: `0.75rem` }}>
           © Ethereum Foundation, {new Date().getFullYear()}
         </div>
-        {/* TODO star image behind chevron */}
         <IconContainer onClick={() => toggleOpen(!isOpen)}>
           <FontAwesomeIcon icon={footerToggleIcon} />
         </IconContainer>
-      </div>
+      </FooterToggleContainer>
 
       <AnimatePresence initial={false}>
         {isOpen && (
