@@ -3,7 +3,6 @@ import React from "react"
 // import Img from "gatsby-image"
 
 import Layout from "../components/Layout"
-import Constellation from "../components/Constellation"
 import SEO from "../components/SEO"
 import efLogo from "../images/ethereum-foundation-logo.svg"
 // import constellation from "../images/constellation.svg"
@@ -19,7 +18,6 @@ const IndexPage = () => (
         top: `35%`,
       }}
     >
-      <Constellation />
       <img
         src={efLogo}
         alt="Ethereum Foundation Logo"
