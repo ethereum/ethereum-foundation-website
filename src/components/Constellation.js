@@ -7,7 +7,7 @@ import star from "../images/star.png"
 
 const icon = {
   hidden: {
-    pathLength: 1, // TODO remove this...
+    pathLength: 0, // TODO remove this...
   },
   visible: {
     pathLength: 1,
@@ -27,21 +27,29 @@ const SVG = styled(motion.svg)`
 
 const MotionText = styled(motion.text)``
 
-// const LinkText = styled.span`
-//   opacity: 0;
-//   &:hover {
-//     opacity: 1;
-//   }
-// `
+const NavLink = styled(Link)`
+  /* TODO should use Framer for this */
+  & > text {
+    opacity: 0;
+    transition-duration: 2s;
+  }
+  &:hover {
+    & > text {
+      opacity: 1;
+    }
+  }
+`
 
-// const motionG = styled
+const Star = styled(motion.image)``
+
+const starHover = { scale: 1.8, transition: { duration: 1 } }
 
 const SVGContainer = styled(motion.div)``
 
 const constellationVariant = {
   home: {
-    x: 100,
-    y: 200,
+    x: "20vw",
+    y: "20vh",
     scale: 1.0,
     rotate: 0,
     transition: {
@@ -66,6 +74,24 @@ const constellationVariant = {
       duration: 1.5,
     },
   },
+  esp: {
+    x: -750,
+    y: -500,
+    scale: 2.2,
+    rotate: 30,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  ethereum: {
+    x: -740,
+    y: -540,
+    scale: 2.2,
+    rotate: -23,
+    transition: {
+      duration: 1.5,
+    },
+  },
 }
 
 const textVariant = {
@@ -84,10 +110,17 @@ const Constellation = ({ path }) => {
   let animation
   switch (path) {
     case "/about/":
+    case "/about/board/": // TODO fix
       animation = "about"
       break
     case "/philosophy/":
       animation = "philosophy"
+      break
+    case "/esp/":
+      animation = "esp"
+      break
+    case "/ethereum/":
+      animation = "ethereum"
       break
     default:
       animation = "home"
@@ -110,7 +143,7 @@ const Constellation = ({ path }) => {
         {/* TODO: class with images on these points? or style stars? */}
         {/* TODO scale up stars on hover */}
         {/* TODO display page link text on hover */}
-        <Link to="/about/">
+        <NavLink to="/about/">
           {/* <foreignObject x="50" y="20" height="50px" width="150px">
               <LinkText>Who we are</LinkText>
             </foreignObject> */}
@@ -124,10 +157,17 @@ const Constellation = ({ path }) => {
           >
             Who we are
           </MotionText>
-          <image href={star} x="150" y="-20" height="50px" width="50px" />
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="150"
+            y="-20"
+            height="50px"
+            width="50px"
+          />
           {/* <circle cx="174" cy="0" r="10" fill="white" /> */}
-        </Link>
-        <Link to="/esp/">
+        </NavLink>
+        <NavLink to="/esp/">
           <MotionText
             variants={textVariant}
             initial="normal"
@@ -138,10 +178,17 @@ const Constellation = ({ path }) => {
           >
             Ecosytem Support
           </MotionText>
-          <image href={star} x="450" y="100" height="50px" width="50px" />
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="450"
+            y="100"
+            height="50px"
+            width="50px"
+          />
           {/* <circle cx="480" cy="125" r="10" fill="white" /> */}
-        </Link>
-        <Link to="/ethereum/">
+        </NavLink>
+        <NavLink to="/ethereum/">
           <MotionText
             variants={textVariant}
             initial="normal"
@@ -152,10 +199,17 @@ const Constellation = ({ path }) => {
           >
             What is Ethereum?
           </MotionText>
-          <image href={star} x="330" y="360" height="50px" width="50px" />
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="330"
+            y="360"
+            height="50px"
+            width="50px"
+          />
           {/* <circle cx="352" cy="386" r="10" fill="white" /> */}
-        </Link>
-        <Link to="/philosophy/">
+        </NavLink>
+        <NavLink to="/philosophy/">
           <MotionText
             variants={textVariant}
             initial="normal"
@@ -166,9 +220,16 @@ const Constellation = ({ path }) => {
           >
             Our Philosophy
           </MotionText>
-          <image href={star} x="-20" y="210" height="50px" width="50px" />
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="-20"
+            y="210"
+            height="50px"
+            width="50px"
+          />
           {/* <circle cx="0" cy="235" r="10" fill="white" /> */}
-        </Link>
+        </NavLink>
         <g
           id="Group_48"
           data-name="Group 48"
