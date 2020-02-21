@@ -3,13 +3,11 @@ import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import styled from "styled-components"
 
-import { Location } from "@reach/router"
-
 import star from "../images/star.png"
 
 const icon = {
   hidden: {
-    pathLength: 1, // TODO remove this...
+    pathLength: 0, // TODO remove this...
   },
   visible: {
     pathLength: 1,
@@ -23,151 +21,222 @@ const icon = {
   - Page transitions? Spin link to the right & zoom in???
 */
 
-const LinkText = styled.span`
-  opacity: 0;
+const SVG = styled(motion.svg)`
+  position: absolute;
+`
+
+const MotionText = styled(motion.text)``
+
+const NavLink = styled(Link)`
+  /* TODO should use Framer for this */
+  & > text {
+    opacity: 0;
+    transition-duration: 2s;
+  }
   &:hover {
-    opacity: 1;
+    & > text {
+      opacity: 1;
+    }
   }
 `
 
-const StyledConstellationHome = styled.nav`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  zoom: 1;
-`
+const Star = styled(motion.image)``
 
-const StyledConstellationAbout = styled(StyledConstellationHome)`
-  top: -230px;
-  left: -200px;
-  transform: rotate(150deg);
-`
+const starHover = { scale: 1.8, transition: { duration: 1 } }
 
-const StyledConstellationPhilosophy = styled(StyledConstellationHome)`
-  top: -250px;
-  left: -200px;
-  transform: rotate(230deg);
-`
-const StyledConstellationEthereum = styled(StyledConstellationHome)`
-  top: -240px;
-  left: -180px;
-  transform: rotate(-20deg);
-`
-const StyledConstellationESP = styled(StyledConstellationHome)`
-  top: -140px;
-  left: -280px;
-  transform: rotate(20deg);
-`
-const StyledConstellationHidden = styled(StyledConstellationHome)`
-  opacity: 0;
-`
+const SVGContainer = styled(motion.div)``
 
-const Constellation = () => {
+const constellationVariant = {
+  home: {
+    x: "20vw",
+    y: "20vh",
+    scale: 1.0,
+    rotate: 0,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  about: {
+    x: -260,
+    y: -300,
+    scale: 2.2,
+    rotate: 150,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  philosophy: {
+    x: -600,
+    y: -200,
+    scale: 2.2,
+    rotate: -130,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  esp: {
+    x: -750,
+    y: -500,
+    scale: 2.2,
+    rotate: 30,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  ethereum: {
+    x: -740,
+    y: -540,
+    scale: 2.2,
+    rotate: -23,
+    transition: {
+      duration: 1.5,
+    },
+  },
+}
+
+const textVariant = {
+  normal: {
+    opacity: 1.0,
+  },
+  hidden: {
+    opacity: 0.0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+}
+
+const Constellation = ({ path }) => {
+  let animation
+  switch (path) {
+    case "/about/":
+    case "/about/board/": // TODO fix
+      animation = "about"
+      break
+    case "/philosophy/":
+      animation = "philosophy"
+      break
+    case "/esp/":
+      animation = "esp"
+      break
+    case "/ethereum/":
+      animation = "ethereum"
+      break
+    default:
+      animation = "home"
+  }
+
+  console.log({ path, animation })
+
   return (
     // TODO adjust size based on device/viewport
-    <div>
-      <Location>
-        {({ location }) => {
-          let StyledConstellation
-          switch (location.pathname) {
-            case "/":
-              StyledConstellation = StyledConstellationHome
-              break
-            case "/about/":
-              StyledConstellation = StyledConstellationAbout
-              break
-            case "/philosophy/":
-              StyledConstellation = StyledConstellationPhilosophy
-              break
-            case "/ethereum/":
-              StyledConstellation = StyledConstellationEthereum
-              break
-            case "/esp/":
-              StyledConstellation = StyledConstellationESP
-              break
-            default:
-              StyledConstellation = StyledConstellationHidden
-          }
-          return (
-            <StyledConstellation>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="400"
-                height="380"
-                viewBox="0 0 500 400"
-              >
-                {/* <style>
-        text {
-          opacity: 0;
-        }
-      </style> */}
-                {/* TODO: how to avoid cutting off circle? */}
-                {/* TODO: class with images on these points? or style stars? */}
-                {/* TODO scale up stars on hover */}
-                {/* TODO display page link text on hover */}
-                <Link to="/about/">
-                  <foreignObject x="50" y="20" height="50px" width="150px">
-                    <LinkText>Who we are</LinkText>
-                  </foreignObject>
-                  <text x="50" y="20" fill="white">
-                    Who we are
-                  </text>
-                  <image
-                    href={star}
-                    x="150"
-                    y="-20"
-                    height="50px"
-                    width="50px"
-                  />
-                  {/* <circle cx="174" cy="0" r="10" fill="white" /> */}
-                </Link>
-                <Link to="/esp/">
-                  <text x="350" y="100" fill="white">
-                    Ecosytem Support
-                  </text>
-                  <image
-                    href={star}
-                    x="450"
-                    y="100"
-                    height="50px"
-                    width="50px"
-                  />
-                  {/* <circle cx="480" cy="125" r="10" fill="white" /> */}
-                </Link>
-                <Link to="/ethereum/">
-                  <text x="370" y="380" fill="white">
-                    What is Ethereum?
-                  </text>
-                  <image
-                    href={star}
-                    x="330"
-                    y="360"
-                    height="50px"
-                    width="50px"
-                  />
-                  {/* <circle cx="352" cy="386" r="10" fill="white" /> */}
-                </Link>
-                <Link to="/philosophy/">
-                  <text x="0" y="270" fill="white">
-                    Our Philosophy
-                  </text>
-                  <image
-                    href={star}
-                    x="-20"
-                    y="210"
-                    height="50px"
-                    width="50px"
-                  />
-                  {/* <circle cx="0" cy="235" r="10" fill="white" /> */}
-                </Link>
-                <g
-                  id="Group_48"
-                  data-name="Group 48"
-                  transform="translate(-0.004 -0.004)"
-                >
-                  {/* 1 path */}
-                  {/* <motion.path
+    <SVGContainer>
+      <SVG
+        xmlns="http://www.w3.org/2000/svg"
+        width="700"
+        height="700"
+        viewBox="-50 -50 600 600"
+        variants={constellationVariant}
+        initial="home"
+        animate={animation}
+      >
+        {/* TODO: class with images on these points? or style stars? */}
+        {/* TODO scale up stars on hover */}
+        {/* TODO display page link text on hover */}
+        <NavLink to="/about/">
+          {/* <foreignObject x="50" y="20" height="50px" width="150px">
+              <LinkText>Who we are</LinkText>
+            </foreignObject> */}
+          <MotionText
+            variants={textVariant}
+            initial="normal"
+            animate={animation === "home" ? "normal" : "hidden"}
+            x="50"
+            y="20"
+            fill="white"
+          >
+            Who we are
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="150"
+            y="-20"
+            height="50px"
+            width="50px"
+          />
+          {/* <circle cx="174" cy="0" r="10" fill="white" /> */}
+        </NavLink>
+        <NavLink to="/esp/">
+          <MotionText
+            variants={textVariant}
+            initial="normal"
+            animate={animation === "home" ? "normal" : "hidden"}
+            x="350"
+            y="100"
+            fill="white"
+          >
+            Ecosytem Support
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="450"
+            y="100"
+            height="50px"
+            width="50px"
+          />
+          {/* <circle cx="480" cy="125" r="10" fill="white" /> */}
+        </NavLink>
+        <NavLink to="/ethereum/">
+          <MotionText
+            variants={textVariant}
+            initial="normal"
+            animate={animation === "home" ? "normal" : "hidden"}
+            x="370"
+            y="380"
+            fill="white"
+          >
+            What is Ethereum?
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="330"
+            y="360"
+            height="50px"
+            width="50px"
+          />
+          {/* <circle cx="352" cy="386" r="10" fill="white" /> */}
+        </NavLink>
+        <NavLink to="/philosophy/">
+          <MotionText
+            variants={textVariant}
+            initial="normal"
+            animate={animation === "home" ? "normal" : "hidden"}
+            x="0"
+            y="270"
+            fill="white"
+          >
+            Our Philosophy
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x="-20"
+            y="210"
+            height="50px"
+            width="50px"
+          />
+          {/* <circle cx="0" cy="235" r="10" fill="white" /> */}
+        </NavLink>
+        <g
+          id="Group_48"
+          data-name="Group 48"
+          transform="translate(-0.004 -0.004)"
+        >
+          {/* 1 path */}
+          {/* <motion.path
             variants={icon}
             initial="hidden"
             animate="visible"
@@ -183,40 +252,40 @@ const Constellation = () => {
               default: { duration: 2, ease: "easeInOut" },
             }}
           /> */}
-                  {/* 2 path (original)  */}
-                  <motion.path
-                    variants={icon}
-                    initial="hidden"
-                    animate="visible"
-                    id="Path_55"
-                    data-name="Path 55"
-                    d="M525,125,216.09.98l-.04,308Z"
-                    transform="translate(-43.104)"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-miterlimit="10"
-                    stroke-width="1"
-                    transition={{
-                      default: { duration: 2, ease: "easeInOut" },
-                    }}
-                  />
-                  <motion.path
-                    variants={icon}
-                    initial="hidden"
-                    animate="visible"
-                    id="Path_56"
-                    data-name="Path 56"
-                    d="M351.678,386,.78,234.776,172.986.98Z"
-                    fill="none"
-                    stroke="#fff"
-                    stroke-miterlimit="10"
-                    stroke-width="1"
-                    transition={{
-                      default: { duration: 3, ease: "easeInOut" },
-                    }}
-                  />
-                  {/* 2 path (original) - no animation */}
-                  {/* <path
+          {/* 2 path (original)  */}
+          <motion.path
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+            id="Path_55"
+            data-name="Path 55"
+            d="M525,125,216.09.98l-.04,308Z"
+            transform="translate(-43.104)"
+            fill="none"
+            stroke="#fff"
+            stroke-miterlimit="10"
+            stroke-width="1"
+            transition={{
+              default: { duration: 2, ease: "easeInOut" },
+            }}
+          />
+          <motion.path
+            variants={icon}
+            initial="hidden"
+            animate="visible"
+            id="Path_56"
+            data-name="Path 56"
+            d="M351.678,386,.78,234.776,172.986.98Z"
+            fill="none"
+            stroke="#fff"
+            stroke-miterlimit="10"
+            stroke-width="1"
+            transition={{
+              default: { duration: 3, ease: "easeInOut" },
+            }}
+          />
+          {/* 2 path (original) - no animation */}
+          {/* <path
             id="Path_55"
             data-name="Path 55"
             d="M525,125,216.09.98l-.04,308Z"
@@ -235,13 +304,9 @@ const Constellation = () => {
             stroke-miterlimit="10"
             stroke-width="1"
           /> */}
-                </g>
-              </svg>
-            </StyledConstellation>
-          )
-        }}
-      </Location>
-    </div>
+        </g>
+      </SVG>
+    </SVGContainer>
   )
 }
 

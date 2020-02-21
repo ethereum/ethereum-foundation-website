@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 import styled from "styled-components"
 
@@ -52,8 +52,7 @@ const FooterDivContact = styled(FooterChildDiv)`
 `
 const FooterDivCanary = styled(FooterChildDiv)`
   flex: 0 1 600px;
-  /* TODO confirm with Tomo */
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   @media (max-width: 768px) {
     flex: 0 1 600px;
     order: 3;
@@ -124,72 +123,67 @@ const Footer = () => {
         </IconContainer>
       </FooterToggleContainer>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <StyledFooter
-            initial="collapsed"
-            animate="open"
-            exit="collapsed"
-            variants={{
-              open: { opacity: 1, height: "auto" },
-              collapsed: { opacity: 0, height: 0 },
-            }}
-            transition={{ duration: 1.5, ease: [0.04, 0.62, 0.23, 0.98] }}
-          >
-            <FooterContentDiv
-              variants={{ collapsed: { scale: 0.9 }, open: { scale: 1 } }}
-              transition={{ duration: 0.8 }}
-            >
-              <FooterDivContact>
-                <strong>General Contact:</strong>
+      <StyledFooter
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        variants={{
+          open: { opacity: 1, height: "auto" },
+          closed: { opacity: 0, height: 0 },
+        }}
+        transition={{ duration: 1.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+      >
+        <FooterContentDiv
+          variants={{ closed: { scale: 0.9 }, open: { scale: 1 } }}
+          transition={{ duration: 0.8 }}
+        >
+          <FooterDivContact>
+            <strong>General Contact:</strong>
+            <div style={{ marginBottom: `16px` }}>
+              <a href="mailto:info@ethereum.org">info@ethereum.org</a>
+            </div>
+            <strong>Press Contact:</strong>
+            <div>
+              <a href="mailto:press@ethereum.org">press@ethereum.org</a>
+            </div>
+          </FooterDivContact>
+          <FooterDivCanary>
+            <CanaryContainer>
+              <img src={canary} alt="Ethereum Foundation Blog Logo" />
+              <CanaryContent>
                 <div style={{ marginBottom: `16px` }}>
-                  <a href="mailto:info@ethereum.org">info@ethereum.org</a>
+                  The Ethereum Foundation (Stiftung Ethereum) has never been
+                  contacted by any agency anywhere in the world in a way which
+                  requires that contact not to be disclosed.
                 </div>
-                <strong>Press Contact:</strong>
                 <div>
-                  <a href="mailto:press@ethereum.org">press@ethereum.org</a>
+                  Stiftung Ethereum will publicly disclose any sort of inquiry
+                  from government agencies that falls outside the scope of
+                  regular business operations.
                 </div>
-              </FooterDivContact>
-              <FooterDivCanary>
-                <CanaryContainer>
-                  <img src={canary} alt="Ethereum Foundation Blog Logo" />
-                  <CanaryContent>
-                    <div style={{ marginBottom: `16px` }}>
-                      The Ethereum Foundation (Stiftung Ethereum) has never been
-                      contacted by any agency anywhere in the world in a way
-                      which requires that contact not to be disclosed.
-                    </div>
-                    <div>
-                      Stiftung Ethereum will publicly disclose any sort of
-                      inquiry from government agencies that falls outside the
-                      scope of regular business operations.
-                    </div>
-                  </CanaryContent>
-                </CanaryContainer>
-              </FooterDivCanary>
-              <FooterDivLinks>
-                {/* TODO style links */}
-                <ImageAndTextLink
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://devcon.org"
-                >
-                  <img src={devconLogo} alt="Devcon Logo" />
-                  Devcon.org
-                </ImageAndTextLink>
-                <ImageAndTextLink
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://blog.ethereum.org"
-                >
-                  <img src={blogLogo} alt="Ethereum Foundation Blog Logo" />
-                  Blog
-                </ImageAndTextLink>
-              </FooterDivLinks>
-            </FooterContentDiv>
-          </StyledFooter>
-        )}
-      </AnimatePresence>
+              </CanaryContent>
+            </CanaryContainer>
+          </FooterDivCanary>
+          <FooterDivLinks>
+            {/* TODO style links */}
+            <ImageAndTextLink
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://devcon.org"
+            >
+              <img src={devconLogo} alt="Devcon Logo" />
+              Devcon.org
+            </ImageAndTextLink>
+            <ImageAndTextLink
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://blog.ethereum.org"
+            >
+              <img src={blogLogo} alt="Ethereum Foundation Blog Logo" />
+              Blog
+            </ImageAndTextLink>
+          </FooterDivLinks>
+        </FooterContentDiv>
+      </StyledFooter>
     </>
   )
 }

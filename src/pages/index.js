@@ -2,7 +2,6 @@ import React from "react"
 // import { Link, graphql } from "gatsby"
 // import Img from "gatsby-image"
 
-import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import efLogo from "../images/ethereum-foundation-logo.svg"
 // import constellation from "../images/constellation.svg"
@@ -10,7 +9,7 @@ import efLogo from "../images/ethereum-foundation-logo.svg"
 import { StyledAbsoluteCenter } from "../components/SharedStyledComponents"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
     <StyledAbsoluteCenter
       style={{
@@ -26,11 +25,12 @@ const IndexPage = () => (
           top: `50%`,
           left: `50%`,
           transform: `translate(-50%, -55%)`,
-          zIndex: `10`,
+          zIndex: `100`,
+          minWidth: `240px`,
         }}
       />
     </StyledAbsoluteCenter>
-  </Layout>
+  </>
 )
 
 // export const query = graphql`
