@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-import Layout from "../components/Layout"
 import Subpage from "../components/Subpage"
 import SEO from "../components/SEO"
 
@@ -12,7 +11,7 @@ const PageContainer = styled.div`
 `
 
 const EcosystemSupportPage = () => (
-  <Layout>
+  <>
     <SEO title="Ecosystem Support Program" />
     <Subpage>
       <PageContainer>
@@ -39,7 +38,7 @@ const EcosystemSupportPage = () => (
         </p>
       </PageContainer>
     </Subpage>
-  </Layout>
+  </>
 )
 
 export default EcosystemSupportPage

@@ -5,6 +5,9 @@ import styled from "styled-components"
 
 import EFLogo from "../images/ethereum-logo.svg"
 
+// TODO move into layout
+// depending on location, if not on homepage (i.e. on subpage), transition in the nav link home
+
 const Image = styled.img`
   position: absolute;
   top: 20px;

@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import styled from "styled-components"
 
-import { Location } from "@reach/router"
-
 import star from "../images/star.png"
 
 const icon = {
@@ -23,16 +21,18 @@ const icon = {
   - Page transitions? Spin link to the right & zoom in???
 */
 
-const SVG = styled(motion.svg)``
+const SVG = styled(motion.svg)`
+  position: absolute;
+`
 
 const MotionText = styled(motion.text)``
 
-const LinkText = styled.span`
-  opacity: 0;
-  &:hover {
-    opacity: 1;
-  }
-`
+// const LinkText = styled.span`
+//   opacity: 0;
+//   &:hover {
+//     opacity: 1;
+//   }
+// `
 
 // const motionG = styled
 

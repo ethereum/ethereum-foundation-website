@@ -5,7 +5,6 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 
-import Layout from "../../components/Layout"
 import Subpage from "../../components/Subpage"
 import SEO from "../../components/SEO"
 
@@ -42,7 +41,7 @@ const Button = styled(Link)`
 `
 
 const AboutPage = () => (
-  <Layout>
+  <>
     <SEO title="About" />
     <Subpage>
       <PageContainer>
@@ -71,7 +70,7 @@ const AboutPage = () => (
         </ButtonContainer>
       </PageContainer>
     </Subpage>
-  </Layout>
+  </>
 )
 
 export default AboutPage

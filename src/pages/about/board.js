@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import styled from "styled-components"
 
-import Layout from "../../components/Layout"
 import Subpage from "../../components/Subpage"
 import Profile from "../../components/Profile"
 import SEO from "../../components/SEO"
@@ -77,7 +76,7 @@ const ExecutiveBoardPage = () => {
   ]
 
   return (
-    <Layout>
+    <>
       <Subpage>
         <SEO title="Executive Board" />
         <PageContainer>
@@ -95,7 +94,7 @@ const ExecutiveBoardPage = () => {
           </ProfileContainer>
         </PageContainer>
       </Subpage>
-    </Layout>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { motion, AnimatePresence } from "framer-motion"
 
 import StyledFullBackground from "./FullBackground"
 import Constellation from "./Constellation"
@@ -27,13 +28,45 @@ const BottomLayout = styled.div`
   width: 100%;
 `
 
-// TODO access current route to align constellation
+const Main = styled(motion.main)`
+  padding-top: 8px;
+`
+
+const duration = 0.5
+
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: duration,
+      delay: duration,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: duration },
+  },
+}
+
 const Layout = ({ children }) => (
   <StyledFullBackground>
     <StyledLayout>
       <TopLayout>
         <Constellation />
-        {children}
+        <AnimatePresence>
+          <Main
+            variants={variants}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            {children}
+          </Main>
+        </AnimatePresence>
       </TopLayout>
       <BottomLayout>
         <Footer />

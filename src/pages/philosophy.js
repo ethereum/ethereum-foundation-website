@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import Layout from "../components/Layout"
 import Subpage from "../components/Subpage"
 import SEO from "../components/SEO"
 
@@ -31,7 +30,7 @@ const PhilosophyPage = () => {
   `)
 
   return (
-    <Layout>
+    <>
       <SEO title="Philosophy of Subtraction" />
       <Subpage>
         <PageContainer>
@@ -59,7 +58,7 @@ const PhilosophyPage = () => {
           </p>
         </PageContainer>
       </Subpage>
-    </Layout>
+    </>
   )
 }
 
