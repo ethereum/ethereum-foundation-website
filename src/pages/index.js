@@ -25,7 +25,8 @@ const IndexPage = () => (
           top: `50%`,
           left: `50%`,
           transform: `translate(-50%, -55%)`,
-          zIndex: `10`,
+          zIndex: `100`,
+          minWidth: `240px`,
         }}
       />
     </StyledAbsoluteCenter>

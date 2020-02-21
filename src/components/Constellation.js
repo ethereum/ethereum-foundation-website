@@ -69,10 +69,6 @@ const textVariant = {
 }
 
 class Constellation extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   state = {
     isAboutClicked: false,
   }

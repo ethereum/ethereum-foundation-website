@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import styled from "styled-components"
 
-import Subpage from "../../components/Subpage"
 import Profile from "../../components/Profile"
 import SEO from "../../components/SEO"
 
@@ -77,23 +76,21 @@ const ExecutiveBoardPage = () => {
 
   return (
     <>
-      <Subpage>
-        <SEO title="Executive Board" />
-        <PageContainer>
-          <HeaderContainer>
-            <h1>Meet our Executive Board</h1>
-            <p style={{ maxWidth: `460px`, margin: `auto` }}>
-              As a non profit organization. lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-            </p>
-          </HeaderContainer>
-          <ProfileContainer>
-            {board.map(member => (
-              <Profile key={member.name} member={member} />
-            ))}
-          </ProfileContainer>
-        </PageContainer>
-      </Subpage>
+      <SEO title="Executive Board" />
+      <PageContainer>
+        <HeaderContainer>
+          <h1>Meet our Executive Board</h1>
+          <p style={{ maxWidth: `460px`, margin: `auto` }}>
+            As a non profit organization. lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+          </p>
+        </HeaderContainer>
+        <ProfileContainer>
+          {board.map(member => (
+            <Profile key={member.name} member={member} />
+          ))}
+        </ProfileContainer>
+      </PageContainer>
     </>
   )
 }

@@ -2,12 +2,26 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
+import { Link } from "gatsby"
+import { Location } from "@reach/router"
 
 import StyledFullBackground from "./FullBackground"
 import Constellation from "./Constellation"
 import Footer from "./Footer"
 
 import "./layout.css"
+
+import EFLogo from "../images/ethereum-logo.svg"
+
+// TODO move into layout
+// depending on location, if not on homepage (i.e. on subpage), transition in the nav link home
+
+const Image = styled.img`
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  z-index: 20;
+`
 
 const StyledLayout = styled.div`
   width: 100%;
@@ -32,8 +46,6 @@ const Main = styled(motion.main)`
   padding-top: 8px;
 `
 
-const duration = 0.5
-
 const variants = {
   initial: {
     opacity: 0,
@@ -41,32 +53,49 @@ const variants = {
   enter: {
     opacity: 1,
     transition: {
-      duration: duration,
-      delay: duration,
-      when: "beforeChildren",
+      duration: 1.0,
+      delay: 1.0,
     },
   },
   exit: {
     opacity: 0,
-    transition: { duration: duration },
+    transition: { duration: 1.0 },
   },
 }
+
+const ImageNav = () => (
+  <nav>
+    <Link to="/">
+      <Image src={EFLogo} alt="Ethereum Logo" />
+    </Link>
+  </nav>
+)
 
 const Layout = ({ children }) => (
   <StyledFullBackground>
     <StyledLayout>
       <TopLayout>
-        <Constellation />
-        <AnimatePresence>
-          <Main
-            variants={variants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-          >
-            {children}
-          </Main>
-        </AnimatePresence>
+        <Location>
+          {({ location }) => {
+            return (
+              <>
+                {location.pathname !== "/" && <ImageNav />}
+                <Constellation />
+                <AnimatePresence>
+                  <Main
+                    key={location.pathname}
+                    variants={variants}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                  >
+                    {children}
+                  </Main>
+                </AnimatePresence>
+              </>
+            )
+          }}
+        </Location>
       </TopLayout>
       <BottomLayout>
         <Footer />
