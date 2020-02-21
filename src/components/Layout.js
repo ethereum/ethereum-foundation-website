@@ -80,7 +80,7 @@ const Layout = ({ children }) => (
             return (
               <>
                 {location.pathname !== "/" && <ImageNav />}
-                <Constellation />
+                <Constellation path={location.pathname} />
                 <AnimatePresence>
                   <Main
                     key={location.pathname}
