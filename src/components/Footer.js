@@ -85,16 +85,12 @@ const FooterDivLinks = styled(FooterChildDiv)`
   }
 `
 
-const IconContainer = styled.div`
+const IconContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 40px;
-  background-image: url(${star});
-  background-size: 60px 60px;
-  background-repeat: no-repeat;
-  background-position: center;
 
   &:hover {
     cursor: pointer;
@@ -105,6 +101,11 @@ const ImageAndTextLink = styled.a`
   display: flex;
   flex-direction: column;
 `
+
+const Star = styled(motion.img)`
+  position: absolute;
+`
+const starHover = { scale: 1.8, transition: { duration: 1 } }
 
 // TODO footer should "push up" the rest of the content (including constellation)
 // How? Shrink height of top content?
@@ -120,6 +121,7 @@ const Footer = () => {
         </div>
         <IconContainer onClick={() => toggleOpen(!isOpen)}>
           <FontAwesomeIcon icon={footerToggleIcon} />
+          <Star whileHover={starHover} src={star} />
         </IconContainer>
       </FooterToggleContainer>
 

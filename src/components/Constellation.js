@@ -48,8 +48,8 @@ const SVGContainer = styled(motion.div)``
 
 const constellationVariant = {
   home: {
-    x: "20vw",
-    y: "20vh",
+    x: "25vw", // TODO figure out how to adjust based on device
+    y: "15%", // TODO figure out how to adjust based on device
     scale: 1.0,
     rotate: 0,
     transition: {
