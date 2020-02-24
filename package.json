@@ -25,7 +25,8 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "styled-components": "^4.4.1",
-    "styled-media-query": "^2.1.2"
+    "styled-media-query": "^2.1.2",
+    "vanta": "^0.5.10"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
