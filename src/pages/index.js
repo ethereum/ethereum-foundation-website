@@ -5,7 +5,7 @@ import SEO from "../components/SEO"
 import efLogo from "../images/ethereum-foundation-logo.svg"
 
 const Logo = styled.img`
-  position: absolute;
+  position: fixed;
   top: calc(50% - 53px); /* 106px / 2 */
   left: calc(50% - 120px); /* 240px / 2 */
   transform: translate(-50, -55%);

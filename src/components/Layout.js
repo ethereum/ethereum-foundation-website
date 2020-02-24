@@ -16,7 +16,7 @@ import EFLogo from "../images/ethereum-logo.svg"
 // TODO move into layout
 // depending on location, if not on homepage (i.e. on subpage), transition in the nav link home
 
-const Image = styled.img`
+const Image = styled(motion.img)`
   position: absolute;
   top: 20px;
   left: 40px;
@@ -59,14 +59,18 @@ const variants = {
   },
   exit: {
     opacity: 0,
-    transition: { duration: 1.0 },
+    transition: { duration: 0.5 },
   },
 }
 
 const ImageNav = () => (
   <nav>
     <Link to="/">
-      <Image src={EFLogo} alt="Ethereum Logo" />
+      <Image
+        src={EFLogo}
+        alt="Ethereum Logo"
+        whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+      />
     </Link>
   </nav>
 )

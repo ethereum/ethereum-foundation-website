@@ -1,19 +1,10 @@
-// Working off this example (v0.9.11):
-// https://github.com/timhagn/gbitest/blob/master/src/components/SharedStyledComponents.js
-// Thanks @timhagn :)
-
 import styled from "styled-components"
-// import { Link } from "gatsby"
 
-// export const StyledWrapper = styled.div`
-//   height: 100vh;
-//   width: 100%;
-//   display: flex;
-//   place-content: start;
-// `
-
-// TODO create breakpoints
-// https://getbootstrap.com/docs/4.3/layout/overview/#responsive-breakpoints
+export const PageContainer = styled.div`
+  margin: 10rem auto 4rem;
+  max-width: 760px;
+  padding: 2rem;
+`
 
 export const StyledFullScreenWrapper = styled.div`
   width: 100%;

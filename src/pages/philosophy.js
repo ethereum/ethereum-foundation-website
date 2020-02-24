@@ -4,12 +4,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 import SEO from "../components/SEO"
-
-const PageContainer = styled.div`
-  margin: 6rem auto 4rem;
-  max-width: 760px;
-  padding: 2rem;
-`
+import { PageContainer } from "../components/SharedStyledComponents"
 
 const Image = styled(Img)`
   margin: 2rem auto;

@@ -7,37 +7,31 @@ import star from "../images/star.png"
 
 const icon = {
   hidden: {
-    pathLength: 0, // TODO remove this...
+    pathLength: 0,
   },
   visible: {
     pathLength: 1,
   },
 }
 
-/*
-  TODOs
-  - Add link text next to stars. Opacity 0 -> 1 w/ transition on hover
-  - Mobile treatment?
-  - Page transitions? Spin link to the right & zoom in???
-*/
-
 const SVG = styled(motion.svg)`
   position: absolute;
 `
 
-const MotionText = styled(motion.text)``
-
 const NavLink = styled(Link)`
-  /* TODO should use Framer for this */
   & > text {
     opacity: 0;
     transition-duration: 2s;
   }
   &:hover {
     & > text {
-      opacity: 1;
+      opacity: ${props => (props.path === "/" ? 1 : 0)};
     }
   }
+`
+
+const MotionText = styled(motion.text)`
+  font-size: 1rem;
 `
 
 const Star = styled(motion.image)``
@@ -94,23 +88,12 @@ const constellationVariant = {
   },
 }
 
-const textVariant = {
-  normal: {
-    opacity: 1.0,
-  },
-  hidden: {
-    opacity: 0.0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-}
-
 const Constellation = ({ path }) => {
   let animation
+
   switch (path) {
     case "/about/":
-    case "/about/board/": // TODO fix
+    case "/about/board/":
       animation = "about"
       break
     case "/philosophy/":
@@ -126,8 +109,6 @@ const Constellation = ({ path }) => {
       animation = "home"
   }
 
-  console.log({ path, animation })
-
   return (
     // TODO adjust size based on device/viewport
     <SVGContainer>
@@ -140,21 +121,8 @@ const Constellation = ({ path }) => {
         initial="home"
         animate={animation}
       >
-        {/* TODO: class with images on these points? or style stars? */}
-        {/* TODO scale up stars on hover */}
-        {/* TODO display page link text on hover */}
-        <NavLink to="/about/">
-          {/* <foreignObject x="50" y="20" height="50px" width="150px">
-              <LinkText>Who we are</LinkText>
-            </foreignObject> */}
-          <MotionText
-            variants={textVariant}
-            initial="normal"
-            animate={animation === "home" ? "normal" : "hidden"}
-            x="50"
-            y="20"
-            fill="white"
-          >
+        <NavLink path={path} to="/about/">
+          <MotionText x="50" y="20" fill="white">
             Who we are
           </MotionText>
           <Star
@@ -165,17 +133,9 @@ const Constellation = ({ path }) => {
             height="50px"
             width="50px"
           />
-          {/* <circle cx="174" cy="0" r="10" fill="white" /> */}
         </NavLink>
-        <NavLink to="/esp/">
-          <MotionText
-            variants={textVariant}
-            initial="normal"
-            animate={animation === "home" ? "normal" : "hidden"}
-            x="350"
-            y="100"
-            fill="white"
-          >
+        <NavLink path={path} to="/esp/">
+          <MotionText x="350" y="100" fill="white">
             Ecosytem Support
           </MotionText>
           <Star
@@ -186,17 +146,9 @@ const Constellation = ({ path }) => {
             height="50px"
             width="50px"
           />
-          {/* <circle cx="480" cy="125" r="10" fill="white" /> */}
         </NavLink>
-        <NavLink to="/ethereum/">
-          <MotionText
-            variants={textVariant}
-            initial="normal"
-            animate={animation === "home" ? "normal" : "hidden"}
-            x="370"
-            y="380"
-            fill="white"
-          >
+        <NavLink path={path} to="/ethereum/">
+          <MotionText x="370" y="380" fill="white">
             What is Ethereum?
           </MotionText>
           <Star
@@ -207,17 +159,9 @@ const Constellation = ({ path }) => {
             height="50px"
             width="50px"
           />
-          {/* <circle cx="352" cy="386" r="10" fill="white" /> */}
         </NavLink>
-        <NavLink to="/philosophy/">
-          <MotionText
-            variants={textVariant}
-            initial="normal"
-            animate={animation === "home" ? "normal" : "hidden"}
-            x="0"
-            y="270"
-            fill="white"
-          >
+        <NavLink path={path} to="/philosophy/">
+          <MotionText x="0" y="270" fill="white">
             Our Philosophy
           </MotionText>
           <Star
@@ -228,31 +172,12 @@ const Constellation = ({ path }) => {
             height="50px"
             width="50px"
           />
-          {/* <circle cx="0" cy="235" r="10" fill="white" /> */}
         </NavLink>
         <g
           id="Group_48"
           data-name="Group 48"
           transform="translate(-0.004 -0.004)"
         >
-          {/* 1 path */}
-          {/* <motion.path
-            variants={icon}
-            initial="hidden"
-            animate="visible"
-            id="Path_55"
-            data-name="Path 55"
-            d="M 216 10 V 400 L 525 125 L 216 10 L 78 235 L 351 386 Z"
-            transform="translate(-43.104)"
-            fill="none"
-            stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
-            transition={{
-              default: { duration: 2, ease: "easeInOut" },
-            }}
-          /> */}
-          {/* 2 path (original)  */}
           <motion.path
             variants={icon}
             initial="hidden"
@@ -284,26 +209,6 @@ const Constellation = ({ path }) => {
               default: { duration: 3, ease: "easeInOut" },
             }}
           />
-          {/* 2 path (original) - no animation */}
-          {/* <path
-            id="Path_55"
-            data-name="Path 55"
-            d="M525,125,216.09.98l-.04,308Z"
-            transform="translate(-43.104)"
-            fill="none"
-            stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
-          />
-          <path
-            id="Path_56"
-            data-name="Path 56"
-            d="M351.678,386,.78,234.776,172.986.98Z"
-            fill="none"
-            stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
-          /> */}
         </g>
       </SVG>
     </SVGContainer>

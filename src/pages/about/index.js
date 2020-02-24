@@ -6,12 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
 
 import SEO from "../../components/SEO"
-
-const PageContainer = styled.div`
-  margin: 6rem auto 4rem;
-  max-width: 760px;
-  padding: 2rem;
-`
+import { PageContainer } from "../../components/SharedStyledComponents"
 
 const Icon = styled(FontAwesomeIcon)`
   margin-left: 1rem;
@@ -62,7 +57,7 @@ const AboutPage = () => (
         outside world.
       </p>
       <ButtonContainer>
-        <Button to="/about/board">
+        <Button to="/about/board/">
           Meet the Executive Board <Icon icon={faChevronRight} />
         </Button>
       </ButtonContainer>
