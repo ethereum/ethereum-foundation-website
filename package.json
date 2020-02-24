@@ -10,7 +10,6 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "framer-motion": "^1.6.18",
     "gatsby": "^2.17.11",
-    "gatsby-background-image": "^0.9.11",
     "gatsby-image": "^2.2.31",
     "gatsby-plugin-manifest": "^2.2.27",
     "gatsby-plugin-offline": "^3.0.19",
