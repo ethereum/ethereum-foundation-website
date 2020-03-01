@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import { StyledFullScreenWrapper } from "./SharedStyledComponents"
 import FOG from "vanta/dist/vanta.fog.min"
+
+const StyledFullBackground = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const FullBackground = props => {
   const [vantaEffect, setVantaEffect] = useState(0)
@@ -28,18 +35,10 @@ const FullBackground = props => {
     }
   }, [vantaEffect])
   return (
-    <StyledFullScreenWrapper ref={myRef}>
+    <StyledFullBackground ref={myRef}>
       {props.children}
-    </StyledFullScreenWrapper>
+    </StyledFullBackground>
   )
 }
 
-const StyledFullBackground = styled(FullBackground)`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-export default StyledFullBackground
+export default FullBackground

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
 import { Location } from "@reach/router"
 
-import StyledFullBackground from "./FullBackground"
+import FullBackground from "./FullBackground"
 import Constellation from "./Constellation"
 import Footer from "./Footer"
 
@@ -76,7 +76,7 @@ const ImageNav = () => (
 )
 
 const Layout = ({ children }) => (
-  <StyledFullBackground>
+  <FullBackground>
     <StyledLayout>
       <TopLayout>
         <Location>
@@ -105,7 +105,7 @@ const Layout = ({ children }) => (
         <Footer />
       </BottomLayout>
     </StyledLayout>
-  </StyledFullBackground>
+  </FullBackground>
 )
 
 Layout.propTypes = {

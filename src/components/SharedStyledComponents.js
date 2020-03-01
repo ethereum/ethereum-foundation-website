@@ -6,13 +6,6 @@ export const PageContainer = styled.div`
   padding: 2rem;
 `
 
-export const StyledFullScreenWrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  overflow: hidden;
-`
-
 export const StyledAbsoluteCenter = styled.div`
   position: absolute;
   top: 50%;

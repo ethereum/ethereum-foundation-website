@@ -113,6 +113,7 @@ const Footer = () => {
   const [isOpen, toggleOpen] = useState(false)
 
   const footerToggleIcon = isOpen ? faChevronDown : faChevronUp
+  return null
   return (
     <>
       <FooterToggleContainer>
@@ -129,8 +130,8 @@ const Footer = () => {
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={{
-          open: { opacity: 1, height: "auto" },
-          closed: { opacity: 0, height: 0 },
+          open: { display: "block", height: "auto" },
+          closed: { display: "none", height: 0 },
         }}
         transition={{ duration: 1.5, ease: [0.04, 0.62, 0.23, 0.98] }}
       >
