@@ -5,24 +5,6 @@ import styled from "styled-components"
 
 import star from "../images/star.png"
 
-const pathVariantsHome = {
-  hidden: {
-    pathLength: 0,
-  },
-  visible: {
-    pathLength: 1,
-  },
-}
-
-const pathVariants = {
-  hidden: {
-    pathLength: 1,
-  },
-  visible: {
-    pathLength: 1,
-  },
-}
-
 const SVG = styled(motion.svg)`
   position: absolute;
   width: 100%;
@@ -86,7 +68,7 @@ const constellationVariant = {
     },
   },
   about: {
-    x: 420,
+    x: 350,
     y: -620,
     scale: 2,
     rotate: 160,
@@ -95,8 +77,8 @@ const constellationVariant = {
     },
   },
   philosophy: {
-    x: -600,
-    y: -200,
+    x: -850,
+    y: 400,
     scale: 2,
     rotate: -130,
     transition: {
@@ -104,8 +86,8 @@ const constellationVariant = {
     },
   },
   esp: {
-    x: -1350,
-    y: -1050,
+    x: -1250,
+    y: -975,
     scale: 2,
     rotate: 35,
     transition: {
@@ -113,8 +95,8 @@ const constellationVariant = {
     },
   },
   ethereum: {
-    x: -740,
-    y: -540,
+    x: -1340,
+    y: -300,
     scale: 2,
     rotate: -23,
     transition: {
@@ -125,7 +107,6 @@ const constellationVariant = {
 
 const Constellation = ({ path }) => {
   let animation
-  let pathAnimation = pathVariants
   let linkAnimation = "initial"
 
   switch (path) {
@@ -145,7 +126,15 @@ const Constellation = ({ path }) => {
     default:
       animation = "home"
       linkAnimation = "home"
-      pathAnimation = pathVariantsHome
+  }
+
+  const pathVariants = {
+    hidden: {
+      pathLength: animation === "home" ? 0 : 1,
+    },
+    visible: {
+      pathLength: 1,
+    },
   }
 
   const clientHeight = document.documentElement.clientHeight
@@ -249,7 +238,7 @@ const Constellation = ({ path }) => {
         variants={gVariant}
       >
         <motion.path
-          variants={pathAnimation}
+          variants={pathVariants}
           initial="hidden"
           animate="visible"
           id="Path_55"
@@ -265,7 +254,7 @@ const Constellation = ({ path }) => {
           }}
         />
         <motion.path
-          variants={pathAnimation}
+          variants={pathVariants}
           initial="hidden"
           animate="visible"
           id="Path_56"
