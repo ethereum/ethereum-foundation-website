@@ -28,6 +28,7 @@ const StyledLayout = styled.div`
 const TopLayout = styled(motion.div)`
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 `
 
 const BottomLayout = styled.div`
@@ -36,9 +37,7 @@ const BottomLayout = styled.div`
   width: 100%;
 `
 
-const Main = styled(motion.main)`
-  padding-top: 8px;
-`
+const Main = styled(motion.main)``
 
 const variants = {
   initial: {
@@ -57,7 +56,7 @@ const variants = {
   },
 }
 
-const ImageNav = () => (
+const SubpageNav = () => (
   <nav>
     <Link to="/">
       <Image
@@ -88,7 +87,7 @@ const Layout = ({ children }) => {
             {({ location }) => {
               return (
                 <>
-                  {location.pathname !== "/" && <ImageNav />}
+                  {location.pathname !== "/" && <SubpageNav />}
                   <Constellation path={location.pathname} />
                   <AnimatePresence>
                     <Main

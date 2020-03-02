@@ -29,17 +29,13 @@ const SVG = styled(motion.svg)`
   height: 100%;
 `
 
-const NavLink = styled(Link)`
-  & > text {
-    opacity: 0;
-    transition-duration: 2s;
-  }
-  &:hover {
-    & > text {
-      opacity: ${props => (props.path === "/" ? 1 : 0)};
-    }
-  }
-`
+const NavLinkContainer = styled(motion.g)``
+const NavLink = styled(Link)``
+
+const linkVariants = {
+  initial: { opacity: 0.0 },
+  home: { opacity: 0.6, transition: { duration: 4 } },
+}
 
 const MotionText = styled(motion.text)`
   font-size: 1rem;
@@ -50,10 +46,12 @@ const Star = styled(motion.image)`
   width: 50px;
 `
 
-const starHover = { scale: 1.8, transition: { duration: 1 } }
+const starHover = { scale: 1.8, transition: { duration: 0.6 } }
 
 // const SVGContainer = styled(motion.div)``
 
+// TODO just change to
+// animate={{ x: 100, y: 110 }}
 const gVariant = {
   home: {
     x: 100,
@@ -64,27 +62,23 @@ const gVariant = {
     y: 110,
   },
   philosophy: {
-    x: -600,
-    y: -200,
+    x: 100,
+    y: 110,
   },
   esp: {
-    x: -750,
-    y: -500,
+    x: 100,
+    y: 110,
   },
   ethereum: {
-    x: -740,
-    y: -540,
+    x: 100,
+    y: 110,
   },
 }
 
 const constellationVariant = {
   home: {
-    // originX: "50%",
-    // originY: "50%",
-    // TODO how to align center without moving entire SVG?
-    // position g??
-    x: 0, // 100, // TODO figure out how to adjust based on device
-    y: 0, // 110, // TODO figure out how to adjust based on device
+    x: 0,
+    y: 0,
     scale: 1,
     rotate: 0,
     transition: {
@@ -92,10 +86,10 @@ const constellationVariant = {
     },
   },
   about: {
-    x: 500,
-    y: -500,
-    scale: 2.2,
-    rotate: 170,
+    x: 420,
+    y: -620,
+    scale: 2,
+    rotate: 160,
     transition: {
       duration: 1.5,
     },
@@ -103,17 +97,17 @@ const constellationVariant = {
   philosophy: {
     x: -600,
     y: -200,
-    scale: 2.2,
+    scale: 2,
     rotate: -130,
     transition: {
       duration: 1.5,
     },
   },
   esp: {
-    x: -750,
-    y: -500,
-    scale: 2.2,
-    rotate: 30,
+    x: -1350,
+    y: -1050,
+    scale: 2,
+    rotate: 35,
     transition: {
       duration: 1.5,
     },
@@ -121,7 +115,7 @@ const constellationVariant = {
   ethereum: {
     x: -740,
     y: -540,
-    scale: 2.2,
+    scale: 2,
     rotate: -23,
     transition: {
       duration: 1.5,
@@ -132,6 +126,7 @@ const constellationVariant = {
 const Constellation = ({ path }) => {
   let animation
   let pathAnimation = pathVariants
+  let linkAnimation = "initial"
 
   switch (path) {
     case "/about/":
@@ -149,6 +144,7 @@ const Constellation = ({ path }) => {
       break
     default:
       animation = "home"
+      linkAnimation = "home"
       pathAnimation = pathVariantsHome
   }
 
@@ -157,6 +153,11 @@ const Constellation = ({ path }) => {
 
   const gPositionX = gVariant[animation].x // 100
   const gPositionY = gVariant[animation].y // 110
+
+  const linkHover =
+    path === "/"
+      ? { opacity: 1, transition: { duration: 0.4 } }
+      : { opacity: 0 }
 
   // TODO adjust size based on device/viewpo
   return (
@@ -169,57 +170,83 @@ const Constellation = ({ path }) => {
       initial="home"
       animate={animation}
     >
-      <NavLink path={path} to="/about/">
-        <MotionText x={gPositionX + 120} y={gPositionY - 20} fill="white">
-          Who we are
-        </MotionText>
-        <Star
-          whileHover={starHover}
-          href={star}
-          x={gPositionX + 148}
-          y={gPositionY - 23}
-        />
-      </NavLink>
-      <NavLink path={path} to="/esp/">
-        <MotionText x={gPositionX + 500} y={gPositionY + 130} fill="white">
-          Ecosytem Support
-        </MotionText>
-        <Star
-          whileHover={starHover}
-          href={star}
-          x={gPositionX + 455}
-          y={gPositionY + 100}
-        />
-      </NavLink>
-      <NavLink path={path} to="/ethereum/">
-        <MotionText x={gPositionX + 375} y={gPositionY + 390} fill="white">
-          What is Ethereum?
-        </MotionText>
-        <Star
-          whileHover={starHover}
-          href={star}
-          x={gPositionX + 325}
-          y={gPositionY + 360}
-        />
-      </NavLink>
-      <NavLink path={path} to="/philosophy/">
-        <MotionText x={gPositionX - 160} y={gPositionY + 240} fill="white">
-          Our Philosophy
-        </MotionText>
-        <Star
-          whileHover={starHover}
-          href={star}
-          x={gPositionX - 20}
-          y={gPositionY + 210}
-        />
-      </NavLink>
+      <NavLinkContainer
+        variants={linkVariants}
+        initial="initial"
+        animate={linkAnimation}
+        whileHover={linkHover}
+      >
+        <Link path={path} to="/about/">
+          <MotionText x={gPositionX + 120} y={gPositionY - 20} fill="white">
+            Who we are
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x={gPositionX + 148}
+            y={gPositionY - 23}
+          />
+        </Link>
+      </NavLinkContainer>
+      <NavLinkContainer
+        variants={linkVariants}
+        initial="initial"
+        animate={linkAnimation}
+        whileHover={linkHover}
+      >
+        <NavLink path={path} to="/esp/">
+          <MotionText x={gPositionX + 500} y={gPositionY + 130} fill="white">
+            Ecosytem Support
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x={gPositionX + 455}
+            y={gPositionY + 100}
+          />
+        </NavLink>
+      </NavLinkContainer>
+      <NavLinkContainer
+        variants={linkVariants}
+        initial="initial"
+        animate={linkAnimation}
+        whileHover={linkHover}
+      >
+        <NavLink path={path} to="/ethereum/">
+          <MotionText x={gPositionX + 375} y={gPositionY + 390} fill="white">
+            What is Ethereum?
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x={gPositionX + 325}
+            y={gPositionY + 360}
+          />
+        </NavLink>
+      </NavLinkContainer>
+      <NavLinkContainer
+        variants={linkVariants}
+        initial="initial"
+        animate={linkAnimation}
+        whileHover={linkHover}
+      >
+        <NavLink path={path} to="/philosophy/">
+          <MotionText x={gPositionX - 160} y={gPositionY + 240} fill="white">
+            Our Philosophy
+          </MotionText>
+          <Star
+            whileHover={starHover}
+            href={star}
+            x={gPositionX - 20}
+            y={gPositionY + 210}
+          />
+        </NavLink>
+      </NavLinkContainer>
       <motion.g
         id="Group_48"
         data-name="Group 48"
         transform="translate(-0.004 -0.004)"
         variants={gVariant}
-        initial="home"
-        animate="home"
       >
         <motion.path
           variants={pathAnimation}
