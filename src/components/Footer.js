@@ -1,12 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
+import styled from "styled-components"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
-
-import { motion } from "framer-motion"
-
-import styled from "styled-components"
 
 import devconLogo from "../images/devcon-logo.svg"
 import blogLogo from "../images/ethereum-line-logo.svg"
@@ -25,6 +23,7 @@ const FooterToggleContainer = styled.div`
   align-items: center;
   color: white;
   padding: 8px 24px;
+  font-size: 0.75rem;
 `
 
 const FooterContentDiv = styled(motion.div)`
@@ -107,86 +106,77 @@ const Star = styled(motion.img)`
 `
 const starHover = { scale: 1.8, transition: { duration: 1 } }
 
-// TODO footer should "push up" the rest of the content (including constellation)
-// How? Shrink height of top content?
-const Footer = () => {
-  const [isOpen, toggleOpen] = useState(false)
-
+const Footer = ({ isOpen, toggleOpen }) => {
   const footerToggleIcon = isOpen ? faChevronDown : faChevronUp
-  return null
   return (
     <>
       <FooterToggleContainer>
-        <div style={{ fontSize: `0.75rem` }}>
-          © Ethereum Foundation, {new Date().getFullYear()}
-        </div>
+        <div>© Ethereum Foundation, {new Date().getFullYear()}</div>
         <IconContainer onClick={() => toggleOpen(!isOpen)}>
           <FontAwesomeIcon icon={footerToggleIcon} />
           <Star whileHover={starHover} src={star} />
         </IconContainer>
       </FooterToggleContainer>
 
-      <StyledFooter
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        variants={{
-          open: { display: "block", height: "auto" },
-          closed: { display: "none", height: 0 },
-        }}
-        transition={{ duration: 1.5, ease: [0.04, 0.62, 0.23, 0.98] }}
-      >
-        <FooterContentDiv
-          variants={{ closed: { scale: 0.9 }, open: { scale: 1 } }}
-          transition={{ duration: 0.8 }}
-        >
-          <FooterDivContact>
-            <strong>General Contact:</strong>
-            <div style={{ marginBottom: `16px` }}>
-              <a href="mailto:info@ethereum.org">info@ethereum.org</a>
-            </div>
-            <strong>Press Contact:</strong>
-            <div>
-              <a href="mailto:press@ethereum.org">press@ethereum.org</a>
-            </div>
-          </FooterDivContact>
-          <FooterDivCanary>
-            <CanaryContainer>
-              <img src={canary} alt="Ethereum Foundation Blog Logo" />
-              <CanaryContent>
+      <AnimatePresence>
+        {isOpen && (
+          <StyledFooter
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <FooterContentDiv>
+              <FooterDivContact>
+                <strong>General Contact:</strong>
                 <div style={{ marginBottom: `16px` }}>
-                  The Ethereum Foundation (Stiftung Ethereum) has never been
-                  contacted by any agency anywhere in the world in a way which
-                  requires that contact not to be disclosed.
+                  <a href="mailto:info@ethereum.org">info@ethereum.org</a>
                 </div>
+                <strong>Press Contact:</strong>
                 <div>
-                  Stiftung Ethereum will publicly disclose any sort of inquiry
-                  from government agencies that falls outside the scope of
-                  regular business operations.
+                  <a href="mailto:press@ethereum.org">press@ethereum.org</a>
                 </div>
-              </CanaryContent>
-            </CanaryContainer>
-          </FooterDivCanary>
-          <FooterDivLinks>
-            {/* TODO style links */}
-            <ImageAndTextLink
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://devcon.org"
-            >
-              <img src={devconLogo} alt="Devcon Logo" />
-              Devcon.org
-            </ImageAndTextLink>
-            <ImageAndTextLink
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://blog.ethereum.org"
-            >
-              <img src={blogLogo} alt="Ethereum Foundation Blog Logo" />
-              Blog
-            </ImageAndTextLink>
-          </FooterDivLinks>
-        </FooterContentDiv>
-      </StyledFooter>
+              </FooterDivContact>
+              <FooterDivCanary>
+                <CanaryContainer>
+                  <img src={canary} alt="Ethereum Foundation Blog Logo" />
+                  <CanaryContent>
+                    <div style={{ marginBottom: `16px` }}>
+                      The Ethereum Foundation (Stiftung Ethereum) has never been
+                      contacted by any agency anywhere in the world in a way
+                      which requires that contact not to be disclosed.
+                    </div>
+                    <div>
+                      Stiftung Ethereum will publicly disclose any sort of
+                      inquiry from government agencies that falls outside the
+                      scope of regular business operations.
+                    </div>
+                  </CanaryContent>
+                </CanaryContainer>
+              </FooterDivCanary>
+              <FooterDivLinks>
+                {/* TODO style links */}
+                <ImageAndTextLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://devcon.org"
+                >
+                  <img src={devconLogo} alt="Devcon Logo" />
+                  Devcon.org
+                </ImageAndTextLink>
+                <ImageAndTextLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://blog.ethereum.org"
+                >
+                  <img src={blogLogo} alt="Ethereum Foundation Blog Logo" />
+                  Blog
+                </ImageAndTextLink>
+              </FooterDivLinks>
+            </FooterContentDiv>
+          </StyledFooter>
+        )}
+      </AnimatePresence>
     </>
   )
 }

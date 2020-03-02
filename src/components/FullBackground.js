@@ -5,9 +5,6 @@ import FOG from "vanta/dist/vanta.fog.min"
 const StyledFullBackground = styled.div`
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `
 
 const FullBackground = props => {
@@ -35,9 +32,7 @@ const FullBackground = props => {
     }
   }, [vantaEffect])
   return (
-    <StyledFullBackground ref={myRef}>
-      {props.children}
-    </StyledFullBackground>
+    <StyledFullBackground ref={myRef}>{props.children}</StyledFullBackground>
   )
 }
 

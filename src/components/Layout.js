@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
@@ -8,13 +8,8 @@ import { Location } from "@reach/router"
 import FullBackground from "./FullBackground"
 import Constellation from "./Constellation"
 import Footer from "./Footer"
-
 import "./layout.css"
-
 import EFLogo from "../images/ethereum-logo.svg"
-
-// TODO move into layout
-// depending on location, if not on homepage (i.e. on subpage), transition in the nav link home
 
 const Image = styled(motion.img)`
   position: absolute;
@@ -30,12 +25,11 @@ const StyledLayout = styled.div`
   justify-content: space-between;
 `
 
-// TODO footer should "push up" the rest of the content (including constellation)
-// How? Shrink height of TopLayout? Would need to be aware of if footer is open & change styling based on props
-const TopLayout = styled.div`
+const TopLayout = styled(motion.div)`
   min-height: 100vh;
   position: relative;
 `
+
 const BottomLayout = styled.div`
   position: absolute;
   bottom: 0;
@@ -75,38 +69,50 @@ const ImageNav = () => (
   </nav>
 )
 
-const Layout = ({ children }) => (
-  <FullBackground>
-    <StyledLayout>
-      <TopLayout>
-        <Location>
-          {({ location }) => {
-            return (
-              <>
-                {location.pathname !== "/" && <ImageNav />}
-                <Constellation path={location.pathname} />
-                <AnimatePresence>
-                  <Main
-                    key={location.pathname}
-                    variants={variants}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                  >
-                    {children}
-                  </Main>
-                </AnimatePresence>
-              </>
-            )
-          }}
-        </Location>
-      </TopLayout>
-      <BottomLayout>
-        <Footer />
-      </BottomLayout>
-    </StyledLayout>
-  </FullBackground>
-)
+const Layout = ({ children }) => {
+  const [isFooterOpen, toggleFooter] = useState(false)
+
+  const clientWidth = document.documentElement.clientWidth
+  const footerShiftY = clientWidth > 780 ? -266 : -446 // TODO precise device width vs. 600px
+
+  return (
+    <FullBackground>
+      <StyledLayout>
+        <TopLayout
+          variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
+          transition={{ duration: 1 }}
+          initial="normal"
+          animate={isFooterOpen ? "open" : "normal"}
+        >
+          <Location>
+            {({ location }) => {
+              return (
+                <>
+                  {location.pathname !== "/" && <ImageNav />}
+                  <Constellation path={location.pathname} />
+                  <AnimatePresence>
+                    <Main
+                      key={location.pathname}
+                      variants={variants}
+                      initial="initial"
+                      animate="enter"
+                      exit="exit"
+                    >
+                      {children}
+                    </Main>
+                  </AnimatePresence>
+                </>
+              )
+            }}
+          </Location>
+        </TopLayout>
+        <BottomLayout>
+          <Footer isOpen={isFooterOpen} toggleOpen={toggleFooter} />
+        </BottomLayout>
+      </StyledLayout>
+    </FullBackground>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
