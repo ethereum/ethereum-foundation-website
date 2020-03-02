@@ -51,6 +51,9 @@ const FooterDivContact = styled(FooterChildDiv)`
 `
 const FooterDivCanary = styled(FooterChildDiv)`
   flex: 0 1 600px;
+  display: flex;
+  align-items: center;
+  line-height: 1.8;
   font-size: 0.625rem;
   @media (max-width: 768px) {
     flex: 0 1 600px;
@@ -103,6 +106,7 @@ const ImageAndTextLink = styled.a`
 
 const Star = styled(motion.img)`
   position: absolute;
+  width: 40px;
 `
 const starHover = { scale: 1.8, transition: { duration: 1 } }
 
