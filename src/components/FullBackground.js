@@ -1,45 +1,61 @@
-import React, { useState, useEffect, useRef } from "react"
+// Working off this example (v0.9.11):
+// https://github.com/timhagn/gbitest/blob/master/src/components/FullBackground.js
+// Thanks @timhagn :)
+
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import { StyledFullScreenWrapper } from "./SharedStyledComponents"
-import FOG from "vanta/dist/vanta.fog.min"
 
-const FullBackground = props => {
-  const [vantaEffect, setVantaEffect] = useState(0)
-  const myRef = useRef(null)
+import BackgroundImage from "gatsby-background-image"
 
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        FOG({
-          el: myRef.current,
-          highlightColor: 0xffe07b,
-          midtoneColor: 0xf262bf,
-          lowlightColor: 0x4ef79d,
-          baseColor: 0xa2e8f2,
-          blurFactor: 0.88,
-          zoom: 0.2,
-          mouseControls: true,
-          touchControls: true,
-        })
-      )
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
+const StyledFullBackground = styled.div`
+  width: 100%;
+  min-height: 100vh;
+`
+
+/**
+ * In this functional component a fullscreen <BackgroundImage />  is created.
+ * @param className   string    className(s) from styled-components.
+ * @param children    nodes     Child-components.
+ * @return {*}
+ * @constructor
+ */
+const FullBackground = ({ className, children }) => {
+  // TODO separate query for mobile?
+  const { desktop } = useStaticQuery(
+    graphql`
+      query {
+        desktop: file(
+          relativePath: { eq: "ethereum-foundation-background.png" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1440) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `
+  )
+
+  // Single Image Data
+  const imageData = desktop.childImageSharp.fluid
+
   return (
-    <StyledFullScreenWrapper ref={myRef}>
-      {props.children}
-    </StyledFullScreenWrapper>
+    <StyledFullBackground>
+      <BackgroundImage
+        Tag="section"
+        className={className}
+        fluid={imageData}
+        backgroundColor={`#040e18`}
+        id="fullscreenbg"
+        role="img"
+        preserveStackingContext={true}
+      >
+        {children}
+      </BackgroundImage>
+    </StyledFullBackground>
   )
 }
 
-const StyledFullBackground = styled(FullBackground)`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-export default StyledFullBackground
+export default FullBackground

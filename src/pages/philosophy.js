@@ -35,6 +35,7 @@ const PhilosophyPage = () => {
           outside the Foundation in the broader Ethereum ecosystem.
         </p>
 
+        {/* TODO fix jump on route transition */}
         <Image
           fluid={data.file.childImageSharp.fluid}
           alt="Ethereum Foundation Philosophy"

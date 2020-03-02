@@ -1,16 +1,9 @@
 import styled from "styled-components"
 
 export const PageContainer = styled.div`
-  margin: 10rem auto 4rem;
+  margin: 6rem auto 4rem;
   max-width: 760px;
   padding: 2rem;
-`
-
-export const StyledFullScreenWrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  overflow: hidden;
 `
 
 export const StyledAbsoluteCenter = styled.div`
