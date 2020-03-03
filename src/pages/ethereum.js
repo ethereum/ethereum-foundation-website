@@ -1,7 +1,14 @@
 import React from "react"
 
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
+
 import SEO from "../components/SEO"
-import { PageContainer } from "../components/SharedStyledComponents"
+import {
+  PageContainer,
+  Button,
+  ButtonIcon,
+  ButtonContainer,
+} from "../components/SharedStyledComponents"
 
 const EthereumPage = () => (
   <>
@@ -30,15 +37,18 @@ const EthereumPage = () => (
       </p>
 
       <p>
-        To learn more about Ethereum or its native token (Ether), visit{" "}
-        <a
+        To learn more about Ethereum or its native token (Ether), visit
+        ethereum.org
+      </p>
+      <ButtonContainer>
+        <Button
           target="_blank"
           rel="noopener noreferrer"
           href="https://ethereum.org"
         >
-          ethereum.org
-        </a>
-      </p>
+          Visit ethereum.org <ButtonIcon icon={faChevronRight} />
+        </Button>
+      </ButtonContainer>
     </PageContainer>
   </>
 )
