@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import styled from "styled-components"
@@ -106,6 +106,39 @@ const constellationVariant = {
 }
 
 const Constellation = ({ path }) => {
+  const [dimensions, setDimensions] = useState({
+    height: 700,
+    width: 700,
+    viewBoxMinX: -50,
+    viewBoxMinY: -50,
+    viewBoxWidth: 700,
+    viewBoxHeight: 700,
+  })
+
+  useEffect(() => {
+    // TODO adjust size based on viewport
+    const clientHeight = document.documentElement.clientHeight
+    if (clientHeight > 1000) {
+      setDimensions({
+        height: 1000,
+        width: 1000,
+        viewBoxMinX: -200,
+        viewBoxMinY: -200,
+        viewBoxWidth: 1000,
+        viewBoxHeight: 1000,
+      })
+    } else {
+      setDimensions({
+        height: 700,
+        width: 700,
+        viewBoxMinX: -50,
+        viewBoxMinY: -50,
+        viewBoxWidth: 700,
+        viewBoxHeight: 700,
+      })
+    }
+  }, [])
+
   let animation
   let linkAnimation = "initial"
 
@@ -137,14 +170,6 @@ const Constellation = ({ path }) => {
     },
   }
 
-  let clientHeight = 700
-  let clientWidth = 700
-
-  useEffect(() => {
-    clientHeight = document.documentElement.clientHeight
-    clientWidth = document.documentElement.clientWidth
-  }, [])
-
   const gPositionX = gVariant[animation].x // 100
   const gPositionY = gVariant[animation].y // 110
 
@@ -153,13 +178,12 @@ const Constellation = ({ path }) => {
       ? { opacity: 1, transition: { duration: 0.4 } }
       : { opacity: 0 }
 
-  // TODO adjust size based on device/viewpo
   return (
     <SVG
       xmlns="http://www.w3.org/2000/svg"
-      height={clientHeight}
-      width={clientWidth}
-      viewBox="-50 -50 700 700"
+      height={dimensions.height}
+      width={dimensions.width}
+      viewBox={`${dimensions.viewBoxMinX} ${dimensions.viewBoxMinY} ${dimensions.height} ${dimensions.width}`}
       variants={constellationVariant}
       initial="home"
       animate={animation}
