@@ -26,6 +26,10 @@ export const Button = styled.a`
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.4);
+
+    svg {
+      color: #41c2e6;
+    }
   }
 
   @media (max-width: 380px) {

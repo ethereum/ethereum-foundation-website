@@ -622,7 +622,6 @@ pre tt:after {
 a {
   text-decoration: none;
   color: black;
-  transition: 0.5s;
 }
 
 /* TODO fix */

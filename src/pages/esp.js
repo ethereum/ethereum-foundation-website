@@ -1,6 +1,6 @@
 import React from "react"
 
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
 import SEO from "../components/SEO"
 import {
@@ -34,7 +34,7 @@ const EcosystemSupportPage = () => (
           rel="noopener noreferrer"
           href="https://ecosystem.support"
         >
-          Visit ecosystem.support <ButtonIcon icon={faChevronRight} />
+          Visit ecosystem.support <ButtonIcon icon={faExternalLinkAlt} />
         </Button>
       </ButtonContainer>
     </PageContainer>

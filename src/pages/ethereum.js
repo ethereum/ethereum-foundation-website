@@ -1,6 +1,6 @@
 import React from "react"
 
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
 import SEO from "../components/SEO"
 import {
@@ -46,7 +46,7 @@ const EthereumPage = () => (
           rel="noopener noreferrer"
           href="https://ethereum.org"
         >
-          Visit ethereum.org <ButtonIcon icon={faChevronRight} />
+          Visit ethereum.org <ButtonIcon icon={faExternalLinkAlt} />
         </Button>
       </ButtonContainer>
     </PageContainer>
