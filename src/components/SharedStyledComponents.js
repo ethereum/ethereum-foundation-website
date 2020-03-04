@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const PageContainer = styled.div`
   margin: 6rem auto 4rem;
@@ -6,31 +7,28 @@ export const PageContainer = styled.div`
   padding: 2rem;
 `
 
-export const StyledAbsoluteCenter = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
+export const ButtonIcon = styled(FontAwesomeIcon)`
+  margin-left: 1rem;
+  color: white;
 `
 
-// export const StyledContentCenterWrapper = styled.div`
-//   display: flex;
-//   text-align: center;
-//   color: #ccc;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-// `
+export const ButtonContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+`
 
-// export const StyledContentWrapperLeft = styled(StyledContentCenterWrapper)`
-//   max-width: 960px;
-//   margin: auto 53% auto auto;
-// `
+export const Button = styled.a`
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2.5px;
+  padding: 1rem 2rem;
+  font-weight: 600;
 
-// export const StyledImageWrapper = styled.div`
-//   max-width: ${props => props.maxWidth || 300}px;
-//   margin: 0 auto 1.45rem;
-// `
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 
-// export const StyledLink = styled(Link)`
-//   margin-left: 0.32rem;
-// `
+  @media (max-width: 380px) {
+    width: 100%;
+  }
+`

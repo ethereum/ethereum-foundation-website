@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
@@ -70,8 +70,12 @@ const SubpageNav = () => (
 
 const Layout = ({ children }) => {
   const [isFooterOpen, toggleFooter] = useState(false)
+  let clientWidth = 700
 
-  const clientWidth = document.documentElement.clientWidth
+  useEffect(() => {
+    clientWidth = document.documentElement.clientWidth
+  }, [])
+
   const footerShiftY = clientWidth > 780 ? -266 : -446 // TODO precise device width vs. 600px
 
   return (

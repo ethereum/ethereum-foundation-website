@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import styled from "styled-components"
@@ -137,8 +137,13 @@ const Constellation = ({ path }) => {
     },
   }
 
-  const clientHeight = document.documentElement.clientHeight
-  const clientWidth = document.documentElement.clientWidth
+  let clientHeight = 700
+  let clientWidth = 700
+
+  useEffect(() => {
+    clientHeight = document.documentElement.clientHeight
+    clientWidth = document.documentElement.clientWidth
+  }, [])
 
   const gPositionX = gVariant[animation].x // 100
   const gPositionY = gVariant[animation].y // 110
