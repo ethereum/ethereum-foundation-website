@@ -69,14 +69,18 @@ const SubpageNav = () => (
 )
 
 const Layout = ({ children }) => {
-  const [isFooterOpen, toggleFooter] = useState(false)
-  let clientWidth = 700
+  const [layoutState, setLayoutState] = useState({
+    isFooterOpen: false,
+  })
 
   useEffect(() => {
-    clientWidth = document.documentElement.clientWidth
-  }, [])
+    setLayoutState({
+      isFooterOpen: layoutState.isFooterOpen,
+      clientWidth: document.documentElement.clientWidth,
+    })
+  }, [layoutState.isFooterOpen])
 
-  const footerShiftY = clientWidth > 780 ? -266 : -446 // TODO precise device width vs. 600px
+  const footerShiftY = layoutState.clientWidth < 780 ? -380 : -186
 
   return (
     <FullBackground>
@@ -85,7 +89,7 @@ const Layout = ({ children }) => {
           variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
           transition={{ duration: 1 }}
           initial="normal"
-          animate={isFooterOpen ? "open" : "normal"}
+          animate={layoutState.isFooterOpen ? "open" : "normal"}
         >
           <Location>
             {({ location }) => {
@@ -110,7 +114,11 @@ const Layout = ({ children }) => {
           </Location>
         </TopLayout>
         <BottomLayout>
-          <Footer isOpen={isFooterOpen} toggleOpen={toggleFooter} />
+          <Footer
+            isOpen={layoutState.isFooterOpen}
+            clientWidth={layoutState.clientWidth}
+            setLayoutState={setLayoutState}
+          />
         </BottomLayout>
       </StyledLayout>
     </FullBackground>
