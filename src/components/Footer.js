@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
+import { screenSizeM } from "../utils/styles"
 import devconLogo from "../images/devcon-logo.svg"
 import blogLogo from "../images/ethereum-line-logo.svg"
 import canary from "../images/canary.svg"
@@ -31,20 +32,20 @@ const FooterContentDiv = styled(motion.div)`
   transform-origin: bottom center;
   display: flex;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     flex-wrap: wrap;
     padding: 24px;
   }
 `
 
 const FooterChildDiv = styled(motion.div)`
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     padding: 16px;
   }
 `
 const FooterDivContact = styled(FooterChildDiv)`
   flex: 0 1 200px;
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     flex: 0 1 150px;
     padding: 0;
   }
@@ -55,7 +56,7 @@ const FooterDivCanary = styled(FooterChildDiv)`
   align-items: center;
   line-height: 1.8;
   font-size: 0.625rem;
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     flex: 0 1 600px;
     order: 3;
   }
@@ -63,7 +64,7 @@ const FooterDivCanary = styled(FooterChildDiv)`
 
 const CanaryContainer = styled.div`
   display: flex;
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     flex-direction: column;
   }
 `
@@ -72,7 +73,7 @@ const CanaryContent = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 32px;
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     padding-left: 0;
   }
 `
@@ -81,7 +82,7 @@ const FooterDivLinks = styled(FooterChildDiv)`
   display: flex;
   justify-content: space-between;
   flex: 0 1 160px;
-  @media (max-width: 768px) {
+  @media (max-width: ${screenSizeM}) {
     flex: 0 1 140px;
     padding: 0;
   }

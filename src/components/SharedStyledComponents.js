@@ -1,11 +1,16 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { screenSizeM } from "../utils/styles"
 
 // Pages
 
 export const PageContainer = styled.div`
   margin: 6rem auto 4rem;
   max-width: 800px;
+
+  @media (min-width: ${screenSizeM}) {
+    margin: 10rem auto 4rem;
+  }
 `
 
 export const ContentContainer = styled.div`
@@ -30,6 +35,10 @@ export const ButtonContainer = styled.div`
 `
 
 export const Button = styled.a`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 2.5px;
   padding: 1rem 2rem;
@@ -45,5 +54,6 @@ export const Button = styled.a`
 
   @media (max-width: 380px) {
     width: 100%;
+    padding: 1rem 1.5rem;
   }
 `

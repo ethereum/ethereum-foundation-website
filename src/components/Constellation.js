@@ -197,7 +197,7 @@ const Constellation = ({ path }) => {
         animate={linkAnimation}
         whileHover={linkHover}
       >
-        <Link path={path} to="/about/">
+        <Link path={path} to={path === "/" ? "/about/" : "/"}>
           <MotionText x={gPositionX + 120} y={gPositionY - 20} fill="white">
             Who we are
           </MotionText>
@@ -215,7 +215,7 @@ const Constellation = ({ path }) => {
         animate={linkAnimation}
         whileHover={linkHover}
       >
-        <NavLink path={path} to="/esp/">
+        <NavLink path={path} to={path === "/" ? "/esp/" : "/"}>
           <MotionText x={gPositionX + 500} y={gPositionY + 130} fill="white">
             Ecosytem Support
           </MotionText>
@@ -233,7 +233,7 @@ const Constellation = ({ path }) => {
         animate={linkAnimation}
         whileHover={linkHover}
       >
-        <NavLink path={path} to="/ethereum/">
+        <NavLink path={path} to={path === "/" ? "/ethereum/" : "/"}>
           <MotionText x={gPositionX + 375} y={gPositionY + 390} fill="white">
             What is Ethereum?
           </MotionText>
@@ -251,7 +251,7 @@ const Constellation = ({ path }) => {
         animate={linkAnimation}
         whileHover={linkHover}
       >
-        <NavLink path={path} to="/philosophy/">
+        <NavLink path={path} to={path === "/" ? "/philosophy/" : "/"}>
           <MotionText x={gPositionX - 160} y={gPositionY + 240} fill="white">
             Our Philosophy
           </MotionText>

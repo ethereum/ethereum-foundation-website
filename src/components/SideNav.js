@@ -7,11 +7,16 @@ import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons"
+import { screenSizeL } from "../utils/styles"
 
 const SideNavigation = styled.div`
   display: flex;
   justify-content: space-between;
   height: 0;
+
+  @media (max-width: ${screenSizeL}) {
+    margin: 0 1rem;
+  }
 `
 const NavIcon = styled(FontAwesomeIcon)`
   color: white;
