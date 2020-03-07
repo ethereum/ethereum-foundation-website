@@ -121,7 +121,7 @@ const Footer = ({ isOpen, clientWidth, setLayoutState }) => {
             setLayoutState({ isFooterOpen: !isOpen, clientWidth: clientWidth })
           }
         >
-          <FontAwesomeIcon icon={footerToggleIcon} />
+          <FontAwesomeIcon icon={footerToggleIcon} size="lg" />
           <Star whileHover={starHover} src={star} />
         </IconContainer>
       </FooterToggleContainer>

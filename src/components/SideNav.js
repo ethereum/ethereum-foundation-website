@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faChevronRight,
@@ -16,14 +17,27 @@ const NavIcon = styled(FontAwesomeIcon)`
   color: white;
 `
 
+const IconWrapper = styled(motion.div)`
+  position: relative;
+`
+
+const hoverAnimation = {
+  scale: 1.4,
+  transition: { duration: 0.4 },
+}
+
 // TODO z-index to ensure constellation doesn't cover it
 const SideNav = ({ from, to }) => (
   <SideNavigation>
     <Link to={from}>
-      <NavIcon icon={faChevronLeft} size="2x" />
+      <IconWrapper whileHover={hoverAnimation}>
+        <NavIcon icon={faChevronLeft} size="2x" />
+      </IconWrapper>
     </Link>
     <Link to={to}>
-      <NavIcon icon={faChevronRight} size="2x" />
+      <IconWrapper whileHover={hoverAnimation}>
+        <NavIcon icon={faChevronRight} size="2x" />
+      </IconWrapper>
     </Link>
   </SideNavigation>
 )
