@@ -13,9 +13,9 @@ import EFLogo from "../images/ethereum-logo.svg"
 
 const Image = styled(motion.img)`
   position: absolute;
+  z-index: 20;
   top: 20px;
   left: 40px;
-  z-index: 20;
 `
 
 const StyledLayout = styled.div`
@@ -33,11 +33,15 @@ const TopLayout = styled(motion.div)`
 
 const BottomLayout = styled.div`
   position: absolute;
+  z-index: 20;
   bottom: 0;
   width: 100%;
 `
 
-const Main = styled(motion.main)``
+const Main = styled(motion.main)`
+  position: relative;
+  z-index: 20;
+`
 
 const variants = {
   initial: {
@@ -46,13 +50,13 @@ const variants = {
   enter: {
     opacity: 1,
     transition: {
-      duration: 1.0,
+      duration: 0.4,
       delay: 1.0,
     },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.4 },
   },
 }
 

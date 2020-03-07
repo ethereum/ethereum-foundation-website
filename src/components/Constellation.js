@@ -7,6 +7,7 @@ import star from "../images/star.png"
 
 const SVG = styled(motion.svg)`
   position: absolute;
+  z-index: 1;
   width: 100%;
   height: 100%;
 `
@@ -105,6 +106,8 @@ const constellationVariant = {
   },
 }
 
+// TODO adjust for subpage --> subpage navigation
+// Can we inspect previous route (i.g. if it wasn't the homepage, add opacity 0 to initial animation)
 const Constellation = ({ path }) => {
   const [dimensions, setDimensions] = useState({
     height: 700,
