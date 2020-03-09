@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import SEO from "../components/SEO"
 import efLogo from "../images/ethereum-foundation-logo.svg"
+import { screenSizeS } from "../utils/styles"
 
 const Logo = styled.img`
   position: fixed;
@@ -11,6 +12,10 @@ const Logo = styled.img`
   transform: translate(-50, -55%);
   z-index: 100;
   min-width: 240px;
+
+  @media (max-width: ${screenSizeS}) {
+    left: calc(50% - 110px);
+  }
 `
 
 const IndexPage = () => (
