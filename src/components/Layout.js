@@ -8,6 +8,7 @@ import { Location } from "@reach/router"
 import FullBackground from "./FullBackground"
 import Constellation from "./Constellation"
 import Footer from "./Footer"
+
 import "./layout.css"
 import EFLogo from "../images/ethereum-logo.svg"
 
@@ -41,6 +42,7 @@ const BottomLayout = styled.div`
 const Main = styled(motion.main)`
   position: relative;
   z-index: 20;
+  min-height: 100vh;
 `
 
 const variants = {
