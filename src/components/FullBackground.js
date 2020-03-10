@@ -5,25 +5,29 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-
 import BackgroundImage from "gatsby-background-image"
 
-const StyledFullBackground = styled.div`
-  width: 100%;
-  min-height: 100vh;
-`
+import { screenSizeS } from "../utils/styles"
 
 const FullBackground = ({ children }) => {
-  // TODO separate query for mobile?
-  const { desktop } = useStaticQuery(
+  const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
       query {
-        desktop: file(
+        mobileImage: file(
           relativePath: { eq: "ethereum-foundation-background.png" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 1440) {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 480, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        desktopImage: file(
+          relativePath: { eq: "ethereum-foundation-background.png" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 2000, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -31,16 +35,27 @@ const FullBackground = ({ children }) => {
     `
   )
 
-  // Single Image Data
-  const imageData = desktop.childImageSharp.fluid
+  // Set up the array of image data and `media` keys.
+  const sources = [
+    mobileImage.childImageSharp.fluid,
+    {
+      ...desktopImage.childImageSharp.fluid,
+      media: `(min-width: ${screenSizeS})`,
+    },
+  ]
 
   return (
-    <StyledFullBackground>
-      <BackgroundImage fluid={imageData} role="img">
-        {children}
-      </BackgroundImage>
-    </StyledFullBackground>
+    <BackgroundImage fluid={sources} role="img">
+      {children}
+    </BackgroundImage>
   )
 }
 
-export default FullBackground
+const StyledFullBackground = styled(FullBackground)`
+  width: 100%;
+  min-height: 100vh;
+  background-size: auto;
+  background-color: transparent;
+`
+
+export default StyledFullBackground
