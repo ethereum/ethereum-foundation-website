@@ -11,6 +11,8 @@ import Footer from "./Footer"
 
 import "./layout.css"
 import EFLogo from "../images/ethereum-logo.svg"
+import HomeLogo from "../images/ethereum-foundation-logo.svg"
+import { screenSizeS } from "../utils/styles"
 
 const Image = styled(motion.img)`
   position: absolute;
@@ -42,7 +44,6 @@ const BottomLayout = styled.div`
 const Main = styled(motion.main)`
   position: relative;
   z-index: 20;
-  min-height: 100vh;
 `
 
 const variants = {
@@ -74,6 +75,19 @@ const SubpageNav = () => (
   </nav>
 )
 
+const Logo = styled.img`
+  position: absolute;
+  z-index: 20;
+  top: calc(50% - 53px); /* 106px / 2 */
+  left: calc(50% - 120px); /* 240px / 2 */
+  transform: translate(-50, -55%);
+  min-width: 240px;
+
+  @media (max-width: ${screenSizeS}) {
+    left: calc(50% - 110px);
+  }
+`
+
 const Layout = ({ children }) => {
   const [layoutState, setLayoutState] = useState({
     isFooterOpen: false,
@@ -101,6 +115,9 @@ const Layout = ({ children }) => {
             {({ location }) => {
               return (
                 <>
+                  {location.pathname === "/" && (
+                    <Logo src={HomeLogo} alt="Ethereum Foundation Logo" />
+                  )}
                   {location.pathname !== "/" && <SubpageNav />}
                   <Constellation path={location.pathname} />
                   <AnimatePresence>
