@@ -13,14 +13,7 @@ const StyledFullBackground = styled.div`
   min-height: 100vh;
 `
 
-/**
- * In this functional component a fullscreen <BackgroundImage />  is created.
- * @param className   string    className(s) from styled-components.
- * @param children    nodes     Child-components.
- * @return {*}
- * @constructor
- */
-const FullBackground = ({ className, children }) => {
+const FullBackground = ({ children }) => {
   // TODO separate query for mobile?
   const { desktop } = useStaticQuery(
     graphql`
@@ -43,15 +36,7 @@ const FullBackground = ({ className, children }) => {
 
   return (
     <StyledFullBackground>
-      <BackgroundImage
-        Tag="section"
-        className={className}
-        fluid={imageData}
-        backgroundColor={`#040e18`}
-        id="fullscreenbg"
-        role="img"
-        preserveStackingContext={true}
-      >
+      <BackgroundImage fluid={imageData} role="img">
         {children}
       </BackgroundImage>
     </StyledFullBackground>
