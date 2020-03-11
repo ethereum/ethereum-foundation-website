@@ -6,7 +6,6 @@ import { Link } from "gatsby"
 import { Location } from "@reach/router"
 
 import FullBackground from "./FullBackground"
-import Constellation from "./Constellation"
 import Footer from "./Footer"
 
 import "./layout.css"
@@ -119,7 +118,6 @@ const Layout = ({ children }) => {
                     <Logo src={HomeLogo} alt="Ethereum Foundation Logo" />
                   )}
                   {location.pathname !== "/" && <SubpageNav />}
-                  <Constellation path={location.pathname} />
                   <AnimatePresence>
                     <Main
                       key={location.pathname}
