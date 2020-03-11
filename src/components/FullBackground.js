@@ -14,11 +14,11 @@ const FullBackground = ({ children }) => {
     graphql`
       query {
         mobileImage: file(
-          relativePath: { eq: "ethereum-foundation-background.png" }
+          relativePath: { eq: "ethereum-foundation-background-mobile.png" }
         ) {
           childImageSharp {
             fluid(maxWidth: 480, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -27,7 +27,7 @@ const FullBackground = ({ children }) => {
         ) {
           childImageSharp {
             fluid(maxWidth: 2000, quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid
             }
           }
         }
