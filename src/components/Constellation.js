@@ -17,7 +17,7 @@ const mobileVariant = {
     },
   },
   about: {
-    x: -220,
+    x: -240,
     y: -440,
     scale: 2,
     rotate: 160,
@@ -26,28 +26,28 @@ const mobileVariant = {
     },
   },
   philosophy: {
-    x: -220,
-    y: -440,
+    x: -280,
+    y: -390,
     scale: 2,
-    rotate: 160,
+    rotate: -50,
     transition: {
       duration: 1.5,
     },
   },
   esp: {
-    x: -220,
-    y: -440,
+    x: -310,
+    y: -70,
     scale: 2,
-    rotate: 160,
+    rotate: 70,
     transition: {
       duration: 1.5,
     },
   },
   ethereum: {
-    x: -220,
-    y: -440,
+    x: -30,
+    y: -270,
     scale: 2,
-    rotate: 160,
+    rotate: 20,
     transition: {
       duration: 1.5,
     },
@@ -359,8 +359,8 @@ const Constellation = ({ path }) => {
             transform="translate(-43.104)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
             }}
@@ -374,8 +374,8 @@ const Constellation = ({ path }) => {
             d="M351.678,386,.78,234.776,172.986.98Z"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             transition={{
               default: { duration: 3, ease: "easeInOut" },
             }}
@@ -448,38 +448,37 @@ const Constellation = ({ path }) => {
           initial="home"
           animate={animation}
         >
-          {/* TODO fix DOM errors */}
           <path
             d="M160.255-25.763,114.328,93.124Z"
             transform="translate(-55.704 -0.98)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             d="M2.241,324.03l89.9-120.594Z"
             transform="translate(5.677 -10.98)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             d="M214.424,73.827,122.57-25.5Z"
             transform="translate(-109.873 -100.57)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             d="M122.57,108.9,146.554-25.5Z"
             transform="translate(-138.636 -100.57)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             opacity="0.407"
           />
           <path
@@ -487,8 +486,8 @@ const Constellation = ({ path }) => {
             transform="translate(-138.636 33.829)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             opacity="0.407"
           />
           <path
@@ -496,8 +495,8 @@ const Constellation = ({ path }) => {
             transform="translate(-133.636 248.553)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             opacity="0.407"
           />
           <path
@@ -505,8 +504,8 @@ const Constellation = ({ path }) => {
             transform="translate(-138.636 -1.242)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             opacity="0.407"
           />
           <path
@@ -514,8 +513,8 @@ const Constellation = ({ path }) => {
             transform="translate(-133.636 202.575)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             opacity="0.407"
           />
           <path
@@ -523,16 +522,16 @@ const Constellation = ({ path }) => {
             transform="translate(-52.276 117.907)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             d="M122.57,70.038,192.261-25.5Z"
             transform="translate(-133.636 107.036)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
             opacity="0.407"
           />
         </MobileG>
