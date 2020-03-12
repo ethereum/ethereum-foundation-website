@@ -23,6 +23,7 @@ const ProfileContainer = styled.div`
   flex-wrap: wrap;
 `
 
+// TODO remove after confirmation
 const ExecutiveBoardPage = () => {
   const data = useStaticQuery(graphql`
     query {

@@ -22,20 +22,21 @@ const EthereumPage = () => (
       </ContentContainer>
       <SideNav from="/esp/" to="/philosophy/" />
       <ContentContainer>
-        <p>Ethereum is the world’s leading programmable blockchain. </p>
+        <p>Ethereum is the world’s programmable blockchain. </p>
 
         <p>
-          Launched in 2015, Ethereum serves as a global, open-source platform
-          for decentralized applications that allow users have control over
-          their own data.
+          Launched in 2015, Ethereum is a global, open-source platform used for
+          programmable money and decentralized applications that allow users
+          have control over their own data.
         </p>
 
         <p>
-          Applications built on Ethereum can vary widely in type. Whether they
-          are financial (like payments, lending, or insurance), gaming or
-          identity related, or they serve another purpose, each “web 3”
-          application benefits from censorship resistance, decentralization, and
-          security.
+          Ethereum applications are diverse, spanning a huge range of industries
+          and use-cases. They might be financial (like payments, lending, or
+          insurance), games (like collectible cards, or virtual worlds) or
+          identity related (self-sovereign ID) or something entirely different.
+          Each “web 3” application benefits from censorship resistance,
+          decentralization, and security.
         </p>
 
         <p>

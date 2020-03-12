@@ -12,32 +12,6 @@ import {
   PageH1,
 } from "../../components/SharedStyledComponents"
 
-const Icon = styled(FontAwesomeIcon)`
-  margin-left: 1rem;
-  color: white;
-`
-
-const ButtonContainer = styled.div`
-  margin-top: 2rem;
-  display: flex;
-  justify-content: flex-end;
-`
-
-const Button = styled(Link)`
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 2.5px;
-  padding: 1rem 2rem;
-  font-weight: 600;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-
-  @media (max-width: 380px) {
-    width: 100%;
-  }
-`
-
 const AboutPage = () => (
   <>
     <SEO title="About" />
@@ -48,14 +22,23 @@ const AboutPage = () => (
       <SideNav from="/philosophy/" to="/esp/" />
       <ContentContainer>
         <p>
-          The Ethereum Foundation (EF) is a non-profit organization that
-          supports development of the Ethereum blockchain, the growing ecosystem
-          around it, and related technologies.
+          The Ethereum Foundation is a non-profit organization dedicated to
+          supporting{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://ethereum.org/"
+          >
+            Ethereum
+          </a>{" "}
+          and related technologies.
         </p>
         <p>
           The EF is not a company, or even a traditional non-profit. We do not
           control Ethereum, nor are we the only organization that funds critical
-          development of Ethereum-related technologies.
+          development of Ethereum-related technologies. We are part of a large
+          ecosystem of of organizations, individuals, and companies who support
+          Ethereum.
         </p>
 
         <p>
@@ -64,12 +47,6 @@ const AboutPage = () => (
           voice within the Ethereum ecosystem, and be an advocate for Ethereum
           to the outside world.
         </p>
-
-        <ButtonContainer>
-          <Button to="/about/board/">
-            Meet the Executive Board <Icon icon={faChevronRight} />
-          </Button>
-        </ButtonContainer>
       </ContentContainer>
     </PageContainer>
   </>

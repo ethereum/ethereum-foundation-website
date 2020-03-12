@@ -1,7 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
 
 import SideNav from "../components/SideNav"
 import SEO from "../components/SEO"
@@ -10,10 +8,6 @@ import {
   PageH1,
   ContentContainer,
 } from "../components/SharedStyledComponents"
-
-const Image = styled(Img)`
-  margin: 2rem auto;
-`
 
 const PhilosophyPage = () => {
   const data = useStaticQuery(graphql`
@@ -37,27 +31,53 @@ const PhilosophyPage = () => {
         </ContentContainer>
         <SideNav from="/ethereum/" to="/about/" />
         <ContentContainer>
+          <p>The Ethereum Foundation is not Ethereum.</p>
           <p>
-            The EF is committed to a philosophy of subtraction. This mean
-            resisting the natural tendency of organizations to grow and
-            accumulate value within themselves, and ensure instead that this
-            value is created outside the Foundation in the broader Ethereum
-            ecosystem.
+            We do not own Ethereum, operate it, or manage it. We are one of many
+            organizations that cares deeply about Ethereum — its potential, and
+            the values it represents.
           </p>
-
-          {/* TODO fix jump on route transition */}
-          <Image
-            fluid={data.file.childImageSharp.fluid}
-            alt="Ethereum Foundation Philosophy"
-          />
-
           <p>
-            Instead of capturing opportunities for ourselves, we distribute
-            those opportunities to the community. Instead of pulling everything
-            in-house, we push our resources out to teams across the ecosystem.
-            We don’t compete with the ecosystem — we are thrilled when other
-            organizations create value, because that means Ethereum is becoming
-            more decentralized and sustainable.
+            However, we know that we have a unique position within that
+            ecosystem due to our history. Significant research, development, and
+            community cultivation took place within the Ethereum Foundation.
+            Today, we continue to fund development of many significant
+            components of the Ethereum ecosystem.
+          </p>
+          <p>
+            As Ethereum has grown and changed, so has the Ethereum Foundation.
+            We know that it's not just what we do but how we do it that matters.
+          </p>
+          <p>
+            To succeed long term, Ethereum needs a vibrant decentralized
+            ecosystem with many independent organizations that provide funding,
+            coordination, and leadership. Ethereum must remain a bazaar, and
+            never become a cathedral.
+          </p>
+          <p>
+            Instead of just asking "how do we solve this problem?" we ask "how
+            can the Ethereum community solve this problem, and how can we help?"
+          </p>
+          <p>
+            We often describe this as a philosophy of "Subtraction". This means
+            resisting the natural tendency of organizations to grow and
+            accumulate value within themselves, and cultivating value creation
+            outside the Foundation in the broader Ethereum ecosystem:
+          </p>
+          <ul>
+            <li>
+              Instead of capturing opportunities, we distribute opportunities
+              for others
+            </li>
+            <li>
+              Instead of being defensive when others create value, we’re
+              thrilled
+            </li>
+            <li>Instead of trying to matter more, we try to matter less</li>
+          </ul>
+          <p>
+            Ultimately, any philosophy is only as good as the choices it
+            inspires.
           </p>
         </ContentContainer>
       </PageContainer>

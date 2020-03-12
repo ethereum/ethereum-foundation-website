@@ -41,7 +41,7 @@ const EcosystemSupportPage = () => (
             rel="noopener noreferrer"
             href="https://ecosystem.support"
           >
-            ecosystem.support <ButtonIcon icon={faExternalLinkAlt} />
+            Learn more <ButtonIcon icon={faExternalLinkAlt} />
           </Button>
         </ButtonContainer>
       </ContentContainer>
