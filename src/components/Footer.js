@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
-import { screenSizeM } from "../utils/styles"
+import { screenSizeM, screenSizeL } from "../utils/styles"
 import devconLogo from "../images/devcon-logo.svg"
 import blogLogo from "../images/ethereum-line-logo.svg"
 import canary from "../images/canary.svg"
@@ -45,6 +45,9 @@ const FooterChildDiv = styled(motion.div)`
 `
 const FooterDivContact = styled(FooterChildDiv)`
   flex: 0 1 200px;
+  @media (max-width: ${screenSizeL}) {
+    flex: 0 0 180px;
+  }
   @media (max-width: ${screenSizeM}) {
     flex: 0 1 150px;
     padding: 0;
@@ -57,24 +60,29 @@ const FooterDivCanary = styled(FooterChildDiv)`
   line-height: 1.8;
   font-size: 0.625rem;
   @media (max-width: ${screenSizeM}) {
+    flex-direction: column;
     flex: 0 1 600px;
     order: 3;
   }
 `
 
-const CanaryContainer = styled.div`
-  display: flex;
+const Canary = styled.img`
   @media (max-width: ${screenSizeM}) {
-    flex-direction: column;
+    margin-bottom: 1rem;
   }
 `
 
 const CanaryContent = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 32px;
+  padding-left: 2rem;
+  @media (max-width: ${screenSizeL}) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
   @media (max-width: ${screenSizeM}) {
     padding-left: 0;
+    padding-right: 0;
   }
 `
 
@@ -82,6 +90,9 @@ const FooterDivLinks = styled(FooterChildDiv)`
   display: flex;
   justify-content: space-between;
   flex: 0 1 160px;
+  @media (max-width: ${screenSizeL}) {
+    flex: 0 0 160px;
+  }
   @media (max-width: ${screenSizeM}) {
     flex: 0 1 140px;
     padding: 0;
@@ -147,21 +158,19 @@ const Footer = ({ isOpen, clientWidth, setLayoutState }) => {
                 </div>
               </FooterDivContact>
               <FooterDivCanary>
-                <CanaryContainer>
-                  <img src={canary} alt="Ethereum Foundation Blog Logo" />
-                  <CanaryContent>
-                    <div style={{ marginBottom: `16px` }}>
-                      The Ethereum Foundation (Stiftung Ethereum) has never been
-                      contacted by any agency anywhere in the world in a way
-                      which requires that contact not to be disclosed.
-                    </div>
-                    <div>
-                      Stiftung Ethereum will publicly disclose any sort of
-                      inquiry from government agencies that falls outside the
-                      scope of regular business operations.
-                    </div>
-                  </CanaryContent>
-                </CanaryContainer>
+                <Canary src={canary} alt="Ethereum Foundation Canary" />
+                <CanaryContent>
+                  <div style={{ marginBottom: `16px` }}>
+                    The Ethereum Foundation (Stiftung Ethereum) has never been
+                    contacted by any agency anywhere in the world in a way which
+                    requires that contact not to be disclosed.
+                  </div>
+                  <div>
+                    Stiftung Ethereum will publicly disclose any sort of inquiry
+                    from government agencies that falls outside the scope of
+                    regular business operations.
+                  </div>
+                </CanaryContent>
               </FooterDivCanary>
               <FooterDivLinks>
                 <ImageAndTextLink
