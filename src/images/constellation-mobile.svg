@@ -1,12 +1,12 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="121.576"
+  width="121.569"
   height="442.148"
-  viewBox="0 0 121.576 442.148"
+  viewBox="0 0 121.569 442.148"
 >
   <g transform="translate(16.558 126.411)">
     <path
-      d="M160.255-25.763,114.328,93.124Z"
+      d="M160.255-25.763,114.328,82.514Z"
       transform="translate(-55.704 -0.98)"
       fill="none"
       stroke="#fff"
@@ -75,8 +75,8 @@
       opacity="0.407"
     />
     <path
-      d="M150.093,74.549,114.328-25.763Z"
-      transform="translate(-52.276 117.907)"
+      d="M153.52,85.159,114.328-25.763Z"
+      transform="translate(-55.704 107.297)"
       fill="none"
       stroke="#fff"
       stroke-miterlimit="10"

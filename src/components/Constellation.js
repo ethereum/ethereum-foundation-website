@@ -18,7 +18,7 @@ const mobileVariant = {
   },
   about: {
     x: -240,
-    y: -440,
+    y: -450,
     scale: 2,
     rotate: 160,
     transition: {
@@ -26,8 +26,8 @@ const mobileVariant = {
     },
   },
   philosophy: {
-    x: -280,
-    y: -390,
+    x: -300,
+    y: -580,
     scale: 2,
     rotate: -50,
     transition: {
@@ -44,8 +44,8 @@ const mobileVariant = {
     },
   },
   ethereum: {
-    x: -30,
-    y: -270,
+    x: -45,
+    y: -285,
     scale: 2,
     rotate: 20,
     transition: {
@@ -74,9 +74,21 @@ const MobileG = styled(motion.g)``
 const NavLinkContainer = styled(motion.g)``
 const NavLink = styled(Link)``
 
+const MobileNav = styled(motion.nav)`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+`
+const MobileNavLink = styled(motion.custom(Link))`
+  display: flex;
+  align-items: center;
+  color: white;
+`
+
 const mobileLinkVariants = {
   initial: { opacity: 0.0 },
-  home: { opacity: 1.0, transition: { duration: 4 } },
+  home: { opacity: 1.0, transition: { duration: 8 } },
 }
 
 const linkVariants = {
@@ -90,6 +102,11 @@ const MotionText = styled(motion.text)`
 `
 
 const Star = styled(motion.image)`
+  height: 50px;
+  width: 50px;
+`
+
+const StarImg = styled(motion.img)`
   height: 50px;
   width: 50px;
 `
@@ -384,158 +401,144 @@ const Constellation = ({ path }) => {
       </SVG>
     )
   } else {
-    const gPositionX = mobileVariant[animation].x
-    const gPositionY = mobileVariant[animation].y
-
     return (
-      <MobileSVG
-        xmlns="http://www.w3.org/2000/svg"
-        width="400"
-        height="700"
-        viewBox="0 0 200 650"
-      >
-        <NavLinkContainer
+      <>
+        <MobileNav
           variants={mobileLinkVariants}
           initial="initial"
           animate={linkAnimation}
         >
-          <Link path={path} to={path === "/" ? "/about/" : "/"}>
-            <MotionText x={gPositionX + 40} y={gPositionY - 120} fill="white">
-              Who we are
-            </MotionText>
-            <Star href={star} x={gPositionX - 15} y={gPositionY - 150} />
-          </Link>
-        </NavLinkContainer>
-        <NavLinkContainer
-          variants={mobileLinkVariants}
-          initial="initial"
-          animate={linkAnimation}
+          <MobileNavLink
+            animate={{ x: 20, y: 105 }}
+            to={path === "/" ? "/about/" : "/"}
+          >
+            <StarImg src={star} />
+            <div>Who we are</div>
+          </MobileNavLink>
+          <MobileNavLink
+            animate={{ x: 135, y: 180 }}
+            to={path === "/" ? "/esp/" : "/"}
+          >
+            <StarImg src={star} />
+            <div>Ecosytem Support</div>
+          </MobileNavLink>
+          <MobileNavLink
+            animate={{ x: 125, y: 400 }}
+            to={path === "/" ? "/ethereum/" : "/"}
+          >
+            <StarImg src={star} />
+            <div>What is Ethereum?</div>
+          </MobileNavLink>
+          <MobileNavLink
+            animate={{ x: 18, y: 505 }}
+            to={path === "/" ? "/philosophy/" : "/"}
+          >
+            <StarImg src={star} />
+            <div>Our Philosophy</div>
+          </MobileNavLink>
+        </MobileNav>
+
+        <MobileSVG
+          xmlns="http://www.w3.org/2000/svg"
+          width="400"
+          height="700"
+          viewBox="0 0 200 650"
         >
-          <Link path={path} to={path === "/" ? "/esp/" : "/"}>
-            <MotionText x={gPositionX + 120} y={gPositionY - 20} fill="white">
-              Ecosytem Support
-            </MotionText>
-            <Star href={star} x={gPositionX + 80} y={gPositionY - 50} />
-          </Link>
-        </NavLinkContainer>
-        <NavLinkContainer
-          variants={mobileLinkVariants}
-          initial="initial"
-          animate={linkAnimation}
-        >
-          <Link path={path} to={path === "/" ? "/ethereum/" : "/"}>
-            <MotionText x={gPositionX + 110} y={gPositionY + 200} fill="white">
-              What is Ethereum?
-            </MotionText>
-            <Star href={star} x={gPositionX + 70} y={gPositionY + 165} />
-          </Link>
-        </NavLinkContainer>
-        <NavLinkContainer
-          variants={mobileLinkVariants}
-          initial="initial"
-          animate={linkAnimation}
-        >
-          <Link path={path} to={path === "/" ? "/philosophy/" : "/"}>
-            <MotionText x={gPositionX + 30} y={gPositionY + 310} fill="white">
-              Our Philosophy
-            </MotionText>
-            <Star href={star} x={gPositionX - 20} y={gPositionY + 285} />
-          </Link>
-        </NavLinkContainer>
-        <MobileG
-          transform="translate(16.558 126.411)"
-          variants={mobileVariant}
-          initial="home"
-          animate={animation}
-        >
-          <path
-            d="M160.255-25.763,114.328,93.124Z"
-            transform="translate(-55.704 -0.98)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-          />
-          <path
-            d="M2.241,324.03l89.9-120.594Z"
-            transform="translate(5.677 -10.98)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-          />
-          <path
-            d="M214.424,73.827,122.57-25.5Z"
-            transform="translate(-109.873 -100.57)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-          />
-          <path
-            d="M122.57,108.9,146.554-25.5Z"
-            transform="translate(-138.636 -100.57)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            opacity="0.407"
-          />
-          <path
-            d="M122.57-25.5l74.69,73.207Z"
-            transform="translate(-138.636 33.829)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            opacity="0.407"
-          />
-          <path
-            d="M141.84,67.114,122.162-72.337Z"
-            transform="translate(-133.636 248.553)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            opacity="0.407"
-          />
-          <path
-            d="M122.57,9.569,243.187-25.5Z"
-            transform="translate(-138.636 -1.242)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            opacity="0.407"
-          />
-          <path
-            d="M122.57-25.5,231.453-10.118Z"
-            transform="translate(-133.636 202.575)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            opacity="0.407"
-          />
-          <path
-            d="M150.093,74.549,114.328-25.763Z"
-            transform="translate(-52.276 117.907)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-          />
-          <path
-            d="M122.57,70.038,192.261-25.5Z"
-            transform="translate(-133.636 107.036)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            opacity="0.407"
-          />
-        </MobileG>
-      </MobileSVG>
+          <MobileG
+            transform="translate(16.558 126.411)"
+            variants={mobileVariant}
+            initial="home"
+            animate={animation}
+          >
+            <path
+              d="M160.255-25.763,114.328,82.514Z"
+              transform="translate(-55.704 -0.98)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+            />
+            <path
+              d="M2.241,324.03l89.9-120.594Z"
+              transform="translate(5.677 -10.98)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+            />
+            <path
+              d="M214.424,73.827,122.57-25.5Z"
+              transform="translate(-109.873 -100.57)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+            />
+            <path
+              d="M122.57,108.9,146.554-25.5Z"
+              transform="translate(-138.636 -100.57)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+              opacity="0.407"
+            />
+            <path
+              d="M122.57-25.5l74.69,73.207Z"
+              transform="translate(-138.636 33.829)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+              opacity="0.407"
+            />
+            <path
+              d="M141.84,67.114,122.162-72.337Z"
+              transform="translate(-133.636 248.553)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+              opacity="0.407"
+            />
+            <path
+              d="M122.57,9.569,243.187-25.5Z"
+              transform="translate(-138.636 -1.242)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+              opacity="0.407"
+            />
+            <path
+              d="M122.57-25.5,231.453-10.118Z"
+              transform="translate(-133.636 202.575)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+              opacity="0.407"
+            />
+            <path
+              d="M153.52,85.159,114.328-25.763Z"
+              transform="translate(-55.704 107.297)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+            />
+            <path
+              d="M122.57,70.038,192.261-25.5Z"
+              transform="translate(-133.636 107.036)"
+              fill="none"
+              stroke="#fff"
+              strokeMiterlimit="10"
+              strokeWidth="1"
+              opacity="0.407"
+            />
+          </MobileG>
+        </MobileSVG>
+      </>
     )
   }
 }
