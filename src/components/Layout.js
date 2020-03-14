@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import { Location } from "@reach/router"
 
@@ -120,17 +120,7 @@ const Layout = ({ children }) => {
                   )}
                   {location.pathname !== "/" && <SubpageNav />}
                   <Constellation path={location.pathname} />
-                  <AnimatePresence>
-                    <Main
-                      key={location.pathname}
-                      variants={variants}
-                      initial="initial"
-                      animate="enter"
-                      exit="exit"
-                    >
-                      {children}
-                    </Main>
-                  </AnimatePresence>
+                  <Main key={location.pathname}>{children}</Main>
                 </>
               )
             }}
