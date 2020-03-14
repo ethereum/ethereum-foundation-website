@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { screenSizeM } from "../utils/styles"
+import { screenSizeM, screenHeightMobileLandscape } from "../utils/styles"
 
 // Pages
 
@@ -10,6 +10,10 @@ export const PageContainer = styled.div`
 
   @media (min-width: ${screenSizeM}) {
     margin: 10rem auto 4rem;
+  }
+
+  @media (max-height: ${screenHeightMobileLandscape}) {
+    margin: 4rem 3rem;
   }
 `
 

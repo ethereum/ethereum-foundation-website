@@ -4,7 +4,13 @@ import { motion } from "framer-motion"
 import styled from "styled-components"
 
 import star from "../images/star.png"
-import { screenSizeIntS } from "../utils/styles"
+import {
+  screenSizeIntS,
+  screenSizeIntM,
+  screenSizeIntL,
+  screenSizeL,
+  screenHeightMobileLandscape,
+} from "../utils/styles"
 
 const mobileVariants = {
   home: {
@@ -109,6 +115,13 @@ const SVG = styled(motion.svg)`
   height: 100%;
 `
 
+const MedBreakpoint = styled.br`
+  display: none;
+  @media (max-width: ${screenSizeL}) {
+    display: block;
+  }
+`
+
 const NavContainer = styled(motion.div)`
   position: absolute;
   z-index: 2;
@@ -137,6 +150,10 @@ const NavLink = styled(Link)`
 
 const AboutNavLink = styled(NavLink)`
   flex-direction: column;
+  @media (max-height: ${screenHeightMobileLandscape}) {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
 `
 
 const linkVariants = {
@@ -256,11 +273,16 @@ const Constellation = ({ path }) => {
     const clientHeight = document.documentElement.clientHeight
     const clientWidth = document.documentElement.clientWidth
     const isDesktop = clientWidth > screenSizeIntS ? true : false
+    const isMobileLandscape = clientHeight < 400 ? true : false
+    const isDesktopXL = clientWidth > 1000 ? true : false
+    const isIpad = clientWidth < screenSizeIntL && clientWidth > screenSizeIntM
 
-    if (clientHeight > 1000) {
-      // XL desktop
+    if (isDesktopXL) {
       setDimensions({
         isDesktop,
+        isDesktopXL,
+        isIpad,
+        isMobileLandscape,
         height: 1000,
         width: 1000,
         viewBoxMinX: -200,
@@ -268,21 +290,39 @@ const Constellation = ({ path }) => {
         viewBoxWidth: 1000,
         viewBoxHeight: 1000,
       })
-    } else if (clientHeight < 400) {
-      // Mobile landscape
+    } else if (isMobileLandscape) {
       setDimensions({
         isDesktop,
+        isDesktopXL,
+        isIpad,
+        isMobileLandscape,
         height: 700,
         width: 700,
         viewBoxMinX: -50,
-        viewBoxMinY: 50,
+        viewBoxMinY: 70,
         viewBoxWidth: 700,
         viewBoxHeight: 500,
+      })
+    } else if (isIpad) {
+      setDimensions({
+        isDesktop,
+        isDesktopXL,
+        isIpad,
+        isMobileLandscape,
+        height: 700,
+        width: 700,
+        viewBoxMinX: -170,
+        viewBoxMinY: -200,
+        viewBoxWidth: 1000,
+        viewBoxHeight: 1000,
       })
     } else {
       // Desktop
       setDimensions({
         isDesktop,
+        isDesktopXL,
+        isIpad,
+        isMobileLandscape,
         height: 700,
         width: 700,
         viewBoxMinX: -50,
@@ -347,12 +387,26 @@ const DekstopConstellation = ({
     },
   }
 
-  const isXL = dimensions.height === 1000 ? true : false
-  const aboutPosition = isXL ? { x: -35, y: 60 } : { x: -30, y: 90 }
-  const espPosition = isXL ? { x: 685, y: 165 } : { x: 630, y: 175 }
-  const ethPosition = isXL ? { x: 520, y: 450 } : { x: 490, y: 415 }
-  const philosophyPosition = isXL ? { x: -65, y: 205 } : { x: -30, y: 200 }
-
+  let aboutPosition = { x: -30, y: 90 }
+  let espPosition = { x: 630, y: 175 }
+  let ethPosition = { x: 490, y: 415 }
+  let philosophyPosition = { x: -30, y: 200 }
+  if (dimensions.isXL) {
+    aboutPosition = { x: -35, y: 60 }
+    espPosition = { x: 685, y: 165 }
+    ethPosition = { x: 520, y: 450 }
+    philosophyPosition = { x: -65, y: 205 }
+  } else if (dimensions.isMobileLandscape) {
+    aboutPosition = { x: -240, y: 170 }
+    espPosition = { x: 535, y: 210 }
+    ethPosition = { x: 440, y: 350 }
+    philosophyPosition = { x: 40, y: 190 }
+  } else if (dimensions.isIpad) {
+    aboutPosition = { x: -40, y: 155 }
+    espPosition = { x: 520, y: 200 }
+    ethPosition = { x: 415, y: 345 }
+    philosophyPosition = { x: 15, y: 180 }
+  }
   return (
     <>
       <NavContainer>
@@ -390,7 +444,9 @@ const DekstopConstellation = ({
           >
             <NavLink to={path === "/" ? "/esp/" : "/"}>
               <StarImg whileHover={starHover} src={star} />
-              <div>Ecosytem Support</div>
+              <div>
+                Ecosytem <MedBreakpoint /> Support
+              </div>
             </NavLink>
           </NavLinkContainer>
           <NavLinkContainer

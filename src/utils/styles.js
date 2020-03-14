@@ -5,6 +5,8 @@ export const screenSizeM = "760px"
 export const screenSizeL = "1024px"
 export const screenSizeXL = "1440px"
 
+export const screenHeightMobileLandscape = "400px"
+
 export const screenSizeIntXS = 320
 export const screenSizeIntS = 480
 export const screenSizeIntM = 760
