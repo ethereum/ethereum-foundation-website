@@ -5,7 +5,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import BackgroundImage from "gatsby-background-image"
+import BackgroundImage from "gatsby-background-image-es5"
 
 import { screenSizeS } from "../utils/styles"
 
