@@ -109,9 +109,6 @@ const SVG = styled(motion.svg)`
   height: 100%;
 `
 
-const NavLinkContainer = styled(motion.g)``
-const NavLink = styled(Link)``
-
 const NavContainer = styled(motion.div)`
   position: absolute;
   z-index: 2;
@@ -123,10 +120,12 @@ const NavContainer = styled(motion.div)`
 `
 
 const MobileNav = styled(motion.nav)`
-  width: 700px; /* TODO pass as props */
-  height: 700px; /* TODO pass as props */
+  width: ${props => props.width};
+  height: ${props => props.height};
 `
-const MobileNavLink = styled(motion.custom(Link))`
+const NavLinkContainer = styled(motion.div)``
+
+const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   color: white;
@@ -136,56 +135,21 @@ const MobileNavLink = styled(motion.custom(Link))`
   }
 `
 
-const AboutNavLink = styled(MobileNavLink)`
+const AboutNavLink = styled(NavLink)`
   flex-direction: column;
 `
 
 const linkVariants = {
   initial: { opacity: 0.0 },
   home: { opacity: 0.6, transition: { duration: 4 } },
+  hover: { opacity: 1, transition: { duration: 0.5 } },
 }
-
-const MotionText = styled(motion.text)`
-  font-size: 1rem;
-  font-weight: 500;
-`
-
-const Star = styled(motion.image)`
-  height: 50px;
-  width: 50px;
-`
 
 const StarImg = styled(motion.img)`
   height: 50px;
   width: 50px;
 `
-
 const starHover = { scale: 1.8, transition: { duration: 0.5 } }
-
-// TODO just change to
-// animate={{ x: 100, y: 110 }}
-const gVariant = {
-  home: {
-    x: 100,
-    y: 110,
-  },
-  about: {
-    x: 100,
-    y: 110,
-  },
-  philosophy: {
-    x: 100,
-    y: 110,
-  },
-  esp: {
-    x: 100,
-    y: 110,
-  },
-  ethereum: {
-    x: 100,
-    y: 110,
-  },
-}
 
 const desktopVariants = {
   home: {
@@ -286,15 +250,7 @@ const desktopNavVariants = {
 // TODO adjust for subpage --> subpage navigation
 // Can we inspect previous route (i.g. if it wasn't the homepage, add opacity 0 to initial animation)
 const Constellation = ({ path }) => {
-  const [dimensions, setDimensions] = useState({
-    isDesktop: true,
-    height: 700,
-    width: 700,
-    viewBoxMinX: -50,
-    viewBoxMinY: -50,
-    viewBoxWidth: 700,
-    viewBoxHeight: 700,
-  })
+  const [dimensions, setDimensions] = useState({})
 
   useEffect(() => {
     const clientHeight = document.documentElement.clientHeight
@@ -302,6 +258,7 @@ const Constellation = ({ path }) => {
     const isDesktop = clientWidth > screenSizeIntS ? true : false
 
     if (clientHeight > 1000) {
+      // XL desktop
       setDimensions({
         isDesktop,
         height: 1000,
@@ -323,6 +280,7 @@ const Constellation = ({ path }) => {
         viewBoxHeight: 500,
       })
     } else {
+      // Desktop
       setDimensions({
         isDesktop,
         height: 700,
@@ -372,20 +330,14 @@ const Constellation = ({ path }) => {
   }
 }
 
+// TODO account for iPad
+// TODO account for XL screen < 1000px height
 const DekstopConstellation = ({
   animation,
   linkAnimation,
   path,
   dimensions,
 }) => {
-  const gPositionX = gVariant[animation].x // 100
-  const gPositionY = gVariant[animation].y // 110
-
-  const linkHover =
-    path === "/"
-      ? { opacity: 1, transition: { duration: 0.5 } }
-      : { opacity: 0 }
-
   const pathVariants = {
     hidden: {
       pathLength: animation === "home" ? 0 : 1,
@@ -395,87 +347,85 @@ const DekstopConstellation = ({
     },
   }
 
+  const isXL = dimensions.height === 1000 ? true : false
+  const aboutPosition = isXL ? { x: -35, y: 60 } : { x: -30, y: 90 }
+  const espPosition = isXL ? { x: 685, y: 165 } : { x: 630, y: 175 }
+  const ethPosition = isXL ? { x: 520, y: 450 } : { x: 490, y: 415 }
+  const philosophyPosition = isXL ? { x: -65, y: 205 } : { x: -30, y: 200 }
+
   return (
     <>
-      {/* TODO account for link positions when SVG is 700x700 vs 1000x1000 */}
       <NavContainer>
         <MobileNav
+          height="700px"
+          width="700px"
           variants={desktopNavVariants}
           initial="home"
           animate={animation}
         >
-          <AboutNavLink
+          <NavLinkContainer
             animate={linkAnimation}
             variants={{
-              initial: { opacity: 0.0, x: -35, y: 60 },
-              home: {
-                opacity: 0.6,
-                x: -35,
-                y: 60,
-                transition: { duration: 4 },
-              },
+              initial: Object.assign({}, linkVariants.initial, aboutPosition),
+              home: Object.assign({}, linkVariants.home, aboutPosition),
+              hover: Object.assign({}, linkVariants.hover, aboutPosition),
             }}
+            whileHover="hover"
             initial="initial"
-            whileHover={linkHover}
-            to={path === "/" ? "/about/" : "/"}
           >
-            <div>Who we are</div>
-            <StarImg whileHover={starHover} src={star} />
-          </AboutNavLink>
-          <MobileNavLink
+            <AboutNavLink to={path === "/" ? "/about/" : "/"}>
+              <div>Who we are</div>
+              <StarImg whileHover={starHover} src={star} />
+            </AboutNavLink>
+          </NavLinkContainer>
+          <NavLinkContainer
             animate={linkAnimation}
             variants={{
-              initial: { opacity: 0.0, x: 685, y: 165 },
-              home: {
-                opacity: 0.6,
-                x: 685,
-                y: 165,
-                transition: { duration: 4 },
-              },
+              initial: Object.assign({}, linkVariants.initial, espPosition),
+              home: Object.assign({}, linkVariants.home, espPosition),
+              hover: Object.assign({}, linkVariants.hover, espPosition),
             }}
+            whileHover="hover"
             initial="initial"
-            whileHover={linkHover}
-            to={path === "/" ? "/esp/" : "/"}
           >
-            <StarImg whileHover={starHover} src={star} />
-            <div>Ecosytem Support</div>
-          </MobileNavLink>
-          <MobileNavLink
+            <NavLink to={path === "/" ? "/esp/" : "/"}>
+              <StarImg whileHover={starHover} src={star} />
+              <div>Ecosytem Support</div>
+            </NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer
             animate={linkAnimation}
             variants={{
-              initial: { opacity: 0.0, x: 685, y: 165 },
-              home: {
-                opacity: 0.6,
-                x: 520,
-                y: 450,
-                transition: { duration: 0 },
-              },
+              initial: Object.assign({}, linkVariants.initial, ethPosition),
+              home: Object.assign({}, linkVariants.home, ethPosition),
+              hover: Object.assign({}, linkVariants.hover, ethPosition),
             }}
+            whileHover="hover"
             initial="initial"
-            whileHover={linkHover}
-            to={path === "/" ? "/ethereum/" : "/"}
           >
-            <StarImg whileHover={starHover} src={star} />
-            <div>What is Ethereum?</div>
-          </MobileNavLink>
-          <MobileNavLink
+            <NavLink to={path === "/" ? "/ethereum/" : "/"}>
+              <StarImg whileHover={starHover} src={star} />
+              <div>What is Ethereum?</div>
+            </NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer
             animate={linkAnimation}
             variants={{
-              initial: { opacity: 0.0, x: 685, y: 165 },
-              home: {
-                opacity: 0.6,
-                x: -65,
-                y: 205,
-                transition: { duration: 0 },
-              },
+              initial: Object.assign(
+                {},
+                linkVariants.initial,
+                philosophyPosition
+              ),
+              home: Object.assign({}, linkVariants.home, philosophyPosition),
+              hover: Object.assign({}, linkVariants.hover, philosophyPosition),
             }}
-            initial="initial"
-            whileHover={linkHover}
-            to={path === "/" ? "/philosophy/" : "/"}
+            whileHover="hover"
           >
-            <div>Our Philosophy</div>
-            <StarImg whileHover={starHover} src={star} />
-          </MobileNavLink>
+            <NavLink to={path === "/" ? "/philosophy/" : "/"}>
+              <div>Our Philosophy</div>
+              <StarImg whileHover={starHover} src={star} />
+            </NavLink>
+          </NavLinkContainer>
         </MobileNav>
       </NavContainer>
       <SVG
@@ -487,11 +437,12 @@ const DekstopConstellation = ({
         initial="home"
         animate={animation}
       >
+        {/* TODO remove this animation? */}
         <motion.g
           id="Group_48"
           data-name="Group 48"
           transform="translate(-0.004 -0.004)"
-          variants={gVariant}
+          animate={{ x: 100, y: 110 }}
         >
           <motion.path
             variants={pathVariants}
@@ -532,36 +483,40 @@ const DekstopConstellation = ({
 
 const MobileConstellation = ({ animation, path }) => (
   <>
-    <MobileNav variants={mobileNavVariants} initial="home" animate={animation}>
-      <MobileNavLink
-        animate={{ x: 20, y: 105 }}
-        to={path === "/" ? "/about/" : "/"}
+    <NavContainer>
+      <MobileNav
+        height="100%"
+        width="100%"
+        variants={mobileNavVariants}
+        initial="home"
+        animate={animation}
       >
-        <StarImg src={star} />
-        <div>Who we are</div>
-      </MobileNavLink>
-      <MobileNavLink
-        animate={{ x: 135, y: 180 }}
-        to={path === "/" ? "/esp/" : "/"}
-      >
-        <StarImg src={star} />
-        <div>Ecosytem Support</div>
-      </MobileNavLink>
-      <MobileNavLink
-        animate={{ x: 125, y: 400 }}
-        to={path === "/" ? "/ethereum/" : "/"}
-      >
-        <StarImg src={star} />
-        <div>What is Ethereum?</div>
-      </MobileNavLink>
-      <MobileNavLink
-        animate={{ x: 18, y: 505 }}
-        to={path === "/" ? "/philosophy/" : "/"}
-      >
-        <StarImg src={star} />
-        <div>Our Philosophy</div>
-      </MobileNavLink>
-    </MobileNav>
+        <NavLinkContainer animate={{ x: 20, y: 105 }}>
+          <NavLink to={path === "/" ? "/about/" : "/"}>
+            <StarImg src={star} />
+            <div>Who we are</div>
+          </NavLink>
+        </NavLinkContainer>
+        <NavLinkContainer animate={{ x: 135, y: 180 }}>
+          <NavLink to={path === "/" ? "/esp/" : "/"}>
+            <StarImg src={star} />
+            <div>Ecosytem Support</div>
+          </NavLink>
+        </NavLinkContainer>
+        <NavLinkContainer animate={{ x: 125, y: 400 }}>
+          <NavLink to={path === "/" ? "/ethereum/" : "/"}>
+            <StarImg src={star} />
+            <div>What is Ethereum?</div>
+          </NavLink>
+        </NavLinkContainer>
+        <NavLinkContainer animate={{ x: 18, y: 505 }}>
+          <NavLink to={path === "/" ? "/philosophy/" : "/"}>
+            <StarImg src={star} />
+            <div>Our Philosophy</div>
+          </NavLink>
+        </NavLinkContainer>
+      </MobileNav>
+    </NavContainer>
 
     <SVG
       xmlns="http://www.w3.org/2000/svg"
