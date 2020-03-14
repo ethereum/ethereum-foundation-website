@@ -5,11 +5,11 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import { screenSizeS } from "../utils/styles"
 
-const FullBackground = ({ children }) => {
+const FullBackground = ({ title, height, mobileHeight, children }) => {
   const { mobileImage, desktopImage } = useStaticQuery(
     graphql`
       query {
@@ -34,7 +34,6 @@ const FullBackground = ({ children }) => {
       }
     `
   )
-
   // Set up the array of image data and `media` keys.
   const sources = [
     mobileImage.childImageSharp.fluid,
@@ -45,17 +44,46 @@ const FullBackground = ({ children }) => {
   ]
 
   return (
-    <BackgroundImage fluid={sources} role="img">
-      {children}
-    </BackgroundImage>
+    <Parent>
+      <BgImage
+        fluid={sources}
+        title={title}
+        height={height}
+        mobileHeight={mobileHeight}
+      />
+      <Content>{children}</Content>
+    </Parent>
   )
 }
 
-const StyledFullBackground = styled(FullBackground)`
-  width: 100%;
-  min-height: 100vh;
-  background-size: auto;
-  background-color: transparent;
+const Parent = styled.div`
+  position: relative;
 `
 
-export default StyledFullBackground
+const BgImage = styled(Img)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+
+  & > img {
+    object-fit: cover !important;
+    object-position: 0% 0% !important;
+    font-family: "object-fit: cover !important; object-position: 0% 0% !important;";
+  }
+
+  @media screen and (max-width: 600px) {
+    height: ${({ mobileHeight }) => mobileHeight};
+  }
+`
+
+const Content = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+`
+
+export default FullBackground
