@@ -6,7 +6,7 @@ import styled from "styled-components"
 import star from "../images/star.png"
 import { screenSizeIntS } from "../utils/styles"
 
-const mobileVariant = {
+const mobileVariants = {
   home: {
     x: -25,
     y: 230,
@@ -54,6 +54,54 @@ const mobileVariant = {
   },
 }
 
+const mobileNavVariants = {
+  home: {
+    x: 0,
+    y: 0,
+    rotate: 0,
+    opacity: 1,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  about: {
+    x: -240,
+    y: -450,
+    opacity: 0,
+    rotate: 160,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  philosophy: {
+    x: -300,
+    y: -580,
+    opacity: 0,
+    rotate: -50,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  esp: {
+    x: -310,
+    y: -70,
+    opacity: 0,
+    rotate: 70,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  ethereum: {
+    x: -45,
+    y: -285,
+    opacity: 0,
+    rotate: 20,
+    transition: {
+      duration: 1.5,
+    },
+  },
+}
+
 const SVG = styled(motion.svg)`
   position: absolute;
   z-index: 1;
@@ -61,35 +109,36 @@ const SVG = styled(motion.svg)`
   height: 100%;
 `
 
-// TODO needed?
-const MobileSVG = styled(motion.svg)`
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-`
-
-const MobileG = styled(motion.g)``
-
 const NavLinkContainer = styled(motion.g)``
 const NavLink = styled(Link)``
 
-const MobileNav = styled(motion.nav)`
+const NavContainer = styled(motion.div)`
   position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const MobileNav = styled(motion.nav)`
+  width: 700px; /* TODO pass as props */
+  height: 700px; /* TODO pass as props */
 `
 const MobileNavLink = styled(motion.custom(Link))`
   display: flex;
   align-items: center;
   color: white;
+
+  &:hover {
+    color: white;
+  }
 `
 
-const mobileLinkVariants = {
-  initial: { opacity: 0.0 },
-  home: { opacity: 1.0, transition: { duration: 8 } },
-}
+const AboutNavLink = styled(MobileNavLink)`
+  flex-direction: column;
+`
 
 const linkVariants = {
   initial: { opacity: 0.0 },
@@ -111,7 +160,7 @@ const StarImg = styled(motion.img)`
   width: 50px;
 `
 
-const starHover = { scale: 1.8, transition: { duration: 0.6 } }
+const starHover = { scale: 1.8, transition: { duration: 0.5 } }
 
 // TODO just change to
 // animate={{ x: 100, y: 110 }}
@@ -138,7 +187,55 @@ const gVariant = {
   },
 }
 
-const constellationVariant = {
+const desktopVariants = {
+  home: {
+    x: 0,
+    y: 0,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  about: {
+    x: 350,
+    y: -620,
+    scale: 2,
+    rotate: 160,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  philosophy: {
+    x: -850,
+    y: 400,
+    scale: 2,
+    rotate: -130,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  esp: {
+    x: -1250,
+    y: -975,
+    scale: 2,
+    rotate: 35,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  ethereum: {
+    x: -1340,
+    y: -300,
+    scale: 2,
+    rotate: -23,
+    transition: {
+      duration: 1.5,
+    },
+  },
+}
+
+const desktopNavVariants = {
   home: {
     x: 0,
     y: 0,
@@ -241,6 +338,7 @@ const Constellation = ({ path }) => {
   let animation
   let linkAnimation = "initial"
 
+  // Set animations based on route
   switch (path) {
     case "/about/":
     case "/about/board/":
@@ -260,6 +358,34 @@ const Constellation = ({ path }) => {
       linkAnimation = "home"
   }
 
+  if (dimensions.isDesktop) {
+    return (
+      <DekstopConstellation
+        animation={animation}
+        linkAnimation={linkAnimation}
+        path={path}
+        dimensions={dimensions}
+      />
+    )
+  } else {
+    return <MobileConstellation animation={animation} path={path} />
+  }
+}
+
+const DekstopConstellation = ({
+  animation,
+  linkAnimation,
+  path,
+  dimensions,
+}) => {
+  const gPositionX = gVariant[animation].x // 100
+  const gPositionY = gVariant[animation].y // 110
+
+  const linkHover =
+    path === "/"
+      ? { opacity: 1, transition: { duration: 0.5 } }
+      : { opacity: 0 }
+
   const pathVariants = {
     hidden: {
       pathLength: animation === "home" ? 0 : 1,
@@ -269,97 +395,98 @@ const Constellation = ({ path }) => {
     },
   }
 
-  const gPositionX = gVariant[animation].x // 100
-  const gPositionY = gVariant[animation].y // 110
-
-  const linkHover =
-    path === "/"
-      ? { opacity: 1, transition: { duration: 0.4 } }
-      : { opacity: 0 }
-
-  if (dimensions.isDesktop) {
-    return (
+  return (
+    <>
+      {/* TODO account for link positions when SVG is 700x700 vs 1000x1000 */}
+      <NavContainer>
+        <MobileNav
+          variants={desktopNavVariants}
+          initial="home"
+          animate={animation}
+        >
+          <AboutNavLink
+            animate={linkAnimation}
+            variants={{
+              initial: { opacity: 0.0, x: -35, y: 60 },
+              home: {
+                opacity: 0.6,
+                x: -35,
+                y: 60,
+                transition: { duration: 4 },
+              },
+            }}
+            initial="initial"
+            whileHover={linkHover}
+            to={path === "/" ? "/about/" : "/"}
+          >
+            <div>Who we are</div>
+            <StarImg whileHover={starHover} src={star} />
+          </AboutNavLink>
+          <MobileNavLink
+            animate={linkAnimation}
+            variants={{
+              initial: { opacity: 0.0, x: 685, y: 165 },
+              home: {
+                opacity: 0.6,
+                x: 685,
+                y: 165,
+                transition: { duration: 4 },
+              },
+            }}
+            initial="initial"
+            whileHover={linkHover}
+            to={path === "/" ? "/esp/" : "/"}
+          >
+            <StarImg whileHover={starHover} src={star} />
+            <div>Ecosytem Support</div>
+          </MobileNavLink>
+          <MobileNavLink
+            animate={linkAnimation}
+            variants={{
+              initial: { opacity: 0.0, x: 685, y: 165 },
+              home: {
+                opacity: 0.6,
+                x: 520,
+                y: 450,
+                transition: { duration: 0 },
+              },
+            }}
+            initial="initial"
+            whileHover={linkHover}
+            to={path === "/" ? "/ethereum/" : "/"}
+          >
+            <StarImg whileHover={starHover} src={star} />
+            <div>What is Ethereum?</div>
+          </MobileNavLink>
+          <MobileNavLink
+            animate={linkAnimation}
+            variants={{
+              initial: { opacity: 0.0, x: 685, y: 165 },
+              home: {
+                opacity: 0.6,
+                x: -65,
+                y: 205,
+                transition: { duration: 0 },
+              },
+            }}
+            initial="initial"
+            whileHover={linkHover}
+            to={path === "/" ? "/philosophy/" : "/"}
+          >
+            <div>Our Philosophy</div>
+            <StarImg whileHover={starHover} src={star} />
+          </MobileNavLink>
+        </MobileNav>
+      </NavContainer>
       <SVG
         xmlns="http://www.w3.org/2000/svg"
         height={dimensions.height}
         width={dimensions.width}
         viewBox={`${dimensions.viewBoxMinX} ${dimensions.viewBoxMinY} ${dimensions.viewBoxWidth} ${dimensions.viewBoxHeight}`}
-        variants={constellationVariant}
+        variants={desktopVariants}
         initial="home"
         animate={animation}
       >
-        <NavLinkContainer
-          variants={linkVariants}
-          initial="initial"
-          animate={linkAnimation}
-          whileHover={linkHover}
-        >
-          <Link path={path} to={path === "/" ? "/about/" : "/"}>
-            <MotionText x={gPositionX + 120} y={gPositionY - 20} fill="white">
-              Who we are
-            </MotionText>
-            <Star
-              whileHover={starHover}
-              href={star}
-              x={gPositionX + 148}
-              y={gPositionY - 23}
-            />
-          </Link>
-        </NavLinkContainer>
-        <NavLinkContainer
-          variants={linkVariants}
-          initial="initial"
-          animate={linkAnimation}
-          whileHover={linkHover}
-        >
-          <NavLink path={path} to={path === "/" ? "/esp/" : "/"}>
-            <MotionText x={gPositionX + 500} y={gPositionY + 130} fill="white">
-              Ecosytem Support
-            </MotionText>
-            <Star
-              whileHover={starHover}
-              href={star}
-              x={gPositionX + 455}
-              y={gPositionY + 100}
-            />
-          </NavLink>
-        </NavLinkContainer>
-        <NavLinkContainer
-          variants={linkVariants}
-          initial="initial"
-          animate={linkAnimation}
-          whileHover={linkHover}
-        >
-          <NavLink path={path} to={path === "/" ? "/ethereum/" : "/"}>
-            <MotionText x={gPositionX + 375} y={gPositionY + 390} fill="white">
-              What is Ethereum?
-            </MotionText>
-            <Star
-              whileHover={starHover}
-              href={star}
-              x={gPositionX + 325}
-              y={gPositionY + 360}
-            />
-          </NavLink>
-        </NavLinkContainer>
-        <NavLinkContainer
-          variants={linkVariants}
-          initial="initial"
-          animate={linkAnimation}
-          whileHover={linkHover}
-        >
-          <NavLink path={path} to={path === "/" ? "/philosophy/" : "/"}>
-            <MotionText x={gPositionX - 160} y={gPositionY + 240} fill="white">
-              Our Philosophy
-            </MotionText>
-            <Star
-              whileHover={starHover}
-              href={star}
-              x={gPositionX - 20}
-              y={gPositionY + 210}
-            />
-          </NavLink>
-        </NavLinkContainer>
         <motion.g
           id="Group_48"
           data-name="Group 48"
@@ -399,148 +526,144 @@ const Constellation = ({ path }) => {
           />
         </motion.g>
       </SVG>
-    )
-  } else {
-    return (
-      <>
-        <MobileNav
-          variants={mobileLinkVariants}
-          initial="initial"
-          animate={linkAnimation}
-        >
-          <MobileNavLink
-            animate={{ x: 20, y: 105 }}
-            to={path === "/" ? "/about/" : "/"}
-          >
-            <StarImg src={star} />
-            <div>Who we are</div>
-          </MobileNavLink>
-          <MobileNavLink
-            animate={{ x: 135, y: 180 }}
-            to={path === "/" ? "/esp/" : "/"}
-          >
-            <StarImg src={star} />
-            <div>Ecosytem Support</div>
-          </MobileNavLink>
-          <MobileNavLink
-            animate={{ x: 125, y: 400 }}
-            to={path === "/" ? "/ethereum/" : "/"}
-          >
-            <StarImg src={star} />
-            <div>What is Ethereum?</div>
-          </MobileNavLink>
-          <MobileNavLink
-            animate={{ x: 18, y: 505 }}
-            to={path === "/" ? "/philosophy/" : "/"}
-          >
-            <StarImg src={star} />
-            <div>Our Philosophy</div>
-          </MobileNavLink>
-        </MobileNav>
-
-        <MobileSVG
-          xmlns="http://www.w3.org/2000/svg"
-          width="400"
-          height="700"
-          viewBox="0 0 200 650"
-        >
-          <MobileG
-            transform="translate(16.558 126.411)"
-            variants={mobileVariant}
-            initial="home"
-            animate={animation}
-          >
-            <path
-              d="M160.255-25.763,114.328,82.514Z"
-              transform="translate(-55.704 -0.98)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-            />
-            <path
-              d="M2.241,324.03l89.9-120.594Z"
-              transform="translate(5.677 -10.98)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-            />
-            <path
-              d="M214.424,73.827,122.57-25.5Z"
-              transform="translate(-109.873 -100.57)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-            />
-            <path
-              d="M122.57,108.9,146.554-25.5Z"
-              transform="translate(-138.636 -100.57)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-              opacity="0.407"
-            />
-            <path
-              d="M122.57-25.5l74.69,73.207Z"
-              transform="translate(-138.636 33.829)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-              opacity="0.407"
-            />
-            <path
-              d="M141.84,67.114,122.162-72.337Z"
-              transform="translate(-133.636 248.553)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-              opacity="0.407"
-            />
-            <path
-              d="M122.57,9.569,243.187-25.5Z"
-              transform="translate(-138.636 -1.242)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-              opacity="0.407"
-            />
-            <path
-              d="M122.57-25.5,231.453-10.118Z"
-              transform="translate(-133.636 202.575)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-              opacity="0.407"
-            />
-            <path
-              d="M153.52,85.159,114.328-25.763Z"
-              transform="translate(-55.704 107.297)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-            />
-            <path
-              d="M122.57,70.038,192.261-25.5Z"
-              transform="translate(-133.636 107.036)"
-              fill="none"
-              stroke="#fff"
-              strokeMiterlimit="10"
-              strokeWidth="1"
-              opacity="0.407"
-            />
-          </MobileG>
-        </MobileSVG>
-      </>
-    )
-  }
+    </>
+  )
 }
+
+const MobileConstellation = ({ animation, path }) => (
+  <>
+    <MobileNav variants={mobileNavVariants} initial="home" animate={animation}>
+      <MobileNavLink
+        animate={{ x: 20, y: 105 }}
+        to={path === "/" ? "/about/" : "/"}
+      >
+        <StarImg src={star} />
+        <div>Who we are</div>
+      </MobileNavLink>
+      <MobileNavLink
+        animate={{ x: 135, y: 180 }}
+        to={path === "/" ? "/esp/" : "/"}
+      >
+        <StarImg src={star} />
+        <div>Ecosytem Support</div>
+      </MobileNavLink>
+      <MobileNavLink
+        animate={{ x: 125, y: 400 }}
+        to={path === "/" ? "/ethereum/" : "/"}
+      >
+        <StarImg src={star} />
+        <div>What is Ethereum?</div>
+      </MobileNavLink>
+      <MobileNavLink
+        animate={{ x: 18, y: 505 }}
+        to={path === "/" ? "/philosophy/" : "/"}
+      >
+        <StarImg src={star} />
+        <div>Our Philosophy</div>
+      </MobileNavLink>
+    </MobileNav>
+
+    <SVG
+      xmlns="http://www.w3.org/2000/svg"
+      width="400"
+      height="700"
+      viewBox="0 0 200 650"
+    >
+      <motion.g
+        transform="translate(16.558 126.411)"
+        variants={mobileVariants}
+        initial="home"
+        animate={animation}
+      >
+        <path
+          d="M160.255-25.763,114.328,82.514Z"
+          transform="translate(-55.704 -0.98)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+        />
+        <path
+          d="M2.241,324.03l89.9-120.594Z"
+          transform="translate(5.677 -10.98)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+        />
+        <path
+          d="M214.424,73.827,122.57-25.5Z"
+          transform="translate(-109.873 -100.57)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+        />
+        <path
+          d="M122.57,108.9,146.554-25.5Z"
+          transform="translate(-138.636 -100.57)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          opacity="0.407"
+        />
+        <path
+          d="M122.57-25.5l74.69,73.207Z"
+          transform="translate(-138.636 33.829)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          opacity="0.407"
+        />
+        <path
+          d="M141.84,67.114,122.162-72.337Z"
+          transform="translate(-133.636 248.553)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          opacity="0.407"
+        />
+        <path
+          d="M122.57,9.569,243.187-25.5Z"
+          transform="translate(-138.636 -1.242)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          opacity="0.407"
+        />
+        <path
+          d="M122.57-25.5,231.453-10.118Z"
+          transform="translate(-133.636 202.575)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          opacity="0.407"
+        />
+        <path
+          d="M153.52,85.159,114.328-25.763Z"
+          transform="translate(-55.704 107.297)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+        />
+        <path
+          d="M122.57,70.038,192.261-25.5Z"
+          transform="translate(-133.636 107.036)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          opacity="0.407"
+        />
+      </motion.g>
+    </SVG>
+  </>
+)
 
 export default Constellation

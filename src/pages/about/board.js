@@ -78,10 +78,7 @@ const ExecutiveBoardPage = () => {
       <PageContainer>
         <HeaderContainer>
           <h1>Meet our Executive Board</h1>
-          <p style={{ maxWidth: `460px`, margin: `auto` }}>
-            As a non profit organization. lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-          </p>
+          <p style={{ maxWidth: `460px`, margin: `auto` }}></p>
         </HeaderContainer>
         <ProfileContainer>
           {board.map(member => (
