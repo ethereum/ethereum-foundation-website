@@ -274,7 +274,7 @@ const Constellation = ({ path }) => {
     const clientWidth = document.documentElement.clientWidth
     const isDesktop = clientWidth > screenSizeIntS ? true : false
     const isMobileLandscape = clientHeight < 400 ? true : false
-    const isDesktopXL = clientWidth > 1000 ? true : false
+    const isDesktopXL = clientHeight > 1000 ? true : false
     const isIpad = clientWidth < screenSizeIntL && clientWidth > screenSizeIntM
 
     if (isDesktopXL) {
@@ -391,7 +391,7 @@ const DekstopConstellation = ({
   let espPosition = { x: 630, y: 175 }
   let ethPosition = { x: 490, y: 415 }
   let philosophyPosition = { x: -30, y: 200 }
-  if (dimensions.isXL) {
+  if (dimensions.isDesktopXL) {
     aboutPosition = { x: -35, y: 60 }
     espPosition = { x: 685, y: 165 }
     ethPosition = { x: 520, y: 450 }
