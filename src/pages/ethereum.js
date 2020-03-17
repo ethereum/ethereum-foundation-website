@@ -46,8 +46,14 @@ const EthereumPage = () => (
         </p>
 
         <p>
-          To learn more about Ethereum or its native token (Ether), visit
-          ethereum.org
+          To learn more about Ethereum or its native token (Ether),{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://ethereum.org"
+          >
+            visit ethereum.org
+          </a>
         </p>
         <ButtonContainer>
           <Button

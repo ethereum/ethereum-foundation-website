@@ -33,7 +33,15 @@ const EcosystemSupportPage = () => (
 
         <p>
           Interested in learning more about Ecosystem Support and whether it
-          might be a good fit for your project?
+          might be a good fit for your project?{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://ecosystem.support"
+          >
+            Visit ecosystem.support
+          </a>
+          .
         </p>
         <ButtonContainer>
           <Button
