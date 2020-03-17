@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
 import { Location } from "@reach/router"
 
-import FullBackground from "./FullBackground"
 import Constellation from "./Constellation"
 import Footer from "./Footer"
 
@@ -103,48 +102,46 @@ const Layout = ({ children }) => {
   const footerShiftY = layoutState.clientWidth < 780 ? -380 : -186
 
   return (
-    <FullBackground>
-      <StyledLayout>
-        <TopLayout
-          variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
-          transition={{ duration: 1 }}
-          initial="normal"
-          animate={layoutState.isFooterOpen ? "open" : "normal"}
-        >
-          <Location>
-            {({ location }) => {
-              return (
-                <>
-                  {location.pathname === "/" && (
-                    <Logo src={HomeLogo} alt="Ethereum Foundation Logo" />
-                  )}
-                  {location.pathname !== "/" && <SubpageNav />}
-                  <Constellation path={location.pathname} />
-                  <AnimatePresence>
-                    <Main
-                      key={location.pathname}
-                      variants={variants}
-                      initial="initial"
-                      animate="enter"
-                      exit="exit"
-                    >
-                      {children}
-                    </Main>
-                  </AnimatePresence>
-                </>
-              )
-            }}
-          </Location>
-        </TopLayout>
-        <BottomLayout>
-          <Footer
-            isOpen={layoutState.isFooterOpen}
-            clientWidth={layoutState.clientWidth}
-            setLayoutState={setLayoutState}
-          />
-        </BottomLayout>
-      </StyledLayout>
-    </FullBackground>
+    <StyledLayout>
+      <TopLayout
+        variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
+        transition={{ duration: 1 }}
+        initial="normal"
+        animate={layoutState.isFooterOpen ? "open" : "normal"}
+      >
+        <Location>
+          {({ location }) => {
+            return (
+              <>
+                {location.pathname === "/" && (
+                  <Logo src={HomeLogo} alt="Ethereum Foundation Logo" />
+                )}
+                {location.pathname !== "/" && <SubpageNav />}
+                <Constellation path={location.pathname} />
+                <AnimatePresence>
+                  <Main
+                    key={location.pathname}
+                    variants={variants}
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                  >
+                    {children}
+                  </Main>
+                </AnimatePresence>
+              </>
+            )
+          }}
+        </Location>
+      </TopLayout>
+      <BottomLayout>
+        <Footer
+          isOpen={layoutState.isFooterOpen}
+          clientWidth={layoutState.clientWidth}
+          setLayoutState={setLayoutState}
+        />
+      </BottomLayout>
+    </StyledLayout>
   )
 }
 
