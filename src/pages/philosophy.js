@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import SideNav from "../components/SideNav"
 import SEO from "../components/SEO"
@@ -10,18 +9,6 @@ import {
 } from "../components/SharedStyledComponents"
 
 const PhilosophyPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "philosophy.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 540) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <SEO title="Philosophy of Subtraction" />
