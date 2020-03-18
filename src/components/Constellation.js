@@ -191,8 +191,8 @@ const mobileNavVariants = {
 
 const desktopVariants = {
   home: {
-    x: 0,
-    y: 0,
+    x: 110,
+    y: 120,
     scale: 1,
     rotate: 0,
     transition: {
@@ -200,8 +200,8 @@ const desktopVariants = {
     },
   },
   about: {
-    x: 650,
-    y: -520,
+    x: 350,
+    y: -650,
     scale: 2,
     rotate: 150,
     transition: {
@@ -209,8 +209,8 @@ const desktopVariants = {
     },
   },
   philosophy: {
-    x: -750,
-    y: 800,
+    x: -50,
+    y: 300,
     scale: 2,
     rotate: -130,
     transition: {
@@ -218,8 +218,8 @@ const desktopVariants = {
     },
   },
   esp: {
-    x: -1250,
-    y: -1175,
+    x: -1180,
+    y: -840,
     scale: 2,
     rotate: 35,
     transition: {
@@ -227,8 +227,8 @@ const desktopVariants = {
     },
   },
   ethereum: {
-    x: -1750,
-    y: -580,
+    x: -1250,
+    y: -180,
     scale: 2,
     rotate: -23,
     transition: {
@@ -239,8 +239,8 @@ const desktopVariants = {
 
 const desktopXLVariants = {
   home: {
-    x: 0,
-    y: 0,
+    x: 128,
+    y: 140,
     scale: 1,
     opacity: 1,
     rotate: 0,
@@ -259,18 +259,18 @@ const desktopXLVariants = {
     },
   },
   about: {
-    x: 700,
-    y: 100,
+    x: 350,
+    y: -170,
     scale: 2,
     opacity: 1,
-    rotate: 160,
+    rotate: 150,
     transition: {
       duration: 1.5,
     },
   },
   philosophy: {
-    x: -700,
-    y: 800,
+    x: -580,
+    y: 1040,
     scale: 2,
     opacity: 1,
     rotate: -130,
@@ -279,8 +279,8 @@ const desktopXLVariants = {
     },
   },
   esp: {
-    x: -900,
-    y: -1575,
+    x: -800,
+    y: -1170,
     scale: 2,
     opacity: 1,
     rotate: 35,
@@ -289,8 +289,8 @@ const desktopXLVariants = {
     },
   },
   ethereum: {
-    x: -1650,
-    y: -920,
+    x: -1330,
+    y: -770,
     scale: 2,
     opacity: 1,
     rotate: -23,
@@ -598,12 +598,10 @@ const DesktopConstellation = ({ path, dimensions }) => {
         animate={dimensions.animation}
         overflow="hidden"
       >
-        {/* TODO remove this animation? */}
         <motion.g
           id="Group_48"
           data-name="Group 48"
           transform="translate(-0.004 -0.004)"
-          animate={{ x: 100, y: 110 }}
         >
           <motion.path
             variants={pathVariants}
