@@ -3,9 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
-import { Location } from "@reach/router"
 
-import Constellation from "./Constellation"
 import Footer from "./Footer"
 
 import "./layout.css"
@@ -14,7 +12,7 @@ import HomeLogo from "../images/ethereum-foundation-logo.svg"
 import { screenSizeS } from "../utils/styles"
 
 const Image = styled(motion.img)`
-  position: absolute;
+  position: fixed;
   z-index: 20;
   top: 20px;
   left: 40px;
@@ -63,7 +61,7 @@ const variants = {
 }
 
 const SubpageNav = () => (
-  <nav>
+  <motion.nav variants={variants} initial="initial" animate="enter" exit="exit">
     <Link to="/">
       <Image
         src={EFLogo}
@@ -71,10 +69,10 @@ const SubpageNav = () => (
         whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
       />
     </Link>
-  </nav>
+  </motion.nav>
 )
 
-const Logo = styled.img`
+const Logo = styled(motion.img)`
   position: absolute;
   z-index: 20;
   top: calc(50% - 53px); /* 106px / 2 */
@@ -87,7 +85,7 @@ const Logo = styled.img`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, path }) => {
   const [layoutState, setLayoutState] = useState({
     isFooterOpen: false,
   })
@@ -105,34 +103,37 @@ const Layout = ({ children }) => {
     <StyledLayout>
       <TopLayout
         variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
         initial="normal"
         animate={layoutState.isFooterOpen ? "open" : "normal"}
       >
-        <Location>
-          {({ location }) => {
-            return (
-              <>
-                {location.pathname === "/" && (
-                  <Logo src={HomeLogo} alt="Ethereum Foundation Logo" />
-                )}
-                {location.pathname !== "/" && <SubpageNav />}
-                <Constellation path={location.pathname} />
-                <AnimatePresence>
-                  <Main
-                    key={location.pathname}
-                    variants={variants}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                  >
-                    {children}
-                  </Main>
-                </AnimatePresence>
-              </>
-            )
-          }}
-        </Location>
+        <AnimatePresence>
+          {path === "/" && (
+            <Logo
+              src={HomeLogo}
+              alt="Ethereum Foundation Logo"
+              variants={variants}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>{path !== "/" && <SubpageNav />}</AnimatePresence>
+
+        {/* TODO this is triggering UI "jumps" on constellation */}
+        {/* Move contellation into the wrapPageElement? */}
+        <AnimatePresence>
+          <Main
+            key={path}
+            variants={variants}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+          >
+            {children}
+          </Main>
+        </AnimatePresence>
       </TopLayout>
       <BottomLayout>
         <Footer
