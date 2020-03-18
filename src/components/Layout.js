@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "gatsby"
 
 import Footer from "./Footer"
+import Constellation from "./Constellation"
 
 import "./layout.css"
 import EFLogo from "../images/ethereum-logo.svg"
@@ -107,6 +108,7 @@ const Layout = ({ children, path }) => {
         initial="normal"
         animate={layoutState.isFooterOpen ? "open" : "normal"}
       >
+        <Constellation path={path} />
         <AnimatePresence>
           {path === "/" && (
             <Logo
