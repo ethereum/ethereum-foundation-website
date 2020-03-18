@@ -671,6 +671,51 @@ const MobileConstellation = ({ animation, path }) => (
       height="700"
       viewBox="0 0 200 650"
     >
+      <defs>
+        <pattern
+          id="star"
+          preserveAspectRatio="none"
+          width="100%"
+          height="100%"
+          viewBox="0 0 240 242"
+        >
+          <motion.image width="240" height="242" xlinkHref={star} />
+        </pattern>
+      </defs>
+      <motion.g transform="translate(-80 60)">
+        <g transform="translate(45 22)">
+          <rect
+            width="50"
+            height="50"
+            transform="translate(0 -0.094)"
+            fill="url(#star)"
+          />
+        </g>
+        <g transform="translate(39 353.34)">
+          <rect
+            width="50"
+            height="50"
+            transform="translate(89 -10.434)"
+            fill="url(#star)"
+          />
+        </g>
+        <g transform="translate(42 459.813)">
+          <rect
+            width="50"
+            height="50"
+            transform="translate(0 0.094)"
+            fill="url(#star)"
+          />
+        </g>
+        <g transform="translate(134 121.86)">
+          <rect
+            width="50"
+            height="50"
+            transform="translate(0 0.046)"
+            fill="url(#star)"
+          />
+        </g>
+      </motion.g>
       <motion.g
         transform="translate(16.558 126.411)"
         variants={mobileVariants}
@@ -678,13 +723,14 @@ const MobileConstellation = ({ animation, path }) => (
         animate={animation}
       >
         {/* about */}
-        <Star whileHover={starHover} href={star} x={-14} y={-150} />
+        {/* <Star whileHover={starHover} href={star} x={-14} y={-150} /> */}
         {/* esp */}
-        <Star whileHover={starHover} href={star} x={80} y={-50} />
+        {/* <Star whileHover={starHover} href={star} x={80} y={-50} /> */}
         {/* ethereum */}
-        <Star whileHover={starHover} href={star} x={70} y={170} />
+        {/* <Star whileHover={starHover} href={star} x={70} y={170} /> */}
         {/* philosophy */}
-        <Star whileHover={starHover} href={star} x={-16} y={290} />
+        {/* <Star whileHover={starHover} href={star} x={-16} y={290} /> */}
+
         <path
           d="M160.255-25.763,114.328,82.514Z"
           transform="translate(-55.704 -0.98)"
