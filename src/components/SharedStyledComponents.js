@@ -25,7 +25,7 @@ export const PageH1 = styled.h1`
   margin-bottom: 0;
 `
 
-//
+// Buttons
 
 export const ButtonIcon = styled(FontAwesomeIcon)`
   margin-left: 1rem;
