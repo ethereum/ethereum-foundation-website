@@ -31,9 +31,9 @@ const EthereumPage = () => (
         </p>
 
         <p>
-          Ethereum applications are diverse, spanning a huge range of industries
+          Ethereum applications are diverse, spanning a range of industries
           and use-cases. They might be financial (like payments, lending, or
-          insurance), games (like collectible cards, or virtual worlds) or
+          insurance), games (like collectible cards, or virtual worlds),
           identity related (self-sovereign ID) or something entirely different.
           Each “web 3” application benefits from censorship resistance,
           decentralization, and security.
