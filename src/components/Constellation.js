@@ -9,7 +9,6 @@ import {
   screenSizeIntM,
   screenSizeIntL,
   screenSizeL,
-  screenHeightMobileLandscape,
 } from "../utils/styles"
 
 const SVG = styled(motion.svg)`
@@ -260,8 +259,8 @@ const desktopXLVariants = {
     },
   },
   philosophy: {
-    x: -580,
-    y: 1040,
+    x: -600,
+    y: 440,
     scale: 2,
     opacity: 1,
     rotate: -130,

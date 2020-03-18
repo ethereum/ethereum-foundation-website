@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 import Profile from "../../components/Profile"
 import SEO from "../../components/SEO"
+import { screenSizeM } from "../../utils/styles"
 
 const PageContainer = styled.div`
   margin: 6rem auto 4rem;
@@ -21,9 +22,12 @@ const ProfileContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  @media (min-width: ${screenSizeM}) {
+    padding-top: 80px;
+  }
 `
 
-// TODO remove after confirmation
 const ExecutiveBoardPage = () => {
   const data = useStaticQuery(graphql`
     query {
