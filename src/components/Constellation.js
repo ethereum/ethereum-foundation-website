@@ -38,15 +38,13 @@ const NavContainer = styled(motion.div)`
   align-items: center;
 `
 
-const MobileNav = styled(motion.nav)`
+const Nav = styled(motion.nav)`
   width: ${props => props.width};
   height: ${props => props.height};
 `
 const NavLinkContainer = styled(motion.div)``
 
 const NavLink = styled(Link)`
-  display: flex;
-  align-items: center;
   color: white;
 
   &:hover {
@@ -54,15 +52,8 @@ const NavLink = styled(Link)`
   }
 `
 
-const AboutNavLink = styled(NavLink)`
-  flex-direction: column;
-  @media (max-height: ${screenHeightMobileLandscape}) {
-    flex-direction: row-reverse;
-    align-items: flex-start;
-  }
-`
-
-const StarImg = styled(motion.img)`
+// TODO make link & fix hover
+const Star = styled(motion.image)`
   height: 50px;
   width: 50px;
 `
@@ -467,17 +458,17 @@ const DesktopConstellation = ({ path, dimensions }) => {
 
   let constellationVariants = desktopVariants
 
-  let aboutPosition = { x: -30, y: 90 }
-  let espPosition = { x: 630, y: 175 }
-  let ethPosition = { x: 490, y: 415 }
-  let philosophyPosition = { x: -30, y: 200 }
+  let aboutPosition = { x: 270, y: 100 }
+  let espPosition = { x: 680, y: 235 }
+  let ethPosition = { x: 540, y: 495 }
+  let philosophyPosition = { x: -25, y: 305 }
 
   if (dimensions.isDesktopXL) {
     constellationVariants = desktopXLVariants
-    aboutPosition = { x: -35, y: 60 }
-    espPosition = { x: 685, y: 165 }
-    ethPosition = { x: 520, y: 450 }
-    philosophyPosition = { x: -65, y: 205 }
+    aboutPosition = { x: 260, y: 60 }
+    espPosition = { x: 730, y: 225 }
+    ethPosition = { x: 560, y: 535 }
+    philosophyPosition = { x: -65, y: 315 }
   } else if (dimensions.isMobileLandscape) {
     aboutPosition = { x: -240, y: 170 }
     espPosition = { x: 535, y: 210 }
@@ -500,7 +491,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
             animate="enter"
             exit="exit"
           >
-            <MobileNav
+            <Nav
               height="700px"
               width="700px"
               variants={desktopNavVariants}
@@ -521,10 +512,9 @@ const DesktopConstellation = ({ path, dimensions }) => {
                 whileHover="hover"
                 initial="initial"
               >
-                <AboutNavLink to={path === "/" ? "/about/" : "/"}>
-                  <div>Who we are</div>
-                  <StarImg whileHover={starHover} src={star} />
-                </AboutNavLink>
+                <NavLink to={path === "/" ? "/about/" : "/"}>
+                  Who we are
+                </NavLink>
               </NavLinkContainer>
               <NavLinkContainer
                 animate={dimensions.linkAnimation}
@@ -537,10 +527,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
                 initial="initial"
               >
                 <NavLink to={path === "/" ? "/esp/" : "/"}>
-                  <StarImg whileHover={starHover} src={star} />
-                  <div>
-                    Ecosytem <MedBreakpoint /> Support
-                  </div>
+                  Ecosytem <MedBreakpoint /> Support
                 </NavLink>
               </NavLinkContainer>
               <NavLinkContainer
@@ -554,8 +541,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
                 initial="initial"
               >
                 <NavLink to={path === "/" ? "/ethereum/" : "/"}>
-                  <StarImg whileHover={starHover} src={star} />
-                  <div>What is Ethereum?</div>
+                  What is Ethereum?
                 </NavLink>
               </NavLinkContainer>
               <NavLinkContainer
@@ -580,11 +566,10 @@ const DesktopConstellation = ({ path, dimensions }) => {
                 whileHover="hover"
               >
                 <NavLink to={path === "/" ? "/philosophy/" : "/"}>
-                  <div>Our Philosophy</div>
-                  <StarImg whileHover={starHover} src={star} />
+                  Our Philosophy
                 </NavLink>
               </NavLinkContainer>
-            </MobileNav>
+            </Nav>
           </NavContainer>
         )}
       </AnimatePresence>
@@ -603,6 +588,14 @@ const DesktopConstellation = ({ path, dimensions }) => {
           data-name="Group 48"
           transform="translate(-0.004 -0.004)"
         >
+          {/* about */}
+          <Star whileHover={starHover} href={star} x={148} y={-20} />
+          {/* esp */}
+          <Star whileHover={starHover} href={star} x={455} y={100} />
+          {/* ethereum */}
+          <Star whileHover={starHover} href={star} x={325} y={360} />
+          {/* philosophy */}
+          <Star whileHover={starHover} href={star} x={-25} y={210} />
           <motion.path
             variants={pathVariants}
             initial="hidden"
@@ -643,38 +636,34 @@ const DesktopConstellation = ({ path, dimensions }) => {
 const MobileConstellation = ({ animation, path }) => (
   <>
     <NavContainer>
-      <MobileNav
+      <Nav
         height="100%"
         width="100%"
         variants={mobileNavVariants}
         initial="home"
         animate={animation}
       >
-        <NavLinkContainer animate={{ x: 20, y: 105 }}>
+        <NavLinkContainer animate={{ x: 70, y: 120 }}>
           <NavLink to={path === "/" ? "/about/" : "/"}>
-            <StarImg src={star} />
             <div>Who we are</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 135, y: 180 }}>
+        <NavLinkContainer animate={{ x: 179, y: 220 }}>
           <NavLink to={path === "/" ? "/esp/" : "/"}>
-            <StarImg src={star} />
             <div>Ecosytem Support</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 125, y: 400 }}>
+        <NavLinkContainer animate={{ x: 170, y: 470 }}>
           <NavLink to={path === "/" ? "/ethereum/" : "/"}>
-            <StarImg src={star} />
             <div>What is Ethereum?</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 18, y: 505 }}>
+        <NavLinkContainer animate={{ x: 60, y: 600 }}>
           <NavLink to={path === "/" ? "/philosophy/" : "/"}>
-            <StarImg src={star} />
             <div>Our Philosophy</div>
           </NavLink>
         </NavLinkContainer>
-      </MobileNav>
+      </Nav>
     </NavContainer>
 
     <SVG
@@ -689,6 +678,14 @@ const MobileConstellation = ({ animation, path }) => (
         initial="home"
         animate={animation}
       >
+        {/* about */}
+        <Star whileHover={starHover} href={star} x={-14} y={-150} />
+        {/* esp */}
+        <Star whileHover={starHover} href={star} x={80} y={-50} />
+        {/* ethereum */}
+        <Star whileHover={starHover} href={star} x={70} y={170} />
+        {/* philosophy */}
+        <Star whileHover={starHover} href={star} x={-16} y={290} />
         <path
           d="M160.255-25.763,114.328,82.514Z"
           transform="translate(-55.704 -0.98)"
