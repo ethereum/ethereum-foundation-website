@@ -94,8 +94,8 @@ const mobileVariants = {
     },
   },
   about: {
-    x: -240,
-    y: -450,
+    x: -290,
+    y: -430,
     scale: 2,
     rotate: 160,
     transition: {
@@ -103,8 +103,8 @@ const mobileVariants = {
     },
   },
   philosophy: {
-    x: -300,
-    y: -580,
+    x: -330,
+    y: -400,
     scale: 2,
     rotate: -50,
     transition: {
@@ -112,8 +112,8 @@ const mobileVariants = {
     },
   },
   esp: {
-    x: -310,
-    y: -70,
+    x: -320,
+    y: -50,
     scale: 2,
     rotate: 70,
     transition: {
@@ -121,8 +121,8 @@ const mobileVariants = {
     },
   },
   ethereum: {
-    x: -45,
-    y: -285,
+    x: -60,
+    y: -265,
     scale: 2,
     rotate: 20,
     transition: {
