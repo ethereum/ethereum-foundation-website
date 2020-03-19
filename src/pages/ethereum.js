@@ -1,4 +1,5 @@
 import React from "react"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
@@ -31,8 +32,8 @@ const EthereumPage = () => (
         </p>
 
         <p>
-          Ethereum applications are diverse, spanning a range of industries
-          and use-cases. They might be financial (like payments, lending, or
+          Ethereum applications are diverse, spanning a range of industries and
+          use-cases. They might be financial (like payments, lending, or
           insurance), games (like collectible cards, or virtual worlds),
           identity related (self-sovereign ID) or something entirely different.
           Each “web 3” application benefits from censorship resistance,
@@ -47,13 +48,13 @@ const EthereumPage = () => (
 
         <p>
           To learn more about Ethereum or its native token (Ether),{" "}
-          <a
+          <OutboundLink
             target="_blank"
             rel="noopener noreferrer"
             href="https://ethereum.org"
           >
             visit ethereum.org
-          </a>
+          </OutboundLink>
         </p>
         <ButtonContainer>
           <Button

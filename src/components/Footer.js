@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
@@ -111,7 +112,7 @@ const IconContainer = styled(motion.div)`
   }
 `
 
-const ImageAndTextLink = styled.a`
+const ImageAndTextLink = styled(OutboundLink)`
   display: flex;
   flex-direction: column;
 `
@@ -150,11 +151,15 @@ const Footer = ({ isOpen, clientWidth, setLayoutState }) => {
               <FooterDivContact>
                 <strong>General Contact:</strong>
                 <div style={{ marginBottom: `16px` }}>
-                  <a href="mailto:info@ethereum.org">info@ethereum.org</a>
+                  <OutboundLink href="mailto:info@ethereum.org">
+                    info@ethereum.org
+                  </OutboundLink>
                 </div>
                 <strong>Press Contact:</strong>
                 <div>
-                  <a href="mailto:press@ethereum.org">press@ethereum.org</a>
+                  <OutboundLink href="mailto:press@ethereum.org">
+                    press@ethereum.org
+                  </OutboundLink>
                 </div>
               </FooterDivContact>
               <FooterDivCanary>

@@ -1,4 +1,5 @@
 import React from "react"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
@@ -34,13 +35,13 @@ const EcosystemSupportPage = () => (
         <p>
           Interested in learning more about Ecosystem Support and whether it
           might be a good fit for your project?{" "}
-          <a
+          <OutboundLink
             target="_blank"
             rel="noopener noreferrer"
             href="https://ecosystem.support"
           >
             Visit ecosystem.support
-          </a>
+          </OutboundLink>
           .
         </p>
         <ButtonContainer>
