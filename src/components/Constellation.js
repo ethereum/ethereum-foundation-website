@@ -649,17 +649,17 @@ const MobileConstellation = ({ animation, path }) => (
         initial="home"
         animate={animation}
       >
-        <NavLinkContainer animate={{ x: 100, y: 90 }}>
+        <NavLinkContainer animate={{ x: 90, y: 90 }}>
           <NavLink to={path === "/" ? "/about/" : "/"}>
             <div>Who we are</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 180, y: 170 }}>
+        <NavLinkContainer animate={{ x: 170, y: 170 }}>
           <NavLink to={path === "/" ? "/esp/" : "/"}>
             <div>Ecosytem Support</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 180, y: 380 }}>
+        <NavLinkContainer animate={{ x: 160, y: 370 }}>
           <NavLink to={path === "/" ? "/ethereum/" : "/"}>
             <div>What is Ethereum?</div>
           </NavLink>
