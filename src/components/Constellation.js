@@ -92,7 +92,7 @@ const starHover = { scale: 1.8, transition: { duration: 0.5 } }
 
 const mobileVariants = {
   home: {
-    x: -25,
+    x: -45,
     y: 230,
     scale: 1,
     rotate: 0,
@@ -649,22 +649,22 @@ const MobileConstellation = ({ animation, path }) => (
         initial="home"
         animate={animation}
       >
-        <NavLinkContainer animate={{ x: 80, y: 100 }}>
+        <NavLinkContainer animate={{ x: 100, y: 90 }}>
           <NavLink to={path === "/" ? "/about/" : "/"}>
             <div>Who we are</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 180, y: 200 }}>
+        <NavLinkContainer animate={{ x: 180, y: 170 }}>
           <NavLink to={path === "/" ? "/esp/" : "/"}>
             <div>Ecosytem Support</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 180, y: 430 }}>
+        <NavLinkContainer animate={{ x: 180, y: 380 }}>
           <NavLink to={path === "/" ? "/ethereum/" : "/"}>
             <div>What is Ethereum?</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 80, y: 560 }}>
+        <NavLinkContainer animate={{ x: 80, y: 460 }}>
           <NavLink to={path === "/" ? "/philosophy/" : "/"}>
             <div>Our Philosophy</div>
           </NavLink>

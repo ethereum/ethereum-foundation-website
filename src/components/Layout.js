@@ -91,7 +91,7 @@ const Logo = styled(motion.img)`
   min-width: 240px;
 
   @media (max-width: ${screenSizeS}) {
-    left: calc(50% - 110px);
+    left: calc(50% - 100px);
   }
 `
 
