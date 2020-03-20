@@ -13,7 +13,7 @@ import HomeLogo from "../images/ethereum-foundation-logo.svg"
 import { screenSizeS } from "../utils/styles"
 
 const Image = styled(motion.img)`
-  position: fixed;
+  position: ${props => (props.isMobile ? `absolute` : `fixed`)};
   z-index: 20;
   top: 20px;
   left: 40px;
@@ -61,17 +61,25 @@ const variants = {
   },
 }
 
-const SubpageNav = () => (
-  <motion.nav variants={variants} initial="initial" animate="enter" exit="exit">
-    <Link to="/">
-      <Image
-        src={EFLogo}
-        alt="Ethereum Logo"
-        whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
-      />
-    </Link>
-  </motion.nav>
-)
+const SubpageNav = ({ isMobile }) => {
+  return (
+    <motion.nav
+      variants={variants}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+    >
+      <Link to="/">
+        <Image
+          isMobile={isMobile}
+          src={EFLogo}
+          alt="Ethereum Logo"
+          whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
+        />
+      </Link>
+    </motion.nav>
+  )
+}
 
 const Logo = styled(motion.img)`
   position: absolute;
@@ -94,11 +102,11 @@ const Layout = ({ children, path }) => {
   useEffect(() => {
     setLayoutState({
       isFooterOpen: layoutState.isFooterOpen,
-      clientWidth: document.documentElement.clientWidth,
+      isMobile: document.documentElement.clientWidth < 780,
     })
   }, [layoutState.isFooterOpen])
 
-  const footerShiftY = layoutState.clientWidth < 780 ? -380 : -186
+  const footerShiftY = layoutState.isMobile ? -380 : -186
 
   return (
     <StyledLayout>
@@ -121,7 +129,9 @@ const Layout = ({ children, path }) => {
             />
           )}
         </AnimatePresence>
-        <AnimatePresence>{path !== "/" && <SubpageNav />}</AnimatePresence>
+        <AnimatePresence>
+          {path !== "/" && <SubpageNav isMobile={layoutState.isMobile} />}
+        </AnimatePresence>
 
         {/* TODO this is triggering UI "jumps" on constellation */}
         {/* Move contellation into the wrapPageElement? */}
@@ -140,7 +150,7 @@ const Layout = ({ children, path }) => {
       <BottomLayout>
         <Footer
           isOpen={layoutState.isFooterOpen}
-          clientWidth={layoutState.clientWidth}
+          isMobile={layoutState.isMobile}
           setLayoutState={setLayoutState}
         />
       </BottomLayout>
