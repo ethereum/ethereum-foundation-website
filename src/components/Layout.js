@@ -28,6 +28,7 @@ const StyledLayout = styled.div`
 
 const TopLayout = styled(motion.div)`
   min-height: 100vh;
+  min-height: ${props => props.innerHeight};
   position: relative;
   overflow: hidden;
 `
@@ -103,6 +104,7 @@ const Layout = ({ children, path }) => {
     setLayoutState({
       isFooterOpen: layoutState.isFooterOpen,
       isMobile: document.documentElement.clientWidth < 780,
+      innerHeight: `${window.innerHeight}px`,
     })
   }, [layoutState.isFooterOpen])
 
@@ -111,6 +113,7 @@ const Layout = ({ children, path }) => {
   return (
     <StyledLayout>
       <TopLayout
+        innerHeight={layoutState.innerHeight}
         variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
         transition={{ duration: 0.8 }}
         initial="normal"
