@@ -138,7 +138,6 @@ const mobileVariants = {
   },
 }
 
-// TODO is this needed?
 const mobileNavVariants = {
   home: {
     x: 0,
@@ -650,22 +649,22 @@ const MobileConstellation = ({ animation, path }) => (
         initial="home"
         animate={animation}
       >
-        <NavLinkContainer animate={{ x: 70, y: 120 }}>
+        <NavLinkContainer animate={{ x: 80, y: 100 }}>
           <NavLink to={path === "/" ? "/about/" : "/"}>
             <div>Who we are</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 179, y: 220 }}>
+        <NavLinkContainer animate={{ x: 180, y: 200 }}>
           <NavLink to={path === "/" ? "/esp/" : "/"}>
             <div>Ecosytem Support</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 170, y: 470 }}>
+        <NavLinkContainer animate={{ x: 180, y: 430 }}>
           <NavLink to={path === "/" ? "/ethereum/" : "/"}>
             <div>What is Ethereum?</div>
           </NavLink>
         </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 60, y: 600 }}>
+        <NavLinkContainer animate={{ x: 80, y: 560 }}>
           <NavLink to={path === "/" ? "/philosophy/" : "/"}>
             <div>Our Philosophy</div>
           </NavLink>
