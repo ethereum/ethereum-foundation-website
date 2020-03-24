@@ -3,6 +3,7 @@ module.exports = {
     title: `Ethereum Foundation`,
     description: `The Ethereum Foundation is a non-profit organization dedicated to supporting the Ethereum blockchain and related technologies.`,
     author: `@ethereum`,
+    siteUrl: `https://ethereum.foundation`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -47,6 +48,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
