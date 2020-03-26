@@ -104,6 +104,7 @@ class Layout extends React.Component {
   }
 
   componentDidMount = () => {
+    window.addEventListener("scroll", this.handleScroll)
     this.setState({
       isFooterOpen: this.state.isFooterOpen,
       isMobile: document.documentElement.clientWidth < 780,
@@ -113,6 +114,15 @@ class Layout extends React.Component {
 
   handleFooterToggle = () => {
     this.setState({ isFooterOpen: !this.state.isFooterOpen })
+  }
+
+  // If footer is open & user scrolls, close footer
+  // This prevents inaccessiblity of nav on footerShiftY
+  handleScroll = () => {
+    console.log("handleScroll")
+    if (this.state.isFooterOpen) {
+      this.setState({ isFooterOpen: false })
+    }
   }
 
   render() {
