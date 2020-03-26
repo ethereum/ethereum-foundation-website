@@ -6,7 +6,11 @@
   Ethereum Foundation
 </h1>
 
-The Ethereum Foundation is a non-profit organization dedicated to supporting the Ethereum blockchain and related technologies. We allocate resources to critical projects, use our voice as a positive force within the ecosystem, and are an advocate for Ethereum to the world.
+The Ethereum Foundation (EF) is a non-profit organization dedicated to supporting Ethereum and related technologies.
+
+The EF is not a company, or even a traditional non-profit. We do not control Ethereum, nor are we the only organization that funds critical development of Ethereum-related technologies. We are part of a large ecosystem of organizations, individuals, and companies that support Ethereum.
+
+Our mission is to do what is best for Ethereum’s long-term success. Our role is to allocate resources to critical projects, to be a valued voice within the Ethereum ecosystem, and to advocate for Ethereum to the outside world.
 
 This repository holds the codebase to our website, [ethereum.foundation](https://ethereum.foundation)
 
