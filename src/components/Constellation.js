@@ -60,12 +60,6 @@ const NavLink = styled(Link)`
   }
 `
 
-// TODO make link & fix hover
-const Star = styled(motion.image)`
-  height: 50px;
-  width: 50px;
-`
-
 const NavContainerVariants = {
   initial: {
     opacity: 0,
@@ -89,7 +83,8 @@ const linkVariants = {
   hover: { opacity: 1, transition: { duration: 0.5 } },
 }
 
-const starHover = { scale: 1.8, transition: { duration: 0.5 } }
+// TODO make link & fix hover
+// const starHover = { scale: 1.8, transition: { duration: 0.5 } }
 
 const mobileVariants = {
   home: {
@@ -616,19 +611,35 @@ const DesktopConstellation = ({ path, dimensions }) => {
         animate={dimensions.animation}
         overflow="hidden"
       >
-        <motion.g
-          id="Group_48"
-          data-name="Group 48"
-          transform="translate(-0.004 -0.004)"
-        >
+        <defs>
+          <pattern
+            id="star"
+            preserveAspectRatio="none"
+            width="100%"
+            height="100%"
+            viewBox="0 0 240 240"
+          >
+            <motion.image width="240" height="240" xlinkHref={star} />
+          </pattern>
+        </defs>
+
+        <motion.g id="Group_48" data-name="Group 48">
           {/* about */}
-          <Star whileHover={starHover} href={star} x={148} y={-20} />
+          <motion.g transform="translate(148 -22)">
+            <motion.rect width="50" height="50" fill="url(#star)" />
+          </motion.g>
           {/* esp */}
-          <Star whileHover={starHover} href={star} x={455} y={100} />
+          <g transform="translate(455 100)">
+            <motion.rect width="50" height="50" fill="url(#star)" />
+          </g>
           {/* ethereum */}
-          <Star whileHover={starHover} href={star} x={325} y={360} />
+          <g transform="translate(325 360)">
+            <motion.rect width="50" height="50" fill="url(#star)" />
+          </g>
           {/* philosophy */}
-          <Star whileHover={starHover} href={star} x={-25} y={210} />
+          <g transform="translate(-25 210)">
+            <motion.rect width="50" height="50" fill="url(#star)" />
+          </g>
           <motion.path
             variants={pathVariants}
             initial="hidden"
@@ -711,9 +722,9 @@ const MobileConstellation = ({ animation, path }) => (
           preserveAspectRatio="none"
           width="100%"
           height="100%"
-          viewBox="0 0 240 242"
+          viewBox="0 0 240 240"
         >
-          <motion.image width="240" height="242" xlinkHref={star} />
+          <motion.image width="240" height="240" xlinkHref={star} />
         </pattern>
       </defs>
 
