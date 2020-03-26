@@ -119,7 +119,6 @@ class Layout extends React.Component {
   // If footer is open & user scrolls, close footer
   // This prevents inaccessiblity of nav on footerShiftY
   handleScroll = () => {
-    console.log("handleScroll")
     if (this.state.isFooterOpen) {
       this.setState({ isFooterOpen: false })
     }
@@ -130,6 +129,11 @@ class Layout extends React.Component {
 
     return (
       <StyledLayout>
+        <AnimatePresence>
+          {this.props.path !== "/" && (
+            <SubpageNav isMobile={this.state.isMobile} />
+          )}
+        </AnimatePresence>
         <TopLayout
           innerHeight={this.state.innerHeight}
           variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
@@ -148,11 +152,6 @@ class Layout extends React.Component {
                 animate="enter"
                 exit="exit"
               />
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {this.props.path !== "/" && (
-              <SubpageNav isMobile={this.state.isMobile} />
             )}
           </AnimatePresence>
 
