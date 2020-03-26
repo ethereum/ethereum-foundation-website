@@ -8,6 +8,7 @@ import {
   screenSizeIntS,
   screenSizeIntM,
   screenSizeIntL,
+  screenSizeIntXL,
   screenSizeL,
 } from "../utils/styles"
 
@@ -350,6 +351,8 @@ const Constellation = ({ path }) => {
   // TODO update to constellationState vs dimensions
   const [dimensions, setDimensions] = useState({})
 
+  // TODO add listener for device orientation change
+  // if change between landscape <--> portrait, refresh page
   useEffect(() => {
     // Set animation based on route
     let animation
@@ -387,8 +390,26 @@ const Constellation = ({ path }) => {
     const clientWidth = document.documentElement.clientWidth
     const isDesktop = clientWidth > screenSizeIntS ? true : false
     const isMobileLandscape = clientHeight < 400 ? true : false
-    const isDesktopXL = clientHeight > 1000 ? true : false
-    const isIpad = clientWidth < screenSizeIntL && clientWidth > screenSizeIntM
+    const isDesktopXL =
+      clientHeight > 1000 && clientWidth > screenSizeIntL ? true : false
+
+    // iPad 11
+    // iPad pro 2018: width: 834, height: 1120
+
+    // iPad 12
+    // iPad pro 2018 portrait: width: 1024, height: 1292
+    // iPad pro 2018 landscape: width: 1366, height: 950
+    const isIpadLandscape =
+      clientWidth > screenSizeIntL &&
+      clientWidth < screenSizeIntXL &&
+      clientHeight < 1000
+
+    // screen width between 760 & 1024
+    const isIpadPortrait =
+      clientWidth <= screenSizeIntL && clientWidth > screenSizeIntM
+
+    // TODO safari browser issues w/ navigation
+
     let height
     let width
     let viewBoxMinX
@@ -410,7 +431,7 @@ const Constellation = ({ path }) => {
       viewBoxMinY = 70
       viewBoxWidth = 700
       viewBoxHeight = 500
-    } else if (isIpad) {
+    } else if (isIpadPortrait) {
       height = 700
       width = 700
       viewBoxMinX = -170
@@ -430,7 +451,8 @@ const Constellation = ({ path }) => {
     setDimensions({
       isDesktop,
       isDesktopXL,
-      isIpad,
+      isIpadPortrait,
+      isIpadLandscape,
       isMobileLandscape,
       previousPath,
       isHomePreviousPath,
@@ -480,11 +502,16 @@ const DesktopConstellation = ({ path, dimensions }) => {
     espPosition = { x: 535, y: 210 }
     ethPosition = { x: 440, y: 350 }
     philosophyPosition = { x: 40, y: 190 }
-  } else if (dimensions.isIpad) {
-    aboutPosition = { x: -40, y: 155 }
-    espPosition = { x: 520, y: 200 }
-    ethPosition = { x: 415, y: 345 }
-    philosophyPosition = { x: 15, y: 180 }
+  } else if (dimensions.isIpadLandscape) {
+    aboutPosition = { x: 240, y: 20 }
+    espPosition = { x: 730, y: 190 }
+    ethPosition = { x: 550, y: 530 }
+    philosophyPosition = { x: -100, y: 290 }
+  } else if (dimensions.isIpadPortrait) {
+    aboutPosition = { x: 250, y: 120 }
+    espPosition = { x: 650, y: 250 }
+    ethPosition = { x: 510, y: 470 }
+    philosophyPosition = { x: -50, y: 290 }
   }
 
   return (
