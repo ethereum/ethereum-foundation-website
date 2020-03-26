@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
@@ -95,74 +95,94 @@ const Logo = styled(motion.img)`
   }
 `
 
-const Layout = ({ children, path }) => {
-  const [layoutState, setLayoutState] = useState({
-    isFooterOpen: false,
-  })
+class Layout extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isFooterOpen: false,
+    }
+  }
 
-  useEffect(() => {
-    setLayoutState({
-      isFooterOpen: layoutState.isFooterOpen,
+  componentDidMount = () => {
+    window.addEventListener("scroll", this.handleScroll)
+    this.setState({
+      isFooterOpen: this.state.isFooterOpen,
       isMobile: document.documentElement.clientWidth < 780,
       innerHeight: `${window.innerHeight}px`,
     })
-  }, [layoutState.isFooterOpen])
+  }
 
-  const footerShiftY = layoutState.isMobile ? -380 : -186
+  handleFooterToggle = () => {
+    this.setState({ isFooterOpen: !this.state.isFooterOpen })
+  }
 
-  return (
-    <StyledLayout>
-      <TopLayout
-        innerHeight={layoutState.innerHeight}
-        variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
-        transition={{ duration: 0.8 }}
-        initial="normal"
-        animate={layoutState.isFooterOpen ? "open" : "normal"}
-      >
-        <Constellation path={path} />
+  // If footer is open & user scrolls, close footer
+  // This prevents inaccessiblity of nav on footerShiftY
+  handleScroll = () => {
+    if (this.state.isFooterOpen) {
+      this.setState({ isFooterOpen: false })
+    }
+  }
+
+  render() {
+    const footerShiftY = this.state.isMobile ? -380 : -186
+
+    return (
+      <StyledLayout>
         <AnimatePresence>
-          {path === "/" && (
-            <Logo
-              src={HomeLogo}
-              alt="Ethereum Foundation Logo"
+          {this.props.path !== "/" && (
+            <SubpageNav isMobile={this.state.isMobile} />
+          )}
+        </AnimatePresence>
+        <TopLayout
+          innerHeight={this.state.innerHeight}
+          variants={{ normal: { y: 0 }, open: { y: footerShiftY } }}
+          transition={{ duration: 0.8 }}
+          initial="normal"
+          animate={this.state.isFooterOpen ? "open" : "normal"}
+        >
+          <Constellation path={this.props.path} />
+          <AnimatePresence>
+            {this.props.path === "/" && (
+              <Logo
+                src={HomeLogo}
+                alt="Ethereum Foundation Logo"
+                variants={variants}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+              />
+            )}
+          </AnimatePresence>
+
+          {/* TODO this is triggering UI "jumps" on constellation */}
+          {/* Move contellation into the wrapPageElement? */}
+          <AnimatePresence>
+            <Main
+              key={this.props.path}
               variants={variants}
               initial="initial"
               animate="enter"
               exit="exit"
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
-          {path !== "/" && <SubpageNav isMobile={layoutState.isMobile} />}
-        </AnimatePresence>
-
-        {/* TODO this is triggering UI "jumps" on constellation */}
-        {/* Move contellation into the wrapPageElement? */}
-        <AnimatePresence>
-          <Main
-            key={path}
-            variants={variants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-          >
-            {children}
-          </Main>
-        </AnimatePresence>
-      </TopLayout>
-      <BottomLayout>
-        <Footer
-          isOpen={layoutState.isFooterOpen}
-          isMobile={layoutState.isMobile}
-          setLayoutState={setLayoutState}
-        />
-      </BottomLayout>
-    </StyledLayout>
-  )
+            >
+              {this.props.children}
+            </Main>
+          </AnimatePresence>
+        </TopLayout>
+        <BottomLayout>
+          <Footer
+            isOpen={this.state.isFooterOpen}
+            toggleFooter={this.handleFooterToggle}
+          />
+        </BottomLayout>
+      </StyledLayout>
+    )
+  }
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  path: PropTypes.string.isRequired,
 }
 
 export default Layout

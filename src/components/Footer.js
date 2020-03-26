@@ -123,17 +123,13 @@ const Star = styled(motion.img)`
 `
 const starHover = { scale: 1.8, transition: { duration: 1 } }
 
-const Footer = ({ isOpen, isMobile, setLayoutState }) => {
+const Footer = ({ isOpen, toggleFooter }) => {
   const footerToggleIcon = isOpen ? faChevronDown : faChevronUp
   return (
     <>
       <FooterToggleContainer>
         <div>© Ethereum Foundation, {new Date().getFullYear()}</div>
-        <IconContainer
-          onClick={() =>
-            setLayoutState({ isFooterOpen: !isOpen, isMobile: isMobile })
-          }
-        >
+        <IconContainer onClick={() => toggleFooter()}>
           <FontAwesomeIcon icon={footerToggleIcon} size="lg" />
           <Star whileHover={starHover} src={star} />
         </IconContainer>
