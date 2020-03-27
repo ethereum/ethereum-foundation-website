@@ -24,6 +24,7 @@ export const ContentContainer = styled.div`
 
 export const PageH1 = styled.h1`
   margin-bottom: 0;
+  font-weight:300;
 `
 
 // Buttons
@@ -48,6 +49,7 @@ export const Button = styled(OutboundLink)`
   border-radius: 2.5px;
   padding: 1rem 2rem;
   font-weight: 600;
+  transition: all 0.2s;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.4);
