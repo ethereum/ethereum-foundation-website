@@ -18,11 +18,7 @@ This repository holds the codebase to our website, [ethereum.foundation](https:/
 
 1. [Set up your development environment](https://www.gatsbyjs.org/tutorial/part-zero/)
 
-2. Clone this project
-
-```
-$ git clone git@github.com:ethereum/ethereum-foundation-website.git && cd ethereum-foundation-website
-```
+2. [Fork this project](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 
 3. Install dependencies
 
