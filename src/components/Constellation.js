@@ -555,7 +555,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
                 initial="initial"
               >
                 <NavLink to={path === "/" ? "/esp/" : "/"}>
-                  Ecosytem <MedBreakpoint /> Support
+                  Ecosystem <MedBreakpoint /> Support
                 </NavLink>
               </NavLinkContainer>
               <NavLinkContainer
@@ -694,7 +694,7 @@ const MobileConstellation = ({ animation, path }) => (
         </NavLinkContainer>
         <NavLinkContainer animate={{ x: 170, y: 170 }}>
           <NavLink to={path === "/" ? "/esp/" : "/"}>
-            <div>Ecosytem Support</div>
+            <div>Ecosystem Support</div>
           </NavLink>
         </NavLinkContainer>
         <NavLinkContainer animate={{ x: 160, y: 370 }}>
