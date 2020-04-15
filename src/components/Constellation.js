@@ -362,15 +362,7 @@ const NavText = styled(motion.text)`
   fill: white;
 `
 
-const NavStarLink = ({
-  path,
-  linkRoute,
-  linkText,
-  textX,
-  textY,
-  starX,
-  starY,
-}) => {
+const NavStarLink = ({ path, linkRoute, linkText, positions }) => {
   return (
     <NavStarLinkContainer
       variants={linkVariants}
@@ -379,12 +371,12 @@ const NavStarLink = ({
       whileHover="hover"
     >
       <Link to={path === "/" ? linkRoute : "/"}>
-        <NavText x={textX} y={textY}>
+        <NavText x={positions.textX} y={positions.textY}>
           {path === "/" && linkText}
         </NavText>
         <Star
-          x={starX}
-          y={starY}
+          x={positions.starX}
+          y={positions.starY}
           variants={starVariants}
           whileHover="hover"
           initial="initial"
@@ -456,7 +448,7 @@ const Constellation = ({ path }) => {
     const isIpadPortrait =
       clientWidth <= screenSizeIntL && clientWidth > screenSizeIntM
 
-    // TODO safari browser issues w/ navigation
+    // TODO if no hover (i.e. mobile or table), make opacity 1 across all variants
 
     let height
     let width
@@ -532,13 +524,36 @@ const DesktopConstellation = ({ path, dimensions }) => {
   }
 
   let constellationVariants = desktopVariants
+  let constX = constellationVariants.home.x
+  let constY = constellationVariants.home.y
 
-  // let aboutPosition = { x: 270, y: 100 }
-  // let espPosition = { x: 680, y: 235 }
-  // let ethPosition = { x: 540, y: 495 }
-  // let philosophyPosition = { x: -25, y: 305 }
+  let aboutPosition = {
+    textX: constX + 18,
+    textY: constY - 142,
+    starX: constX + 38,
+    starY: constY - 142,
+  }
+  let espPosition = {
+    textX: constX + 390,
+    textY: constY + 10,
+    starX: constX + 345,
+    starY: constY - 20,
+  }
+  let ethPosition = {
+    textX: constX + 260,
+    textY: constY + 270,
+    starX: constX + 215,
+    starY: constY + 240,
+  }
+  let philosophyPosition = {
+    textX: constX - 250,
+    textY: constY + 120,
+    starX: constX - 135,
+    starY: constY + 90,
+  }
 
   if (dimensions.isDesktopXL) {
+    console.log("YUP")
     constellationVariants = desktopXLVariants
     // aboutPosition = { x: 260, y: 60 }
     // espPosition = { x: 730, y: 225 }
@@ -560,8 +575,6 @@ const DesktopConstellation = ({ path, dimensions }) => {
     // ethPosition = { x: 510, y: 470 }
     // philosophyPosition = { x: -50, y: 290 }
   }
-
-  console.log(constellationVariants.home)
 
   return (
     <>
@@ -592,51 +605,27 @@ const DesktopConstellation = ({ path, dimensions }) => {
             path={path}
             linkRoute="/about/"
             linkText="Who we are"
-            textX={constellationVariants.home.x + 18}
-            textY={constellationVariants.home.y - 142}
-            starX={constellationVariants.home.x + 38}
-            starY={constellationVariants.home.y - 142}
+            positions={aboutPosition}
           />
-          {/* </motion.g> */}
-          {/* esp */}
-          <g transform="translate(455 100)">
-            <Link to={path === "/" ? "/esp/" : "/"}>
-              <Star
-                variants={starVariants}
-                whileHover="hover"
-                initial="initial"
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* ethereum */}
-          <g transform="translate(325 360)">
-            <Link to={path === "/" ? "/ethereum/" : "/"}>
-              <Star
-                variants={starVariants}
-                whileHover="hover"
-                initial="initial"
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* philosophy */}
-          <g transform="translate(-25 210)">
-            <Link to={path === "/" ? "/philosophy/" : "/"}>
-              <Star
-                variants={starVariants}
-                whileHover="hover"
-                initial="initial"
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
+          <NavStarLink
+            path={path}
+            linkRoute="/esp/"
+            linkText="Ecosystem support"
+            positions={espPosition}
+          />
+          <NavStarLink
+            path={path}
+            linkRoute="/ethereum/"
+            linkText="What is Ethereum?"
+            positions={ethPosition}
+          />
+          <NavStarLink
+            path={path}
+            linkRoute="/philosophy/"
+            linkText="Our philosophy"
+            positions={philosophyPosition}
+          />
+
           <motion.path
             variants={pathVariants}
             initial="hidden"
