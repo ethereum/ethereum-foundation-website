@@ -20,6 +20,13 @@ const SVG = styled(motion.svg)`
   height: 100%;
 `
 
+const Star = styled(motion.rect)`
+  position: relative;
+  z-index: 3;
+`
+
+const starHover = { scale: 1.8, transition: { duration: 0.4 } }
+
 const MobileSVG = styled(motion.svg)`
   position: absolute;
   overflow: hidden;
@@ -38,7 +45,6 @@ const MedBreakpoint = styled.br`
 const NavContainer = styled(motion.div)`
   position: absolute;
   overflow: hidden;
-  z-index: 2;
   width: 100%;
   height: 100%;
   display: flex;
@@ -50,7 +56,11 @@ const Nav = styled(motion.nav)`
   width: ${props => props.width};
   height: ${props => props.height};
 `
-const NavLinkContainer = styled(motion.div)``
+const NavLinkContainer = styled(motion.div)`
+  max-width: 160px;
+  position: relative;
+  z-index: 2;
+`
 
 const NavLink = styled(Link)`
   color: white;
@@ -626,19 +636,47 @@ const DesktopConstellation = ({ path, dimensions }) => {
         <motion.g id="Group_48" data-name="Group 48">
           {/* about */}
           <motion.g transform="translate(148 -22)">
-            <motion.rect width="50" height="50" fill="url(#star)" />
+            <Link to="/about/">
+              <Star
+                whileHover={starHover}
+                width="50"
+                height="50"
+                fill="url(#star)"
+              />
+            </Link>
           </motion.g>
           {/* esp */}
           <g transform="translate(455 100)">
-            <motion.rect width="50" height="50" fill="url(#star)" />
+            <Link to="/esp/">
+              <Star
+                whileHover={starHover}
+                width="50"
+                height="50"
+                fill="url(#star)"
+              />
+            </Link>
           </g>
           {/* ethereum */}
           <g transform="translate(325 360)">
-            <motion.rect width="50" height="50" fill="url(#star)" />
+            <Link to="/ethereum/">
+              <Star
+                whileHover={starHover}
+                width="50"
+                height="50"
+                fill="url(#star)"
+              />
+            </Link>
           </g>
           {/* philosophy */}
           <g transform="translate(-25 210)">
-            <motion.rect width="50" height="50" fill="url(#star)" />
+            <Link to="/philosophy/">
+              <Star
+                whileHover={starHover}
+                width="50"
+                height="50"
+                fill="url(#star)"
+              />
+            </Link>
           </g>
           <motion.path
             variants={pathVariants}
@@ -735,37 +773,49 @@ const MobileConstellation = ({ animation, path }) => (
         animate={animation}
       >
         <motion.g transform="translate(-58 -170)">
+          {/* about */}
           <g transform="translate(45 22)">
-            <rect
-              width="50"
-              height="50"
-              transform="translate(0 -0.094)"
-              fill="url(#star)"
-            />
+            <Link to="/about/">
+              <Star
+                width="50"
+                height="50"
+                transform="translate(0 -0.094)"
+                fill="url(#star)"
+              />
+            </Link>
           </g>
-          <g transform="translate(39 353.34)">
-            <rect
-              width="50"
-              height="50"
-              transform="translate(89 -10.434)"
-              fill="url(#star)"
-            />
-          </g>
-          <g transform="translate(42 459.813)">
-            <rect
-              width="50"
-              height="50"
-              transform="translate(0 0.094)"
-              fill="url(#star)"
-            />
-          </g>
+          {/* esp */}
           <g transform="translate(134 121.86)">
-            <rect
-              width="50"
-              height="50"
-              transform="translate(0 0.046)"
-              fill="url(#star)"
-            />
+            <Link to="/esp/">
+              <Star
+                width="50"
+                height="50"
+                transform="translate(0 0.046)"
+                fill="url(#star)"
+              />
+            </Link>
+          </g>
+          {/* ethereum */}
+          <g transform="translate(39 353.34)">
+            <Link to="/ethereum/">
+              <Star
+                width="50"
+                height="50"
+                transform="translate(89 -10.434)"
+                fill="url(#star)"
+              />
+            </Link>
+          </g>
+          {/* philosophy */}
+          <g transform="translate(42 459.813)">
+            <Link to="/philosophy/">
+              <Star
+                width="50"
+                height="50"
+                transform="translate(0 0.094)"
+                fill="url(#star)"
+              />
+            </Link>
           </g>
         </motion.g>
         <path
