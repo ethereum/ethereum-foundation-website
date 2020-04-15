@@ -93,9 +93,6 @@ const linkVariants = {
   hover: { opacity: 1, transition: { duration: 0.5 } },
 }
 
-// TODO make link & fix hover
-// const starHover = { scale: 1.8, transition: { duration: 0.5 } }
-
 const mobileVariants = {
   home: {
     x: -45,
@@ -636,7 +633,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
         <motion.g id="Group_48" data-name="Group 48">
           {/* about */}
           <motion.g transform="translate(148 -22)">
-            <Link to="/about/">
+            <Link to={path === "/" ? "/about/" : "/"}>
               <Star
                 whileHover={starHover}
                 width="50"
@@ -647,7 +644,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
           </motion.g>
           {/* esp */}
           <g transform="translate(455 100)">
-            <Link to="/esp/">
+            <Link to={path === "/" ? "/esp/" : "/"}>
               <Star
                 whileHover={starHover}
                 width="50"
@@ -658,7 +655,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
           </g>
           {/* ethereum */}
           <g transform="translate(325 360)">
-            <Link to="/ethereum/">
+            <Link to={path === "/" ? "/ethereum/" : "/"}>
               <Star
                 whileHover={starHover}
                 width="50"
@@ -669,7 +666,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
           </g>
           {/* philosophy */}
           <g transform="translate(-25 210)">
-            <Link to="/philosophy/">
+            <Link to={path === "/" ? "/philosophy/" : "/"}>
               <Star
                 whileHover={starHover}
                 width="50"
@@ -775,7 +772,7 @@ const MobileConstellation = ({ animation, path }) => (
         <motion.g transform="translate(-58 -170)">
           {/* about */}
           <g transform="translate(45 22)">
-            <Link to="/about/">
+            <Link to={path === "/" ? "/about/" : "/"}>
               <Star
                 width="50"
                 height="50"
@@ -786,7 +783,7 @@ const MobileConstellation = ({ animation, path }) => (
           </g>
           {/* esp */}
           <g transform="translate(134 121.86)">
-            <Link to="/esp/">
+            <Link to={path === "/" ? "/esp/" : "/"}>
               <Star
                 width="50"
                 height="50"
@@ -797,7 +794,7 @@ const MobileConstellation = ({ animation, path }) => (
           </g>
           {/* ethereum */}
           <g transform="translate(39 353.34)">
-            <Link to="/ethereum/">
+            <Link to={path === "/" ? "/ethereum/" : "/"}>
               <Star
                 width="50"
                 height="50"
@@ -808,7 +805,7 @@ const MobileConstellation = ({ animation, path }) => (
           </g>
           {/* philosophy */}
           <g transform="translate(42 459.813)">
-            <Link to="/philosophy/">
+            <Link to={path === "/" ? "/philosophy/" : "/"}>
               <Star
                 width="50"
                 height="50"
