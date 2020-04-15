@@ -24,7 +24,7 @@ const FooterToggleContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  padding: 8px 24px;
+  padding: 16px 24px;
   font-size: 0.75rem;
 `
 
@@ -119,9 +119,16 @@ const ImageAndTextLink = styled(OutboundLink)`
 
 const Star = styled(motion.img)`
   position: absolute;
-  width: 40px;
+  width: 80px;
 `
 const starHover = { scale: 1.8, transition: { duration: 1 } }
+
+const Icon = styled(FontAwesomeIcon)`
+  font-size: 32px;
+  @media (max-width: ${screenSizeM}) {
+    font-size: 24px;
+  }
+`
 
 const Footer = ({ isOpen, toggleFooter }) => {
   const footerToggleIcon = isOpen ? faChevronDown : faChevronUp
@@ -130,7 +137,7 @@ const Footer = ({ isOpen, toggleFooter }) => {
       <FooterToggleContainer>
         <div>© Ethereum Foundation, {new Date().getFullYear()}</div>
         <IconContainer onClick={() => toggleFooter()}>
-          <FontAwesomeIcon icon={footerToggleIcon} size="lg" />
+          <Icon icon={footerToggleIcon} />
           <Star whileHover={starHover} src={star} />
         </IconContainer>
       </FooterToggleContainer>
