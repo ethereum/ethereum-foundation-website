@@ -9,7 +9,6 @@ import {
   screenSizeIntM,
   screenSizeIntL,
   screenSizeIntXL,
-  screenSizeL,
 } from "../utils/styles"
 
 const SVG = styled(motion.svg)`
@@ -20,13 +19,6 @@ const SVG = styled(motion.svg)`
   height: 100%;
 `
 
-const Star = styled(motion.rect)`
-  position: relative;
-  z-index: 3;
-`
-
-const starHover = { scale: 1.8, transition: { duration: 0.4 } }
-
 const MobileSVG = styled(motion.svg)`
   position: absolute;
   overflow: hidden;
@@ -35,63 +27,15 @@ const MobileSVG = styled(motion.svg)`
   height: 100%;
 `
 
-const MedBreakpoint = styled.br`
-  display: none;
-  @media (max-width: ${screenSizeL}) {
-    display: block;
-  }
-`
+// TODO still needed?
+// const MedBreakpoint = styled.br`
+//   display: none;
+//   @media (max-width: ${screenSizeL}) {
+//     display: block;
+//   }
+// `
 
-const NavContainer = styled(motion.div)`
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const Nav = styled(motion.nav)`
-  width: ${props => props.width};
-  height: ${props => props.height};
-`
-const NavLinkContainer = styled(motion.div)`
-  max-width: 160px;
-  position: relative;
-  z-index: 2;
-`
-
-const NavLink = styled(Link)`
-  color: white;
-
-  &:hover {
-    color: white;
-  }
-`
-
-const NavContainerVariants = {
-  initial: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-      delay: 1.0,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.4 },
-  },
-}
-
-const linkVariants = {
-  initial: { opacity: 0.0 },
-  home: { opacity: 0.6, transition: { duration: 4 } },
-  hover: { opacity: 1, transition: { duration: 0.5 } },
-}
+// CONSTELLATION VARIANTS
 
 const mobileVariants = {
   home: {
@@ -134,54 +78,6 @@ const mobileVariants = {
     x: -40,
     y: -280,
     scale: 2,
-    rotate: 20,
-    transition: {
-      duration: 1.5,
-    },
-  },
-}
-
-const mobileNavVariants = {
-  home: {
-    x: 0,
-    y: 0,
-    rotate: 0,
-    opacity: 1,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  about: {
-    x: -240,
-    y: -450,
-    opacity: 0,
-    rotate: 160,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  philosophy: {
-    x: -300,
-    y: -580,
-    opacity: 0,
-    rotate: -50,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  esp: {
-    x: -310,
-    y: -70,
-    opacity: 0,
-    rotate: 70,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  ethereum: {
-    x: -45,
-    y: -285,
-    opacity: 0,
     rotate: 20,
     transition: {
       duration: 1.5,
@@ -300,53 +196,79 @@ const desktopXLVariants = {
   },
 }
 
-// TODO is this needed?
-const desktopNavVariants = {
-  home: {
-    x: 0,
-    y: 0,
-    scale: 1,
-    rotate: 0,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  about: {
-    x: 350,
-    y: -620,
-    scale: 2,
-    rotate: 160,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  philosophy: {
-    x: -850,
-    y: 400,
-    scale: 2,
-    rotate: -130,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  esp: {
-    x: -1250,
-    y: -975,
-    scale: 2,
-    rotate: 35,
-    transition: {
-      duration: 1.5,
-    },
-  },
-  ethereum: {
-    x: -1340,
-    y: -300,
-    scale: 2,
-    rotate: -23,
-    transition: {
-      duration: 1.5,
-    },
-  },
+// NAV LINKS
+
+const Star = styled(motion.rect)`
+  position: relative;
+  z-index: 3;
+  cursor: pointer; /* for Safari */
+`
+
+const NavStarLinkContainer = styled(motion.g)`
+  cursor: pointer; /* for Safari */
+`
+
+const NavText = styled(motion.text)`
+  fill: white;
+  cursor: pointer; /* for Safari */
+`
+
+const starVariants = {
+  initial: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
+  active: { opacity: 1, scale: 1, transition: { delay: 1, duration: 0.6 } },
+  hover: { opacity: 1, scale: 1.6, transition: { duration: 0.6 } },
+}
+
+const linkVariants = {
+  initial: { opacity: 0 },
+  active: { opacity: 0.7, transition: { delay: 1, duration: 2 } },
+  hover: { opacity: 1, transition: { duration: 0.4 } },
+  exit: { opacity: 0, transition: { durantion: 2 } },
+}
+const linkVariantsMobile = {
+  initial: { opacity: 0 },
+  active: { opacity: 1, transition: { delay: 1, duration: 2 } },
+  hover: { opacity: 1, transition: { duration: 0.4 } },
+  exit: { opacity: 0, transition: { durantion: 2 } },
+}
+
+const NavStarLink = ({ isMobile, path, linkRoute, linkText, positions }) => {
+  return (
+    <NavStarLinkContainer
+      variants={isMobile ? linkVariantsMobile : linkVariants}
+      initial="initial"
+      animate="active"
+      whileHover="hover"
+    >
+      <Link to={path === "/" ? linkRoute : "/"}>
+        <AnimatePresence>
+          {path === "/" && (
+            <NavText
+              x={positions.textX}
+              y={positions.textY}
+              variants={linkVariants}
+              initial="initial"
+              animate="active"
+              whileHover="hover"
+              exit="exit"
+            >
+              {linkText}
+            </NavText>
+          )}
+        </AnimatePresence>
+        <Star
+          x={positions.starX}
+          y={positions.starY}
+          variants={starVariants}
+          whileHover="hover"
+          initial="initial"
+          width="50"
+          height="50"
+          fill="url(#star)"
+        />
+      </Link>
+    </NavStarLinkContainer>
+  )
 }
 
 const Constellation = ({ path }) => {
@@ -358,7 +280,6 @@ const Constellation = ({ path }) => {
   useEffect(() => {
     // Set animation based on route
     let animation
-    let linkAnimation = "initial"
 
     switch (path) {
       case "/about/":
@@ -376,7 +297,6 @@ const Constellation = ({ path }) => {
         break
       default:
         animation = "home"
-        linkAnimation = "home"
     }
 
     // If previous route was homepage, set to route animation
@@ -410,7 +330,7 @@ const Constellation = ({ path }) => {
     const isIpadPortrait =
       clientWidth <= screenSizeIntL && clientWidth > screenSizeIntM
 
-    // TODO safari browser issues w/ navigation
+    // TODO if no hover (i.e. mobile or table), make opacity 1 across all variants
 
     let height
     let width
@@ -459,7 +379,6 @@ const Constellation = ({ path }) => {
       previousPath,
       isHomePreviousPath,
       animation,
-      linkAnimation,
       height,
       width,
       viewBoxMinX,
@@ -472,7 +391,7 @@ const Constellation = ({ path }) => {
   if (dimensions.isDesktop) {
     return <DesktopConstellation path={path} dimensions={dimensions} />
   } else {
-    return <MobileConstellation animation={dimensions.animation} path={path} />
+    return <MobileConstellation path={path} animation={dimensions.animation} />
   }
 }
 
@@ -487,264 +406,159 @@ const DesktopConstellation = ({ path, dimensions }) => {
   }
 
   let constellationVariants = desktopVariants
+  let constX = constellationVariants.home.x
+  let constY = constellationVariants.home.y
 
-  let aboutPosition = { x: 270, y: 100 }
-  let espPosition = { x: 680, y: 235 }
-  let ethPosition = { x: 540, y: 495 }
-  let philosophyPosition = { x: -25, y: 305 }
+  let aboutPosition = {
+    textX: constX + 18,
+    textY: constY - 142,
+    starX: constX + 38,
+    starY: constY - 142,
+  }
+  let espPosition = {
+    textX: constX + 390,
+    textY: constY + 10,
+    starX: constX + 345,
+    starY: constY - 20,
+  }
+  let ethPosition = {
+    textX: constX + 260,
+    textY: constY + 270,
+    starX: constX + 215,
+    starY: constY + 240,
+  }
+  let philosophyPosition = {
+    textX: constX - 250,
+    textY: constY + 120,
+    starX: constX - 135,
+    starY: constY + 90,
+  }
 
   if (dimensions.isDesktopXL) {
     constellationVariants = desktopXLVariants
-    aboutPosition = { x: 260, y: 60 }
-    espPosition = { x: 730, y: 225 }
-    ethPosition = { x: 560, y: 535 }
-    philosophyPosition = { x: -65, y: 315 }
   } else if (dimensions.isMobileLandscape) {
-    aboutPosition = { x: -240, y: 170 }
-    espPosition = { x: 535, y: 210 }
-    ethPosition = { x: 440, y: 350 }
-    philosophyPosition = { x: 40, y: 190 }
+    // TODO delete if not needed
   } else if (dimensions.isIpadLandscape) {
-    aboutPosition = { x: 240, y: 20 }
-    espPosition = { x: 730, y: 190 }
-    ethPosition = { x: 550, y: 530 }
-    philosophyPosition = { x: -100, y: 290 }
+    // TODO delete if not needed
   } else if (dimensions.isIpadPortrait) {
-    aboutPosition = { x: 250, y: 120 }
-    espPosition = { x: 650, y: 250 }
-    ethPosition = { x: 510, y: 470 }
-    philosophyPosition = { x: -50, y: 290 }
+    // TODO delete if not needed
   }
 
   return (
-    <>
-      <AnimatePresence>
-        {path === "/" && (
-          <NavContainer
-            variants={NavContainerVariants}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-          >
-            <Nav
-              height="700px"
-              width="700px"
-              variants={desktopNavVariants}
-              initial="home"
-              animate={dimensions.animation}
-            >
-              <NavLinkContainer
-                animate={dimensions.linkAnimation}
-                variants={{
-                  initial: Object.assign(
-                    {},
-                    linkVariants.initial,
-                    aboutPosition
-                  ),
-                  home: Object.assign({}, linkVariants.home, aboutPosition),
-                  hover: Object.assign({}, linkVariants.hover, aboutPosition),
-                }}
-                whileHover="hover"
-                initial="initial"
-              >
-                <NavLink to={path === "/" ? "/about/" : "/"}>
-                  Who we are
-                </NavLink>
-              </NavLinkContainer>
-              <NavLinkContainer
-                animate={dimensions.linkAnimation}
-                variants={{
-                  initial: Object.assign({}, linkVariants.initial, espPosition),
-                  home: Object.assign({}, linkVariants.home, espPosition),
-                  hover: Object.assign({}, linkVariants.hover, espPosition),
-                }}
-                whileHover="hover"
-                initial="initial"
-              >
-                <NavLink to={path === "/" ? "/esp/" : "/"}>
-                  Ecosystem <MedBreakpoint /> Support
-                </NavLink>
-              </NavLinkContainer>
-              <NavLinkContainer
-                animate={dimensions.linkAnimation}
-                variants={{
-                  initial: Object.assign({}, linkVariants.initial, ethPosition),
-                  home: Object.assign({}, linkVariants.home, ethPosition),
-                  hover: Object.assign({}, linkVariants.hover, ethPosition),
-                }}
-                whileHover="hover"
-                initial="initial"
-              >
-                <NavLink to={path === "/" ? "/ethereum/" : "/"}>
-                  What is Ethereum?
-                </NavLink>
-              </NavLinkContainer>
-              <NavLinkContainer
-                animate={dimensions.linkAnimation}
-                variants={{
-                  initial: Object.assign(
-                    {},
-                    linkVariants.initial,
-                    philosophyPosition
-                  ),
-                  home: Object.assign(
-                    {},
-                    linkVariants.home,
-                    philosophyPosition
-                  ),
-                  hover: Object.assign(
-                    {},
-                    linkVariants.hover,
-                    philosophyPosition
-                  ),
-                }}
-                whileHover="hover"
-              >
-                <NavLink to={path === "/" ? "/philosophy/" : "/"}>
-                  Our Philosophy
-                </NavLink>
-              </NavLinkContainer>
-            </Nav>
-          </NavContainer>
-        )}
-      </AnimatePresence>
-      <SVG
-        xmlns="http://www.w3.org/2000/svg"
-        height={dimensions.height}
-        width={dimensions.width}
-        viewBox={`${dimensions.viewBoxMinX} ${dimensions.viewBoxMinY} ${dimensions.viewBoxWidth} ${dimensions.viewBoxHeight}`}
-        variants={constellationVariants}
-        initial={dimensions.isHomePreviousPath ? "home" : "initial"}
-        animate={dimensions.animation}
-        overflow="hidden"
-      >
-        <defs>
-          <pattern
-            id="star"
-            preserveAspectRatio="none"
-            width="100%"
-            height="100%"
-            viewBox="0 0 240 240"
-          >
-            <motion.image width="240" height="240" xlinkHref={star} />
-          </pattern>
-        </defs>
+    <SVG
+      xmlns="http://www.w3.org/2000/svg"
+      height={dimensions.height}
+      width={dimensions.width}
+      viewBox={`${dimensions.viewBoxMinX} ${dimensions.viewBoxMinY} ${dimensions.viewBoxWidth} ${dimensions.viewBoxHeight}`}
+      variants={constellationVariants}
+      initial={dimensions.isHomePreviousPath ? "home" : "initial"}
+      animate={dimensions.animation}
+      overflow="hidden"
+    >
+      <defs>
+        <pattern
+          id="star"
+          preserveAspectRatio="none"
+          width="100%"
+          height="100%"
+          viewBox="0 0 240 240"
+        >
+          <motion.image width="240" height="240" xlinkHref={star} />
+        </pattern>
+      </defs>
 
-        <motion.g id="Group_48" data-name="Group 48">
-          {/* about */}
-          <motion.g transform="translate(148 -22)">
-            <Link to={path === "/" ? "/about/" : "/"}>
-              <Star
-                whileHover={starHover}
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </motion.g>
-          {/* esp */}
-          <g transform="translate(455 100)">
-            <Link to={path === "/" ? "/esp/" : "/"}>
-              <Star
-                whileHover={starHover}
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* ethereum */}
-          <g transform="translate(325 360)">
-            <Link to={path === "/" ? "/ethereum/" : "/"}>
-              <Star
-                whileHover={starHover}
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* philosophy */}
-          <g transform="translate(-25 210)">
-            <Link to={path === "/" ? "/philosophy/" : "/"}>
-              <Star
-                whileHover={starHover}
-                width="50"
-                height="50"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          <motion.path
-            variants={pathVariants}
-            initial="hidden"
-            animate="visible"
-            id="Path_55"
-            data-name="Path 55"
-            d="M525,125,216.09.98l-.04,308Z"
-            transform="translate(-43.104)"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            transition={{
-              default: { duration: 2, ease: "easeInOut" },
-            }}
-          />
-          <motion.path
-            variants={pathVariants}
-            initial="hidden"
-            animate="visible"
-            id="Path_56"
-            data-name="Path 56"
-            d="M351.678,386,.78,234.776,172.986.98Z"
-            fill="none"
-            stroke="#fff"
-            strokeMiterlimit="10"
-            strokeWidth="1"
-            transition={{
-              default: { duration: 3, ease: "easeInOut" },
-            }}
-          />
-        </motion.g>
-      </SVG>
-    </>
+      <motion.g>
+        <NavStarLink
+          path={path}
+          linkRoute="/about/"
+          linkText="Who we are"
+          positions={aboutPosition}
+        />
+        <NavStarLink
+          path={path}
+          linkRoute="/esp/"
+          linkText="Ecosystem support"
+          positions={espPosition}
+        />
+        <NavStarLink
+          path={path}
+          linkRoute="/ethereum/"
+          linkText="What is Ethereum?"
+          positions={ethPosition}
+        />
+        <NavStarLink
+          path={path}
+          linkRoute="/philosophy/"
+          linkText="Our philosophy"
+          positions={philosophyPosition}
+        />
+
+        <motion.path
+          variants={pathVariants}
+          initial="hidden"
+          animate="visible"
+          id="Path_55"
+          data-name="Path 55"
+          d="M525,125,216.09.98l-.04,308Z"
+          transform="translate(-43.104)"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          transition={{
+            default: { duration: 2, ease: "easeInOut" },
+          }}
+        />
+        <motion.path
+          variants={pathVariants}
+          initial="hidden"
+          animate="visible"
+          id="Path_56"
+          data-name="Path 56"
+          d="M351.678,386,.78,234.776,172.986.98Z"
+          fill="none"
+          stroke="#fff"
+          strokeMiterlimit="10"
+          strokeWidth="1"
+          transition={{
+            default: { duration: 3, ease: "easeInOut" },
+          }}
+        />
+      </motion.g>
+    </SVG>
   )
 }
 
-const MobileConstellation = ({ animation, path }) => (
-  <>
-    <NavContainer>
-      <Nav
-        height="100%"
-        width="100%"
-        variants={mobileNavVariants}
-        initial="home"
-        animate={animation}
-      >
-        <NavLinkContainer animate={{ x: 90, y: 90 }}>
-          <NavLink to={path === "/" ? "/about/" : "/"}>
-            <div>Who we are</div>
-          </NavLink>
-        </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 170, y: 170 }}>
-          <NavLink to={path === "/" ? "/esp/" : "/"}>
-            <div>Ecosystem Support</div>
-          </NavLink>
-        </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 160, y: 370 }}>
-          <NavLink to={path === "/" ? "/ethereum/" : "/"}>
-            <div>What is Ethereum?</div>
-          </NavLink>
-        </NavLinkContainer>
-        <NavLinkContainer animate={{ x: 80, y: 460 }}>
-          <NavLink to={path === "/" ? "/philosophy/" : "/"}>
-            <div>Our Philosophy</div>
-          </NavLink>
-        </NavLinkContainer>
-      </Nav>
-    </NavContainer>
+// TODO fix page transition animation
+const MobileConstellation = ({ animation, path }) => {
+  let constX = mobileVariants.home.x
+  let constY = mobileVariants.home.y
 
+  let aboutPosition = {
+    textX: constX + 80,
+    textY: constY - 360,
+    starX: constX + 30,
+    starY: constY - 380,
+  }
+  let espPosition = {
+    textX: constX + 165,
+    textY: constY - 250,
+    starX: constX + 125,
+    starY: constY - 280,
+  }
+  let ethPosition = {
+    textX: constX + 160,
+    textY: constY - 30,
+    starX: constX + 115,
+    starY: constY - 60,
+  }
+  let philosophyPosition = {
+    textX: constX + 70,
+    textY: constY + 100,
+    starX: constX + 30,
+    starY: constY + 60,
+  }
+  return (
     <MobileSVG
       xmlns="http://www.w3.org/2000/svg"
       width="400"
@@ -769,52 +583,35 @@ const MobileConstellation = ({ animation, path }) => (
         initial="home"
         animate={animation}
       >
-        <motion.g transform="translate(-58 -170)">
-          {/* about */}
-          <g transform="translate(45 22)">
-            <Link to={path === "/" ? "/about/" : "/"}>
-              <Star
-                width="50"
-                height="50"
-                transform="translate(0 -0.094)"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* esp */}
-          <g transform="translate(134 121.86)">
-            <Link to={path === "/" ? "/esp/" : "/"}>
-              <Star
-                width="50"
-                height="50"
-                transform="translate(0 0.046)"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* ethereum */}
-          <g transform="translate(39 353.34)">
-            <Link to={path === "/" ? "/ethereum/" : "/"}>
-              <Star
-                width="50"
-                height="50"
-                transform="translate(89 -10.434)"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-          {/* philosophy */}
-          <g transform="translate(42 459.813)">
-            <Link to={path === "/" ? "/philosophy/" : "/"}>
-              <Star
-                width="50"
-                height="50"
-                transform="translate(0 0.094)"
-                fill="url(#star)"
-              />
-            </Link>
-          </g>
-        </motion.g>
+        <NavStarLink
+          isMobile={true}
+          path={path}
+          linkRoute="/about/"
+          linkText="Who we are"
+          positions={aboutPosition}
+        />
+        <NavStarLink
+          isMobile={true}
+          path={path}
+          linkRoute="/esp/"
+          linkText="Ecosystem support"
+          positions={espPosition}
+        />
+        <NavStarLink
+          isMobile={true}
+          path={path}
+          linkRoute="/ethereum/"
+          linkText="What is Ethereum?"
+          positions={ethPosition}
+        />
+        <NavStarLink
+          isMobile={true}
+          path={path}
+          linkRoute="/philosophy/"
+          linkText="Our philosophy"
+          positions={philosophyPosition}
+        />
+
         <path
           d="M160.255-25.763,114.328,82.514Z"
           transform="translate(-55.704 -0.98)"
@@ -918,7 +715,7 @@ const MobileConstellation = ({ animation, path }) => (
         />
       </motion.g>
     </MobileSVG>
-  </>
-)
+  )
+}
 
 export default Constellation
