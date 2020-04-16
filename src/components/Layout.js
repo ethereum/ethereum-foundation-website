@@ -134,7 +134,7 @@ class Layout extends React.Component {
   handleScroll = () => {
     if (this.state.isFooterOpen) {
       const offsetDiff = Math.abs(window.pageYOffset - this.state.pageYOffset)
-      if (offsetDiff > 30) {
+      if (offsetDiff > 100) {
         this.setState({ isFooterOpen: false })
       }
     }
