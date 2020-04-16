@@ -107,20 +107,36 @@ class Layout extends React.Component {
     window.addEventListener("scroll", this.handleScroll)
     this.setState({
       isFooterOpen: this.state.isFooterOpen,
+      pageYOffset: 0,
       isMobile: document.documentElement.clientWidth < 780,
       innerHeight: `${window.innerHeight}px`,
     })
   }
 
-  handleFooterToggle = () => {
-    this.setState({ isFooterOpen: !this.state.isFooterOpen })
+  componentWillUnmount = () => {
+    window.removeEventListener("scroll", this.handleScroll)
   }
 
-  // If footer is open & user scrolls, close footer
+  handleFooterToggle = () => {
+    // If opening footer, set pageYOffset target
+    if (!this.state.isFooterOpen) {
+      this.setState({
+        isFooterOpen: !this.state.isFooterOpen,
+        pageYOffset: window.pageYOffset,
+      })
+    } else {
+      this.setState({ isFooterOpen: !this.state.isFooterOpen })
+    }
+  }
+
+  // If footer is open & user scrolls +/- 30px, close footer
   // This prevents inaccessiblity of nav on footerShiftY
   handleScroll = () => {
     if (this.state.isFooterOpen) {
-      this.setState({ isFooterOpen: false })
+      const offsetDiff = Math.abs(window.pageYOffset - this.state.pageYOffset)
+      if (offsetDiff > 30) {
+        this.setState({ isFooterOpen: false })
+      }
     }
   }
 
