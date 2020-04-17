@@ -85,6 +85,54 @@ const mobileVariants = {
   },
 }
 
+const mobileLandscapeVariants = {
+  home: {
+    x: 0,
+    y: 0,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  about: {
+    x: -400,
+    y: -850,
+    scale: 2,
+    rotate: 150,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  philosophy: {
+    x: -20,
+    y: -500,
+    scale: 2,
+    rotate: -130,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  esp: {
+    x: -800,
+    y: -640,
+    scale: 2,
+    rotate: 75,
+    transition: {
+      duration: 1.5,
+    },
+  },
+  ethereum: {
+    x: -500,
+    y: 0,
+    scale: 2,
+    rotate: -23,
+    transition: {
+      duration: 1.5,
+    },
+  },
+}
+
 const desktopVariants = {
   home: {
     x: 110,
@@ -246,7 +294,7 @@ const NavStarLink = ({ isMobile, path, linkRoute, linkText, positions }) => {
             <NavText
               x={positions.textX}
               y={positions.textY}
-              variants={linkVariants}
+              variants={isMobile ? linkVariantsMobile : linkVariants}
               initial="initial"
               animate="active"
               whileHover="hover"
@@ -352,7 +400,7 @@ const Constellation = ({ path }) => {
       viewBoxMinX = -50
       viewBoxMinY = 70
       viewBoxWidth = 700
-      viewBoxHeight = 500
+      viewBoxHeight = 650
     } else if (isIpadPortrait) {
       height = 700
       width = 700
@@ -437,7 +485,7 @@ const DesktopConstellation = ({ path, dimensions }) => {
   if (dimensions.isDesktopXL) {
     constellationVariants = desktopXLVariants
   } else if (dimensions.isMobileLandscape) {
-    // TODO delete if not needed
+    constellationVariants = mobileLandscapeVariants
   } else if (dimensions.isIpadLandscape) {
     // TODO delete if not needed
   } else if (dimensions.isIpadPortrait) {
@@ -467,26 +515,34 @@ const DesktopConstellation = ({ path, dimensions }) => {
         </pattern>
       </defs>
 
-      <motion.g>
+      <motion.g
+        transform={
+          dimensions.isMobileLandscape ? "translate(40 140)" : "translate(0)"
+        }
+      >
         <NavStarLink
+          isMobile={dimensions.isMobileLandscape}
           path={path}
           linkRoute="/about/"
           linkText="Who we are"
           positions={aboutPosition}
         />
         <NavStarLink
+          isMobile={dimensions.isMobileLandscape}
           path={path}
           linkRoute="/esp/"
           linkText="Ecosystem support"
           positions={espPosition}
         />
         <NavStarLink
+          isMobile={dimensions.isMobileLandscape}
           path={path}
           linkRoute="/ethereum/"
           linkText="What is Ethereum?"
           positions={ethPosition}
         />
         <NavStarLink
+          isMobile={dimensions.isMobileLandscape}
           path={path}
           linkRoute="/philosophy/"
           linkText="Our philosophy"
