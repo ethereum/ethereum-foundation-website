@@ -105,6 +105,8 @@ class Layout extends React.Component {
 
   componentDidMount = () => {
     window.addEventListener("scroll", this.handleScroll)
+    window.addEventListener("orientationchange", this.handleOrientationChange)
+
     this.setState({
       isFooterOpen: this.state.isFooterOpen,
       pageYOffset: 0,
@@ -115,6 +117,7 @@ class Layout extends React.Component {
 
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.handleScroll)
+    window.addEventListener("orientationchange", this.handleOrientationChange)
   }
 
   handleFooterToggle = () => {
@@ -138,6 +141,12 @@ class Layout extends React.Component {
         this.setState({ isFooterOpen: false })
       }
     }
+  }
+
+  // Refresh the page on orientationchange
+  // Brute force way to refresh the constellation
+  handleOrientationChange = () => {
+    window.location.reload(false)
   }
 
   render() {
