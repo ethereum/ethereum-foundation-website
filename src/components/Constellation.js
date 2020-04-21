@@ -280,10 +280,16 @@ const linkVariantsMobile = {
   exit: { opacity: 0, transition: { durantion: 2 } },
 }
 
-const NavStarLink = ({ isMobile, path, linkRoute, linkText, positions }) => {
+const NavStarLink = ({
+  shouldRemoveHoverEffects,
+  path,
+  linkRoute,
+  linkText,
+  positions,
+}) => {
   return (
     <NavStarLinkContainer
-      variants={isMobile ? linkVariantsMobile : linkVariants}
+      variants={shouldRemoveHoverEffects ? linkVariantsMobile : linkVariants}
       initial="initial"
       animate="active"
       whileHover="hover"
@@ -294,7 +300,9 @@ const NavStarLink = ({ isMobile, path, linkRoute, linkText, positions }) => {
             <NavText
               x={positions.textX}
               y={positions.textY}
-              variants={isMobile ? linkVariantsMobile : linkVariants}
+              variants={
+                shouldRemoveHoverEffects ? linkVariantsMobile : linkVariants
+              }
               initial="initial"
               animate="active"
               whileHover="hover"
@@ -323,8 +331,6 @@ const Constellation = ({ path }) => {
   // TODO update to constellationState vs dimensions
   const [dimensions, setDimensions] = useState({})
 
-  // TODO add listener for device orientation change
-  // if change between landscape <--> portrait, refresh page
   useEffect(() => {
     // Set animation based on route
     let animation
@@ -363,22 +369,15 @@ const Constellation = ({ path }) => {
     const isDesktopXL =
       clientHeight > 1000 && clientWidth > screenSizeIntL ? true : false
 
-    // iPad 11
-    // iPad pro 2018: width: 834, height: 1120
-
-    // iPad 12
-    // iPad pro 2018 portrait: width: 1024, height: 1292
-    // iPad pro 2018 landscape: width: 1366, height: 950
     const isIpadLandscape =
-      clientWidth > screenSizeIntL &&
+      clientWidth >= screenSizeIntL &&
       clientWidth < screenSizeIntXL &&
-      clientHeight < 1000
+      clientHeight < 800
 
-    // screen width between 760 & 1024
     const isIpadPortrait =
-      clientWidth <= screenSizeIntL && clientWidth > screenSizeIntM
-
-    // TODO if no hover (i.e. mobile or table), make opacity 1 across all variants
+      clientWidth <= screenSizeIntL &&
+      clientWidth > screenSizeIntM &&
+      clientHeight >= 800
 
     let height
     let width
@@ -404,12 +403,12 @@ const Constellation = ({ path }) => {
     } else if (isIpadPortrait) {
       height = 700
       width = 700
-      viewBoxMinX = -170
-      viewBoxMinY = -200
+      viewBoxMinX = -150
+      viewBoxMinY = -150
       viewBoxWidth = 1000
       viewBoxHeight = 1000
     } else {
-      // Desktop default
+      // Desktop or iPad landscape
       height = 700
       width = 700
       viewBoxMinX = -50
@@ -454,8 +453,12 @@ const DesktopConstellation = ({ path, dimensions }) => {
   }
 
   let constellationVariants = desktopVariants
-  let constX = constellationVariants.home.x
-  let constY = constellationVariants.home.y
+  const constX = constellationVariants.home.x
+  const constY = constellationVariants.home.y
+  const shouldRemoveHoverEffects =
+    dimensions.isMobileLandscape ||
+    dimensions.isIpadLandscape ||
+    dimensions.isIpadPortrait
 
   let aboutPosition = {
     textX: constX + 18,
@@ -486,10 +489,6 @@ const DesktopConstellation = ({ path, dimensions }) => {
     constellationVariants = desktopXLVariants
   } else if (dimensions.isMobileLandscape) {
     constellationVariants = mobileLandscapeVariants
-  } else if (dimensions.isIpadLandscape) {
-    // TODO delete if not needed
-  } else if (dimensions.isIpadPortrait) {
-    // TODO delete if not needed
   }
 
   return (
@@ -521,28 +520,28 @@ const DesktopConstellation = ({ path, dimensions }) => {
         }
       >
         <NavStarLink
-          isMobile={dimensions.isMobileLandscape}
+          shouldRemoveHoverEffects={shouldRemoveHoverEffects}
           path={path}
           linkRoute="/about/"
           linkText="Who we are"
           positions={aboutPosition}
         />
         <NavStarLink
-          isMobile={dimensions.isMobileLandscape}
+          shouldRemoveHoverEffects={shouldRemoveHoverEffects}
           path={path}
           linkRoute="/esp/"
           linkText="Ecosystem support"
           positions={espPosition}
         />
         <NavStarLink
-          isMobile={dimensions.isMobileLandscape}
+          shouldRemoveHoverEffects={shouldRemoveHoverEffects}
           path={path}
           linkRoute="/ethereum/"
           linkText="What is Ethereum?"
           positions={ethPosition}
         />
         <NavStarLink
-          isMobile={dimensions.isMobileLandscape}
+          shouldRemoveHoverEffects={shouldRemoveHoverEffects}
           path={path}
           linkRoute="/philosophy/"
           linkText="Our philosophy"
@@ -587,8 +586,8 @@ const DesktopConstellation = ({ path, dimensions }) => {
 
 // TODO fix page transition animation
 const MobileConstellation = ({ animation, path }) => {
-  let constX = mobileVariants.home.x
-  let constY = mobileVariants.home.y
+  const constX = mobileVariants.home.x
+  const constY = mobileVariants.home.y
 
   let aboutPosition = {
     textX: constX + 80,
@@ -640,28 +639,28 @@ const MobileConstellation = ({ animation, path }) => {
         animate={animation}
       >
         <NavStarLink
-          isMobile={true}
+          shouldRemoveHoverEffects={true}
           path={path}
           linkRoute="/about/"
           linkText="Who we are"
           positions={aboutPosition}
         />
         <NavStarLink
-          isMobile={true}
+          shouldRemoveHoverEffects={true}
           path={path}
           linkRoute="/esp/"
           linkText="Ecosystem support"
           positions={espPosition}
         />
         <NavStarLink
-          isMobile={true}
+          shouldRemoveHoverEffects={true}
           path={path}
           linkRoute="/ethereum/"
           linkText="What is Ethereum?"
           positions={ethPosition}
         />
         <NavStarLink
-          isMobile={true}
+          shouldRemoveHoverEffects={true}
           path={path}
           linkRoute="/philosophy/"
           linkText="Our philosophy"
