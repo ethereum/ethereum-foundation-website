@@ -38,9 +38,9 @@ const EcosystemSupportPage = () => (
           <OutboundLink
             target="_blank"
             rel="noopener noreferrer"
-            href="https://ecosystem.support"
+            href="https://esp.ethereum.foundation"
           >
-            Visit ecosystem.support
+            Visit esp.ethereum.foundation
           </OutboundLink>
           .
         </p>
@@ -48,7 +48,7 @@ const EcosystemSupportPage = () => (
           <Button
             target="_blank"
             rel="noopener noreferrer"
-            href="https://ecosystem.support"
+            href="https://esp.ethereum.foundation"
           >
             Learn more <ButtonIcon icon={faExternalLinkAlt} />
           </Button>
