@@ -121,7 +121,7 @@ const Star = styled(motion.img)`
   position: absolute;
   width: 80px;
 `
-const starHover = { scale: 1.8, transition: { duration: 1 } }
+const starHover = { opacity: 1, transition: { duration: 0.4 } }
 
 const Icon = styled(FontAwesomeIcon)`
   font-size: 32px;
@@ -138,7 +138,7 @@ const Footer = ({ isOpen, toggleFooter }) => {
         <div>© Ethereum Foundation, {new Date().getFullYear()}</div>
         <IconContainer onClick={() => toggleFooter()}>
           <Icon icon={footerToggleIcon} />
-          <Star whileHover={starHover} src={star} />
+          <Star initial={{ opacity: 0.6 }} whileHover={starHover} src={star} />
         </IconContainer>
       </FooterToggleContainer>
 
