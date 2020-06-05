@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
@@ -8,8 +9,6 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
 import { screenSizeM, screenSizeL } from "../utils/styles"
-import devconLogo from "../images/devcon-logo.svg"
-import blogLogo from "../images/ethereum-line-logo.svg"
 import canary from "../images/canary.svg"
 import star from "../images/star.png"
 
@@ -89,7 +88,8 @@ const CanaryContent = styled.div`
 
 const FooterDivLinks = styled(FooterChildDiv)`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
   flex: 0 1 160px;
   @media (max-width: ${screenSizeL}) {
     flex: 0 0 160px;
@@ -110,11 +110,6 @@ const IconContainer = styled(motion.div)`
   &:hover {
     cursor: pointer;
   }
-`
-
-const ImageAndTextLink = styled(OutboundLink)`
-  display: flex;
-  flex-direction: column;
 `
 
 const Star = styled(motion.img)`
@@ -181,22 +176,35 @@ const Footer = ({ isOpen, toggleFooter }) => {
                 </CanaryContent>
               </FooterDivCanary>
               <FooterDivLinks>
-                <ImageAndTextLink
+                <OutboundLink
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://devcon.org"
                 >
-                  <img src={devconLogo} alt="Devcon Logo" />
-                  Devcon.org
-                </ImageAndTextLink>
-                <ImageAndTextLink
+                  Devcon
+                </OutboundLink>
+                <OutboundLink
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://blog.ethereum.org"
                 >
-                  <img src={blogLogo} alt="Ethereum Foundation Blog Logo" />
                   Blog
-                </ImageAndTextLink>
+                </OutboundLink>
+                <OutboundLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://ethereum.org/terms-of-use/"
+                >
+                  Terms of Use
+                </OutboundLink>
+                <OutboundLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://ethereum.org/privacy-policy/"
+                >
+                  Privacy Policy
+                </OutboundLink>
+                <Link to="/cookie-policy/">Cookie Policy</Link>
               </FooterDivLinks>
             </FooterContentDiv>
           </StyledFooter>
