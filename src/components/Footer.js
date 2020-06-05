@@ -204,7 +204,7 @@ const Footer = ({ isOpen, toggleFooter }) => {
                 >
                   Privacy Policy
                 </OutboundLink>
-                <Link to="/cookie-policy/">Cookie Policy</Link>
+                <Link to="/cookie-policy/">Cookie Police</Link>
               </FooterDivLinks>
             </FooterContentDiv>
           </StyledFooter>
