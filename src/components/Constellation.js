@@ -338,6 +338,7 @@ const Constellation = ({ path }) => {
     switch (path) {
       case "/about/":
       case "/about/board/":
+      case "/cookie-policy/":
         animation = "about"
         break
       case "/philosophy/":
