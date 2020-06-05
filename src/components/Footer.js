@@ -181,7 +181,7 @@ const Footer = ({ isOpen, toggleFooter }) => {
                   rel="noopener noreferrer"
                   href="https://devcon.org"
                 >
-                  Devcon.org
+                  Devcon
                 </OutboundLink>
                 <OutboundLink
                   target="_blank"
