@@ -115,6 +115,13 @@ class Layout extends React.Component {
     })
   }
 
+  // If route changed, close footer
+  UNSAFE_componentWillReceiveProps = nextProps => {
+    if (this.state.isFooterOpen && window.previousPath !== nextProps.path) {
+      this.setState({ isFooterOpen: false })
+    }
+  }
+
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.handleScroll)
     window.addEventListener("orientationchange", this.handleOrientationChange)

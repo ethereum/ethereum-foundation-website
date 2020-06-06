@@ -16,8 +16,7 @@ export const wrapPageElement = ({ element, props }) => {
   )
 }
 
-export const onRouteUpdate = () => {
-  window.locations = window.locations || []
-  window.locations.push(window.location.pathname)
-  window.previousPath = window.locations[window.locations.length - 2]
+// Set global `previousPath`
+export const onPreRouteUpdate = ({ prevLocation }) => {
+  window.previousPath = prevLocation ? prevLocation.pathname : null
 }
