@@ -1,5 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import styled from "styled-components"
@@ -14,6 +16,19 @@ const StyledProfile = styled.div`
 
 const Content = styled.div`
   text-align: center;
+`
+
+const LinkContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+`
+
+const Icon = styled(FontAwesomeIcon)`
+  font-size: 24px;
+  margin: 8px;
+  color: #1d9bf0;
 `
 
 const Profile = ({ member }) => {
@@ -34,7 +49,9 @@ const Profile = ({ member }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              @{member.twitter}
+              <LinkContentContainer>
+                <Icon icon={faTwitter} />@{member.twitter}
+              </LinkContentContainer>
             </OutboundLink>
           </div>
         )}
