@@ -630,9 +630,9 @@ a {
 
 /* TODO fix */
 a > svg:hover {
-  color: #41c2e6;
+  color: #0177bb;
 }
 
 a:hover {
-  color: #41c2e6;
+  color: #0177bb;
 }
