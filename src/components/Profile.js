@@ -1,5 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import styled from "styled-components"
 
@@ -11,6 +12,10 @@ const StyledProfile = styled.div`
   margin: 25px;
 `
 
+const Content = styled.div`
+  text-align: center;
+`
+
 const Profile = ({ member }) => {
   return (
     <StyledProfile>
@@ -20,8 +25,20 @@ const Profile = ({ member }) => {
         alt={member.name}
       />
       <h3 style={{ marginBottom: `0.5rem` }}>{member.name}</h3>
-      <p>{member.title}</p>
-      <p>{member.bio}</p>
+      <Content>
+        <div>{member.title}</div>
+        {member.twitter && (
+          <div>
+            <OutboundLink
+              href={`https://twitter.com/${member.twitter}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @{member.twitter}
+            </OutboundLink>
+          </div>
+        )}
+      </Content>
     </StyledProfile>
   )
 }
