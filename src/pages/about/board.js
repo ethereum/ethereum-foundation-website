@@ -59,19 +59,19 @@ const ExecutiveBoardPage = () => {
     {
       name: "Aya Miyaguchi",
       title: "Executive Director",
-      bio: "",
+      twitter: "AyaMiyagotchi",
       img: data.aya.childImageSharp.fixed,
     },
     {
       name: "Vitalik Buterin",
       title: "Co-founder of Ethereum",
-      bio: "",
+      twitter: "VitalikButerin",
       img: data.vitalik.childImageSharp.fixed,
     },
     {
       name: "Patrick Storcheneger",
       title: "Board member",
-      bio: "",
+      twitter: "",
       img: data.patrick.childImageSharp.fixed,
     },
   ]
