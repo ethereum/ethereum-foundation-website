@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { screenSizeM, screenHeightMobileLandscape } from "../utils/styles"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 // Pages
 
@@ -24,7 +23,7 @@ export const ContentContainer = styled.div`
 
 export const PageH1 = styled.h1`
   margin-bottom: 0;
-  font-weight:300;
+  font-weight: 300;
 `
 
 // Buttons
@@ -40,7 +39,7 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
 `
 
-export const Button = styled(OutboundLink)`
+export const Button = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;

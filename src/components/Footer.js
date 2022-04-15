@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
@@ -149,15 +148,11 @@ const Footer = ({ isOpen, toggleFooter }) => {
               <FooterDivContact>
                 <strong>General Contact:</strong>
                 <div style={{ marginBottom: `16px` }}>
-                  <OutboundLink href="mailto:info@ethereum.org">
-                    info@ethereum.org
-                  </OutboundLink>
+                  <a href="mailto:info@ethereum.org">info@ethereum.org</a>
                 </div>
                 <strong>Press Contact:</strong>
                 <div>
-                  <OutboundLink href="mailto:press@ethereum.org">
-                    press@ethereum.org
-                  </OutboundLink>
+                  <a href="mailto:press@ethereum.org">press@ethereum.org</a>
                 </div>
               </FooterDivContact>
               <FooterDivCanary>
@@ -176,34 +171,34 @@ const Footer = ({ isOpen, toggleFooter }) => {
                 </CanaryContent>
               </FooterDivCanary>
               <FooterDivLinks>
-                <OutboundLink
+                <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://devcon.org"
                 >
                   Devcon
-                </OutboundLink>
-                <OutboundLink
+                </a>
+                <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://blog.ethereum.org"
                 >
                   Blog
-                </OutboundLink>
-                <OutboundLink
+                </a>
+                <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://ethereum.org/terms-of-use/"
                 >
                   Terms of Use
-                </OutboundLink>
-                <OutboundLink
+                </a>
+                <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://ethereum.org/privacy-policy/"
                 >
                   Privacy Policy
-                </OutboundLink>
+                </a>
                 <Link to="/cookie-policy/">Cookie Policy</Link>
               </FooterDivLinks>
             </FooterContentDiv>
