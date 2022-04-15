@@ -1,9 +1,11 @@
+const siteUrl = `https://ethereum.foundation`
+
 module.exports = {
   siteMetadata: {
     title: `Ethereum Foundation`,
     description: `The Ethereum Foundation is a non-profit organization dedicated to supporting the Ethereum blockchain and related technologies.`,
     author: `@ethereum`,
-    siteUrl: `https://ethereum.foundation`,
+    siteUrl,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -43,16 +45,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-matomo",
       options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-161310423-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
+        siteId: "33",
+        matomoUrl: "https://matomo.ethereum.org",
+        siteUrl,
+        matomoPhpScript: "matomo.php",
+        matomoJsScript: "matomo.js",
+        trackLoad: false,
       },
     },
     `gatsby-plugin-sitemap`,

@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
@@ -49,13 +48,13 @@ const AboutPage = () => (
         <p>
           The Ethereum Foundation (EF) is a non-profit organization dedicated to
           supporting{" "}
-          <OutboundLink
+          <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://ethereum.org/"
           >
             Ethereum
-          </OutboundLink>{" "}
+          </a>{" "}
           and related technologies.
         </p>
         <p>

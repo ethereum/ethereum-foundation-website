@@ -1,5 +1,4 @@
 import React from "react"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 
@@ -48,13 +47,13 @@ const EthereumPage = () => (
 
         <p>
           To learn more about Ethereum or its native token (Ether),{" "}
-          <OutboundLink
+          <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://ethereum.org"
           >
             visit ethereum.org
-          </OutboundLink>
+          </a>
         </p>
         <ButtonContainer>
           <Button

@@ -2,7 +2,6 @@ import React from "react"
 import Img from "gatsby-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import styled from "styled-components"
 
@@ -44,7 +43,7 @@ const Profile = ({ member }) => {
         <div>{member.title}</div>
         {member.twitter && (
           <div>
-            <OutboundLink
+            <a
               href={`https://twitter.com/${member.twitter}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -52,7 +51,7 @@ const Profile = ({ member }) => {
               <LinkContentContainer>
                 <Icon icon={faTwitter} />@{member.twitter}
               </LinkContentContainer>
-            </OutboundLink>
+            </a>
           </div>
         )}
       </Content>
