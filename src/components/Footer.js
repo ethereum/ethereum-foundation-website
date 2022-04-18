@@ -188,18 +188,24 @@ const Footer = ({ isOpen, toggleFooter }) => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://ethereum.org/terms-of-use/"
+                  href="https://ethereum.org/en/terms-of-use/"
                 >
                   Terms of Use
                 </a>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://ethereum.org/privacy-policy/"
+                  href="https://ethereum.org/en/privacy-policy/"
                 >
                   Privacy Policy
                 </a>
-                <Link to="/cookie-policy/">Cookie Policy</Link>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://ethereum.org/en/cookie-policy/"
+                >
+                  Cookie Policy
+                </a>
               </FooterDivLinks>
             </FooterContentDiv>
           </StyledFooter>
