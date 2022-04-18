@@ -37,7 +37,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <ReportLinkContainer>
       <ReportTextContainer>
-        The EF annual report is out.
+        The annual report is out.
       </ReportTextContainer>
       <ReportLink
         target="_blank"
