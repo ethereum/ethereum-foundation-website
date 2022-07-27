@@ -69,7 +69,7 @@ const ExecutiveBoardPage = () => {
       img: data.vitalik.childImageSharp.fixed,
     },
     {
-      name: "Patrick Storcheneger",
+      name: "Patrick Storchenegger",
       title: "Board member",
       twitter: "",
       img: data.patrick.childImageSharp.fixed,
