@@ -204,7 +204,7 @@ function addMainObjectToScene () {
 }
 
 function isHomePage () {
-    return window.location.href === "http://localhost:8080/" || window.location.href === "http://localhost:8080" || window.location.href === "https://ethereum-foundation.netlify.app/" || window.location.href === "https://ethereum-foundation.netlify.app";
+    return window.location.pathname === "/";
 }
 
 
@@ -872,9 +872,9 @@ function createEquirectangularBackground () {
     const geometry = new THREE.SphereGeometry( 500, 60, 40 );
     geometry.scale( - 1, 1, 1 ) ;
     
-    let url = window.location.href;
+    let url = window.location.pathname;
 
-    if (url === "https://ethereum-foundation.netlify.app/philosophy" || url === "http://localhost:8080/philosophy") {
+    if (url === "/philosophy") {
         
         if (webPFormatSupported) {
 
@@ -898,7 +898,7 @@ function createEquirectangularBackground () {
             
         }
 
-    } else if (url === "https://ethereum-foundation.netlify.app/ef" || url === "http://localhost:8080/ef") {
+    } else if (url === "/ef") {
 
         if (webPFormatSupported) {
 
@@ -922,7 +922,7 @@ function createEquirectangularBackground () {
             
         }
         
-    } else if (url === "https://ethereum-foundation.netlify.app/ethereum" || url === "http://localhost:8080/ethereum") {
+    } else if (url === "/ethereum") {
 
         if (webPFormatSupported) {
             texture = new THREE.TextureLoader().load("assets/EF-website-landscape-Ethereum-02.webp");
@@ -930,7 +930,7 @@ function createEquirectangularBackground () {
             texture = new THREE.TextureLoader().load("assets/EF-website-landscape-Ethereum-02.jpg");
         };
 
-    } else if (url === "https://ethereum-foundation.netlify.app/infinitegarden" || url === "http://localhost:8080/infinitegarden") {
+    } else if (url === "/infinitegarden") {
 
         if (webPFormatSupported) {
             texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-01-_3_.jpg");
@@ -2271,42 +2271,36 @@ function turnMainContentColorWhite () {
 
 function goToNextPage () {
 
-    let url = window.location.href;
-
-    // if (isHomePage()) {
-        // Need to remove the isLoading text
-        // let loadingText = document.getElementById("loading--text");
-        // loadingText.classList.add("hidden");
-    // };
+    let url = window.location.pathname;
     
     let transitionPageElement = document.getElementById("transition--container");
     transitionPageElement.classList.remove("removed");
     
-    if (url === "http://localhost:8080/" || url === "http://localhost:8080" || url === "https://ethereum-foundation.netlify.app/" || url === "https://ethereum-foundation.netlify.app") {
+    if (url === "/") {
 
         setTimeout(() => {
             window.location.href = "/infinitegarden";
         }, 1000);
         
-    } else if (url === "http://localhost:8080/infinitegarden" || url === "https://ethereum-foundation.netlify.app/infinitegarden") {
+    } else if (url === "/infinitegarden") {
 
         setTimeout(() => {
             window.location.href = "/ethereum";
         }, 1000);
         
-    } else if (url === "http://localhost:8080/ethereum" || url === "https://ethereum-foundation.netlify.app/ethereum") {
+    } else if (url === "/ethereum") {
         
         setTimeout(() => {
             window.location.href = "/ef";
         }, 1000);
         
-    } else if (url === "http://localhost:8080/ef" || url === "https://ethereum-foundation.netlify.app/ef") {
+    } else if (url === "/ef") {
 
         setTimeout(() => {
             window.location.href = "/philosophy";
         }, 1000);
         
-    } else if (url === "http://localhost:8080/philosophy" || url === "https://ethereum-foundation.netlify.app/philosophy") {
+    } else if (url === "/philosophy") {
 
         setTimeout(() => {
             window.location.href = "/";
