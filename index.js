@@ -155,11 +155,7 @@ function initLoadingManager () {
     }
 
     loadingManager.onLoad = () => {
-
-        if (isHomePage()) {
-            removeLoadingScreen();
-        };
-
+        removeLoadingScreen();
     }
 
     loadingManager.onProgress = (url, itemsLoaded, itemsTotal) => {
@@ -2351,14 +2347,12 @@ function goToNextPage () {
 // Immediately triggered => Ensures that the white transition page fades away. 
 window.onload = function () {
 
-    setTimeout(() => {
-
-        if (!isHomePage()) {
-            let transitionPageElement = document.getElementById("transition--container");
-            transitionPageElement.classList.add("removed");
-        };
-
-    }, 1000);
+    // setTimeout(() => {
+        // if (!isHomePage()) {
+            // let transitionPageElement = document.getElementById("transition--container");
+            // transitionPageElement.classList.add("removed");
+        // };
+    // }, 1000);
 
 }
 
