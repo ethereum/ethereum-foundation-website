@@ -184,7 +184,7 @@ object {
     flex-direction: column;
     transform: translateY(80vh);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
     padding-top: 20vh;
     box-sizing: border-box;
