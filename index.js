@@ -880,9 +880,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-philosophy-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-philosophy-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-philosophy-03-12000px.jpg");
             }
 
@@ -890,9 +890,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-philosophy-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-philosophy-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-philosophy-03-12000px.jpg");
             }
             
@@ -904,9 +904,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ef-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ef-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ef-03-12000px.jpg");
             }
 
@@ -914,9 +914,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ef-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ef-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ef-03-12000px.jpg");
             }
             
@@ -928,9 +928,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-12000px.jpg");
             }
             
@@ -938,9 +938,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-12000px.jpg");
             }
            
@@ -952,9 +952,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-12000px.jpg");
             }
             
@@ -962,9 +962,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-12000px.jpg");
             }
            
@@ -976,9 +976,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-landing-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-landing-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-landing-03-12000px.jpg");
             }
             
@@ -986,9 +986,9 @@ function createEquirectangularBackground () {
 
             if (screen.width < 500) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-landing-03-6000px.jpg");
-            } else if (screen.width >= 500 && screen.width < 1500) {
+            } else if (screen.width >= 500 && screen.width <= 1700) {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-landing-03-8000px.jpg");
-            } else if (screen.width >= 1500)  {
+            } else if (screen.width > 1700)  {
                 texture = new THREE.TextureLoader().load("assets/EF-website-landscape-landing-03-12000px.jpg");
             }
            

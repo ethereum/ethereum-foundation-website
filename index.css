@@ -171,7 +171,7 @@ object {
     position: absolute;
     top: 0;
     left: 0;
-    cursor: grab;
+    cursor: ew-resize;
 }
 
 #main--content--inner--container {
@@ -424,7 +424,7 @@ ol li {
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     z-index: 80;
-    cursor: grab;
+    cursor: ew-resize;
     /* Main Menu Container has z-index 90 and should be above */
 }
 
@@ -440,7 +440,7 @@ ol li {
 }
 
 #homepage--scroll--down--bottom--arrow {
-    cursor: grab;
+    cursor: ew-resize;
 }
 
 /* Triggers hover state on the scroll down element, removed for now */
