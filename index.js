@@ -925,17 +925,49 @@ function createEquirectangularBackground () {
     } else if (url === "/ethereum") {
 
         if (webPFormatSupported) {
-            texture = new THREE.TextureLoader().load("assets/EF-website-landscape-Ethereum-02.webp");
+
+            if (screen.width < 500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-6000px.jpg");
+            } else if (screen.width >= 500 && screen.width < 1500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-8000px.jpg");
+            } else if (screen.width >= 1500)  {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-12000px.jpg");
+            }
+            
         } else {
-            texture = new THREE.TextureLoader().load("assets/EF-website-landscape-Ethereum-02.jpg");
-        };
+
+            if (screen.width < 500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-6000px.jpg");
+            } else if (screen.width >= 500 && screen.width < 1500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-8000px.jpg");
+            } else if (screen.width >= 1500)  {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-ethereum-03-12000px.jpg");
+            }
+           
+        }
 
     } else if (url === "/infinitegarden") {
 
         if (webPFormatSupported) {
-            texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-01-_3_.jpg");
+
+            if (screen.width < 500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-6000px.jpg");
+            } else if (screen.width >= 500 && screen.width < 1500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-8000px.jpg");
+            } else if (screen.width >= 1500)  {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-12000px.jpg");
+            }
+            
         } else {
-            texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-01-_3_.jpg");
+
+            if (screen.width < 500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-6000px.jpg");
+            } else if (screen.width >= 500 && screen.width < 1500) {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-8000px.jpg");
+            } else if (screen.width >= 1500)  {
+                texture = new THREE.TextureLoader().load("assets/EF-website-landscape-infinite-garden-03-12000px.jpg");
+            }
+           
         }
         
     } else if (isHomePage()) {
@@ -979,7 +1011,9 @@ function createEquirectangularBackground () {
     } else if (url.indexOf("ethereum") !== -1) {
         // Ethereum page
         mesh.rotation.y = - Math.PI / 1.55;
-    };
+    } else if (url.indexOf("infinitegarden") !== -1) {
+        mesh.rotation.y = - Math.PI / 2;
+    }
     
     scene.add(mesh);
 
