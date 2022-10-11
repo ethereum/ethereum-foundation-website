@@ -1321,6 +1321,22 @@ function average (array) {
 }
 
 
+/** 
+ * As the name suggests, function run after the user scrolls up to display the main content on the page
+ * This allows us to prevent a race condition within which the user can both scroll to display the main content on the page
+ * and scroll the content itself, which ends up giving unexpected results
+ */
+function allowScrollBehaviorOnMainContent () {
+    let mainContentContainer = document.getElementById("main--content--inner--container");
+    mainContentContainer.classList.add("vertical--scroll--allowed");
+}
+
+function disallowScrollBehaviorOnMainContent () {
+    let mainContentContainer = document.getElementById("main--content--inner--container");
+    mainContentContainer.classList.remove("vertical--scroll--allowed");
+}
+
+
 /** Animation Code **/
     
 function animate() {
@@ -1386,8 +1402,16 @@ function render() {
 
         // If main content is not displayed, show it.
         if (!mainContentDisplayed) {
+
             displayMainText();
+
+            setTimeout(() => {
+                allowScrollBehaviorOnMainContent();
+                // 2000 is equivalent to the 2s it takes for the animation @displayMainText animation to be finished above
+            }, 2000);
+            
             mainContentDisplayed = true; 
+            
         }
 
         // As the main content shows, increase the opacity of the cylinder mesh between the camera and the background 
@@ -1450,6 +1474,7 @@ function render() {
             changeNavigationElementsToDarkColor();
             displayScrollDownCTA();
             hideMainContent();
+            disallowScrollBehaviorOnMainContent();
 
             // Make the background cylinder lighter, which gives the illusion that the whole scene is becoming darker
             if (backgroundPlaneMesh.material.opacity >= 0.1) {

@@ -184,7 +184,7 @@ object {
     flex-direction: column;
     transform: translateY(80vh);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
-    overflow-y: auto;
+    overflow-y: hidden;
     height: 100%;
     padding-top: 20vh;
     box-sizing: border-box;
@@ -192,6 +192,10 @@ object {
     -ms-overflow-style: none; 
     scrollbar-width: none;  
     align-items: center;
+}
+
+#main--content--inner--container.vertical--scroll--allowed {
+    overflow-y: auto;
 }
 
 #main--content--inner--container.displayed {
@@ -1027,7 +1031,6 @@ with the footer  */
 }
 
 
-
 /* Media Queries for Laptops, Desktops, and larger devices */
 
 @media (max-width: 1000px) {
@@ -1199,6 +1202,21 @@ with the footer  */
     h3 {
         font-size: 27px;
     }
+
+    /* .executive--board--member--image {
+        margin-right: 0px;
+    }
+
+    .executive--board--member--name, .executive--board--member--title {
+        text-align: center;
+    }
+
+    .social--media--link--container {
+        width: "100%";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
 
 }
 
