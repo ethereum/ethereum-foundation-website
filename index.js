@@ -1332,7 +1332,7 @@ function allowScrollBehaviorOnMainContent () {
 }
 
 function disallowScrollBehaviorOnMainContent () {
-    let mainContentContainer = document.getElementById("main--content--inner--container");
+    let mainContentContainer = document.getElementById("main--content--inner--container");  
     mainContentContainer.classList.remove("vertical--scroll--allowed");
 }
 

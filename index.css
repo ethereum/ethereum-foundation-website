@@ -172,6 +172,7 @@ object {
     top: 0;
     left: 0;
     cursor: ew-resize;
+    overflow: hidden;
 }
 
 #main--content--inner--container {
@@ -195,6 +196,10 @@ object {
 }
 
 #main--content--inner--container.vertical--scroll--allowed {
+    overflow-y: auto;
+}
+
+#main--content--general--paragraph.vertical--scroll--allowed {
     overflow-y: auto;
 }
 
