@@ -498,7 +498,7 @@ ol li {
     cursor: default;
     opacity: 0.5;
     background-color: #36364C; 
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 #footer--outer--container.displayed {
