@@ -649,7 +649,7 @@ with the footer  */
 
 #footer--transitory--container.displayed {
     opacity: 1; 
-    transition: opacity 0.6s ease-out;
+    transition: opacity 0.85s ease-out;
 }
 
 .column--container {
