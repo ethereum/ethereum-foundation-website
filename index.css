@@ -701,8 +701,7 @@ with the footer  */
     flex-direction: row; 
     max-width: 300px;
     flex-wrap: wrap;
-    justify-content: space-between;
-    /* background-color: green; */
+    justify-content: space-between
 }
 
 #footer--right--container, #footer--left--container {
@@ -1306,9 +1305,8 @@ and (-webkit-min-device-pixel-ratio: 3) {
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -1374,7 +1372,6 @@ and (-webkit-min-device-pixel-ratio: 3) {
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -1614,9 +1611,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -1685,7 +1681,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 10px;
         margin-bottom: 10px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -1820,9 +1815,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -1891,7 +1885,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -2040,9 +2033,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -2111,7 +2103,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 10px;
         margin-bottom: 10px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -2242,9 +2233,8 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -2312,7 +2302,6 @@ and (-webkit-min-device-pixel-ratio: 1) {
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -2590,9 +2579,8 @@ and (max-device-width: 360px)
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -2661,7 +2649,6 @@ and (max-device-width: 360px)
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -3072,9 +3059,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        height: 100%;
+        /* height: 100%; */
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -3143,7 +3129,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 10px;
         margin-bottom: 10px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
