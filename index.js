@@ -1403,11 +1403,11 @@ function render() {
         // If main content is not displayed, show it.
         if (!mainContentDisplayed) {
 
-            displayMainText();
+            displayMainContent();
 
             setTimeout(() => {
                 allowScrollBehaviorOnMainContent();
-                // 2000 is equivalent to the 2s it takes for the animation @displayMainText animation to be finished above
+                // 2000 is equivalent to the 2s it takes for the animation @displayMainContent animation to be finished above
             }, 2000);
             
             mainContentDisplayed = true; 
@@ -1952,25 +1952,23 @@ function hideMainMenuText () {
 }
 
 function displayHamburgerMenu () {
-
     let hamburgerMenu = document.getElementById("hamburger--menu--container");
     hamburgerMenu.classList.remove("hide--hamburger--menu")
-    
 }
 
 function hideHamburgerMenu () {
-
     let hamburgerMenu = document.getElementById("hamburger--menu--container");
     hamburgerMenu.classList.add("hide--hamburger--menu")
-
-
 }
 
-function displayMainText () {
+function displayMainContent () {
     
-    let textContainer = document.getElementById("main--content--inner--container");
+    // let textContainer = document.getElementById("main--content--inner--container");
+    let textContainer = document.getElementById("homepage--welcome--text--inner--container");
     textContainer.classList.add("displayed");
 
+    // Helps us ensure that the animation isn't triggered more than once in the @render function 
+    // where we end up calling this function
     mainContentShownOnPage = true;
 
 }
@@ -1978,8 +1976,9 @@ function displayMainText () {
 
 function hideMainContent () {
 
-    let textContainer = document.getElementById("main--content--inner--container");
-    textContainer.classList.remove("displayed");	
+    // let textContainer = document.getElementById("main--content--inner--container");
+    let textContainer = document.getElementById("homepage--welcome--text--inner--container");
+    textContainer.classList.remove("displayed");
 
     mainContentShownOnPage = false;
     mainContentDisplayed = false;

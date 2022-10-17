@@ -175,7 +175,7 @@ object {
     left: 0;
     cursor: ew-resize;
     overflow: clip;
-    display: none;
+    /* display: none; */
 }
 
 #main--content--inner--container {
@@ -187,8 +187,6 @@ object {
     color: white;
     display: flex;
     flex-direction: column;
-    transform: translateY(80vh);
-    transition: transform cubic-bezier(.37,0,.01,1) 2s;
     height: 100%;
     padding-top: 20vh;
     box-sizing: border-box;
@@ -232,7 +230,14 @@ object {
 
 /* Used to ensure that the main content never goes beyond a certain limit in width */
 #homepage--welcome--text--inner--container {
+    transform: translateY(80vh);
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
     max-width: 600px;
+}
+
+#homepage--welcome--text--inner--container.displayed {
+    transform: translateY(0);
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
 #main--content--title {
