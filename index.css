@@ -163,34 +163,34 @@ object {
 /* General */
 
 #main--content--outer--container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     cursor: ew-resize;
-    overflow: hidden;
+    overflow: clip;
 }
 
 /* Test #3 => Does this protect the user from unwanted scroll interaction */
 
 #main--content--inner--container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     padding-left: max(20vw, 100px);
     padding-right: max(20vw, 100px);
     box-sizing: border-box;
     color: white;
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     transform: translateY(80vh);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
-    overflow-y: hidden;
     height: 100%;
     padding-top: 20vh;
     box-sizing: border-box;
@@ -198,6 +198,7 @@ object {
     -ms-overflow-style: none; 
     scrollbar-width: none;  
     align-items: center;
+    overflow-y: clip;
 }
 
 #main--content--inner--container.vertical--scroll--allowed {
