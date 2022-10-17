@@ -1965,6 +1965,11 @@ function displayMainContent () {
     
     // let textContainer = document.getElementById("main--content--inner--container");
     let textContainer = document.getElementById("homepage--welcome--text--inner--container");
+
+    if (isHomePage()) {
+        textContainer.classList.add("homepage--displayed");
+    }
+    
     textContainer.classList.add("displayed");
 
     // Helps us ensure that the animation isn't triggered more than once in the @render function 
@@ -1978,6 +1983,11 @@ function hideMainContent () {
 
     // let textContainer = document.getElementById("main--content--inner--container");
     let textContainer = document.getElementById("homepage--welcome--text--inner--container");
+
+    if (isHomePage()) {
+        textContainer.classList.remove("homepage--displayed");
+    }
+    
     textContainer.classList.remove("displayed");
 
     mainContentShownOnPage = false;
