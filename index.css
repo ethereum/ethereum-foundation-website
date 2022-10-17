@@ -474,6 +474,7 @@ ol li {
     z-index: 105;
     cursor: default;
     /* pointer-events: none; */
+    display: none;
 }
 
 #footer--inner--container {
