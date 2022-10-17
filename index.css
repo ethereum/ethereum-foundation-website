@@ -473,6 +473,7 @@ ol li {
     transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     z-index: 105;
     cursor: default;
+    /* pointer-events: none; */
 }
 
 #footer--inner--container {
@@ -492,12 +493,12 @@ ol li {
     opacity: 1; 
     height: 155px; 
     min-height: 155px; 
-    transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+    transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
 }
 
 #footer--inner--container.displayed {
     opacity: 1; 
-    transition: opacity 0.15s ease-out;
+    transition: opacity 0.5s ease-out;
 }
 
 #footer--content--container {
@@ -1291,7 +1292,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -1598,7 +1599,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -1805,7 +1806,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
     }
 
     #footer--inner--container {
@@ -2024,7 +2025,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -2226,7 +2227,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -2574,7 +2575,7 @@ and (max-device-width: 360px)
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -3056,7 +3057,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
