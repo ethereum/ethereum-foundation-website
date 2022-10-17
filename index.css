@@ -174,7 +174,10 @@ object {
     top: 0;
     left: 0;
     cursor: ew-resize;
+    overflow: hidden;
 }
+
+/* Test #3 => Does this protect the user from unwanted scroll interaction */
 
 #main--content--inner--container {
     width: 100%;
