@@ -487,6 +487,7 @@ ol li {
     cursor: default;
     opacity: 0.5;
     background-color: #36364C; 
+    pointer-events: none;
 }
 
 #footer--outer--container.displayed {
@@ -494,6 +495,7 @@ ol li {
     height: 155px; 
     min-height: 155px; 
     transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
+    pointer-events: auto;
 }
 
 #footer--inner--container.displayed {
@@ -628,13 +630,14 @@ ol li {
 /* Defines the content area that is added or removed based on whether the user hovers or interacts
 with the footer  */
 #footer--transitory--container {
-    display: flex; 
+    display: none; 
     flex-direction: row; 
     opacity: 0;
     transition: opacity 0.2s ease-out;
 }
 
 #footer--transitory--container.displayed {
+    display: flex;
     opacity: 1; 
     transition: opacity 0.6s ease-out;
 }
