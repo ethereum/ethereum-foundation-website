@@ -177,8 +177,6 @@ object {
     overflow: clip;
 }
 
-/* Test #3 => Does this protect the user from unwanted scroll interaction */
-
 #main--content--inner--container {
     width: 100vw;
     height: 100vh;
@@ -186,7 +184,6 @@ object {
     padding-right: max(20vw, 100px);
     box-sizing: border-box;
     color: white;
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     transform: translateY(80vh);

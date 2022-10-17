@@ -1406,7 +1406,7 @@ function render() {
             displayMainText();
 
             setTimeout(() => {
-                // allowScrollBehaviorOnMainContent();
+                allowScrollBehaviorOnMainContent();
                 // 2000 is equivalent to the 2s it takes for the animation @displayMainText animation to be finished above
             }, 2000);
             
@@ -1474,7 +1474,7 @@ function render() {
             changeNavigationElementsToDarkColor();
             displayScrollDownCTA();
             hideMainContent();
-            // disallowScrollBehaviorOnMainContent();
+            disallowScrollBehaviorOnMainContent();
 
             // Make the background cylinder lighter, which gives the illusion that the whole scene is becoming darker
             if (backgroundPlaneMesh.material.opacity >= 0.1) {
