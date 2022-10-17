@@ -495,7 +495,7 @@ ol li {
     height: 155px; 
     min-height: 155px; 
     transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-    pointer-events: auto;
+    /* pointer-events: auto; */
 }
 
 #footer--inner--container.displayed {
