@@ -175,6 +175,7 @@ object {
     left: 0;
     cursor: ew-resize;
     overflow: clip;
+    display: none;
 }
 
 #main--content--inner--container {
