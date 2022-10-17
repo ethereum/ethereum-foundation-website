@@ -641,14 +641,13 @@ ol li {
 /* Defines the content area that is added or removed based on whether the user hovers or interacts
 with the footer  */
 #footer--transitory--container {
-    display: none; 
+    display: flex; 
     flex-direction: row; 
     opacity: 0;
     transition: opacity 0.2s ease-out;
 }
 
 #footer--transitory--container.displayed {
-    display: flex;
     opacity: 1; 
     transition: opacity 0.6s ease-out;
 }
