@@ -491,11 +491,11 @@ ol li {
     display: auto;
     cursor: default;
     pointer-events: auto;
+    height: 0%;
 }
 
 #footer--inner--container {
     width: 100%;
-    height: 100%;
     display: flex; 
     padding-left: 20px;
     padding-right: 20px;
