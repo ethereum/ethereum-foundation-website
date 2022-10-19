@@ -570,6 +570,8 @@ ol li {
     align-items: center;
 }
 
+
+
 #footer--right--container.footer--displayed {
     align-items: normal;
     justify-content: center;
@@ -658,7 +660,7 @@ with the footer  */
 }
 
 #footer--transitory--container.displayed {
-    display: block;   
+    display: flex;   
 }
 
 .column--container {
@@ -1243,6 +1245,22 @@ with the footer  */
         justify-content: center;
         align-items: center;
     } */
+
+    #footer--right--container {
+        width: unset;
+        min-width: unset;
+        transform: rotate(180deg);
+        align-items: unset;
+    }
+
+    #footer--transitory--container {
+        width: 103%;
+    }
+
+    #footer--arrow {
+        width: 17px;
+        height: 17px;
+    }
 
 }
 
