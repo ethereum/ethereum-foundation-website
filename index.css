@@ -109,6 +109,7 @@ body {
     background-color: white;
     height: var(--doc-height);
     overflow-y: clip;
+    transition: height 0.2s ease-out;
 }
 
 /* Initial Page */

@@ -2170,8 +2170,8 @@ function modifyElementsAccordingToDevice () {
 }
 
 function setDocumentHeight() {
-    const document = document.documentElement;
-    document.style.setProperty('--doc-height', `${window.innerHeight}px`);
+    const doc = document.body;
+    doc.style.setProperty('--doc-height', `${window.innerHeight}px`);
 }
 
 /** Navigational Event Listeners => Send us to other pages */
