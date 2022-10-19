@@ -103,7 +103,7 @@ body {
     margin: 0px;
     overflow: hidden;
     background-color: white;
-    height: 100vh;
+    height: 100%;
     overflow-y: clip;
 }
 

@@ -2160,6 +2160,15 @@ function modifyElementsAccordingToDevice () {
         footerRightContainer.style.display = "none";        
         // If it is mobile device then we hide the footer--right--container
     }
+
+    // Resizes page according to whether the address bar goes up or down in Safari
+    // new ResizeObserver((entries) => {
+    //     entries.forEach((entry) => {
+    //         //const windowFullHeight = parseFloat(window.outerHeight);
+    //         document.documentElement.style.setProperty("--webkit-footer-gap", `${entry.contentRect.height}px`);
+    //     });
+    // }).observe(document.querySelector(".webkit-gap"));
+
     
 }
 
