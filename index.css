@@ -96,6 +96,10 @@ src: local(''),
         url('fonts/abhaya-libre-v13-latin-regular.svg#AbhayaLibre') format('svg'); /* Legacy iOS */
 }
 
+:root {
+    --doc-height: 100%;
+}
+
 /* Higher Level CSS */
 
 body {
@@ -103,6 +107,9 @@ body {
     margin: 0px;
     overflow: hidden;
     background-color: white;
+    height: var(--doc-height);
+    overflow-y: clip;
+    transition: height 0.2s ease-out;
 }
 
 /* Initial Page */
@@ -161,8 +168,8 @@ object {
 /* General */
 
 #main--content--outer--container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -172,26 +179,27 @@ object {
     top: 0;
     left: 0;
     cursor: ew-resize;
+    overflow: clip;
+    /* display: none; */
 }
 
 #main--content--inner--container {
-    width: 100%;
+    width: 100vw;
+    /* height: 100vh; */
     padding-left: max(20vw, 100px);
     padding-right: max(20vw, 100px);
     box-sizing: border-box;
     color: white;
     display: flex;
     flex-direction: column;
-    transform: translateY(80vh);
-    transition: transform cubic-bezier(.37,0,.01,1) 2s;
-    overflow-y: hidden;
-    height: 100%;
+    /* height: 100%; */
     padding-top: 20vh;
     box-sizing: border-box;
     padding-bottom: 20vh;	
     -ms-overflow-style: none; 
     scrollbar-width: none;  
     align-items: center;
+    overflow-y: clip;
 }
 
 #main--content--inner--container.vertical--scroll--allowed {
@@ -203,7 +211,7 @@ object {
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
-#main--content--inner--container.homepage {
+/* #main--content--inner--container.homepage {
     max-width: 550px;
     padding-left: unset;
     padding-right: unset;
@@ -222,12 +230,24 @@ object {
 #main--content--inner--container.homepage.displayed {
     transform: translateY(-20px);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
-}
-
+} */
 
 /* Used to ensure that the main content never goes beyond a certain limit in width */
 #homepage--welcome--text--inner--container {
+    transform: translateY(80vh);
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
     max-width: 600px;
+}
+
+#homepage--welcome--text--inner--container.displayed {
+    transform: translateY(0);
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
+}
+
+/* #test => Make this 0 after removing the height of main--content--inner--container */
+#homepage--welcome--text--inner--container.homepage--displayed {
+    transform: translateY(0);
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
 #main--content--title {
@@ -468,7 +488,9 @@ ol li {
     width: 100%; 
     transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     z-index: 105;
+    display: auto;
     cursor: default;
+    pointer-events: auto;
 }
 
 #footer--inner--container {
@@ -488,12 +510,12 @@ ol li {
     opacity: 1; 
     height: 155px; 
     min-height: 155px; 
-    transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+    transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
 }
 
 #footer--inner--container.displayed {
     opacity: 1; 
-    transition: opacity 0.15s ease-out;
+    transition: opacity 0.5s ease-out;
 }
 
 #footer--content--container {
@@ -627,11 +649,16 @@ with the footer  */
     flex-direction: row; 
     opacity: 0;
     transition: opacity 0.2s ease-out;
+    display: hidden;
+}
+
+#footer--transitory--container.opacity--changed {
+    opacity: 1; 
+    transition: opacity 0.85s ease-out;
 }
 
 #footer--transitory--container.displayed {
-    opacity: 1; 
-    transition: opacity 0.6s ease-out;
+    display: block;   
 }
 
 .column--container {
@@ -684,7 +711,7 @@ with the footer  */
     margin-top: 3px;
     margin-bottom: 3px;
     text-decoration: none;
-    pointer-events: all;
+    pointer-events: inherit;
 }
 
 .footer--link:hover {
@@ -696,8 +723,7 @@ with the footer  */
     flex-direction: row; 
     max-width: 300px;
     flex-wrap: wrap;
-    justify-content: space-between;
-    /* background-color: green; */
+    justify-content: space-between
 }
 
 #footer--right--container, #footer--left--container {
@@ -1287,7 +1313,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -1303,7 +1329,6 @@ and (-webkit-min-device-pixel-ratio: 3) {
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -1353,13 +1378,9 @@ and (-webkit-min-device-pixel-ratio: 3) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -1369,7 +1390,6 @@ and (-webkit-min-device-pixel-ratio: 3) {
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -1594,7 +1614,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -1611,12 +1631,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -1664,13 +1683,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -1680,7 +1695,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 10px;
         margin-bottom: 10px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -1801,7 +1815,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
     }
 
     #footer--inner--container {
@@ -1817,12 +1831,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -1870,13 +1883,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -1886,7 +1895,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -2020,7 +2028,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -2037,12 +2045,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -2090,13 +2097,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -2106,7 +2109,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 10px;
         margin-bottom: 10px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -2222,7 +2224,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -2239,12 +2241,11 @@ and (-webkit-min-device-pixel-ratio: 1) {
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -2291,13 +2292,9 @@ and (-webkit-min-device-pixel-ratio: 1) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -2307,7 +2304,6 @@ and (-webkit-min-device-pixel-ratio: 1) {
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -2570,7 +2566,7 @@ and (max-device-width: 360px)
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -2587,12 +2583,11 @@ and (max-device-width: 360px)
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -2640,13 +2635,9 @@ and (max-device-width: 360px)
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -2656,7 +2647,6 @@ and (max-device-width: 360px)
     .link--group--container {
         margin-top: 0px;
         margin-bottom: 15px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
@@ -3052,7 +3042,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
-        transition: min-height 0.15s ease-out, height 0.15s ease-out, opacity 0.15s ease-out;
+        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
 
@@ -3069,7 +3059,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
         flex-direction: column;
         height: 100%;
         width: 105%;
-        /* background-color: green; */
     }
 
     #footer--left--side--container {
@@ -3122,13 +3111,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -3138,7 +3123,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .link--group--container {
         margin-top: 10px;
         margin-bottom: 10px;
-        /* background-color: green; */
         max-width: 400px;
     }
 
