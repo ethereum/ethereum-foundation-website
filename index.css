@@ -96,6 +96,10 @@ src: local(''),
         url('fonts/abhaya-libre-v13-latin-regular.svg#AbhayaLibre') format('svg'); /* Legacy iOS */
 }
 
+:root {
+    --doc-height: 100%;
+}
+
 /* Higher Level CSS */
 
 body {
@@ -103,7 +107,7 @@ body {
     margin: 0px;
     overflow: hidden;
     background-color: white;
-    height: 100vh;
+    height: var(--doc-height);
     overflow-y: clip;
 }
 

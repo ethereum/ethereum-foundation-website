@@ -2142,6 +2142,9 @@ function addEventListeners() {
     document.getElementById("footer--link--privacy").addEventListener("mousedown", openPrivacyPolicy);
     document.getElementById("footer--link--cookies").addEventListener("mousedown", openCookiePolicy);
 
+    // Window
+    window.addEventListener("resize", setDocumentHeight);
+
 }
 
 /**
@@ -2161,7 +2164,14 @@ function modifyElementsAccordingToDevice () {
         // If it is mobile device then we hide the footer--right--container
     }
     
+    setDocumentHeight();
+    
 }
+
+function setDocumentHeight() {
+    const doc = document.body;
+    doc.style.setProperty('--doc-height', `${window.innerHeight}px`)   
+};
 
 /** Navigational Event Listeners => Send us to other pages */
 
