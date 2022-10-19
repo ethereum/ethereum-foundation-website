@@ -2142,6 +2142,9 @@ function addEventListeners() {
     document.getElementById("footer--link--privacy").addEventListener("mousedown", openPrivacyPolicy);
     document.getElementById("footer--link--cookies").addEventListener("mousedown", openCookiePolicy);
 
+    // General
+    window.addEventListener("resize", setDocumentHeight);
+
 }
 
 /**
@@ -2162,14 +2165,13 @@ function modifyElementsAccordingToDevice () {
     }
 
     // Resizes page according to whether the address bar goes up or down in Safari
-    // new ResizeObserver((entries) => {
-    //     entries.forEach((entry) => {
-    //         //const windowFullHeight = parseFloat(window.outerHeight);
-    //         document.documentElement.style.setProperty("--webkit-footer-gap", `${entry.contentRect.height}px`);
-    //     });
-    // }).observe(document.querySelector(".webkit-gap"));
-
+   setDocumentHeight();
     
+}
+
+function setDocumentHeight() {
+    const document = document.documentElement;
+    document.style.setProperty('--doc-height', `${window.innerHeight}px`);
 }
 
 /** Navigational Event Listeners => Send us to other pages */
