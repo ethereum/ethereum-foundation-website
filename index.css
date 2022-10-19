@@ -185,14 +185,14 @@ object {
 
 #main--content--inner--container {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     padding-left: max(20vw, 100px);
     padding-right: max(20vw, 100px);
     box-sizing: border-box;
     color: white;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    /* height: 100%; */
     padding-top: 20vh;
     box-sizing: border-box;
     padding-bottom: 20vh;	
@@ -244,8 +244,9 @@ object {
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
+/* #test => Make this 0 after removing the height of main--content--inner--container */
 #homepage--welcome--text--inner--container.homepage--displayed {
-    transform: translateY(100%);
+    transform: translateY(0);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
