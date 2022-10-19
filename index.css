@@ -488,9 +488,9 @@ ol li {
     width: 100%; 
     transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     z-index: 105;
+    display: auto;
     cursor: default;
-    /* pointer-events: none; */
-    /* display: none; */
+    pointer-events: auto;
 }
 
 #footer--inner--container {
@@ -504,7 +504,6 @@ ol li {
     cursor: default;
     opacity: 0.5;
     background-color: #36364C; 
-    /* pointer-events: none; */
 }
 
 #footer--outer--container.displayed {
@@ -512,7 +511,6 @@ ol li {
     height: 155px; 
     min-height: 155px; 
     transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-    /* pointer-events: auto; */
 }
 
 #footer--inner--container.displayed {
@@ -651,11 +649,16 @@ with the footer  */
     flex-direction: row; 
     opacity: 0;
     transition: opacity 0.2s ease-out;
+    display: hidden;
+}
+
+#footer--transitory--container.opacity--changed {
+    opacity: 1; 
+    transition: opacity 0.85s ease-out;
 }
 
 #footer--transitory--container.displayed {
-    opacity: 1; 
-    transition: opacity 0.85s ease-out;
+    display: block;   
 }
 
 .column--container {
@@ -708,7 +711,7 @@ with the footer  */
     margin-top: 3px;
     margin-bottom: 3px;
     text-decoration: none;
-    pointer-events: all;
+    pointer-events: inherit;
 }
 
 .footer--link:hover {
@@ -1324,7 +1327,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
@@ -1375,13 +1378,9 @@ and (-webkit-min-device-pixel-ratio: 3) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -1630,13 +1629,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -1684,13 +1683,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -1834,13 +1829,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -1888,13 +1883,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -2052,13 +2043,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -2106,13 +2097,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -2252,13 +2239,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -2305,13 +2292,9 @@ and (-webkit-min-device-pixel-ratio: 1) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -2598,13 +2581,13 @@ and (max-device-width: 360px)
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
     #footer--left--side--container {
         flex-direction: column;
-        padding-top: 20%;
+        padding-top: 10%;
         width: 100%; 
     }
 
@@ -2652,13 +2635,9 @@ and (max-device-width: 360px)
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {
@@ -3078,7 +3057,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--transitory--container {
         flex-direction: column;
-        /* height: 100%; */
+        height: 100%;
         width: 105%;
     }
 
@@ -3132,13 +3111,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
         opacity: 0.38;
     }
 
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
+    #footer--links--container {
+        border-bottom: 1px solid rgb(255, 255, 255, 0.38);
+        padding-bottom: 20px;
     }
 
     #footer--middle--container {

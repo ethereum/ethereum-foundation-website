@@ -1602,6 +1602,11 @@ function displayNewFooter () {
         footerUpArrow.classList.add("hidden");
         footerDownArrow.classList.add("displayed");   
 
+        // After we set the display of the transitory--container to auto, which adds element to the DOM 
+        // structure, we make this call in order to create a smooth transition for the animation
+        setTimeout(() => {
+            elementsContainer.classList.add("opacity--changed");
+        }, 300);
         
         if (!isMobileDevice()) {
             footerRightContainer.classList.add("footer--displayed");
@@ -1730,6 +1735,7 @@ function hideNewFooter () {
 
         footerContainer.classList.remove("displayed");
         footerInnerContainer.classList.remove("displayed");
+        elementsContainer.classList.remove("opacity--changed");
         elementsContainer.classList.remove("displayed");
         footerUpArrow.classList.add("hidden");
         footerDownArrow.classList.add("displayed");
@@ -2170,8 +2176,10 @@ function modifyElementsAccordingToDevice () {
 }
 
 function setDocumentHeight() {
+    
     const doc = document.body;
     doc.style.setProperty('--doc-height', `${window.innerHeight}px`);
+    
 }
 
 /** Navigational Event Listeners => Send us to other pages */
