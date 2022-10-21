@@ -5,7 +5,7 @@
   </style>
     <radialGradient id="gggrain-gradient" r="0.7">
         <stop offset="0%" stop-color="hsl(211, 78%, 19%)"></stop>
-        <stop offset="50%" stop-color="hsl(251, 25%, 36%)"></stop>
+        <stop offset="50%" stop-color="hsla(269, 13%, 33%, 1)"></stop>
         <stop offset="100%" stop-color="hsla(46, 53%, 47%, 1)"></stop>
       </radialGradient>
     <linearGradient gradientTransform="rotate(-222, 0.5, 0.5)" x1="50%" y1="0%" x2="50%" y2="100%" id="gggrain-gradient2">
