@@ -194,9 +194,9 @@ object {
     height: 100%;
     padding-top: 20vh;
     box-sizing: border-box;
-    padding-bottom: 20vh;	
-    -ms-overflow-style: none; 
-    scrollbar-width: none;  
+    padding-bottom: 20vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     align-items: center;
     overflow-y: clip;
 }
@@ -254,13 +254,13 @@ object {
     font-size: 42px;
     text-align: center;
     opacity: 1;
-    transition: opacity 0.4s ease-in; 
+    transition: opacity 0.4s ease-in;
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
 #main--content--title.hidden {
     opacity: 0;
-    transition: opacity 0.2s ease-in; 
+    transition: opacity 0.2s ease-in;
 }
 
 .main--content--paragraph {
@@ -269,8 +269,8 @@ object {
     font-family: "Libre Franklin", sans-serif;
     font-weight: 200;
     opacity: 1;
-    transition: opacity 0.4s ease-in; 
-    transition: transform cubic-bezier(.37,0,.01,1) 2s;				
+    transition: opacity 0.4s ease-in;
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
     margin-top: 10px;
 }
 
@@ -280,7 +280,7 @@ h3 {
     font-size: 32px;
     text-align: center;
     opacity: 1;
-    transition: opacity 0.4s ease-in; 
+    transition: opacity 0.4s ease-in;
     color: white;
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
     margin-bottom: 20px;
@@ -288,7 +288,7 @@ h3 {
 
 #main--content--title.hidden {
     opacity: 0;
-    transition: opacity 0.2s ease-in; 
+    transition: opacity 0.2s ease-in;
 }
 
 #main--content--general--paragraph, #main--content--general--paragraph--two {
@@ -297,8 +297,8 @@ h3 {
     font-family: "Libre Franklin", sans-serif;
     font-weight: 200;
     opacity: 1;
-    transition: opacity 0.4s ease-in; 
-    transition: transform cubic-bezier(.37,0,.01,1) 2s;				
+    transition: opacity 0.4s ease-in;
+    transition: transform cubic-bezier(.37,0,.01,1) 2s;
     margin-top: 10px;
     text-decoration: none;
     color: white;
@@ -306,7 +306,7 @@ h3 {
 
 #main--content--general--paragraph.hidden, #main--content--general--paragraph--two.hidden {
     opacity: 0;
-    transition: opacity 0.2s ease-in; 
+    transition: opacity 0.2s ease-in;
 }
 
 /* #temporary #toDo: figure out why this is different behavior */
@@ -330,7 +330,7 @@ ol li {
     font-family: "Libre Franklin", sans-serif;
     font-weight: 200;
     opacity: 1;
-    transition: opacity 0.4s ease-in; 
+    transition: opacity 0.4s ease-in;
 }
 
 #reference--list--container {
@@ -339,7 +339,7 @@ ol li {
     display: flex;
     flex-direction: column;
     margin-top: 60px;
-} 
+}
 
 #homepage--welcome--text--paragraph {
     line-height: 1.9;
@@ -347,15 +347,15 @@ ol li {
     font-family: "Libre Franklin", sans-serif;
     font-weight: 400;
     opacity: 1;
-    transition: opacity 0.4s ease-in; 
+    transition: opacity 0.4s ease-in;
     color: #36364C;
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
-    
+
 }
 
 #homepage--welcome--text--paragraph.hidden {
     opacity: 0;
-    transition: opacity 0.2s ease-in; 
+    transition: opacity 0.2s ease-in;
 }
 
 #downward--arrow {
@@ -375,7 +375,7 @@ ol li {
 
 #next--page--navigation--container, #next--page--navigation--container--two  {
     cursor: pointer;
-    width: 50%; 
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -477,13 +477,13 @@ ol li {
 
 #footer--outer--container {
     position: absolute;
-    bottom: 0; 
-    left: 0; 
+    bottom: 0;
+    left: 0;
     height: 40px;
     min-height: 40px;
     max-height: 40px;
     z-index: 3;
-    width: 100%; 
+    width: 100%;
     transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     z-index: 105;
     cursor: default;
@@ -494,27 +494,27 @@ ol li {
 #footer--inner--container {
     width: 100%;
     height: 100%;
-    display: flex; 
+    display: flex;
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;
     display: flex;
     cursor: default;
     opacity: 0.5;
-    background-color: #36364C; 
+    background-color: #36364C;
     /* pointer-events: none; */
 }
 
 #footer--outer--container.displayed {
-    opacity: 1; 
-    height: 155px; 
-    min-height: 155px; 
+    opacity: 1;
+    height: 155px;
+    min-height: 155px;
     transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
     /* pointer-events: auto; */
 }
 
 #footer--inner--container.displayed {
-    opacity: 1; 
+    opacity: 1;
     transition: opacity 0.5s ease-out;
 }
 
@@ -524,18 +524,18 @@ ol li {
 }
 
 #footer--ethereum--foundation--text {
-    font-weight: 400; 
-    font-size: 12px; 
-    line-height: 180%; 
-    text-align: center; 
-    letter-spacing: 0.05em; 
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 180%;
+    text-align: center;
+    letter-spacing: 0.05em;
     color: #FFFFFF;
     margin-top: 8px;
     margin-bottom: 8px;
     font-family: "Libre Franklin", sans-serif;
 }
 
-#footer--arrow { 
+#footer--arrow {
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -550,12 +550,12 @@ ol li {
 #footer--left--container {
     display: flex;
     flex-direction: column;
-    width: 97%; 
+    width: 97%;
     min-width: 97%;
     /* background-color: red;  */
-    height: 100%; 
+    height: 100%;
     flex-direction: column-reverse;
-    -webkit-flex-direction: column-reverse; 
+    -webkit-flex-direction: column-reverse;
     box-sizing: border-box;
     padding-right: 20px;
     pointer-events: none;
@@ -577,7 +577,7 @@ ol li {
 }
 
 #footer--unmoveable--text--container {
-    width: 100%; 
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
@@ -606,7 +606,7 @@ ol li {
     top: -40px;
     width: 15px;
     height: 15px;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.1s ease-out;
 }
 
@@ -626,7 +626,7 @@ ol li {
 }
 
 #footer--middle--container.footer--displayed {
-    opacity: 1; 
+    opacity: 1;
     transition: opacity 0.4s ease-out;
 }
 
@@ -645,19 +645,19 @@ ol li {
 /* Defines the content area that is added or removed based on whether the user hovers or interacts
 with the footer  */
 #footer--transitory--container {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     opacity: 0;
     transition: opacity 0.2s ease-out;
 }
 
 #footer--transitory--container.displayed {
-    opacity: 1; 
+    opacity: 1;
     transition: opacity 0.85s ease-out;
 }
 
 .column--container {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     width: 120px;
 }
@@ -676,9 +676,9 @@ with the footer  */
 }
 
 .footer--title {
-    font-family: "Abhaya Libre", serif;	
-    font-size: 16px; 
-    font-weight: 500; 
+    font-family: "Abhaya Libre", serif;
+    font-size: 16px;
+    font-weight: 500;
     margin-top: 0px;
     margin-bottom: 3px;
     color: white;
@@ -687,7 +687,7 @@ with the footer  */
 
 .footer--subtitle {
     /* background-color: purple;  */
-    font-size: 12px; 
+    font-size: 12px;
     font-family: "Libre Franklin", sans-serif;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -700,8 +700,8 @@ with the footer  */
 }
 
 .footer--link {
-    color: white; 
-    font-size: 13px; 
+    color: white;
+    font-size: 13px;
     font-family: "Libre Franklin", sans-serif;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -714,8 +714,8 @@ with the footer  */
 }
 
 #footer--links--container {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     max-width: 300px;
     flex-wrap: wrap;
     justify-content: space-between
@@ -726,20 +726,20 @@ with the footer  */
 }
 
 #footer--description--container {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     margin-left: 30px;
 }
 
 #canari--bird--footer--container {
     width: 23px;
-    height: 23px; 
+    height: 23px;
     margin-right: 15px;
     margin-top: 10px;
 }
 
 #footer--description {
-    font-size: 12px; 
+    font-size: 12px;
     font-family: "Libre Franklin", sans-serif;
     margin-top: 2px;
     margin-bottom: 2px;
@@ -753,7 +753,7 @@ with the footer  */
 }
 
 #footer--column--center {
-    width: 20%; 
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -767,14 +767,14 @@ with the footer  */
     display: flex;
     flex-direction: row;
     /* background-color: red; */
-    width: 50%; 
+    width: 50%;
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
 }
 
 #footer--right--side--container {
-    width: 50%; 
+    width: 50%;
 }
 
 /* Transition Container - used between page loads */
@@ -787,8 +787,8 @@ with the footer  */
     height: 100vh;
     min-width: 100vw;
     min-height: 100vh;
-    background-color: white; 
-    opacity: 1; 
+    background-color: white;
+    opacity: 1;
     transition: opacity 0.8s ease-in;
     z-index: 120;
     pointer-events: auto;
@@ -799,13 +799,13 @@ with the footer  */
 
 #transition--container.removed {
     opacity: 0;
-    transition: opacity 0.8s ease-in;	
+    transition: opacity 0.8s ease-in;
     pointer-events: none;
 }
 
 #transition--container.displayed {
     opacity: 1;
-    transition: opacity 0.8s ease-in;	
+    transition: opacity 0.8s ease-in;
     pointer-events: none;
 }
 
@@ -824,9 +824,9 @@ with the footer  */
 #hamburger--menu--container {
     position: absolute;
     top: 0px;
-    right: 0px; 
+    right: 0px;
     margin-top: 51px;
-    margin-right: 60px; 
+    margin-right: 60px;
     z-index: 110;
     cursor: pointer;
     user-select: none;
@@ -838,40 +838,40 @@ with the footer  */
 }
 
 #hamburger--menu--svg.header--logo--displayed {
-    filter: invert(80%) sepia(8%) saturate(2216%) hue-rotate(201deg) brightness(101%) contrast(84%);				
+    filter: invert(80%) sepia(8%) saturate(2216%) hue-rotate(201deg) brightness(101%) contrast(84%);
 }
 
 #ethereum--menu--svg.header--logo--displayed {
-    filter: invert(80%) sepia(8%) saturate(2216%) hue-rotate(201deg) brightness(101%) contrast(84%);				
+    filter: invert(80%) sepia(8%) saturate(2216%) hue-rotate(201deg) brightness(101%) contrast(84%);
 }
 
 /* Main Menu */
 
 #main--menu--container {
-    position: absolute; 
-    z-index: 108; 
+    position: absolute;
+    z-index: 108;
     left: 0;
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
-    opacity: 0; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
     transition: opacity 0.2s ease-out;
     pointer-events: none;
 }
 
 #main--menu--container.displayed {
-    opacity: 1; 
+    opacity: 1;
     transition: opacity 0.2s ease-out;
     pointer-events: none;
 }
 
 #main--menu--internal--container {
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     background-position:50% 50%;
     background-size: cover;
-    background-image: url("/assets/menu--background.png");
-    display: flex; 
+    background-image: url("/assets/menu-background.jpg");
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -884,8 +884,8 @@ with the footer  */
 }
 
 #secondary--links--container {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     box-sizing: border-box;
     justify-content: space-around;
     max-width: 250px;
@@ -893,7 +893,7 @@ with the footer  */
     padding-top: 15px;
     width: 100%;
     margin-top: 60px;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.3s ease-in;
 }
 
@@ -929,15 +929,15 @@ with the footer  */
     text-decoration: none;
     cursor: pointer;
     color: white;
-    margin-top: 5px; 
-    margin-bottom: 5px; 
-    opacity: 0; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    opacity: 0;
 }
 
-.menu--content--text.displayed, 
-.menu--content--dot.displayed, 
+.menu--content--text.displayed,
+.menu--content--dot.displayed,
 #secondary--links--container.displayed {
-    opacity: 1; 
+    opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease-in;
 }
@@ -1006,7 +1006,7 @@ with the footer  */
 
 .executive--board--member--title, .executive--board--social--media--handle {
     font-family: "Libre Franklin";
-    font-weight: 300; 
+    font-weight: 300;
     font-size: 18px;
     letter-spacing: 0.03em;
     margin-bottom: 40px;
@@ -1043,9 +1043,9 @@ with the footer  */
     color: white;
 }
 
-#grow--ecosystem--link:hover, 
-.executive--board--social--media--handle:hover, 
-.menu--content--text:hover, 
+#grow--ecosystem--link:hover,
+.executive--board--social--media--handle:hover,
+.menu--content--text:hover,
 #secondary--links--container a:hover
  {
     color: #8FFFEB;
@@ -1064,13 +1064,13 @@ with the footer  */
     }
 
     #footer--column--center {
-        display: flex; 
+        display: flex;
         flex-direction: row;
         width: 100%;
     }
 
     #footer--column--left {
-        width: 100%; 
+        width: 100%;
         justify-content: start;
     }
 
@@ -1254,10 +1254,10 @@ with the footer  */
 /* ----------- iPhone 12 ----------- */
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 389px) 
-and (max-device-width: 845px) 
-and (min-device-height: 389px) 
+@media only screen
+and (min-device-width: 389px)
+and (max-device-width: 845px)
+and (min-device-height: 389px)
 and (max-device-height: 845px)
 and (-webkit-min-device-pixel-ratio: 3) {
 
@@ -1266,7 +1266,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
         margin-top: 10px;
         margin-left: 20px;
     }
-    
+
     #hamburger--menu--container {
         top: 0px;
         margin-top: 30px;
@@ -1286,7 +1286,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 0px;
     }
@@ -1305,9 +1305,9 @@ and (-webkit-min-device-pixel-ratio: 3) {
     }
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
@@ -1329,11 +1329,11 @@ and (-webkit-min-device-pixel-ratio: 3) {
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 5%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -1365,9 +1365,9 @@ and (-webkit-min-device-pixel-ratio: 3) {
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
@@ -1375,10 +1375,10 @@ and (-webkit-min-device-pixel-ratio: 3) {
 
     #footer--links--container::after {
         content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -1396,7 +1396,7 @@ and (-webkit-min-device-pixel-ratio: 3) {
         font-size: 14px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 12px;
         text-align: center;
@@ -1407,10 +1407,10 @@ and (-webkit-min-device-pixel-ratio: 3) {
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 14px;
-        height: 14px; 
+        height: 14px;
         margin-bottom: 10px;
         margin-top: 10px;
     }
@@ -1468,8 +1468,8 @@ and (-webkit-min-device-pixel-ratio: 3) {
 /* ----------- iPhone 4 and 4S ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 320px) 
+@media only screen
+and (min-device-width: 320px)
 and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -1482,16 +1482,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 320px) 
+@media only screen
+and (min-device-width: 320px)
 and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 320px) 
+@media only screen
+and (min-device-width: 320px)
 and (max-device-width: 480px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: landscape) {
@@ -1501,8 +1501,8 @@ and (orientation: landscape) {
 
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 375px) 
+@media only screen
+and (min-device-width: 375px)
 and (max-device-width: 375px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -1530,13 +1530,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 0px;
     }
 
     /* Add all of these to make the footer more responsive on mobile devices */
-    
+
     #footer--arrow {
         width: 15px;
         height: 15px;
@@ -1552,15 +1552,15 @@ and (-webkit-min-device-pixel-ratio: 2) {
         top: -6px;
     }
 
-    
+
 }
 
 
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 320px) 
+@media only screen
+and (min-device-width: 320px)
 and (max-device-width: 568px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -1585,7 +1585,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 5px;
     }
@@ -1598,7 +1598,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #main--content--inner--container {
         /* width: 80%; */
     }
-    
+
     /* #toDo: add to make the text that says explore infinite garden wider */
     #next--page--navigation--container {
         width: 100%;
@@ -1610,9 +1610,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
@@ -1635,11 +1635,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 20%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -1674,9 +1674,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
@@ -1684,10 +1684,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--links--container::after {
         content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -1705,7 +1705,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 20px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 16px;
         text-align: center;
@@ -1716,10 +1716,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 40px;
-        height: 40px; 
+        height: 40px;
         margin-bottom: 15px;
         margin-top: 15px;
     }
@@ -1765,8 +1765,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 /* Galaxy Fold */
-@media only screen 
-and (min-device-width: 265px) 
+@media only screen
+and (min-device-width: 265px)
 and (max-device-width: 320px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -1775,7 +1775,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 10px;
         margin-left: 20px;
     }
-    
+
     #hamburger--menu--container {
         top: 0px;
         margin-top: 30px;
@@ -1795,7 +1795,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 0px;
     }
@@ -1815,9 +1815,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
     }
 
@@ -1839,11 +1839,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 20%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -1878,9 +1878,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
@@ -1888,10 +1888,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--links--container::after {
         content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -1909,7 +1909,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 15px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 13px;
         text-align: center;
@@ -1920,10 +1920,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 20px;
-        height: 20px; 
+        height: 20px;
         margin-bottom: 10px;
         margin-top: 10px;
     }
@@ -1980,23 +1980,23 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 /* Which device is this? */
 
-@media only screen 
-and (min-device-width: 389px) 
-and (max-device-width: 400px) 
+@media only screen
+and (min-device-width: 389px)
+and (max-device-width: 400px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--ethereum--foundation--text {
         position: relative;
         top: -6px;
     }
-    
+
 }
 
 /* ----------- iPhone SE ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 375px) 
+@media only screen
+and (min-device-width: 375px)
 and (max-device-width: 375px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -2021,7 +2021,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 0px;
     }
@@ -2029,12 +2029,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #main--content--inner--container {
         /* width: 80%; */
     }
-    
+
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
@@ -2057,11 +2057,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 20%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -2096,9 +2096,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
@@ -2106,10 +2106,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--links--container::after {
         content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -2127,7 +2127,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 16px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 14px;
         text-align: center;
@@ -2138,10 +2138,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 30px;
-        height: 30px; 
+        height: 30px;
         margin-bottom: 10px;
         margin-top: 15px;
     }
@@ -2192,8 +2192,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 370px) 
+@media only screen
+and (min-device-width: 370px)
 and (max-device-width: 380px)
 and (-webkit-min-device-pixel-ratio: 1) {
 
@@ -2202,7 +2202,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
         margin-top: 10px;
         margin-left: 20px;
     }
-    
+
     #hamburger--menu--container {
         top: 0px;
         margin-top: 30px;
@@ -2222,7 +2222,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 25px;
     }
@@ -2232,9 +2232,9 @@ and (-webkit-min-device-pixel-ratio: 1) {
     }
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
@@ -2257,11 +2257,11 @@ and (-webkit-min-device-pixel-ratio: 1) {
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 20%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -2295,20 +2295,20 @@ and (-webkit-min-device-pixel-ratio: 1) {
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
     }
 
     #footer--links--container::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        content: "";
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -2326,7 +2326,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
         font-size: 16px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 14px;
         text-align: center;
@@ -2337,10 +2337,10 @@ and (-webkit-min-device-pixel-ratio: 1) {
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 20px;
-        height: 20px; 
+        height: 20px;
         margin-bottom: 10px;
         margin-top: 10px;
     }
@@ -2393,16 +2393,16 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 320px) 
+@media only screen
+and (min-device-width: 320px)
 and (max-device-width: 568px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 320px) 
+@media only screen
+and (min-device-width: 320px)
 and (max-device-width: 568px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: landscape) {
@@ -2412,10 +2412,10 @@ and (orientation: landscape) {
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 667px) 
-and (-webkit-min-device-pixel-ratio: 2) { 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--right--container {
         top: -15px;
@@ -2425,30 +2425,30 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 667px) 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) { 
+and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 667px) 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) { 
+and (orientation: landscape) {
 
 }
 
 /* ----------- iPhone 6+, 7+ and 8+ ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 736px) 
-and (-webkit-min-device-pixel-ratio: 3) { 
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3) {
 
     #footer--right--container {
         top: -22px;
@@ -2458,28 +2458,28 @@ and (-webkit-min-device-pixel-ratio: 3) {
 }
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 736px) 
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
 and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) { 
+and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 736px) 
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
 and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) { 
+and (orientation: landscape) {
 
 }
 
 /* ---------- Samsung Galaxy A51/71 ----------- */
 
     /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 400px) 
+@media only screen
+and (min-device-width: 400px)
 and (max-device-width: 420px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -2494,10 +2494,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* ----------- iPhone X ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
-and (-webkit-min-device-pixel-ratio: 3) { 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3) {
 
     #footer--right--container {
         top: -22px;
@@ -2507,29 +2507,29 @@ and (-webkit-min-device-pixel-ratio: 3) {
 }
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
 and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) { 
+and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
 and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) { 
+and (orientation: landscape) {
 
 }
 
 /* ----------- Galaxy S8 ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 360px) 
-and (max-device-width: 360px) 
+@media only screen
+and (min-device-width: 360px)
+and (max-device-width: 360px)
 /* and (-webkit-device-pixel-ratio: 2) */
 {
 
@@ -2538,7 +2538,7 @@ and (max-device-width: 360px)
         margin-top: 10px;
         margin-left: 20px;
     }
-    
+
     #hamburger--menu--container {
         top: 0px;
         margin-top: 30px;
@@ -2558,7 +2558,7 @@ and (max-device-width: 360px)
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 0px;
     }
@@ -2578,9 +2578,9 @@ and (max-device-width: 360px)
     }
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
@@ -2603,11 +2603,11 @@ and (max-device-width: 360px)
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 20%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -2642,9 +2642,9 @@ and (max-device-width: 360px)
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
@@ -2652,10 +2652,10 @@ and (max-device-width: 360px)
 
     #footer--links--container::after {
         content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -2673,7 +2673,7 @@ and (max-device-width: 360px)
         font-size: 15px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 13px;
         text-align: center;
@@ -2684,10 +2684,10 @@ and (max-device-width: 360px)
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 20px;
-        height: 20px; 
+        height: 20px;
         margin-bottom: 10px;
         margin-top: 10px;
     }
@@ -2743,27 +2743,27 @@ and (max-device-width: 360px)
 /* ----------- Galaxy S3 ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 2) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 2) 
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 2) 
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 2)
 and (orientation: landscape) {
 
 }
@@ -2771,27 +2771,27 @@ and (orientation: landscape) {
 /* ----------- Galaxy S4, S5 and Note 3 ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: landscape) {
 
 }
@@ -2799,27 +2799,27 @@ and (orientation: landscape) {
 /* ----------- Galaxy S6 ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 4) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 4)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 4)
 and (orientation: landscape) {
 
 }
@@ -2828,27 +2828,27 @@ and (orientation: landscape) {
 /* ----------- HTC One ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: landscape) {
 
 }
@@ -2856,27 +2856,27 @@ and (orientation: landscape) {
 /* ----------- Google Pixel ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: landscape) {
 
 }
@@ -2884,27 +2884,27 @@ and (orientation: landscape) {
 /* ----------- Google Pixel XL ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 4) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 4)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 4)
 and (orientation: landscape) {
 
 }
@@ -2912,24 +2912,24 @@ and (orientation: landscape) {
 /* ----------- Windows Phone ----------- */
 
 /* Portrait and Landscape */
-@media screen 
-and (device-width: 480px) 
+@media screen
+and (device-width: 480px)
 and (device-height: 800px) {
 
 }
 
 /* Portrait */
-@media screen 
-and (device-width: 480px) 
-and (device-height: 800px)  
+@media screen
+and (device-width: 480px)
+and (device-height: 800px)
 and (orientation: portrait) {
 
 }
 
 /* Landscape */
-@media screen 
-and (device-width: 480px) 
-and (device-height: 800px) 
+@media screen
+and (device-width: 480px)
+and (device-height: 800px)
 and (orientation: landscape) {
 
 }
@@ -2937,27 +2937,27 @@ and (orientation: landscape) {
 /* ----------- iPad 1, 2, Mini and Air ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 1) {
 
 }
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 1) {
 
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: landscape) 
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 1) {
 
 }
@@ -2965,27 +2965,27 @@ and (-webkit-min-device-pixel-ratio: 1) {
 /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
 
 /* Portrait */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
 
 /* Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: landscape) 
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
@@ -2993,8 +2993,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* ----------- iPad Pro 10.5" ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 834px) 
+@media only screen
+and (min-device-width: 834px)
 and (max-device-width: 1112px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -3003,10 +3003,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* Portrait */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 834px) 
-and (max-device-width: 834px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 834px)
+and (max-device-width: 834px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
@@ -3014,10 +3014,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 /* Portrait */
 /* Surface DUO */
-@media only screen 
-and (min-device-width: 540px) 
-and (max-device-width: 540px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 540px)
+and (max-device-width: 540px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 2) {
 
     #ethereum--foundation--logo--text {
@@ -3042,7 +3042,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #downward--arrow {
-        width: 25px; 
+        width: 25px;
         height: 25px;
         margin-top: 25px;
     }
@@ -3055,12 +3055,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #main--content--inner--container {
         /* width: 80%; */
     }
-    
+
 
     #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
+        opacity: 1;
+        height: 100%;
+        min-height: 100%;
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
     }
@@ -3083,11 +3083,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     #footer--left--side--container {
         flex-direction: column;
         padding-top: 5%;
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--right--side--container {
-        width: 100%; 
+        width: 100%;
     }
 
     #footer--links--container {
@@ -3122,9 +3122,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
+        content: "";
+        height: 1px;
+        width: 100%;
         min-width: 100%;
         background-color: white;
         opacity: 0.38;
@@ -3132,10 +3132,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
     #footer--links--container::after {
         content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
+        height: 1px;
+        width: 100%;
+        min-width: 100%;
+        background-color: white;
         opacity: 0.38;
     }
 
@@ -3153,7 +3153,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 17px;
         text-align: center;
     }
-    
+
     .footer--subtitle {
         font-size: 15px;
         text-align: center;
@@ -3164,10 +3164,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         align-items: center;
         max-width: none;
     }
-    
+
     #canari--bird--footer--container {
         width: 30px;
-        height: 30px; 
+        height: 30px;
         margin-bottom: 15px;
         margin-top: 15px;
     }
@@ -3214,10 +3214,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 
-@media only screen 
-and (min-device-width: 412px) 
-and (max-device-width: 412px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 412px)
+and (max-device-width: 412px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 #footer--description {
@@ -3228,10 +3228,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 /* Iphone XR */
 
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 414px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 414px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 #footer--description {
@@ -3243,10 +3243,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 1112px) 
-and (max-device-width: 1112px) 
-and (orientation: landscape) 
+@media only screen
+and (min-device-width: 1112px)
+and (max-device-width: 1112px)
+and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
@@ -3254,8 +3254,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* ----------- iPad Pro 12.9" ----------- */
 
 /* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 1024px) 
+@media only screen
+and (min-device-width: 1024px)
 and (max-device-width: 1366px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
@@ -3264,10 +3264,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* Portrait */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 1024px) 
-and (max-device-width: 1024px) 
-and (orientation: portrait) 
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
@@ -3275,10 +3275,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 /* Landscape */
 /* Declare the same value for min- and max-width to avoid colliding with desktops */
 /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 1366px) 
-and (max-device-width: 1366px) 
-and (orientation: landscape) 
+@media only screen
+and (min-device-width: 1366px)
+and (max-device-width: 1366px)
+and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 2) {
 
 }
