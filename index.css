@@ -870,7 +870,7 @@ with the footer  */
     height: 100%;
     background-position:50% 50%;
     background-size: cover;
-    background-image: url("/assets/menu-background.jpg");
+    background-image: url("/assets/menu-background.svg");
     display: flex;
     justify-content: center;
     align-items: center;
