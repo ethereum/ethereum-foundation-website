@@ -257,9 +257,7 @@ function load3DModelObject (modelFileName, fileType) {
 
         let mesh = object.children[0];
         let geometry = mesh.geometry;
-
-        console.log("Geometry: ", geometry);
-
+        
         let scaleArray = new Float32Array(48000);
         
         for (let i=0; i<scaleArray.length; i++) {
