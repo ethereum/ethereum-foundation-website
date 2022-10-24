@@ -1261,6 +1261,8 @@ function initControls () {
     /** If we're on a mobile device, we enable damping which slows down the #camera #movement */
     if (isMobileDevice()) {
         // Set to true to enable damping (inertia), which can be used to give a sense of weight to the controls
+        // Directions for future tinkerer => decreasing the damping factor will make the movement **slower**. 
+        // Increasing it will make the camera movement quicker.
         controls.enableDamping = true; 
         controls.dampingFactor = 0.01;
     }
