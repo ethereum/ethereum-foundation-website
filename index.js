@@ -181,19 +181,34 @@ function initLoaders () {
 }
 
 /**
+ * Different objects that can be passed in to the loader
+ * They all have different amounts of vertices and will therefore render differnet results visually
+ * Objects with less vertices should have particles that are bigger in size in order to be able to perceive
+ * them better - especially important since the scene is light and the particles are white and shine
+ * #3d #animation #ethereum #object
+ */
+const MINIM_VERTICE_OBJECT = "Eth_logo_SOLID.OBJ"; // 14 vertices
+const LARGE_NUMBER_OF_VERTEX_OBJECT = "ETH_Logo_Planet_Match.obj"; // 30K vertices
+const MEDIUM_NUMBER_OF_VERTEX_OBJECT = "Eth_logo_grids.OBJ"; // 16K Vertices
+const MISC_OBJECT = "Eth_logo_Beveld.OBJ"; // 
+
+/**
  * Used to load and render the ETH object made out of particles into the threeJS scene
  */ 
+
 function addMainObjectToScene () {
-    
-    const ASSET_TYPE = 1;				
-    // Newer mesh created to match the amount of vertices in the other objects
-    const ASSET_URL = "ETH_Logo_Planet_Match.obj"; 
+    const ASSET_TYPE = 1;		
+    /** 
+     * #ethereum #3d #object 
+     * Pass in one of the variables above to see the ethereum object rendered with different number
+     * of vertices
+     **/
+    const ASSET_URL = MISC_OBJECT;
     const FILE_TYPE = "obj";
 
     nameOfFinalFileSelected = ASSET_URL;
 
     // Creates a sphere composed of thousands of particles
-    
     if (isHomePage()) {
         load3DModelObject(ASSET_URL, FILE_TYPE);
     } else {
@@ -212,8 +227,19 @@ function load3DModelObject (modelFileName, fileType) {
     const currentLoader = objectLoader;
     currentLoader.setPath(RELATIVE_URL);
 
-    // animatedModelParticleSize = 0.014;
-    animatedModelParticleSize = 0.02;
+    /** 
+     * Depending on the object loaded, change the size of the particles by modifying one of the variables below
+     * #ethereum #3d #object
+     */
+    if (modelFileName === MINIM_VERTICE_OBJECT) {
+        animatedModelParticleSize = 0.3;
+    } else if (modelFileName === LARGE_NUMBER_OF_VERTEX_OBJECT) {
+        animatedModelParticleSize = 0.014;
+    } else if (modelFileName === MEDIUM_NUMBER_OF_VERTEX_OBJECT) {
+        animatedModelParticleSize = 0.001;
+    } else if (modelFileName === MISC_OBJECT) {
+        animatedModelParticleSize = 0.1;
+    }
 
     animatedModelPointsMaterial = new THREE.PointsMaterial({
             // color: "rgb(400, 255, 255)", 
@@ -231,6 +257,8 @@ function load3DModelObject (modelFileName, fileType) {
 
         let mesh = object.children[0];
         let geometry = mesh.geometry;
+
+        console.log("Geometry: ", geometry);
 
         let scaleArray = new Float32Array(48000);
         
@@ -1229,13 +1257,17 @@ function initControls () {
 
     let controls = new OrbitControls(camera, document.body);
     controls.listenToKeyEvents( window );
-    // Set to true to enable damping (inertia), which can be used to give a sense of weight to the controls
-    // Default is false
-    // controls.enableDamping = true; 
-    // controls.dampingFactor = 0.05;
+    
+    /** If we're on a mobile device, we enable damping which slows down the #camera #movement */
+    if (isMobileDevice()) {
+        // Set to true to enable damping (inertia), which can be used to give a sense of weight to the controls
+        controls.enableDamping = true; 
+        controls.dampingFactor = 0.01;
+    }
+    
     controls.enableZoom = false;
     controls.screenSpacePanning = false;
-    controls.minDistance = 1;
+    controls.minDistance = 10;
     controls.maxDistance = 100;
     controls.maxPolarAngle = Math.PI * 0.5;
     controls.minPolarAngle = Math.PI * 0.5;
