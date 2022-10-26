@@ -203,7 +203,7 @@ function addMainObjectToScene () {
      * Pass in one of the variables above to see the ethereum object rendered with different number
      * of vertices
      **/
-    const ASSET_URL = MISC_OBJECT;
+    const ASSET_URL = LARGE_NUMBER_OF_VERTEX_OBJECT;
     const FILE_TYPE = "obj";
 
     nameOfFinalFileSelected = ASSET_URL;
