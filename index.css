@@ -244,7 +244,8 @@ object {
 }
 
 #homepage--welcome--text--inner--container.homepage--displayed {
-    transform: translateY(100%);
+    /* transform: translateY(100%); */
+    transform: translateY(22vh);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
