@@ -568,12 +568,8 @@ ol li {
     
     #footer--outer--container:hover #footer--main--content--container {
         display: block;
-    }
-    
-    #footer--outer--container:hover #footer--main--content--container {
         height: calc(100% - 40px);
         width: 100%;
-        /* background-color: black; */
     }
 
     #footer--outer--container:hover {
@@ -630,6 +626,7 @@ ol li {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 90%;
+    max-width: 400px;
 }
 
 .footer--link--two {
@@ -640,6 +637,7 @@ ol li {
     margin-bottom: 3px;
     color: white;
     text-decoration: none;
+    margin-right: 5px;
 }
 
 .footer--link--two:hover {
@@ -699,7 +697,7 @@ ol li {
     height: 100%;
     /* background-color: blue; */
     box-sizing: border-box;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 #canari--icon {
@@ -774,8 +772,8 @@ ON desktop it is not set as absolute
 
 #footer--outer--container.displayed {
     opacity: 1; 
-    height: 155px; 
-    min-height: 155px; 
+    height: 172px; 
+    min-height: 172px; 
     transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
     /* pointer-events: auto; */
 }
@@ -1321,93 +1319,74 @@ with the footer  */
 
 /* Media Queries for Laptops, Desktops, and larger devices */
 
-@media (max-width: 1000px) {
-
-    #footer--left--side--container {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    #footer--column--center {
-        display: flex; 
-        flex-direction: row;
-        width: 100%;
-    }
-
-    #footer--column--left {
-        width: 100%; 
-        justify-content: start;
-    }
-
-    .footer--link {
-        font-size: 12px;
-    }
 
 
-    #footer--links--container {
-        max-width: 100%;
-    }
 
-    #footer--description--container {
-        margin-left: 10px;
-    }
 
-    .link--group--container {
-        margin-bottom: 0px;
-    }
-
-    #footer--description {
-        font-size: 10px;
-    }
-
-    #footer--left--logo {
-        width: 90px;
-        height: 40px;
-    }
-
-    .footer--title {
-        font-size: 14px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    .footer--subtitle {
-        font-size: 11px;
-        margin-bottom: 0px;
-        margin-top: 2px;
-        transition: font-size 0.1s ease-out, margin-top 0.1s ease-out;
-    }
+@media (max-width: 1100px) {
 
     #footer--outer--container.displayed {
-        height: 166px;
-        min-height: 166px;
+        height: 250px;
+        min-height: 250px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
+    
+    #footer--ethereum--logo {
+        height: 55px;
+        transition: height 0.2s ease-out;
+    }
 
+    #logo--and--links--container {
+        flex-direction: column;
+    }
+
+    .footer--links--two {
+        font-size: 14px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+
+    #contact--list--container {
+        flex-direction: row;
+        width: fit-content;
+        height: fit-content;
+        padding-left: 0px;
+        padding-right: 0px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    #footer--action--items--container {
+        flex-direction: column;
+    }
+
+    #logo--and--links--container {
+        width: 90%;
+    }
+
+    .contact--item--container {
+        margin-right: 15px;
+    }
+
+    #canari--disclaimer {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 14px;
+        text-align: left;
+    }
+    
 }
 
 @media (max-width: 750px) {
 
     #footer--outer--container.displayed {
-        height: 175px;
-        min-height: 175px;
+        height: 300px;
+        min-height: 300px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
-
-    #footer--links--container {
-        width: 100%;
-        transition: width 0.1s ease-out
-    }
-
-    .footer--link {
-        margin-right: 5px;
-    }
-
-    .footer--link {
-        font-size: 12px;
-        transition: font-size 0.1s ease-out
     }
 
     #main--content--title {
@@ -1422,12 +1401,38 @@ with the footer  */
 
 }
 
+@media (max-width: 700px) {
+
+    .footer--linkst--two {
+        font-size: 12px;
+    }
+
+    #logo--and--links--container {
+        width: 95%;
+    }
+
+    .contact--item--container {
+        margin-right: 12px;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 13px;
+    }
+    
+    #canari--disclaimer {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+
+}
+
 
 @media (max-width: 600px) {
 
     #footer--outer--container.displayed {
-        height: 200px;
-        min-height: 200px;
+        height: 400px;
+        min-height: 400px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
@@ -1455,7 +1460,10 @@ with the footer  */
         transition: font-size 0.15s ease-out;
     }
 
+
+    
 }
+
 
 @media (max-width: 560px) {
 
@@ -1598,6 +1606,7 @@ with the footer  */
     #footer--links--container--two {
         width: 100%;
         flex-direction: column;
+     
     }
 
     .footer--link--two {
@@ -1927,40 +1936,6 @@ and (-webkit-min-device-pixel-ratio: 3) {
 
 
 }
-
-/* ----------- iPhone 4 and 4S ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-
-    #footer--right--container {
-        top: -22px;
-        position: relative;
-    }
-
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) {
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) {
-
-}
-
 
 
 /* Portrait and Landscape */

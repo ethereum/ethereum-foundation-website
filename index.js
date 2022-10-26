@@ -1262,7 +1262,7 @@ function initControls () {
         // Directions for future tinkerer => decreasing the damping factor will make the movement **slower**. 
         // Increasing it will make the camera movement quicker.
         controls.enableDamping = true; 
-        controls.dampingFactor = 0.01;
+        controls.dampingFactor = 0.05;
     }
     
     controls.enableZoom = false;
@@ -2169,11 +2169,11 @@ function addEventListeners() {
     }
 
     // Footer
-    // document.getElementById("footer--link--devcon").addEventListener("mousedown", openDevconPage);
-    // document.getElementById("footer--link--blog").addEventListener("mousedown", openEthereumBlog);
-    // document.getElementById("footer--link--terms").addEventListener("mousedown", openTermsOfUse);
-    // document.getElementById("footer--link--privacy").addEventListener("mousedown", openPrivacyPolicy);
-    // document.getElementById("footer--link--cookies").addEventListener("mousedown", openCookiePolicy);
+    document.getElementById("footer--link--devcon").addEventListener("mousedown", openDevconPage);
+    document.getElementById("footer--link--blog").addEventListener("mousedown", openEthereumBlog);
+    document.getElementById("footer--link--terms").addEventListener("mousedown", openTermsOfUse);
+    document.getElementById("footer--link--privacy").addEventListener("mousedown", openPrivacyPolicy);
+    document.getElementById("footer--link--cookies").addEventListener("mousedown", openCookiePolicy);
 
     // Window
     window.addEventListener("resize", setDocumentHeight);
