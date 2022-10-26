@@ -571,12 +571,6 @@ ol li {
         width: 100%;
     }
 
-    #footer--outer--container:hover {
-        height: 200px;
-        max-height: 200px;
-        transition: height 0.2s ease-out, max-height 0.2s ease-out;
-    }
-
     #footer--outer--container:hover #footer--arrow--container--desktop {
         align-items: flex-start;
         transition: align-items 0.2s ease-out;
