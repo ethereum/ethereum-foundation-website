@@ -1488,6 +1488,11 @@ with the footer  */
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
+    #footer--outer--container:hover {
+        height: 40px;
+        min-height: 40px;
+    }
+
     #footer--outer--container.displayed {
         height: var(--doc-height);
         min-height: var(--doc-height);
