@@ -582,6 +582,16 @@ ol li {
         transition: height 0.2s ease-out, max-height 0.2s ease-out;
     }
 
+    #footer--outer--container:hover #footer--arrow--container--desktop {
+        align-items: flex-start;
+        transition: align-items 0.2s ease-out;
+    }
+    
+    #footer--outer--container:hover #footer--arrow--desktop {
+        margin-top: 15px;
+        transition: margin-top 0.2s ease-out;
+    }
+
 }
 
 
@@ -732,15 +742,7 @@ the styling changes */
     transition: margin-top 0.2s ease-out;
 }
 
-#footer--outer--container:hover #footer--arrow--container--desktop {
-    align-items: flex-start;
-    transition: align-items 0.2s ease-out;
-}
 
-#footer--outer--container:hover #footer--arrow--desktop {
-    margin-top: 15px;
-    transition: margin-top 0.2s ease-out;
-}
 
 /* 
 On mobile the arrow can be set as an absolute
