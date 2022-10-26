@@ -554,9 +554,14 @@ ol li {
     box-sizing: border-box;
 }
 
-@media (min-width: 560px) {
+@media (min-width: 500px) {
 
 
+    #footer--outer--container:hover {
+        height: 220px;
+        min-height: 220px;
+    }
+    
     #footer--outer--container:hover #footer--inner--container--two {
         opacity: 1;
         transition: opacity 0.2s ease-out;
@@ -1383,8 +1388,8 @@ with the footer  */
 @media (max-width: 750px) {
 
     #footer--outer--container.displayed {
-        /* height: 300px;
-        min-height: 300px; */
+        height: 300px;
+        min-height: 300px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
@@ -1469,8 +1474,8 @@ with the footer  */
 @media (max-width: 580px) {
 
     #footer--outer--container:hover {
-        height: 230px;
-        min-height: 230px;
+        height: 282px;
+        min-height: 282px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
@@ -1483,7 +1488,7 @@ with the footer  */
 
 
 /* Target smartphones */
-@media (max-width: 500px) {
+@media (max-width: 499px) {
 
     #footer--outer--container {
         height: 40px;
