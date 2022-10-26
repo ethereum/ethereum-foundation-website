@@ -1464,8 +1464,8 @@ with the footer  */
     }
 
     #footer--outer--container.displayed {
-        height: 100vh;
-        min-height: 100vh;
+        height: 100%;
+        min-height: 100%;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
