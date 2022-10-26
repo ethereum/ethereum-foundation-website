@@ -2188,15 +2188,15 @@ function addEventListeners() {
  */
 function modifyElementsAccordingToDevice () {
 
-    let footerUpArrow = document.getElementById("footer--up--arrow");
-    let footerDownArrow = document.getElementById("footer--down--arrow");
-    let footerRightContainer = document.getElementById("footer--right--container");
+    // let footerUpArrow = document.getElementById("footer--up--arrow");
+    // let footerDownArrow = document.getElementById("footer--down--arrow");
+    // let footerRightContainer = document.getElementById("footer--right--container");
 
     if (!isMobileDevice()) {
-        footerUpArrow.style.display = "none";
-        footerDownArrow.style.display = "none";
+        // footerUpArrow.style.display = "none";
+        // footerDownArrow.style.display = "none";
     } else {
-        footerRightContainer.style.display = "none";        
+        // footerRightContainer.style.display = "none";        
         // If it is mobile device then we hide the footer--right--container
     }
     
@@ -2439,4 +2439,4 @@ window.onload = function () {
 /** Let the Magic **/
 begin();
 addEventListeners();
-// modifyElementsAccordingToDevice();
+modifyElementsAccordingToDevice();

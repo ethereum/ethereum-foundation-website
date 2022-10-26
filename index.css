@@ -1542,7 +1542,7 @@ with the footer  */
         display: none;
     }
 
-    #footer--inner--container--two {
+    #footer--outer--container.displayed #footer--inner--container--two {
         opacity: 1;
     }
 
