@@ -1526,7 +1526,7 @@ with the footer  */
         align-items: flex-start;
     }
 
-    #footer--arrow--desktop {
+    #footer--outer--container.displayed #footer--arrow--desktop {
         margin-top: 50px;
     }
 
