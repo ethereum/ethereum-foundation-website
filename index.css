@@ -545,13 +545,12 @@ ol li {
 
 /*  */
 #footer--main--content--container {
-    /* display: block; */
     display: none;
+    /* display: block; */
     padding: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     box-sizing: border-box;
-    display: none;
 }
 
 @media (min-width: 560px) {
@@ -591,7 +590,6 @@ ol li {
 }
 
 
-
 #footer--main--content {
     width: 100%;
     height: 100%;
@@ -625,7 +623,6 @@ ol li {
     /* background-color: mediumaquamarine; */
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 90%;
     max-width: 400px;
 }
 
@@ -1338,12 +1335,14 @@ with the footer  */
 
     #logo--and--links--container {
         flex-direction: column;
+        transition: flex-direction 0.2s ease-out;
     }
 
     .footer--links--two {
         font-size: 14px;
         margin-top: 2px;
         margin-bottom: 2px;
+        transition: font-size 0.2s ease-out;
     }
 
 
@@ -1363,15 +1362,18 @@ with the footer  */
 
     #logo--and--links--container {
         width: 90%;
+        transition: width 0.2s ease-out;
     }
 
     .contact--item--container {
+        transition: margin-right 0.2s ease-out;
         margin-right: 15px;
     }
 
     #canari--disclaimer {
         font-size: 14px;
         line-height: 16px;
+        transition: font-size 0.2s ease-out;
     }
 
     .contact--item--title, .contact--item--email {
@@ -1384,8 +1386,8 @@ with the footer  */
 @media (max-width: 750px) {
 
     #footer--outer--container.displayed {
-        height: 300px;
-        min-height: 300px;
+        /* height: 300px;
+        min-height: 300px; */
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
@@ -1399,16 +1401,23 @@ with the footer  */
         transition: font-size 0.15s ease-out;
     }
 
+    .footer--link--two {
+        font-size: 14px;
+        transition: font-size 0.2s ease-out;
+    }
+
 }
 
 @media (max-width: 700px) {
 
-    .footer--linkst--two {
+    .footer--link--two {
         font-size: 12px;
+        transition: width 0.2s ease-out;
     }
 
     #logo--and--links--container {
         width: 95%;
+        transition: width 0.2s ease-out;
     }
 
     .contact--item--container {
@@ -1417,37 +1426,34 @@ with the footer  */
 
     .contact--item--title, .contact--item--email {
         font-size: 13px;
+        transition: font-size 0.2s ease-out;
     }
     
     #canari--disclaimer {
         font-size: 12px;
         line-height: 14px;
+        transition: font-size 0.2s ease-out;
     }
 
+
+}
+
+@media (max-width: 650px) {
+
+    #footer--outer--container:hover {
+        height: 220px;
+        min-height: 220px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
 
 }
 
 
 @media (max-width: 600px) {
 
+    
     #footer--outer--container.displayed {
-        height: 400px;
-        min-height: 400px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
-
-    .footer--link {
-        font-size: 10px;
-        transition: font-size 0.1s ease-out
-    }
-
-    #footer--links--container {
-        width: 90%;
-        transition: width 0.1s ease-out
-    }
-
-    #main--content--inner--container {
-        /* max-width: 80%; */
     }
 
     #main--content--title {
@@ -1460,12 +1466,27 @@ with the footer  */
         transition: font-size 0.15s ease-out;
     }
 
-
-    
 }
 
 
-@media (max-width: 560px) {
+@media (max-width: 580px) {
+
+    #footer--outer--container:hover {
+        height: 230px;
+        min-height: 230px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 11px;
+        transition: font-size 0.2s ease-out;
+    }
+
+}
+
+
+/* Target smartphones */
+@media (max-width: 500px) {
 
     #footer--outer--container {
         height: 40px;
@@ -1477,14 +1498,6 @@ with the footer  */
         height: var(--doc-height);
         min-height: var(--doc-height);
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
-
-    .footer--link {
-        font-size: 10px;
-    }
-
-    #main--content--inner--container {
-        /* max-width: 80%; */
     }
 
     #main--content--title {
@@ -1618,7 +1631,7 @@ with the footer  */
 
     .dividing--line {
         width: 100%;
-        /* background-color: white; */
+        background-color: white;
         min-height: 1px;
         opacity: 0.5;
         margin-top: 2vh;
@@ -1629,11 +1642,18 @@ with the footer  */
         height: auto;
         width: 100%;
         text-align: center;
+        flex-direction: column;
     }
 
     .contact--item--container {
         margin-top: 1vh;
         margin-bottom: 1vh;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 15px;
+        transition: font-size 0.2s ease-out;
+        text-align: center;
     }
 
     /* We don't add margin top to it because it's container already has one*/
@@ -1784,156 +1804,6 @@ and (-webkit-min-device-pixel-ratio: 3) {
         /* background-color: purple; */
     }
 
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 5%;
-        width: 100%; 
-    }
-
-    #footer--right--side--container {
-        width: 100%; 
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #footer--left--logo {
-        width: 100px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 12px;
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-    }
-
-    #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 14px;
-        text-align: center;
-    }
-    
-    .footer--subtitle {
-        font-size: 12px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-    
-    #canari--bird--footer--container {
-        width: 14px;
-        height: 14px; 
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
-        font-size: 11px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 5px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-        margin-top: 20px;
-    }
-
-    #footer--right--container {
-        top: -24px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: 2px;
-        font-size: 10px;
-    }
-
-
 
 }
 
@@ -2055,150 +1925,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
         /* background-color: purple; */
     }
 
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%; 
-    }
-
-    #footer--right--side--container {
-        width: 100%; 
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .footer--link {
-        font-size: 15px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 20px;
-        text-align: center;
-    }
-    
-    .footer--subtitle {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-    
-    #canari--bird--footer--container {
-        width: 40px;
-        height: 40px; 
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 16px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 30px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6%;
-    }
 
 }
 
@@ -2259,176 +1985,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
     }
 
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%; 
-    }
-
-    #footer--right--side--container {
-        width: 100%; 
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 120px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 13px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 15px;
-        text-align: center;
-    }
-    
-    .footer--subtitle {
-        font-size: 13px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-    
-    #canari--bird--footer--container {
-        width: 20px;
-        height: 20px; 
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
-        font-size: 11px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-        margin-top: 20px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: 2px;
-        font-size: 10px;
-    }
 
 }
 
 
-/* Which device is this? */
-
-@media only screen 
-and (min-device-width: 389px) 
-and (max-device-width: 400px) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-    
-}
 
 /* ----------- iPhone SE ----------- */
 
@@ -2464,11 +2024,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
         margin-top: 0px;
     }
 
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-    
-
     #footer--outer--container.displayed {
         opacity: 1; 
         height: 100%; 
@@ -2477,154 +2032,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
         /* background-color: purple; */
     }
 
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
 
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%; 
-    }
-
-    #footer--right--side--container {
-        width: 100%; 
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .footer--link {
-        font-size: 14px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 16px;
-        text-align: center;
-    }
-    
-    .footer--subtitle {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-    
-    #canari--bird--footer--container {
-        width: 30px;
-        height: 30px; 
-        margin-bottom: 10px;
-        margin-top: 15px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 10px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
 
 }
 
@@ -2665,166 +2073,12 @@ and (-webkit-min-device-pixel-ratio: 1) {
         margin-top: 25px;
     }
 
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
     #footer--outer--container.displayed {
         opacity: 1; 
         height: 100%; 
         min-height: 100%; 
         transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
         /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%; 
-    }
-
-    #footer--right--side--container {
-        width: 100%; 
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 140px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 13px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-    }
-
-    #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 16px;
-        text-align: center;
-    }
-    
-    .footer--subtitle {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-    
-    #canari--bird--footer--container {
-        width: 20px;
-        height: 20px; 
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
     }
 
 }
@@ -2879,10 +2133,6 @@ and (max-device-width: 360px)
         margin-top: 8px;
     }
 
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
     #footer--outer--container.displayed {
         opacity: 1; 
         height: 100%; 
@@ -2894,276 +2144,6 @@ and (max-device-width: 360px)
 
 }
 
-/* ----------- Galaxy S3 ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 2) 
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 2) 
-and (orientation: landscape) {
-
-}
-
-/* ----------- Galaxy S4, S5 and Note 3 ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 320px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
-and (orientation: landscape) {
-
-}
-
-/* ----------- Galaxy S6 ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
-and (orientation: landscape) {
-
-}
-
-
-/* ----------- HTC One ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
-and (orientation: landscape) {
-
-}
-
-/* ----------- Google Pixel ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 3) 
-and (orientation: landscape) {
-
-}
-
-/* ----------- Google Pixel XL ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 360px) 
-and (device-height: 640px) 
-and (-webkit-device-pixel-ratio: 4) 
-and (orientation: landscape) {
-
-}
-
-/* ----------- Windows Phone ----------- */
-
-/* Portrait and Landscape */
-@media screen 
-and (device-width: 480px) 
-and (device-height: 800px) {
-
-}
-
-/* Portrait */
-@media screen 
-and (device-width: 480px) 
-and (device-height: 800px)  
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen 
-and (device-width: 480px) 
-and (device-height: 800px) 
-and (orientation: landscape) {
-
-}
-
-/* ----------- iPad 1, 2, Mini and Air ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: portrait) 
-and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: landscape) 
-and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: portrait) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (orientation: landscape) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* ----------- iPad Pro 10.5" ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 834px) 
-and (max-device-width: 1112px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 834px) 
-and (max-device-width: 834px) 
-and (orientation: portrait) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
 
 
 /* Portrait */
@@ -3205,238 +2185,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
         width: 20px;
         height: 20px;
     }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-    
-
-    #footer--outer--container.displayed {
-        opacity: 1; 
-        height: 100%; 
-        min-height: 100%; 
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 5%;
-        width: 100%; 
-    }
-
-    #footer--right--side--container {
-        width: 100%; 
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 140px;
-        margin-bottom: 10px;
-    }
-
-    .footer--link {
-        font-size: 15px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: ""; 
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px; 
-        width: 100%; 
-        min-width: 100%; 
-        background-color: white; 
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 17px;
-        text-align: center;
-    }
-    
-    .footer--subtitle {
-        font-size: 15px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-    
-    #canari--bird--footer--container {
-        width: 30px;
-        height: 30px; 
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 16px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 30px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -32px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -20px;
-    }
+  
 
 }
 
-
-@media only screen 
-and (min-device-width: 412px) 
-and (max-device-width: 412px) 
-and (orientation: portrait) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-#footer--description {
-    font-size: 15px;
-}
-
-}
-
-/* Iphone XR */
-
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 414px) 
-and (orientation: portrait) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-#footer--description {
-    font-size: 15px;
-}
-
-}
-
-/* Landscape */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 1112px) 
-and (max-device-width: 1112px) 
-and (orientation: landscape) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* ----------- iPad Pro 12.9" ----------- */
-
-/* Portrait and Landscape */
-@media only screen 
-and (min-device-width: 1024px) 
-and (max-device-width: 1366px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 1024px) 
-and (max-device-width: 1024px) 
-and (orientation: portrait) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Landscape */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen 
-and (min-device-width: 1366px) 
-and (max-device-width: 1366px) 
-and (orientation: landscape) 
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
+/* Animation used for the arrow that faces downwards letting the user know that they should scroll */
 @keyframes hover {
 0% {
     transform: translateX(-50%) translateY(-3px);
@@ -3521,11 +2274,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 
 }
-
-#footer--right--container {
-    position: relative;
-}
-
 
 /* Hover Effects */
 
