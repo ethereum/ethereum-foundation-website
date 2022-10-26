@@ -1526,13 +1526,15 @@ with the footer  */
 
     #footer--outer--container #footer--arrow--desktop {
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(50%) rotate(90deg);
+        transition: margin-top 0.2s ease-out, transform 0.2s ease-out;
     }
 
     #footer--outer--container.displayed #footer--arrow--desktop {
         top: 0px;
-        transform: none;
         margin-top: 50px;
+        transform: rotate(0deg);
+        transition: margin-top 0.2s ease-out, transform 0.2s ease-out;
     }
 
     /* This imitates what should happen when user clicks on mobile */
