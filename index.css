@@ -1556,7 +1556,7 @@ with the footer  */
     }
 
     #footer--outer--container.displayed #footer--main--content--container {
-        height: calc(100vh - 40px);
+        height: calc(var(--doc-height) - 40px);
         /* background-color: black; */
         flex-direction: column;
         pointer-events: auto;
