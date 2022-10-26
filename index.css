@@ -1526,7 +1526,7 @@ with the footer  */
 
     #footer--outer--container #footer--arrow--desktop {
         top: 50%;
-        transform: translateY(50%) rotate(90deg);
+        transform: translateY(50%) rotate(180deg);
         transition: margin-top 0.2s ease-out, transform 0.2s ease-out;
     }
 
