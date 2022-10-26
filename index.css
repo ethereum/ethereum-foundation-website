@@ -732,8 +732,6 @@ the styling changes */
     transition: margin-top 0.2s ease-out;
 }
 
-
-
 #footer--outer--container:hover #footer--arrow--container--desktop {
     align-items: flex-start;
     transition: align-items 0.2s ease-out;
@@ -1526,7 +1524,14 @@ with the footer  */
         align-items: flex-start;
     }
 
+    #footer--outer--container #footer--arrow--desktop {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     #footer--outer--container.displayed #footer--arrow--desktop {
+        top: 0px;
+        transform: none;
         margin-top: 50px;
     }
 
