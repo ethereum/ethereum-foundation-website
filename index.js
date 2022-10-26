@@ -1661,19 +1661,19 @@ function toggleNewFooter () {
     if (!footerDisplayed) {
         
         let footerContainer = document.getElementById("footer--outer--container");
-        let footerInnerContainer = document.getElementById("footer--inner--container");
-        let elementsContainer = document.getElementById("footer--transitory--container");
-        let footerUpArrow = document.getElementById("footer--up--arrow");
-        let footerDownArrow = document.getElementById("footer--down--arrow");
-        let footerRightContainer = document.getElementById("footer--right--container");
-        let footerArrow = document.getElementById("footer--arrow");
+        // let footerInnerContainer = document.getElementById("footer--inner--container");
+        // let elementsContainer = document.getElementById("footer--transitory--container");
+        // let footerUpArrow = document.getElementById("footer--up--arrow");
+        // let footerDownArrow = document.getElementById("footer--down--arrow");
+        // let footerRightContainer = document.getElementById("footer--right--container");
+        // let footerArrow = document.getElementById("footer--arrow");
         let topLeftLogo = document.getElementById("ethereum--foundation--logo--text");
 
         footerContainer.classList.add("displayed");
-        footerInnerContainer.classList.add("displayed");
-        elementsContainer.classList.add("displayed");
-        footerUpArrow.classList.add("hidden");
-        footerDownArrow.classList.add("displayed");
+        // footerInnerContainer.classList.add("displayed");
+        // elementsContainer.classList.add("displayed");
+        // footerUpArrow.classList.add("hidden");
+        // footerDownArrow.classList.add("displayed");
         
         if (isMobileDevice()) {
             hideHamburgerMenu();
@@ -1681,8 +1681,8 @@ function toggleNewFooter () {
         }; 
 
         if (!isMobileDevice()) {
-            footerRightContainer.classList.add("footer--displayed");
-            footerArrow.classList.add("footer--displayed");
+            // footerRightContainer.classList.add("footer--displayed");
+            // footerArrow.classList.add("footer--displayed");
             changeNavigationElementsToLightColor();
         };
         
@@ -1691,19 +1691,19 @@ function toggleNewFooter () {
     } else {
 
         let footerContainer = document.getElementById("footer--outer--container");
-        let footerInnerContainer = document.getElementById("footer--inner--container");
-        let elementsContainer = document.getElementById("footer--transitory--container");
-        let footerUpArrow = document.getElementById("footer--up--arrow");
-        let footerDownArrow = document.getElementById("footer--down--arrow");        
-        let footerRightContainer = document.getElementById("footer--right--container");
-        let footerArrow = document.getElementById("footer--arrow");
+        // let footerInnerContainer = document.getElementById("footer--inner--container");
+        // let elementsContainer = document.getElementById("footer--transitory--container");
+        // let footerUpArrow = document.getElementById("footer--up--arrow");
+        // let footerDownArrow = document.getElementById("footer--down--arrow");        
+        // let footerRightContainer = document.getElementById("footer--right--container");
+        // let footerArrow = document.getElementById("footer--arrow");
         let topLeftLogo = document.getElementById("ethereum--foundation--logo--text");
         
         footerContainer.classList.remove("displayed");
-        footerInnerContainer.classList.remove("displayed");
-        elementsContainer.classList.remove("displayed");
-        footerUpArrow.classList.remove("hidden");
-        footerDownArrow.classList.remove("displayed");
+        // footerInnerContainer.classList.remove("displayed");
+        // elementsContainer.classList.remove("displayed");
+        // footerUpArrow.classList.remove("hidden");
+        // footerDownArrow.classList.remove("displayed");
         
         if (isMobileDevice()) {
             displayHamburgerMenu();
@@ -1711,8 +1711,8 @@ function toggleNewFooter () {
         }
         
         if (!isMobileDevice()) {
-            footerRightContainer.classList.remove("footer--displayed");
-            footerArrow.classList.remove("footer--displayed");
+            // footerRightContainer.classList.remove("footer--displayed");
+            // footerArrow.classList.remove("footer--displayed");
         };
 
 
@@ -2120,12 +2120,13 @@ function addEventListeners() {
     document.addEventListener("touchmove", handleTouchMove, false);
 
     // Display footer based on whether the user is hovering above footer element or not. 
-    document.getElementById("footer--inner--container").addEventListener("mouseenter", displayNewFooter);
-    document.getElementById("footer--inner--container").addEventListener("mouseleave", hideNewFooter);
+    /** #temporary #footer #refactor */
+    // document.getElementById("footer--inner--container").addEventListener("mouseenter", displayNewFooter);
+    // document.getElementById("footer--inner--container").addEventListener("mouseleave", hideNewFooter);
     // Displays footer based on whether the user presses on the footer container => useful in mobile environment
     // document.getElementById("footer--right--container").addEventListener("mousedown", toggleNewFooter, false);
     if (isMobileDevice()) {
-        document.getElementById("footer--inner--container").addEventListener("mousedown", toggleNewFooter, false);
+        document.getElementById("footer--outer--container").addEventListener("mousedown", toggleNewFooter, false);
     };
 
     // Navigational event listeners
@@ -2168,11 +2169,11 @@ function addEventListeners() {
     }
 
     // Footer
-    document.getElementById("footer--link--devcon").addEventListener("mousedown", openDevconPage);
-    document.getElementById("footer--link--blog").addEventListener("mousedown", openEthereumBlog);
-    document.getElementById("footer--link--terms").addEventListener("mousedown", openTermsOfUse);
-    document.getElementById("footer--link--privacy").addEventListener("mousedown", openPrivacyPolicy);
-    document.getElementById("footer--link--cookies").addEventListener("mousedown", openCookiePolicy);
+    // document.getElementById("footer--link--devcon").addEventListener("mousedown", openDevconPage);
+    // document.getElementById("footer--link--blog").addEventListener("mousedown", openEthereumBlog);
+    // document.getElementById("footer--link--terms").addEventListener("mousedown", openTermsOfUse);
+    // document.getElementById("footer--link--privacy").addEventListener("mousedown", openPrivacyPolicy);
+    // document.getElementById("footer--link--cookies").addEventListener("mousedown", openCookiePolicy);
 
     // Window
     window.addEventListener("resize", setDocumentHeight);
@@ -2181,6 +2182,9 @@ function addEventListeners() {
 
 /**
  * Ensures that different elements are hidden or displayed depending on whether we are on mobile or desktop
+ * 
+ * For the time being, these are only elements that are located within the
+ * 
  */
 function modifyElementsAccordingToDevice () {
 
@@ -2435,4 +2439,4 @@ window.onload = function () {
 /** Let the Magic **/
 begin();
 addEventListeners();
-modifyElementsAccordingToDevice();
+// modifyElementsAccordingToDevice();

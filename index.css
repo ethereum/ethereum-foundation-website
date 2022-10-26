@@ -483,13 +483,278 @@ ol li {
     min-height: 40px;
     max-height: 40px;
     z-index: 3;
-    width: 100%; 
+    width: 100vw; 
     transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     z-index: 105;
     cursor: default;
     /* pointer-events: none; */
     /* display: none; */
+    /* #testing #footer #refactor */
+    /* background-color: red; */
+    transition: height 0.2s ease-out, max-height 0.2s ease-out;
+    color: white;
 }
+
+/* NEW STYLEs */
+#footer--inner--container--two {
+    width: 100vw;
+    height: 100%;
+    background-color: #36364C;;
+    display: flex;
+    flex-direction: row;
+    opacity: 0.4;
+    transition: opacity 0.2s ease-out;
+}
+
+/* #mobile => this needs to be extended to 100% */
+#footer--content--container--desktop {
+    width: calc(100% - 72px);
+    height: 100%;
+    /* background-color: red; */
+    padding-left: 60px;
+}
+
+#footer--content--inner--container {
+    display: flex;
+    flex-direction: column-reverse;
+    /* background-color: grey; */
+    width: 100%;
+    height: 100%;
+}
+
+#footer--ethereum--copyright--container {
+    width: 100%;
+    height: 100%;
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+#footer--ethereum--copyright--text {
+    font-size: 14px;
+    color: white;
+    font-weight: 500;;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 400;
+}
+
+/*  */
+#footer--main--content--container {
+    /* display: block; */
+    display: none;
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    display: none;
+}
+
+@media (min-width: 560px) {
+
+
+    #footer--outer--container:hover #footer--inner--container--two {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+    }
+    
+    #footer--outer--container:hover #footer--ethereum--copyright--container {
+        max-height: 40px;
+    }
+    
+    #footer--outer--container:hover #footer--main--content--container {
+        display: block;
+    }
+    
+    #footer--outer--container:hover #footer--main--content--container {
+        height: calc(100% - 40px);
+        width: 100%;
+        /* background-color: black; */
+    }
+
+}
+
+
+
+#footer--main--content {
+    width: 100%;
+    height: 100%;
+    /* background-color: magenta; */
+    flex-direction: row;
+    display: flex;
+}
+
+#footer--action--items--container {
+    width: 50%;
+    height: 100%;
+    /* background-color: green;; */
+    display: flex;
+    flex-direction: row;
+}
+
+#footer--ethereum--logo {
+    height: 55px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#logo--and--links--container {
+    /* background-color: blue; */
+    width: 70%;
+}
+
+#footer--links--container--two {
+    display: flex;
+    flex-direction: row;
+    /* background-color: mediumaquamarine; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.footer--link--two {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Libre Franklin";
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer--link--two:hover {
+    text-decoration: underline;
+}
+
+#contact--list--container {
+    width: 30%;
+    height: 100%;
+    /* background-color: mediumslateblue; */
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact--item--container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contact--item--title {
+    font-size: 15px;
+    font-family: Darius-Regular, serif;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.contact--item--email {
+    font-size: 15px;
+    font-weight: 400;
+    display: block;
+    font-family: "Libre Franklin";
+}
+
+#footer--disclaimer--container {
+    width: 50%;
+    height: 100%;
+    /* background-color: pink; */
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+#canari--icon--container {
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    /* background-color: blue; */
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+#canari--icon {
+    height: 25px;
+    width: 25px;
+}
+
+#canari--disclaimer {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 16px;
+    /* Color could be at top container */
+    color: white;
+    margin-left: 5px;
+    display: inline;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+
+
+/* #mobile => this needs to be made position absolute  */
+/* when the click is triggered, it needs to disappear */
+#footer--arrow--container--desktop {
+    width: 72px;
+    height: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: align-items 0.2s ease-out;
+}
+
+/* Need to create effect so that when user hovers over the parent
+the styling changes */
+#footer--arrow--desktop {
+    height: 20px;
+    width: 20px;
+    /* background-color: black; */
+    transition: margin-top 0.2s ease-out;
+}
+
+#footer--outer--container:hover {
+    height: 200px;
+    max-height: 200px;
+    transition: height 0.2s ease-out, max-height 0.2s ease-out;
+}
+
+#footer--outer--container:hover #footer--arrow--container--desktop {
+    align-items: flex-start;
+    transition: align-items 0.2s ease-out;
+}
+
+#footer--outer--container:hover #footer--arrow--desktop {
+    margin-top: 15px;
+    transition: margin-top 0.2s ease-out;
+}
+
+/* 
+On mobile the arrow can be set as an absolute
+ON desktop it is not set as absolute
+*/
+
+/* #footer--wide--screen--arrow */
+
+/* The content container height needs to increase */
+/* THe transparent container height needs to increase */
+
+
+/* END OF NEW STYLES */
+
 
 #footer--inner--container {
     width: 100%;
@@ -1192,9 +1457,15 @@ with the footer  */
 
 @media (max-width: 560px) {
 
+    #footer--outer--container {
+        height: 40px;
+        min-height: 40px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+
     #footer--outer--container.displayed {
-        height: 200px;
-        min-height: 200px;
+        height: 100vh;
+        min-height: 100vh;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
@@ -1224,27 +1495,208 @@ with the footer  */
         font-size: 27px;
     }
 
-    /* .executive--board--member--image {
-        margin-right: 0px;
+    /* New Footer Code */
+
+    /* We need to make it so that when we trigger
+    an increase in the footer outer container everything follows */
+    
+    /* Ensures that the container that holds the content and copyright
+    extends vertically to fill the footer completely */
+    #footer--content--container--desktop {
+        width: 100%;
+        padding-left: 0px;
     }
 
-    .executive--board--member--name, .executive--board--member--title {
+    /* Ensures that the CopyRight text is centered */
+    #footer--ethereum--copyright--container {
+        padding-right: 0px;
+        justify-content: center;
+        max-height: 40px;
+    }
+
+    /* Make position absolute will still keep it within the
+    footer outer container */
+    #footer--arrow--container--desktop {
+        position: absolute;
+        right: 10px;
+        pointer-events: none;
+        /* background-color: transparent; */
+        align-items: flex-start;
+    }
+
+    #footer--arrow--desktop {
+        margin-top: 50px;
+    }
+
+    /* This imitates what should happen when user clicks on mobile */
+    /* this should be the clas that's set when a user clicks */
+    /* #footer--outer--container {
+        height: 100vh;
+        max-height: 100vh;
+        z-index: 130; 
+    } */
+
+    #footer--main--content--container {
+        display: none;
+    }
+
+    #footer--inner--container--two {
+        opacity: 1;
+    }
+
+    #footer--outer--container.displayed #footer--main--content--container {
+        height: calc(100vh - 40px);
+        /* background-color: black; */
+        flex-direction: column;
+        pointer-events: auto;
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        display: flex;
+    }
+
+    #footer--main--content {
+        width: 100%;
+        height: 100%;
+        /* background-color: magenta; */
+        flex-direction: column;
+    }
+
+    #footer--action--items--container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #footer--ethereum--logo {
+        height: 40px;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+        /* background-color: red; */
+        width: 100%;
+        display: inherit;
+    }
+
+    #logo--and--links--container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* background-color: blue; */
+    }
+    
+    #footer--links--container--two {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .footer--link--two {
+        font-size: 15px;
+        margin-top: 3px;
+        margin-bottom: 3px;
         text-align: center;
     }
 
-    .social--media--link--container {
-        width: "100%";
+    .dividing--line {
+        width: 100%;
+        /* background-color: white; */
+        min-height: 1px;
+        opacity: 0.5;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+
+    #contact--list--container {
+        height: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact--item--container {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    /* We don't add margin top to it because it's container already has one*/
+
+    #footer--disclaimer--container {
+        width: 100%;
+        /* background-color: pink; */
+        padding-left: 0px;
+        padding-right: 0px;
+        display: flex;
+        flex-direction: column;
+        font-family: "Libre Franklin", serif;
+    }
+
+    #canari--icon--container {
+        padding-left: 0px;
+        padding-right: 0px;
+        height: auto;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        /* background-color: blue; */
+        padding-top: 0px;
         display: flex;
         justify-content: center;
-        align-items: center;
-    } */
+    }
+
+    #canari--icon {
+        height: 33px;
+        width: 33px;
+    }
+
+    #canari--disclaimer {
+        /* Color could be at top container */
+        margin-left: 0px;
+        width: 100%;
+        display: block;
+        font-family: "Libre Franklin", sans-serif;
+        font-size: 13px;
+    }
+    
+    
+}
+
+
+@media (max-width: 500px) and (max-height: 950px) {
+
+    #canari--disclaimer {
+        line-height: 30px;
+        font-size: 16px;
+    }
 
 }
 
-@media (max-width: 500px) {
 
+@media (max-width: 500px) and (max-height: 750px) {
+
+    #canari--disclaimer {
+        line-height: 24px;
+        font-size: 15px;
+    }
 
 }
+@media (max-width: 500px) and (max-height: 700px) {
+
+    #canari--disclaimer {
+        line-height: 19px;
+        font-size: 15px;
+    }
+
+}
+
+/* For Galaxy Fold */
+@media (max-width: 500px) and (max-height: 660px) {
+
+    #canari--disclaimer {
+        line-height: 19px;
+        font-size: 14px;
+    }
+
+}
+
+
 
 
 /* MOBILE AND TABLET DEVICES */
