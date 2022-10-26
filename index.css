@@ -669,6 +669,8 @@ ol li {
     font-weight: 400;
     display: block;
     font-family: "Libre Franklin";
+    color: white;
+    text-decoration: none;
 }
 
 #footer--disclaimer--container {
