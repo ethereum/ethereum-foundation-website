@@ -1151,7 +1151,7 @@ class OrbitControls extends EventDispatcher {
 
 			if ( scope.enabled === false ) return;
 
-			event.preventDefault();
+			// event.preventDefault();
 
 		}
 
