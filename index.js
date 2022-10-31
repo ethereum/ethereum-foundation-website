@@ -2120,13 +2120,7 @@ function addEventListeners() {
     document.addEventListener("touchmove", handleTouchMove, false);
 
     // Display footer based on whether the user is hovering above footer element or not. 
-    /** #temporary #footer #refactor */
-    // document.getElementById("footer--inner--container").addEventListener("mouseenter", displayNewFooter);
-    // document.getElementById("footer--inner--container").addEventListener("mouseleave", hideNewFooter);
-    // Displays footer based on whether the user presses on the footer container => useful in mobile environment
-    // document.getElementById("footer--right--container").addEventListener("mousedown", toggleNewFooter, false);
     if (isMobileDevice()) {
-        // document.getElementById("footer--outer--container").addEventListener("mousedown", toggleNewFooter, false);
         document.getElementById("footer--inner--container--two").addEventListener("mousedown", toggleNewFooter, false);
     };
 
