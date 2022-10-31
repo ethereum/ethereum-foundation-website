@@ -1,66 +1,70 @@
-console.warn( "THREE.GlitchPass: As part of the transition to ES6 Modules, the files in 'examples/js' were deprecated in May 2020 (r117) and will be deleted in December 2020 (r124). You can find more information about developing using ES6 Modules in https://threejs.org/docs/#manual/en/introduction/Installation." );
-/**
- * @author alteredq / http://alteredqualia.com/
- */
+import {
+	DataTexture,
+	FloatType,
+	MathUtils,
+	RedFormat,
+	LuminanceFormat,
+	ShaderMaterial,
+	UniformsUtils
+} from './three.module.js';
+import { Pass, FullScreenQuad } from './Pass.js';
+import { DigitalGlitch } from './shaders/DigitalGlitch.js';
 
-THREE.GlitchPass = function ( dt_size ) {
+class GlitchPass extends Pass {
 
-	THREE.Pass.call( this );
+	constructor( dt_size = 64 ) {
 
-	if ( THREE.DigitalGlitch === undefined ) console.error( "THREE.GlitchPass relies on THREE.DigitalGlitch" );
+		super();
 
-	var shader = THREE.DigitalGlitch;
-	this.uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+		if ( DigitalGlitch === undefined ) console.error( 'THREE.GlitchPass relies on DigitalGlitch' );
 
-	if ( dt_size == undefined ) dt_size = 64;
+		const shader = DigitalGlitch;
 
+		this.uniforms = UniformsUtils.clone( shader.uniforms );
 
-	this.uniforms[ "tDisp" ].value = this.generateHeightmap( dt_size );
+		this.uniforms[ 'tDisp' ].value = this.generateHeightmap( dt_size );
 
+		this.material = new ShaderMaterial( {
+			uniforms: this.uniforms,
+			vertexShader: shader.vertexShader,
+			fragmentShader: shader.fragmentShader
+		} );
 
-	this.material = new THREE.ShaderMaterial( {
-		uniforms: this.uniforms,
-		vertexShader: shader.vertexShader,
-		fragmentShader: shader.fragmentShader
-	} );
+		this.fsQuad = new FullScreenQuad( this.material );
 
-	this.fsQuad = new THREE.Pass.FullScreenQuad( this.material );
+		this.goWild = false;
+		this.curF = 0;
+		this.generateTrigger();
 
-	this.goWild = false;
-	this.curF = 0;
-	this.generateTrigger();
+	}
 
-};
+	render( renderer, writeBuffer, readBuffer /*, deltaTime, maskActive */ ) {
 
-THREE.GlitchPass.prototype = Object.assign( Object.create( THREE.Pass.prototype ), {
+		if ( renderer.capabilities.isWebGL2 === false ) this.uniforms[ 'tDisp' ].value.format = LuminanceFormat;
 
-	constructor: THREE.GlitchPass,
-
-	render: function ( renderer, writeBuffer, readBuffer /*, deltaTime, maskActive */ ) {
-
-		this.uniforms[ "tDiffuse" ].value = readBuffer.texture;
+		this.uniforms[ 'tDiffuse' ].value = readBuffer.texture;
 		this.uniforms[ 'seed' ].value = Math.random();//default seeding
 		this.uniforms[ 'byp' ].value = 0;
 
 		if ( this.curF % this.randX == 0 || this.goWild == true ) {
 
 			this.uniforms[ 'amount' ].value = Math.random() / 30;
-			this.uniforms[ 'angle' ].value = THREE.MathUtils.randFloat( - Math.PI, Math.PI );
-			this.uniforms[ 'seed_x' ].value = THREE.MathUtils.randFloat( - 1, 1 );
-			this.uniforms[ 'seed_y' ].value = THREE.MathUtils.randFloat( - 1, 1 );
-			this.uniforms[ 'distortion_x' ].value = THREE.MathUtils.randFloat( 0, 1 );
-			this.uniforms[ 'distortion_y' ].value = THREE.MathUtils.randFloat( 0, 1 );
+			this.uniforms[ 'angle' ].value = MathUtils.randFloat( - Math.PI, Math.PI );
+			this.uniforms[ 'seed_x' ].value = MathUtils.randFloat( - 1, 1 );
+			this.uniforms[ 'seed_y' ].value = MathUtils.randFloat( - 1, 1 );
+			this.uniforms[ 'distortion_x' ].value = MathUtils.randFloat( 0, 1 );
+			this.uniforms[ 'distortion_y' ].value = MathUtils.randFloat( 0, 1 );
 			this.curF = 0;
 			this.generateTrigger();
 
 		} else if ( this.curF % this.randX < this.randX / 5 ) {
 
 			this.uniforms[ 'amount' ].value = Math.random() / 90;
-			this.uniforms[ 'angle' ].value = THREE.MathUtils.randFloat( - Math.PI, Math.PI );
-			this.uniforms[ 'distortion_x' ].value = THREE.MathUtils.randFloat( 0, 1 );
-			this.uniforms[ 'distortion_y' ].value = THREE.MathUtils.randFloat( 0, 1 );
-			this.uniforms[ 'seed_x' ].value = THREE.MathUtils.randFloat( - 0.3, 0.3 );
-			this.uniforms[ 'seed_y' ].value = THREE.MathUtils.randFloat( - 0.3, 0.3 );
+			this.uniforms[ 'angle' ].value = MathUtils.randFloat( - Math.PI, Math.PI );
+			this.uniforms[ 'distortion_x' ].value = MathUtils.randFloat( 0, 1 );
+			this.uniforms[ 'distortion_y' ].value = MathUtils.randFloat( 0, 1 );
+			this.uniforms[ 'seed_x' ].value = MathUtils.randFloat( - 0.3, 0.3 );
+			this.uniforms[ 'seed_y' ].value = MathUtils.randFloat( - 0.3, 0.3 );
 
 		} else if ( this.goWild == false ) {
 
@@ -83,30 +87,32 @@ THREE.GlitchPass.prototype = Object.assign( Object.create( THREE.Pass.prototype 
 
 		}
 
-	},
+	}
 
-	generateTrigger: function () {
+	generateTrigger() {
 
-		this.randX = THREE.MathUtils.randInt( 120, 240 );
-
-	},
-
-	generateHeightmap: function ( dt_size ) {
-
-		var data_arr = new Float32Array( dt_size * dt_size * 3 );
-		var length = dt_size * dt_size;
-
-		for ( var i = 0; i < length; i ++ ) {
-
-			var val = THREE.MathUtils.randFloat( 0, 1 );
-			data_arr[ i * 3 + 0 ] = val;
-			data_arr[ i * 3 + 1 ] = val;
-			data_arr[ i * 3 + 2 ] = val;
-
-		}
-
-		return new THREE.DataTexture( data_arr, dt_size, dt_size, THREE.RGBFormat, THREE.FloatType );
+		this.randX = MathUtils.randInt( 120, 240 );
 
 	}
 
-} );
+	generateHeightmap( dt_size ) {
+
+		const data_arr = new Float32Array( dt_size * dt_size );
+		const length = dt_size * dt_size;
+
+		for ( let i = 0; i < length; i ++ ) {
+
+			const val = MathUtils.randFloat( 0, 1 );
+			data_arr[ i ] = val;
+
+		}
+
+		const texture = new DataTexture( data_arr, dt_size, dt_size, RedFormat, FloatType );
+		texture.needsUpdate = true;
+		return texture;
+
+	}
+
+}
+
+export { GlitchPass };
