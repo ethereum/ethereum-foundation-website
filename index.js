@@ -187,28 +187,37 @@ function initLoaders () {
  * them better - especially important since the scene is light and the particles are white and shine
  * #3d #animation #ethereum #object
  */
-const MINIM_VERTICE_OBJECT = "Eth_logo_SOLID.OBJ"; // 14 vertices
-const LARGE_NUMBER_OF_VERTEX_OBJECT = "ETH_Logo_Planet_Match.obj"; // 30K vertices
-const MEDIUM_NUMBER_OF_VERTEX_OBJECT = "Eth_logo_grids.OBJ"; // 16K Vertices
-const MISC_OBJECT = "Eth_logo_Beveld.OBJ"; // 
+
+const LARGE_NUMBER_OF_VERTEX_OBJECT = "ETH_Logo_Planet_Match.obj"; // 48K vertices => The old one
+// The new ethereum objects are below
+const ETH_1K_OBJ = "eth_1k.obj";
+const ETH_5K_OBJ = "eth_2_5k.obj";
+const ETH_6K_OBJ = "eth_6k.obj";
+const ETH_12K = "eth_12k.obj"; // This is the one currently displayed as you can see in the @addMainObjectToScene function
+const ETH_24K = "eth_24k.obj";
 
 /**
  * Used to load and render the ETH object made out of particles into the threeJS scene
  */ 
 
 function addMainObjectToScene () {
+    
     const ASSET_TYPE = 1;		
     /** 
      * #ethereum #3d #object 
      * Pass in one of the variables above to see the ethereum object rendered with different number
      * of vertices
      **/
-    const ASSET_URL = LARGE_NUMBER_OF_VERTEX_OBJECT;
+    const ASSET_URL = ETH_12K;
     const FILE_TYPE = "obj";
 
     nameOfFinalFileSelected = ASSET_URL;
 
-    // Creates a sphere composed of thousands of particles
+    /**
+     * Creates a sphere composed of thousands of particles
+     * In order to change the size of the particles, modify the animatedModelParticleSize in the @load3DModelObject 
+     * function below
+     */
     if (isHomePage()) {
         load3DModelObject(ASSET_URL, FILE_TYPE);
     } else {
@@ -228,18 +237,10 @@ function load3DModelObject (modelFileName, fileType) {
     currentLoader.setPath(RELATIVE_URL);
 
     /** 
-     * Depending on the object loaded, change the size of the particles by modifying one of the variables below
+     * Depending on the object loaded, change the size of the particles by modifying the variable below
      * #ethereum #3d #object
      */
-    if (modelFileName === MINIM_VERTICE_OBJECT) {
-        animatedModelParticleSize = 0.3;
-    } else if (modelFileName === LARGE_NUMBER_OF_VERTEX_OBJECT) {
-        animatedModelParticleSize = 0.014;
-    } else if (modelFileName === MEDIUM_NUMBER_OF_VERTEX_OBJECT) {
-        animatedModelParticleSize = 0.001;
-    } else if (modelFileName === MISC_OBJECT) {
-        animatedModelParticleSize = 0.1;
-    }
+    animatedModelParticleSize = 0.04;
 
     animatedModelPointsMaterial = new THREE.PointsMaterial({
             // color: "rgb(400, 255, 255)", 
