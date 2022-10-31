@@ -373,7 +373,7 @@ function loadDegenerateParticleMesh (modelFileName, fileType) {
     currentLoader.setPath(RELATIVE_URL);
 
     // This variable affects the size of the particles
-    animatedModelParticleSize = 0.05;
+    animatedModelParticleSize = 0.2;
 
     animatedModelPointsMaterial = new THREE.PointsMaterial({
         color: new THREE.Color(10, 10, 10),
