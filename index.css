@@ -814,6 +814,8 @@ with the footer  */
     color: black;
     font-weight: 300;
     font-family: "Libre Franklin", sans-serif;
+    padding-top:120px;
+    background:url(assets/ETH-loading.svg) no-repeat 0% 50%;
 }
 
 #loading--text.hidden {
