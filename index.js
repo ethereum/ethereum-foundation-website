@@ -7,6 +7,7 @@ import { UnrealBloomPass } from './assets/UnrealBloomPass.js'; // Added to test 
 import { GlitchPass } from './assets/GlitchPass.js'; // Updated DEV branch
 import { EffectComposer } from './assets/EffectComposer.js'; // Updated DEV Branch
 import * as OBJLoader from './assets/OBJLoader.js'; // Updated
+import * as GLTFLoader from './assets/GLTFLoader.js'; // Updated
 
 const generalSceneControls = {
     ["ETH Rotation Speed"]: 0.0002,  
@@ -39,7 +40,11 @@ const firefliesFragmentShaderTwo = document.getElementById("firefliesFragmentSha
 const explosionVertexShaderTwo = document.getElementById("explosionVertexShader").textContent;
 let mouseIntensity = 0.01; // Mouse intensity needs to remain between 0.01 and 0.03
 /** Loaders **/
-let objectLoader, loadingManager, currentLoader, textureLoader;
+let objectLoader;
+let glbLoader;
+let loadingManager;
+let currentLoader;
+let textureLoader;
 const environment = "dev";
 const RELATIVE_URL = environment === "dev" ? "/assets/" : "/public/assets/"
 // ETH Logo
@@ -175,6 +180,7 @@ function initLoaders () {
     
     textureLoader = new THREE.TextureLoader(loadingManager);
     objectLoader = new OBJLoader.OBJLoader(loadingManager);
+    glbLoader = new GLTFLoader.GLTFLoader(loadingManager);
 
 }
 
@@ -193,7 +199,9 @@ const ETH_5K_OBJ = "eth_2_5k.obj";
 const ETH_6K_OBJ = "eth_6k.obj";
 const ETH_12K = "eth_12k.obj"; // This is the one currently displayed as you can see in the @addMainObjectToScene function
 const ETH_24K = "eth_24k.obj";
-
+const ETH_12K_MIN = "eth_12k.glb";
+// Defines the current file type => Needs to be changed if we change the asset from glb format to obj format
+const FILE_TYPE = "glb";
 /**
  * Used to load and render the ETH object made out of particles into the threeJS scene
  */ 
@@ -206,8 +214,8 @@ function addMainObjectToScene () {
      * Pass in one of the variables above to see the ethereum object rendered with different number
      * of vertices
      **/
-    const ASSET_URL = ETH_12K;
-    const FILE_TYPE = "obj";
+    const ASSET_URL = ETH_12K_MIN;
+    // const FILE_TYPE = "obj";
 
     nameOfFinalFileSelected = ASSET_URL;
 
@@ -231,7 +239,14 @@ function isHomePage () {
 
 function load3DModelObject (modelFileName, fileType) {
 				
-    const currentLoader = objectLoader;
+    let currentLoader;
+
+    if (fileType === "glb") {
+        currentLoader = glbLoader;
+    } else if (fileType === "obj") {
+        currentLoader = objectLoader;
+    };
+    
     currentLoader.setPath(RELATIVE_URL);
 
     /** 
@@ -254,7 +269,14 @@ function load3DModelObject (modelFileName, fileType) {
 
     currentLoader.load(modelFileName, function (object) {
 
-        let mesh = object.children[0];
+        let mesh;
+
+        if (FILE_TYPE === "glb") {
+            mesh = object.scene.children[0];
+        } else if (FILE_TYPE === "obj") {
+            mesh = object.children[0];
+        };    
+        
         let geometry = mesh.geometry;
         
         let scaleArray = new Float32Array(48000);
@@ -351,6 +373,11 @@ function load3DModelObject (modelFileName, fileType) {
         points.position.y = 0.5;
         points.position.z = 0;
 
+        if (FILE_TYPE === "glb") {
+            points.rotation.x = Math.PI / 2;
+        };
+
+
         finalPoints = points;
 
         scene.add(points);
@@ -367,9 +394,16 @@ function load3DModelObject (modelFileName, fileType) {
  * Note: The previous rendering, which has been commented out, rendered particles in space to form a final 
  * cubic shape, which did not look good when the particles expanded.
  **/ 
-function loadDegenerateParticleMesh (modelFileName, fileType) {
+function loadDegenerateParticleMesh (modelFileName) {
     
-    const currentLoader = objectLoader;
+    let currentLoader;
+
+    if (FILE_TYPE === "glb") {
+        currentLoader = glbLoader;
+    } else if (FILE_TYPE === "obj") {
+        currentLoader = objectLoader;
+    };
+    
     currentLoader.setPath(RELATIVE_URL);
 
     // This variable affects the size of the particles
@@ -387,7 +421,14 @@ function loadDegenerateParticleMesh (modelFileName, fileType) {
 
     currentLoader.load(modelFileName, function (object) {
 
-        let mesh = object.children[0];
+        let mesh;
+
+        if (FILE_TYPE === "glb") {
+            mesh = object.scene.children[0];
+        } else if (FILE_TYPE === "obj") {
+            mesh = object.children[0];
+        };
+        
         let geometry = mesh.geometry;
 
 
@@ -1409,7 +1450,13 @@ function render() {
 
     // Standard Geometry
     if (finalPoints !== undefined && activateParticleRotation !== false) {
-        finalPoints.rotation.y += generalSceneControls["ETH Rotation Speed"];
+        
+        if (FILE_TYPE === "glb") {
+            finalPoints.rotation.z += generalSceneControls["ETH Rotation Speed"];
+        } else if (FILE_TYPE === "obj") {
+            finalPoints.rotation.y += generalSceneControls["ETH Rotation Speed"];
+        };    
+        
     };
 
     // Geometry with Surface Sampler
