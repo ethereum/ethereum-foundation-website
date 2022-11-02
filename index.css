@@ -421,6 +421,7 @@ ol li {
 
 #next--page--navigation--container:hover {
     cursor: pointer;
+
 }
 
 #next--page--text {
@@ -487,14 +488,13 @@ ol li {
     max-height: 40px;
     z-index: 3;
     width: 100vw; 
-    transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
     z-index: 105;
     cursor: default;
     /* pointer-events: none; */
     /* display: none; */
     /* #testing #footer #refactor */
     /* background-color: red; */
-    transition: height 0.2s ease-out, max-height 0.2s ease-out;
+    transition: height 0.2s ease-out, max-height 0.2s ease-out, min-height 0.2s ease-out;
     color: white;
 }
 
@@ -506,7 +506,7 @@ ol li {
     display: flex;
     flex-direction: row;
     opacity: 0.4;
-    transition: opacity 0.2s ease-out;
+    transition: height 0.2s ease-out, min-height 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 /* #mobile => this needs to be extended to 100% */
@@ -1317,9 +1317,14 @@ with the footer  */
 #grow--ecosystem--link:hover,
 .executive--board--social--media--handle:hover,
 .menu--content--text:hover,
-#secondary--links--container a:hover
+#secondary--links--container a:hover, 
+#next--page--navigation--container:hover #next--page--text
  {
     color: #8FFFEB;
+}
+
+#next--page--navigation--container:hover #downward--arrow {
+    filter: invert(9%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
 }
 
 
@@ -1504,6 +1509,7 @@ with the footer  */
     #footer--outer--container:hover {
         height: 40px;
         min-height: 40px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
     #footer--outer--container.displayed {
@@ -2200,6 +2206,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
 #next--page--navigation--container:hover #downward--arrow {
     filter: invert(9%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
+    /* background-color: red; */
 }
 
 #next--page--navigation--container:hover #next--page--text {

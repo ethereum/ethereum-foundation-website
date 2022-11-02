@@ -6,7 +6,6 @@ import { RenderPass } from './assets/RenderPass.js'; // Updated DEV branch
 import { UnrealBloomPass } from './assets/UnrealBloomPass.js'; // Added to test out bloom pass upon the objects 
 import { GlitchPass } from './assets/GlitchPass.js'; // Updated DEV branch
 import { EffectComposer } from './assets/EffectComposer.js'; // Updated DEV Branch
-import * as OBJLoader from './assets/OBJLoader.js'; // Updated
 import * as GLTFLoader from './assets/GLTFLoader.js'; // Updated
 
 const generalSceneControls = {
@@ -179,7 +178,6 @@ function initLoaders () {
     initLoadingManager();
     
     textureLoader = new THREE.TextureLoader(loadingManager);
-    objectLoader = new OBJLoader.OBJLoader(loadingManager);
     glbLoader = new GLTFLoader.GLTFLoader(loadingManager);
 
 }
@@ -215,7 +213,6 @@ function addMainObjectToScene () {
      * of vertices
      **/
     const ASSET_URL = ETH_12K_MIN;
-    // const FILE_TYPE = "obj";
 
     nameOfFinalFileSelected = ASSET_URL;
 
@@ -239,14 +236,7 @@ function isHomePage () {
 
 function load3DModelObject (modelFileName, fileType) {
 				
-    let currentLoader;
-
-    if (fileType === "glb") {
-        currentLoader = glbLoader;
-    } else if (fileType === "obj") {
-        currentLoader = objectLoader;
-    };
-    
+    const currentLoader = glbLoader;
     currentLoader.setPath(RELATIVE_URL);
 
     /** 
@@ -269,14 +259,7 @@ function load3DModelObject (modelFileName, fileType) {
 
     currentLoader.load(modelFileName, function (object) {
 
-        let mesh;
-
-        if (FILE_TYPE === "glb") {
-            mesh = object.scene.children[0];
-        } else if (FILE_TYPE === "obj") {
-            mesh = object.children[0];
-        };    
-        
+        let mesh = object.scene.children[0];
         let geometry = mesh.geometry;
         
         let scaleArray = new Float32Array(48000);
@@ -373,10 +356,7 @@ function load3DModelObject (modelFileName, fileType) {
         points.position.y = 0.5;
         points.position.z = 0;
 
-        if (FILE_TYPE === "glb") {
-            points.rotation.x = Math.PI / 2;
-        };
-
+        points.rotation.x = Math.PI / 2;
 
         finalPoints = points;
 
@@ -396,14 +376,7 @@ function load3DModelObject (modelFileName, fileType) {
  **/ 
 function loadDegenerateParticleMesh (modelFileName) {
     
-    let currentLoader;
-
-    if (FILE_TYPE === "glb") {
-        currentLoader = glbLoader;
-    } else if (FILE_TYPE === "obj") {
-        currentLoader = objectLoader;
-    };
-    
+    const currentLoader = glbLoader;
     currentLoader.setPath(RELATIVE_URL);
 
     // This variable affects the size of the particles
@@ -421,16 +394,8 @@ function loadDegenerateParticleMesh (modelFileName) {
 
     currentLoader.load(modelFileName, function (object) {
 
-        let mesh;
-
-        if (FILE_TYPE === "glb") {
-            mesh = object.scene.children[0];
-        } else if (FILE_TYPE === "obj") {
-            mesh = object.children[0];
-        };
-        
-        let geometry = mesh.geometry;
-
+        const mesh = object.scene.children[0];
+        const geometry = mesh.geometry;
 
         let count = 48000;
         let newPositions = [];
@@ -486,6 +451,9 @@ function loadDegenerateParticleMesh (modelFileName) {
         let points = new THREE.Points(bufferGeometry, animatedModelPointsMaterial);
         points.scale.x = points.scale.y = points.scale.z = 2;
         finalPoints = points;
+
+        points.rotation.x = Math.PI / 2;
+
         scene.add(points);
 
     })
@@ -658,25 +626,16 @@ function createParticleMorphTargetForGeometry (geometry) {
  */
 function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetType) {
 
-    let material;
-    let sparklesMaterialTwo;
-    let assetURL;
-    let webPSupported = testWebP();
-    let geometry; 
     let currentLoader = objectLoader;								
     material = new THREE.MeshPhongMaterial({ color: 0xffffff, wireframe: true });
 
     // MEsh Surface Attempt #1
     group = new THREE.Group();
 
-    // group.scale.x = group.scale.y = group.scale.z = 0.001;
     group.scale.x = group.scale.y = group.scale.z = 0.005;
     
     scene.add(group);
 
-    // Store each partiicle coordinates & color
-    // const vertices = [];
-    // const colors = [];
     // The geometry of the poitns
     sparklesGeometry = new THREE.BufferGeometry();
 
@@ -684,8 +643,7 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
         meshSurfaceSamplerPointSize = 0.06;
     } else {
         meshSurfaceSamplerPointSize = 0.02;
-    }
-    
+    };
     
     sparklesMaterial = new THREE.PointsMaterial({
         size: meshSurfaceSamplerPointSize, 
@@ -718,7 +676,6 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
     // Create Points object
     const points = new THREE.Points(sparklesGeometry, sparklesMaterial);
 
-
     group.add(points);
 
     group.position.x = 0;
@@ -744,39 +701,21 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
         let geometry = object.children[0].geometry
 
         // We need to add scale and position
-        // object.position.x = object.position.y = object.position.z = 0;
-        // object.scale.x = object.scale.y = object.scale.z = 2
         object.position.x = 0;
         object.position.y = 10;
         object.position.z = 0;
 
-        // scene.add(object);
         group.add(object);
 
         mainObject = group;
 
-        // sampler = new MeshSurfaceSampler(mesh).setWeightAttribute(null).build();
         sampler = new MeshSurfaceSampler(mesh).setWeightAttribute("uv").build();
-
-
-        // // Not orthographic camera
-        // object.scale.x = object.scale.y = object.scale.z = 0.005;
-        // object.position.x = 0;
-        // object.position.y = 1;
-        // object.position.z = 0;
-        
-        // object.name = 'mainObject';
-        // object.visible = true;
-        // mainObject = object;
-        // mainObject.position.clampScalar(0, 100);
 
         scene.add(object);
         
-
     })
 
-
-}
+};
 
 
 /**
@@ -1439,7 +1378,7 @@ let scrollUpCounter = 0; // Used in order to debounce the scroll up effect
                         
 let deltaY;
 // Stop point of the particle expansion
-const finalStopPoint = 0.0045; 
+const finalStopPoint = 0.002; 
 let ethLogoAnimationEnded;
 let meshOpacityAnimationEnded;
 let ethObjectReverseAnimationEnded;
