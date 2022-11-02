@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 101.093 101.093">
+  <defs>
+    <style>
+      .cls-1 { fill: none;}
+      .cls-2 { clip-path: url(#clippath);}
+      .cls-3 { fill: #2f354b; animation: oPcty 1600ms ease infinite;}
+        @keyframes oPcty {
+          0% { opacity: 0; }
+          80%{ opacity: 1; }
+          100% { opacity: 1; }
+        }
+        #ray32 {animation-delay:50ms;}
+        #ray31 {animation-delay:100ms;}
+        #ray30 {animation-delay:150ms;}
+        #ray29 {animation-delay:200ms;}
+        #ray28 {animation-delay:250ms;}
+        #ray27 {animation-delay:300ms;}
+        #ray26 {animation-delay:350ms;}
+        #ray25 {animation-delay:400ms;}
+        #ray24 {animation-delay:450ms;}
+        #ray23 {animation-delay:500ms;}
+        #ray22 {animation-delay:550ms;}
+        #ray21 {animation-delay:600ms;}
+        #ray20 {animation-delay:650ms;}
+        #ray19 {animation-delay:700ms;}
+        #ray18 {animation-delay:750ms;}
+        #ray17 {animation-delay:800ms;}
+        #ray16 {animation-delay:850ms;}
+        #ray15 {animation-delay:900ms;}
+        #ray14 {animation-delay:950ms;}
+        #ray13 {animation-delay:1000ms;}
+        #ray12 {animation-delay:1050ms;}
+        #ray11 {animation-delay:1100ms;}
+        #ray10 {animation-delay:1150ms;}
+        #ray9 {animation-delay:1200ms;}
+        #ray8 {animation-delay:1250ms;}
+        #ray7 {animation-delay:1300ms;}
+        #ray6 {animation-delay:1350ms;}
+        #ray5 {animation-delay:1400ms;}
+        #ray4 {animation-delay:1450ms;}
+        #ray3 {animation-delay:1500ms;}
+        #ray2 {animation-delay:1550ms;}
+        #ray1 {animation-delay:1600ms;}
+    </style>
+    <clipPath id="clippath">
+      <polygon id="ray" class="cls-1" points="50.571 .547 19.296 54.958 50.571 100.547 81.845 54.958 50.571 .547"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <g>
+        <polygon id="ray1" class="cls-3" points="44.635 .186 46.52 0 50.547 50.547 44.635 .186"/>
+        <polygon id="ray2" class="cls-3" points="34.923 2.307 36.736 1.757 50.547 50.547 34.923 2.307"/>
+        <polygon id="ray3" class="cls-3" points="25.813 6.282 27.483 5.389 50.547 50.547 25.813 6.282"/>
+        <polygon id="ray4" class="cls-3" points="17.652 11.957 19.116 10.756 50.547 50.547 17.652 11.957"/>
+        <polygon id="ray5" class="cls-3" points="10.756 19.116 11.957 17.652 50.547 50.547 10.756 19.116"/>
+        <polygon id="ray6" class="cls-3" points="5.389 27.483 6.282 25.813 50.547 50.547 5.389 27.483"/>
+        <polygon id="ray7" class="cls-3" points="1.757 36.736 2.307 34.923 50.547 50.547 1.757 36.736"/>
+        <polygon id="ray8" class="cls-3" points="0 46.52 .186 44.635 50.547 50.547 0 46.52"/>
+        <polygon id="ray9" class="cls-3" points=".186 56.459 0 54.573 50.547 50.547 .186 56.459"/>
+        <polygon id="ray10" class="cls-3" points="2.307 66.17 1.757 64.357 50.547 50.547 2.307 66.17"/>
+        <polygon id="ray11" class="cls-3" points="6.282 75.281 5.389 73.61 50.547 50.547 6.282 75.281"/>
+        <polygon id="ray12" class="cls-3" points="11.957 83.441 10.756 81.977 50.547 50.547 11.957 83.441"/>
+        <polygon id="ray13" class="cls-3" points="19.116 90.338 17.652 89.136 50.547 50.547 19.116 90.338"/>
+        <polygon id="ray14" class="cls-3" points="27.483 95.705 25.813 94.812 50.547 50.547 27.483 95.705"/>
+        <polygon id="ray15" class="cls-3" points="36.736 99.337 34.923 98.787 50.547 50.547 36.736 99.337"/>
+        <polygon id="ray16" class="cls-3" points="46.52 101.093 44.635 100.908 50.547 50.547 46.52 101.093"/>
+        <polygon id="ray17" class="cls-3" points="56.459 100.908 54.573 101.093 50.547 50.547 56.459 100.908"/>
+        <polygon id="ray18" class="cls-3" points="66.17 98.787 64.357 99.337 50.547 50.547 66.17 98.787"/>
+        <polygon id="ray19" class="cls-3" points="75.281 94.812 73.61 95.705 50.547 50.547 75.281 94.812"/>
+        <polygon id="ray20" class="cls-3" points="83.441 89.136 81.977 90.338 50.547 50.547 83.441 89.136"/>
+        <polygon id="ray21" class="cls-3" points="90.338 81.977 89.136 83.441 50.547 50.547 90.338 81.977"/>
+        <polygon id="ray22" class="cls-3" points="95.705 73.61 94.812 75.281 50.547 50.547 95.705 73.61"/>
+        <polygon id="ray23" class="cls-3" points="99.337 64.357 98.787 66.17 50.547 50.547 99.337 64.357"/>
+        <polygon id="ray24" class="cls-3" points="101.093 54.573 100.908 56.459 50.547 50.547 101.093 54.573"/>
+        <polygon id="ray25" class="cls-3" points="100.908 44.635 101.093 46.52 50.547 50.547 100.908 44.635"/>
+        <polygon id="ray26" class="cls-3" points="98.787 34.923 99.337 36.736 50.547 50.547 98.787 34.923"/>
+        <polygon id="ray27" class="cls-3" points="94.812 25.813 95.705 27.483 50.547 50.547 94.812 25.813"/>
+        <polygon id="ray28" class="cls-3" points="89.136 17.652 90.338 19.116 50.547 50.547 89.136 17.652"/>
+        <polygon id="ray29" class="cls-3" points="81.977 10.756 83.441 11.957 50.547 50.547 81.977 10.756"/>
+        <polygon id="ray30" class="cls-3" points="73.61 5.389 75.281 6.282 50.547 50.547 73.61 5.389"/>
+        <polygon id="ray31" class="cls-3" points="64.357 1.757 66.17 2.307 50.547 50.547 64.357 1.757"/>
+        <polygon id="ray32" class="cls-3" points="54.573 0 56.459 .186 50.547 50.547 54.573 0"/>
+    </g>
+  </g>
+</svg>
