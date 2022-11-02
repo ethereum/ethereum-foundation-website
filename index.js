@@ -251,7 +251,7 @@ function load3DModelObject (modelFileName, fileType) {
             size: animatedModelParticleSize, 
             transparent: true, 
             // The line below can be removed
-            map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+            map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
             blending: THREE.AdditiveBlending, 
             depthWrite: false, 
             toneMapped: false, 
@@ -386,7 +386,7 @@ function loadDegenerateParticleMesh (modelFileName) {
         color: new THREE.Color(10, 10, 10),
         size: animatedModelParticleSize, 
         transparent: true, 
-        map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+        map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
         blending: THREE.AdditiveBlending, 
         depthWrite: false, 
         toneMapped: false, 
@@ -474,7 +474,7 @@ function createDegenerateParticles () {
     const pointsMaterial =  new THREE.PointsMaterial({
         size: meshSurfaceSamplerPointSize, 
         alphaTest: 0.2, 
-        map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+        map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
         vertexColors: true, 
         color: 0xffffff, 
     });
@@ -648,7 +648,7 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
     sparklesMaterial = new THREE.PointsMaterial({
         size: meshSurfaceSamplerPointSize, 
         alphaTest: 0.2, 
-        map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+        map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
         vertexColors: true, // Let Three.JS know that each point has a different color
     });
 
