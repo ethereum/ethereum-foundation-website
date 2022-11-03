@@ -2107,7 +2107,12 @@ function addEventListeners() {
     // Display footer based on whether the user is hovering above footer element or not. 
     if (isMobileDevice()) {
         document.getElementById("footer--inner--container--two").addEventListener("mousedown", toggleNewFooter, false);
-    };
+    } else {
+        /** Sets footer animation for desktop => Not done through CSS because in this case the child element causes a change in the parent */
+        document.getElementById("footer--inner--container--two").addEventListener("mouseenter", toggleNewFooter, false);
+        document.getElementById("footer--inner--container--two").addEventListener("mouseleave", toggleNewFooter, false);
+    }
+
 
     // Navigational event listeners
     document.getElementById("next--page--navigation--container").addEventListener( "mousedown", goToNextPage );    

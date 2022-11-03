@@ -163,12 +163,12 @@ body {
 }
 
 .disable--selection.displayed {
-    -webkit-touch-callout: all; /* iOS Safari */
-    -webkit-user-select: all; /* Safari */
-    -khtml-user-select: all; /* Konqueror HTML */
-    -moz-user-select: all; /* Old versions of Firefox */
-    -ms-user-select: all; /* Internet Explorer/Edge */
-    user-select: all; /* Non-prefixed version, currently
+    -webkit-touch-callout: auto; /* iOS Safari */
+    -webkit-user-select: auto; /* Safari */
+    -khtml-user-select: auto; /* Konqueror HTML */
+    -moz-user-select: auto; /* Old versions of Firefox */
+    -ms-user-select: auto; /* Internet Explorer/Edge */
+    user-select: auto; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
 }
 
@@ -526,7 +526,8 @@ ol li {
     width: calc(100% - 72px);
     height: 100%;
     /* background-color: red; */
-    padding-left: 60px;
+    padding-left: 30px;
+    transition: padding-left 0.2s ease-out;
 }
 
 #footer--content--inner--container {
@@ -570,8 +571,43 @@ ol li {
 
 @media (min-width: 500px) {
 
+    /** Non-CSS Implementation **/
 
-    #footer--outer--container:hover {
+    #footer--outer--container.displayed {
+        height: 220px;
+        min-height: 220px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+    
+    #footer--outer--container.displayed #footer--inner--container--two {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+    }
+    
+    #footer--outer--container.displayed #footer--ethereum--copyright--container {
+        max-height: 40px;
+    }
+    
+    #footer--outer--container.displayed #footer--main--content--container {
+        display: block;
+        height: calc(100% - 40px);
+        width: 100%;
+    }
+
+    #footer--outer--container.displayed #footer--arrow--container--desktop {
+        align-items: flex-start;
+        transition: align-items 0.2s ease-out;
+    }
+    
+    #footer--outer--container.displayed #footer--arrow--desktop {
+        margin-top: 15px;
+        transform: rotate(0deg);
+        transition: margin-top 0.2s ease-out, transform 0.2 ease-out;
+    }
+
+    /** CSS Implementation */
+
+    /* #footer--outer--container:hover {
         height: 220px;
         min-height: 220px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
@@ -601,7 +637,10 @@ ol li {
         margin-top: 15px;
         transform: rotate(0deg);
         transition: margin-top 0.2s ease-out, transform 0.2 ease-out;
-    }
+    } */
+
+    /** End **/
+
 
     #main--content--inner--container {
         padding-left: max(5vw, 15px);
@@ -683,7 +722,7 @@ ol li {
 }
 
 .contact--item--title {
-    font-size: 15px;
+    font-size: 14px;
     font-family: Darius-Regular, serif;
     margin-top: 0px;
     margin-bottom: 2px;
@@ -691,7 +730,7 @@ ol li {
 }
 
 .contact--item--email {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     display: block;
     font-family: "Libre Franklin";
@@ -795,7 +834,7 @@ ON desktop it is not set as absolute
     opacity: 1; 
     height: 172px; 
     min-height: 172px; 
-    transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
+    transition: min-height 0.2s ease-out, height 0.2s ease-out, opacity 0.2s ease-out;
     /* pointer-events: auto; */
 }
 
@@ -1347,13 +1386,21 @@ with the footer  */
 
 /* Media Queries for Laptops, Desktops, and larger devices */
 
+@media (max-width: 1300px) {
+
+    .contact--item--title, .contact--item--email {
+        font-size: 13px;
+        text-align: left;
+    }
+
+}
 
 
 @media (max-width: 1100px) {
 
     #footer--outer--container.displayed {
-        height: 250px;
-        min-height: 250px;
+        height: 220px;
+        min-height: 220px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
     
@@ -1406,7 +1453,7 @@ with the footer  */
     }
 
     .contact--item--title, .contact--item--email {
-        font-size: 14px;
+        font-size: 13px;
         text-align: left;
     }
     
@@ -1414,11 +1461,6 @@ with the footer  */
 
 @media (max-width: 750px) {
 
-    #footer--outer--container.displayed {
-        height: 300px;
-        min-height: 300px;
-        transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
 
     #main--content--title {
         font-size: 42px;
@@ -1437,7 +1479,22 @@ with the footer  */
 
 }
 
+@media (max-width: 900px) {
+
+    #footer--content--container--desktop {
+        padding-left: 20px;
+        transition: padding-left 0.2s ease-out;
+    }
+
+}
+
 @media (max-width: 700px) {
+
+    #footer--outer--container.displayed {
+        height: 240px;
+        min-height: 240px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
 
     .footer--link--two {
         font-size: 12px;
@@ -1459,31 +1516,15 @@ with the footer  */
     }
     
     #canari--disclaimer {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 14px;
         transition: font-size 0.2s ease-out;
-    }
-
-
-}
-
-@media (max-width: 650px) {
-
-    #footer--outer--container:hover {
-        height: 220px;
-        min-height: 220px;
-        transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
 
 }
 
 
 @media (max-width: 600px) {
-
-    
-    #footer--outer--container.displayed {
-        transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
 
     #main--content--title {
         font-size: 38px;
@@ -1495,16 +1536,22 @@ with the footer  */
         transition: font-size 0.15s ease-out;
     }
 
+    #canari--disclaimer {
+        font-size: 13px;
+        line-height: 13px;
+        transition: font-size 0.2s ease-out;
+    }
+
 }
 
 
 @media (max-width: 580px) {
 
-    #footer--outer--container:hover {
+    /* #footer--outer--container:hover {
         height: 282px;
         min-height: 282px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
+    } */
 
     .contact--item--title, .contact--item--email {
         font-size: 11px;
@@ -1547,11 +1594,28 @@ with the footer  */
         font-size: 32px;
     }
 
+    #contact--list--container {
+        flex-direction: column;
+        margin-top: 7px;
+    }
+
+    .contact--item--container {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    #canari--disclaimer {
+        font-size: 12px;
+        line-height: 12px;
+        transition: font-size 0.2s ease-out;
+    }
+
 }
 
 
 /* Target smartphones */
 @media (max-width: 499px) {
+
 
     #ethereum--foundation--logo--text {
         position: absolute;
@@ -1615,6 +1679,7 @@ with the footer  */
     #footer--content--container--desktop {
         width: 100%;
         padding-left: 0px;
+        transition: padding-left 0.2s ease-out;
     }
 
     /* Ensures that the CopyRight text is centered */
@@ -1776,7 +1841,8 @@ with the footer  */
         width: 100%;
         display: block;
         font-family: "Libre Franklin", sans-serif;
-        font-size: 13px;
+        line-height: 22px;
+        font-size: 15px;
     }
     
 }
@@ -1801,47 +1867,25 @@ with the footer  */
         padding-right: max(5vw, 15px);
     }
 
-
-}
-
-
-@media (max-width: 500px) and (max-height: 950px) {
-
     #canari--disclaimer {
-        line-height: 30px;
-        font-size: 16px;
+        line-height: 22px;
     }
 
 }
 
 
-@media (max-width: 500px) and (max-height: 750px) {
+@media (max-width: 300px) {
 
     #canari--disclaimer {
-        line-height: 24px;
-        font-size: 15px;
-    }
-
-}
-@media (max-width: 500px) and (max-height: 700px) {
-
-    #canari--disclaimer {
-        line-height: 19px;
-        font-size: 15px;
-    }
-
-}
-
-/* For Galaxy Fold */
-@media (max-width: 500px) and (max-height: 660px) {
-
-    #canari--disclaimer {
-        line-height: 19px;
+        line-height: 18px;
         font-size: 14px;
     }
 
-}
+    .menu--content--text {
+        font-size: 17px;
+    }
 
+}
 
 
 /* MOBILE AND TABLET DEVICES */
