@@ -603,6 +603,11 @@ ol li {
         transition: margin-top 0.2s ease-out, transform 0.2 ease-out;
     }
 
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+
 }
 
 
@@ -1506,11 +1511,63 @@ with the footer  */
         transition: font-size 0.2s ease-out;
     }
 
+    #hamburger--menu--container {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin-top: 30px;
+        margin-right: 28px;
+        z-index: 109;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    #ethereum--foundation--logo--text {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        margin-top: 9px;
+        margin-left: 25px;
+        color: white;
+        font-family: Darius-Light, serif;
+        font-weight: 300;
+        font-size: 22px;
+        z-index: 110;
+        width: 200px;
+        height: 60px;
+        width: 130px;
+    }
+
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+
+    #main--content--title {
+        font-size: 32px;
+    }
+
 }
 
 
 /* Target smartphones */
 @media (max-width: 499px) {
+
+    #ethereum--foundation--logo--text {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        margin-top: 9px;
+        margin-left: 25px;
+        color: white;
+        font-family: Darius-Light, serif;
+        font-weight: 300;
+        font-size: 22px;
+        z-index: 110;
+        width: 200px;
+        height: 60px;
+        width: 130px;
+    }
 
     #footer--outer--container {
         height: 40px;
@@ -1590,14 +1647,11 @@ with the footer  */
         transition: margin-top 0.2s ease-out, transform 0.2s ease-out;
     }
 
-    /* This imitates what should happen when user clicks on mobile */
-    /* this should be the clas that's set when a user clicks */
-    /* #footer--outer--container {
-        height: 100vh;
-        max-height: 100vh;
-        z-index: 130; 
-    } */
-
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+    
     #footer--main--content--container {
         display: none;
     }
@@ -1725,7 +1779,29 @@ with the footer  */
         font-size: 13px;
     }
     
-    
+}
+
+
+@media (max-width: 420px) {
+
+    #hamburger--menu--container {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin-top: 30px;
+        margin-right: 28px;
+        z-index: 109;
+        cursor: pointer;
+        user-select: none;
+    }
+
+
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+
+
 }
 
 
@@ -1768,363 +1844,9 @@ with the footer  */
 
 
 
-
 /* MOBILE AND TABLET DEVICES */
 
 /* MOBILE DEVICES */
-
-/* ----------- iPhone 12 ----------- */
-
-/* Portrait */
-@media only screen
-and (min-device-width: 389px)
-and (max-device-width: 845px)
-and (min-device-height: 389px)
-and (max-device-height: 845px)
-and (-webkit-min-device-pixel-ratio: 3) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 14px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #next--page--text {
-        font-size: 10px;
-    }
-
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 375px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-
-}
-
-
-/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 5%;
-        right: 7%;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 5px;
-    }
-
-    #homepage--scroll--down--bottom--arrow {
-        width: 20px;
-        height: 20px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-
-/* Galaxy Fold */
-@media only screen
-and (min-device-width: 265px)
-and (max-device-width: 320px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 14px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #next--page--text {
-        font-size: 10px;
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-    }
-
-}
-
-
-/* Which device is this? */
-
-@media only screen
-and (min-device-width: 389px)
-and (max-device-width: 400px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-}
-
-/* ----------- iPhone SE ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 375px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 5%;
-        right: 7%;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-}
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 370px)
-and (max-device-width: 380px)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 25px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-}
 
 
 
@@ -2142,77 +1864,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 }
 
 
-@media only screen and (max-device-width: 550px) {
 
-    #hamburger--menu--container {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        margin-top: 30px;
-        margin-right: 28px;
-        z-index: 109;
-        cursor: pointer;
-        user-select: none;
-    }
-
-    #ethereum--foundation--logo--text {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        margin-top: 9px;
-        margin-left: 25px;
-        color: white;
-        font-family: Darius-Light, serif;
-        font-weight: 300;
-        font-size: 22px;
-        z-index: 110;
-        width: 200px;
-        height: 60px;
-        width: 130px;
-    }
-
-    #main--content--inner--container {
-        padding-left: max(5vw, 15px);
-        padding-right: max(5vw, 15px);
-    }
-
-    #main--content--title {
-        font-size: 32px;
-    }
-
-}
-
-@media only screen and (max-device-width: 420px) {
-
-    #hamburger--menu--container {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        margin-top: 30px;
-        margin-right: 28px;
-        z-index: 109;
-        cursor: pointer;
-        user-select: none;
-    }
-
-    #ethereum--foundation--logo--text {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        margin-top: 9px;
-        margin-left: 25px;
-        color: white;
-        font-family: Darius-Light, serif;
-        font-weight: 300;
-        font-size: 22px;
-        z-index: 110;
-        width: 200px;
-        height: 60px;
-        width: 130px;
-    }
-
-
-}
 
 /* Hover Effects */
 
