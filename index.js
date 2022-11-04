@@ -1665,10 +1665,10 @@ function toggleNewFooter () {
             topLeftLogo.classList.add("hidden");;
         }; 
 
-        if (!isMobileDevice()) {
+        if (isMobileDevice()) {
             // footerRightContainer.classList.add("footer--displayed");
             // footerArrow.classList.add("footer--displayed");
-            changeNavigationElementsToLightColor();
+            // changeNavigationElementsToLightColor();
         };
         
         footerDisplayed = true; 
