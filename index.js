@@ -1,14 +1,12 @@
 /** External Packages **/
 import * as THREE from './assets/three.module.js';
-import { OrbitControls } from './OrbitControls.js';
-// import Stats from './assets/stats.module.js';
+import { OrbitControls } from './assets/OrbitControls.js';
 // Updated through /jsm dev branch
-import { RenderPass } from './RenderPass.js'; // Updated DEV branch
-import { UnrealBloomPass } from './UnrealBloomPass.js'; // Added to test out bloom pass upon the objects 
-import { GlitchPass } from './GlitchPass.js'; // Updated DEV branch
-import { EffectComposer } from './EffectComposer.js'; // Updated DEV Branch
-import * as OBJLoader from './assets/OBJLoader.js'; // Updated
-// import { MeshSurfaceSampler } from './MeshSurfaceSampler.js'; // Updated DEV branch
+import { RenderPass } from './assets/RenderPass.js'; // Updated DEV branch
+import { UnrealBloomPass } from './assets/UnrealBloomPass.js'; // Added to test out bloom pass upon the objects 
+import { GlitchPass } from './assets/GlitchPass.js'; // Updated DEV branch
+import { EffectComposer } from './assets/EffectComposer.js'; // Updated DEV Branch
+import * as GLTFLoader from './assets/GLTFLoader.js'; // Updated
 
 const generalSceneControls = {
     ["ETH Rotation Speed"]: 0.0002,  
@@ -41,7 +39,11 @@ const firefliesFragmentShaderTwo = document.getElementById("firefliesFragmentSha
 const explosionVertexShaderTwo = document.getElementById("explosionVertexShader").textContent;
 let mouseIntensity = 0.01; // Mouse intensity needs to remain between 0.01 and 0.03
 /** Loaders **/
-let objectLoader, loadingManager, currentLoader, textureLoader;
+let objectLoader;
+let glbLoader;
+let loadingManager;
+let currentLoader;
+let textureLoader;
 const environment = "dev";
 const RELATIVE_URL = environment === "dev" ? "/assets/" : "/public/assets/"
 // ETH Logo
@@ -176,24 +178,49 @@ function initLoaders () {
     initLoadingManager();
     
     textureLoader = new THREE.TextureLoader(loadingManager);
-    objectLoader = new OBJLoader.OBJLoader(loadingManager);
+    glbLoader = new GLTFLoader.GLTFLoader(loadingManager);
 
 }
 
 /**
+ * Different objects that can be passed in to the loader
+ * They all have different amounts of vertices and will therefore render differnet results visually
+ * Objects with less vertices should have particles that are bigger in size in order to be able to perceive
+ * them better - especially important since the scene is light and the particles are white and shine
+ * #3d #animation #ethereum #object
+ */
+
+const LARGE_NUMBER_OF_VERTEX_OBJECT = "ETH_Logo_Planet_Match.obj"; // 48K vertices => The old one
+// The new ethereum objects are below
+const ETH_1K_OBJ = "eth_1k.obj";
+const ETH_5K_OBJ = "eth_2_5k.obj";
+const ETH_6K_OBJ = "eth_6k.obj";
+const ETH_12K = "eth_12k.obj"; // This is the one currently displayed as you can see in the @addMainObjectToScene function
+const ETH_24K = "eth_24k.obj";
+const ETH_12K_MIN = "eth_12k.glb";
+// Defines the current file type => Needs to be changed if we change the asset from glb format to obj format
+const FILE_TYPE = "glb";
+/**
  * Used to load and render the ETH object made out of particles into the threeJS scene
  */ 
+
 function addMainObjectToScene () {
-    
-    const ASSET_TYPE = 1;				
-    // Newer mesh created to match the amount of vertices in the other objects
-    const ASSET_URL = "ETH_Logo_Planet_Match.obj"; 
-    const FILE_TYPE = "obj";
+
+    const ASSET_TYPE = 1;		
+    /** 
+     * #ethereum #3d #object 
+     * Pass in one of the variables above to see the ethereum object rendered with different number
+     * of vertices
+     **/
+    const ASSET_URL = ETH_12K_MIN;
 
     nameOfFinalFileSelected = ASSET_URL;
 
-    // Creates a sphere composed of thousands of particles
-    
+    /**
+     * Creates a sphere composed of thousands of particles
+     * In order to change the size of the particles, modify the animatedModelParticleSize in the @load3DModelObject 
+     * function below
+     */
     if (isHomePage()) {
         load3DModelObject(ASSET_URL, FILE_TYPE);
     } else {
@@ -209,11 +236,14 @@ function isHomePage () {
 
 function load3DModelObject (modelFileName, fileType) {
 				
-    const currentLoader = objectLoader;
+    const currentLoader = glbLoader;
     currentLoader.setPath(RELATIVE_URL);
 
-    // animatedModelParticleSize = 0.014;
-    animatedModelParticleSize = 0.02;
+    /** 
+     * Depending on the object loaded, change the size of the particles by modifying the variable below
+     * #ethereum #3d #object
+     */
+    animatedModelParticleSize = 0.04;
 
     animatedModelPointsMaterial = new THREE.PointsMaterial({
             // color: "rgb(400, 255, 255)", 
@@ -221,7 +251,7 @@ function load3DModelObject (modelFileName, fileType) {
             size: animatedModelParticleSize, 
             transparent: true, 
             // The line below can be removed
-            map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+            map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
             blending: THREE.AdditiveBlending, 
             depthWrite: false, 
             toneMapped: false, 
@@ -229,9 +259,9 @@ function load3DModelObject (modelFileName, fileType) {
 
     currentLoader.load(modelFileName, function (object) {
 
-        let mesh = object.children[0];
+        let mesh = object.scene.children[0];
         let geometry = mesh.geometry;
-
+        
         let scaleArray = new Float32Array(48000);
         
         for (let i=0; i<scaleArray.length; i++) {
@@ -326,6 +356,8 @@ function load3DModelObject (modelFileName, fileType) {
         points.position.y = 0.5;
         points.position.z = 0;
 
+        points.rotation.x = Math.PI / 2;
+
         finalPoints = points;
 
         scene.add(points);
@@ -342,19 +374,19 @@ function load3DModelObject (modelFileName, fileType) {
  * Note: The previous rendering, which has been commented out, rendered particles in space to form a final 
  * cubic shape, which did not look good when the particles expanded.
  **/ 
-function loadDegenerateParticleMesh (modelFileName, fileType) {
+function loadDegenerateParticleMesh (modelFileName) {
     
-    const currentLoader = objectLoader;
+    const currentLoader = glbLoader;
     currentLoader.setPath(RELATIVE_URL);
 
     // This variable affects the size of the particles
-    animatedModelParticleSize = 0.05;
+    animatedModelParticleSize = 0.2;
 
     animatedModelPointsMaterial = new THREE.PointsMaterial({
         color: new THREE.Color(10, 10, 10),
         size: animatedModelParticleSize, 
         transparent: true, 
-        map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+        map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
         blending: THREE.AdditiveBlending, 
         depthWrite: false, 
         toneMapped: false, 
@@ -362,9 +394,8 @@ function loadDegenerateParticleMesh (modelFileName, fileType) {
 
     currentLoader.load(modelFileName, function (object) {
 
-        let mesh = object.children[0];
-        let geometry = mesh.geometry;
-
+        const mesh = object.scene.children[0];
+        const geometry = mesh.geometry;
 
         let count = 48000;
         let newPositions = [];
@@ -420,6 +451,9 @@ function loadDegenerateParticleMesh (modelFileName, fileType) {
         let points = new THREE.Points(bufferGeometry, animatedModelPointsMaterial);
         points.scale.x = points.scale.y = points.scale.z = 2;
         finalPoints = points;
+
+        points.rotation.x = Math.PI / 2;
+
         scene.add(points);
 
     })
@@ -440,7 +474,7 @@ function createDegenerateParticles () {
     const pointsMaterial =  new THREE.PointsMaterial({
         size: meshSurfaceSamplerPointSize, 
         alphaTest: 0.2, 
-        map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+        map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
         vertexColors: true, 
         color: 0xffffff, 
     });
@@ -592,25 +626,16 @@ function createParticleMorphTargetForGeometry (geometry) {
  */
 function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetType) {
 
-    let material;
-    let sparklesMaterialTwo;
-    let assetURL;
-    let webPSupported = testWebP();
-    let geometry; 
     let currentLoader = objectLoader;								
     material = new THREE.MeshPhongMaterial({ color: 0xffffff, wireframe: true });
 
     // MEsh Surface Attempt #1
     group = new THREE.Group();
 
-    // group.scale.x = group.scale.y = group.scale.z = 0.001;
     group.scale.x = group.scale.y = group.scale.z = 0.005;
     
     scene.add(group);
 
-    // Store each partiicle coordinates & color
-    // const vertices = [];
-    // const colors = [];
     // The geometry of the poitns
     sparklesGeometry = new THREE.BufferGeometry();
 
@@ -618,13 +643,12 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
         meshSurfaceSamplerPointSize = 0.06;
     } else {
         meshSurfaceSamplerPointSize = 0.02;
-    }
-    
+    };
     
     sparklesMaterial = new THREE.PointsMaterial({
         size: meshSurfaceSamplerPointSize, 
         alphaTest: 0.2, 
-        map: new THREE.TextureLoader().load("https://assets.codepen.io/127738/dotTexture.png"), 
+        map: new THREE.TextureLoader().load("./assets/dotTexture.png"), 
         vertexColors: true, // Let Three.JS know that each point has a different color
     });
 
@@ -652,7 +676,6 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
     // Create Points object
     const points = new THREE.Points(sparklesGeometry, sparklesMaterial);
 
-
     group.add(points);
 
     group.position.x = 0;
@@ -678,39 +701,21 @@ function loadVisible3DModelWithSurfaceSampler (modelFileName, fileType, assetTyp
         let geometry = object.children[0].geometry
 
         // We need to add scale and position
-        // object.position.x = object.position.y = object.position.z = 0;
-        // object.scale.x = object.scale.y = object.scale.z = 2
         object.position.x = 0;
         object.position.y = 10;
         object.position.z = 0;
 
-        // scene.add(object);
         group.add(object);
 
         mainObject = group;
 
-        // sampler = new MeshSurfaceSampler(mesh).setWeightAttribute(null).build();
         sampler = new MeshSurfaceSampler(mesh).setWeightAttribute("uv").build();
-
-
-        // // Not orthographic camera
-        // object.scale.x = object.scale.y = object.scale.z = 0.005;
-        // object.position.x = 0;
-        // object.position.y = 1;
-        // object.position.z = 0;
-        
-        // object.name = 'mainObject';
-        // object.visible = true;
-        // mainObject = object;
-        // mainObject.position.clampScalar(0, 100);
 
         scene.add(object);
         
-
     })
 
-
-}
+};
 
 
 /**
@@ -1229,13 +1234,19 @@ function initControls () {
 
     let controls = new OrbitControls(camera, document.body);
     controls.listenToKeyEvents( window );
-    // Set to true to enable damping (inertia), which can be used to give a sense of weight to the controls
-    // Default is false
-    // controls.enableDamping = true; 
-    // controls.dampingFactor = 0.05;
+    
+    /** If we're on a mobile device, we enable damping which slows down the #camera #movement */
+    if (isMobileDevice()) {
+        // Set to true to enable damping (inertia), which can be used to give a sense of weight to the controls
+        // Directions for future tinkerer => decreasing the damping factor will make the movement **slower**. 
+        // Increasing it will make the camera movement quicker.
+        controls.enableDamping = true; 
+        controls.dampingFactor = 0.05;
+    }
+    
     controls.enableZoom = false;
     controls.screenSpacePanning = false;
-    controls.minDistance = 1;
+    controls.minDistance = 10;
     controls.maxDistance = 100;
     controls.maxPolarAngle = Math.PI * 0.5;
     controls.minPolarAngle = Math.PI * 0.5;
@@ -1367,7 +1378,7 @@ let scrollUpCounter = 0; // Used in order to debounce the scroll up effect
                         
 let deltaY;
 // Stop point of the particle expansion
-const finalStopPoint = 0.0045; 
+const finalStopPoint = 0.002; 
 let ethLogoAnimationEnded;
 let meshOpacityAnimationEnded;
 let ethObjectReverseAnimationEnded;
@@ -1378,7 +1389,13 @@ function render() {
 
     // Standard Geometry
     if (finalPoints !== undefined && activateParticleRotation !== false) {
-        finalPoints.rotation.y += generalSceneControls["ETH Rotation Speed"];
+        
+        if (FILE_TYPE === "glb") {
+            finalPoints.rotation.z += generalSceneControls["ETH Rotation Speed"];
+        } else if (FILE_TYPE === "obj") {
+            finalPoints.rotation.y += generalSceneControls["ETH Rotation Speed"];
+        };    
+        
     };
 
     // Geometry with Surface Sampler
@@ -1629,29 +1646,29 @@ function toggleNewFooter () {
     if (!footerDisplayed) {
         
         let footerContainer = document.getElementById("footer--outer--container");
-        let footerInnerContainer = document.getElementById("footer--inner--container");
-        let elementsContainer = document.getElementById("footer--transitory--container");
-        let footerUpArrow = document.getElementById("footer--up--arrow");
-        let footerDownArrow = document.getElementById("footer--down--arrow");
-        let footerRightContainer = document.getElementById("footer--right--container");
-        let footerArrow = document.getElementById("footer--arrow");
+        // let footerInnerContainer = document.getElementById("footer--inner--container");
+        // let elementsContainer = document.getElementById("footer--transitory--container");
+        // let footerUpArrow = document.getElementById("footer--up--arrow");
+        // let footerDownArrow = document.getElementById("footer--down--arrow");
+        // let footerRightContainer = document.getElementById("footer--right--container");
+        // let footerArrow = document.getElementById("footer--arrow");
         let topLeftLogo = document.getElementById("ethereum--foundation--logo--text");
 
         footerContainer.classList.add("displayed");
-        footerInnerContainer.classList.add("displayed");
-        elementsContainer.classList.add("displayed");
-        footerUpArrow.classList.add("hidden");
-        footerDownArrow.classList.add("displayed");
+        // footerInnerContainer.classList.add("displayed");
+        // elementsContainer.classList.add("displayed");
+        // footerUpArrow.classList.add("hidden");
+        // footerDownArrow.classList.add("displayed");
         
         if (isMobileDevice()) {
             hideHamburgerMenu();
             topLeftLogo.classList.add("hidden");;
         }; 
 
-        if (!isMobileDevice()) {
-            footerRightContainer.classList.add("footer--displayed");
-            footerArrow.classList.add("footer--displayed");
-            changeNavigationElementsToLightColor();
+        if (isMobileDevice()) {
+            // footerRightContainer.classList.add("footer--displayed");
+            // footerArrow.classList.add("footer--displayed");
+            // changeNavigationElementsToLightColor();
         };
         
         footerDisplayed = true; 
@@ -1659,19 +1676,19 @@ function toggleNewFooter () {
     } else {
 
         let footerContainer = document.getElementById("footer--outer--container");
-        let footerInnerContainer = document.getElementById("footer--inner--container");
-        let elementsContainer = document.getElementById("footer--transitory--container");
-        let footerUpArrow = document.getElementById("footer--up--arrow");
-        let footerDownArrow = document.getElementById("footer--down--arrow");        
-        let footerRightContainer = document.getElementById("footer--right--container");
-        let footerArrow = document.getElementById("footer--arrow");
+        // let footerInnerContainer = document.getElementById("footer--inner--container");
+        // let elementsContainer = document.getElementById("footer--transitory--container");
+        // let footerUpArrow = document.getElementById("footer--up--arrow");
+        // let footerDownArrow = document.getElementById("footer--down--arrow");        
+        // let footerRightContainer = document.getElementById("footer--right--container");
+        // let footerArrow = document.getElementById("footer--arrow");
         let topLeftLogo = document.getElementById("ethereum--foundation--logo--text");
         
         footerContainer.classList.remove("displayed");
-        footerInnerContainer.classList.remove("displayed");
-        elementsContainer.classList.remove("displayed");
-        footerUpArrow.classList.remove("hidden");
-        footerDownArrow.classList.remove("displayed");
+        // footerInnerContainer.classList.remove("displayed");
+        // elementsContainer.classList.remove("displayed");
+        // footerUpArrow.classList.remove("hidden");
+        // footerDownArrow.classList.remove("displayed");
         
         if (isMobileDevice()) {
             displayHamburgerMenu();
@@ -1679,8 +1696,8 @@ function toggleNewFooter () {
         }
         
         if (!isMobileDevice()) {
-            footerRightContainer.classList.remove("footer--displayed");
-            footerArrow.classList.remove("footer--displayed");
+            // footerRightContainer.classList.remove("footer--displayed");
+            // footerArrow.classList.remove("footer--displayed");
         };
 
 
@@ -2088,13 +2105,14 @@ function addEventListeners() {
     document.addEventListener("touchmove", handleTouchMove, false);
 
     // Display footer based on whether the user is hovering above footer element or not. 
-    document.getElementById("footer--inner--container").addEventListener("mouseenter", displayNewFooter);
-    document.getElementById("footer--inner--container").addEventListener("mouseleave", hideNewFooter);
-    // Displays footer based on whether the user presses on the footer container => useful in mobile environment
-    // document.getElementById("footer--right--container").addEventListener("mousedown", toggleNewFooter, false);
     if (isMobileDevice()) {
-        document.getElementById("footer--inner--container").addEventListener("mousedown", toggleNewFooter, false);
-    };
+        document.getElementById("footer--inner--container--two").addEventListener("mousedown", toggleNewFooter, false);
+    } else {
+        /** Sets footer animation for desktop => Not done through CSS because in this case the child element causes a change in the parent */
+        document.getElementById("footer--inner--container--two").addEventListener("mouseenter", toggleNewFooter, false);
+        document.getElementById("footer--inner--container--two").addEventListener("mouseleave", toggleNewFooter, false);
+    }
+
 
     // Navigational event listeners
     document.getElementById("next--page--navigation--container").addEventListener( "mousedown", goToNextPage );    
@@ -2149,18 +2167,21 @@ function addEventListeners() {
 
 /**
  * Ensures that different elements are hidden or displayed depending on whether we are on mobile or desktop
+ * 
+ * For the time being, these are only elements that are located within the
+ * 
  */
 function modifyElementsAccordingToDevice () {
 
-    let footerUpArrow = document.getElementById("footer--up--arrow");
-    let footerDownArrow = document.getElementById("footer--down--arrow");
-    let footerRightContainer = document.getElementById("footer--right--container");
+    // let footerUpArrow = document.getElementById("footer--up--arrow");
+    // let footerDownArrow = document.getElementById("footer--down--arrow");
+    // let footerRightContainer = document.getElementById("footer--right--container");
 
     if (!isMobileDevice()) {
-        footerUpArrow.style.display = "none";
-        footerDownArrow.style.display = "none";
+        // footerUpArrow.style.display = "none";
+        // footerDownArrow.style.display = "none";
     } else {
-        footerRightContainer.style.display = "none";        
+        // footerRightContainer.style.display = "none";        
         // If it is mobile device then we hide the footer--right--container
     }
     

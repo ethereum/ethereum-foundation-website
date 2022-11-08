@@ -109,6 +109,7 @@ body {
     background-color: white;
     height: var(--doc-height);
     overflow-y: clip;
+    transition: height 0.2s ease-out;
 }
 
 /* Initial Page */
@@ -150,7 +151,8 @@ body {
     opacity: 0;
 }
 
-p, h1, h2, h3, h4, a, button, .disable--selection {
+/* p, h1, h2, h3, h4, a, button */
+.disable--selection {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
@@ -159,6 +161,18 @@ p, h1, h2, h3, h4, a, button, .disable--selection {
     user-select: none; /* Non-prefixed version, currently
     supported by Chrome, Edge, Opera and Firefox */
 }
+
+.disable--selection.displayed {
+    -webkit-touch-callout: auto; /* iOS Safari */
+    -webkit-user-select: auto; /* Safari */
+    -khtml-user-select: auto; /* Konqueror HTML */
+    -moz-user-select: auto; /* Old versions of Firefox */
+    -ms-user-select: auto; /* Internet Explorer/Edge */
+    user-select: auto; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
+}
+
+
 
 object {
     pointer-events: none;
@@ -244,7 +258,8 @@ object {
 }
 
 #homepage--welcome--text--inner--container.homepage--displayed {
-    transform: translateY(100%);
+    /* transform: translateY(100%); */
+    transform: translateY(22vh);
     transition: transform cubic-bezier(.37,0,.01,1) 2s;
 }
 
@@ -418,6 +433,7 @@ ol li {
 
 #next--page--navigation--container:hover {
     cursor: pointer;
+
 }
 
 #next--page--text {
@@ -483,13 +499,322 @@ ol li {
     min-height: 40px;
     max-height: 40px;
     z-index: 3;
-    width: 100%;
-    transition: min-height 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
+    width: 100vw; 
     z-index: 105;
     cursor: default;
     /* pointer-events: none; */
     /* display: none; */
+    /* #testing #footer #refactor */
+    /* background-color: red; */
+    transition: height 0.2s ease-out, max-height 0.2s ease-out, min-height 0.2s ease-out;
+    color: white;
 }
+
+/* NEW STYLEs */
+#footer--inner--container--two {
+    width: 100vw;
+    height: 100%;
+    background-color: #36364C;;
+    display: flex;
+    flex-direction: row;
+    opacity: 0.4;
+    transition: height 0.2s ease-out, min-height 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+/* #mobile => this needs to be extended to 100% */
+#footer--content--container--desktop {
+    width: calc(100% - 72px);
+    height: 100%;
+    /* background-color: red; */
+    padding-left: 30px;
+    transition: padding-left 0.2s ease-out;
+}
+
+#footer--content--inner--container {
+    display: flex;
+    flex-direction: column-reverse;
+    /* background-color: grey; */
+    width: 100%;
+    height: 100%;
+}
+
+#footer--ethereum--copyright--container {
+    width: 100%;
+    height: 100%;
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+#footer--ethereum--copyright--text {
+    font-size: 14px;
+    color: white;
+    font-weight: 500;;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 400;
+}
+
+/*  */
+#footer--main--content--container {
+    display: none;
+    /* display: block; */
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 500px) {
+
+    /** Non-CSS Implementation **/
+
+    #footer--outer--container.displayed {
+        height: 220px;
+        min-height: 220px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+    
+    #footer--outer--container.displayed #footer--inner--container--two {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+    }
+    
+    #footer--outer--container.displayed #footer--ethereum--copyright--container {
+        max-height: 40px;
+    }
+    
+    #footer--outer--container.displayed #footer--main--content--container {
+        display: block;
+        height: calc(100% - 40px);
+        width: 100%;
+    }
+
+    #footer--outer--container.displayed #footer--arrow--container--desktop {
+        align-items: flex-start;
+        transition: align-items 0.2s ease-out;
+    }
+    
+    #footer--outer--container.displayed #footer--arrow--desktop {
+        margin-top: 15px;
+        transform: rotate(0deg);
+        transition: margin-top 0.2s ease-out, transform 0.2 ease-out;
+    }
+
+    /** CSS Implementation */
+
+    /* #footer--outer--container:hover {
+        height: 220px;
+        min-height: 220px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+    
+    #footer--outer--container:hover #footer--inner--container--two {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+    }
+    
+    #footer--outer--container:hover #footer--ethereum--copyright--container {
+        max-height: 40px;
+    }
+    
+    #footer--outer--container:hover #footer--main--content--container {
+        display: block;
+        height: calc(100% - 40px);
+        width: 100%;
+    }
+
+    #footer--outer--container:hover #footer--arrow--container--desktop {
+        align-items: flex-start;
+        transition: align-items 0.2s ease-out;
+    }
+    
+    #footer--outer--container:hover #footer--arrow--desktop {
+        margin-top: 15px;
+        transform: rotate(0deg);
+        transition: margin-top 0.2s ease-out, transform 0.2 ease-out;
+    } */
+
+    /** End **/
+
+
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+
+}
+
+
+#footer--main--content {
+    width: 100%;
+    height: 100%;
+    /* background-color: magenta; */
+    flex-direction: row;
+    display: flex;
+}
+
+#footer--action--items--container {
+    width: 50%;
+    height: 100%;
+    /* background-color: green;; */
+    display: flex;
+    flex-direction: row;
+}
+
+#footer--ethereum--logo {
+    height: 55px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#logo--and--links--container {
+    /* background-color: blue; */
+    width: 70%;
+}
+
+#footer--links--container--two {
+    display: flex;
+    flex-direction: row;
+    /* background-color: mediumaquamarine; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 400px;
+}
+
+.footer--link--two {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Libre Franklin";
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.footer--link--two:hover {
+    text-decoration: underline;
+}
+
+#contact--list--container {
+    width: 30%;
+    height: 100%;
+    /* background-color: mediumslateblue; */
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact--item--container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contact--item--title {
+    font-size: 14px;
+    font-family: Darius-Regular, serif;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.contact--item--email {
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    font-family: "Libre Franklin";
+    color: white;
+    text-decoration: none;
+}
+
+#footer--disclaimer--container {
+    width: 50%;
+    height: 100%;
+    /* background-color: pink; */
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    font-family: "Libre Franklin", sans-serif;
+}
+
+#canari--icon--container {
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    /* background-color: blue; */
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+
+#canari--icon {
+    height: 25px;
+    width: 25px;
+}
+
+#canari--disclaimer {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 16px;
+    /* Color could be at top container */
+    color: white;
+    margin-left: 5px;
+    display: inline;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+
+
+/* #mobile => this needs to be made position absolute  */
+/* when the click is triggered, it needs to disappear */
+#footer--arrow--container--desktop {
+    width: 72px;
+    height: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: align-items 0.2s ease-out;
+}
+
+/* Need to create effect so that when user hovers over the parent
+the styling changes */
+#footer--arrow--desktop {
+    height: 20px;
+    width: 20px;
+    /* background-color: black; */
+    transition: margin-top 0.2s ease-out;
+    transform: rotate(180deg);
+}
+
+
+
+/* 
+On mobile the arrow can be set as an absolute
+ON desktop it is not set as absolute
+*/
+
+/* #footer--wide--screen--arrow */
+
+/* The content container height needs to increase */
+/* THe transparent container height needs to increase */
+
+
+/* END OF NEW STYLES */
+
 
 #footer--inner--container {
     width: 100%;
@@ -506,10 +831,10 @@ ol li {
 }
 
 #footer--outer--container.displayed {
-    opacity: 1;
-    height: 155px;
-    min-height: 155px;
-    transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 1; 
+    height: 172px; 
+    min-height: 172px; 
+    transition: min-height 0.2s ease-out, height 0.2s ease-out, opacity 0.2s ease-out;
     /* pointer-events: auto; */
 }
 
@@ -868,12 +1193,12 @@ with the footer  */
 }
 
 #main--menu--internal--container {
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    height: 100%; 
     background-position:50% 50%;
     background-size: cover;
-    background-image: url("/assets/menu-background.svg");
-    display: flex;
+    background-image: url("/assets/new-ethereum-foundation-menu-background.svg");
+    display: flex; 
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1048,102 +1373,94 @@ with the footer  */
 #grow--ecosystem--link:hover,
 .executive--board--social--media--handle:hover,
 .menu--content--text:hover,
-#secondary--links--container a:hover
+#secondary--links--container a:hover, 
+#next--page--navigation--container:hover #next--page--text
  {
     color: #8FFFEB;
+}
+
+#next--page--navigation--container:hover #downward--arrow {
+    filter: invert(9%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
 }
 
 
 /* Media Queries for Laptops, Desktops, and larger devices */
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
 
-    #footer--left--side--container {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    #footer--column--center {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: start;
-    }
-
-    .footer--link {
-        font-size: 12px;
-    }
-
-
-    #footer--links--container {
-        max-width: 100%;
-    }
-
-    #footer--description--container {
-        margin-left: 10px;
-    }
-
-    .link--group--container {
-        margin-bottom: 0px;
-    }
-
-    #footer--description {
-        font-size: 10px;
-    }
-
-    #footer--left--logo {
-        width: 90px;
-        height: 40px;
-    }
-
-    .footer--title {
-        font-size: 14px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    .footer--subtitle {
-        font-size: 11px;
-        margin-bottom: 0px;
-        margin-top: 2px;
-        transition: font-size 0.1s ease-out, margin-top 0.1s ease-out;
-    }
-
-    #footer--outer--container.displayed {
-        height: 166px;
-        min-height: 166px;
-        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    .contact--item--title, .contact--item--email {
+        font-size: 13px;
+        text-align: left;
     }
 
 }
 
-@media (max-width: 750px) {
+
+@media (max-width: 1100px) {
 
     #footer--outer--container.displayed {
-        height: 175px;
-        min-height: 175px;
+        height: 220px;
+        min-height: 220px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
     }
-
-    #footer--links--container {
-        width: 100%;
-        transition: width 0.1s ease-out
+    
+    #footer--ethereum--logo {
+        height: 55px;
+        transition: height 0.2s ease-out;
     }
 
-    .footer--link {
-        margin-right: 5px;
+    #logo--and--links--container {
+        flex-direction: column;
+        transition: flex-direction 0.2s ease-out;
     }
 
-    .footer--link {
-        font-size: 12px;
-        transition: font-size 0.1s ease-out
+    .footer--links--two {
+        font-size: 14px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        transition: font-size 0.2s ease-out;
     }
+
+
+    #contact--list--container {
+        flex-direction: row;
+        width: fit-content;
+        height: fit-content;
+        padding-left: 0px;
+        padding-right: 0px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    #footer--action--items--container {
+        flex-direction: column;
+    }
+
+    #logo--and--links--container {
+        width: 90%;
+        transition: width 0.2s ease-out;
+    }
+
+    .contact--item--container {
+        transition: margin-right 0.2s ease-out;
+        margin-right: 15px;
+    }
+
+    #canari--disclaimer {
+        font-size: 14px;
+        line-height: 16px;
+        transition: font-size 0.2s ease-out;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 13px;
+        text-align: left;
+    }
+    
+}
+
+@media (max-width: 750px) {
+
 
     #main--content--title {
         font-size: 42px;
@@ -1155,30 +1472,59 @@ with the footer  */
         transition: font-size 0.15s ease-out;
     }
 
+    .footer--link--two {
+        font-size: 14px;
+        transition: font-size 0.2s ease-out;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    #footer--content--container--desktop {
+        padding-left: 20px;
+        transition: padding-left 0.2s ease-out;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    #footer--outer--container.displayed {
+        height: 240px;
+        min-height: 240px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+
+    .footer--link--two {
+        font-size: 12px;
+        transition: width 0.2s ease-out;
+    }
+
+    #logo--and--links--container {
+        width: 95%;
+        transition: width 0.2s ease-out;
+    }
+
+    .contact--item--container {
+        margin-right: 12px;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 13px;
+        transition: font-size 0.2s ease-out;
+    }
+    
+    #canari--disclaimer {
+        font-size: 14px;
+        line-height: 14px;
+        transition: font-size 0.2s ease-out;
+    }
+
 }
 
 
 @media (max-width: 600px) {
-
-    #footer--outer--container.displayed {
-        height: 200px;
-        min-height: 200px;
-        transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
-
-    .footer--link {
-        font-size: 10px;
-        transition: font-size 0.1s ease-out
-    }
-
-    #footer--links--container {
-        width: 90%;
-        transition: width 0.1s ease-out
-    }
-
-    #main--content--inner--container {
-        /* max-width: 80%; */
-    }
 
     #main--content--title {
         font-size: 38px;
@@ -1190,2115 +1536,27 @@ with the footer  */
         transition: font-size 0.15s ease-out;
     }
 
+    #canari--disclaimer {
+        font-size: 13px;
+        line-height: 13px;
+        transition: font-size 0.2s ease-out;
+    }
+
 }
 
-@media (max-width: 560px) {
 
-    #footer--outer--container.displayed {
-        height: 200px;
-        min-height: 200px;
+@media (max-width: 580px) {
+
+    /* #footer--outer--container:hover {
+        height: 282px;
+        min-height: 282px;
         transition: height 0.2s ease-out, min-height 0.2s ease-out;
-    }
-
-    .footer--link {
-        font-size: 10px;
-    }
-
-    #main--content--inner--container {
-        /* max-width: 80%; */
-    }
-
-    #main--content--title {
-        font-size: 34px;
-        transition: font-size 0.15s ease-out;
-    }
-
-    #homepage--welcome--text--paragraph, #homepage--welcome--text--paragraph--two {
-        font-size: 15px;
-        transition: font-size 0.15s ease-out;
-    }
-
-    .executive--board--member--container {
-        flex-direction: column;
-    }
-
-    h3 {
-        font-size: 27px;
-    }
-
-    /* .executive--board--member--image {
-        margin-right: 0px;
-    }
-
-    .executive--board--member--name, .executive--board--member--title {
-        text-align: center;
-    }
-
-    .social--media--link--container {
-        width: "100%";
-        display: flex;
-        justify-content: center;
-        align-items: center;
     } */
 
-}
-
-@media (max-width: 500px) {
-
-
-}
-
-
-/* MOBILE AND TABLET DEVICES */
-
-/* MOBILE DEVICES */
-
-/* ----------- iPhone 12 ----------- */
-
-/* Portrait */
-@media only screen
-and (min-device-width: 389px)
-and (max-device-width: 845px)
-and (min-device-height: 389px)
-and (max-device-height: 845px)
-and (-webkit-min-device-pixel-ratio: 3) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 14px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #next--page--text {
-        font-size: 10px;
-    }
-
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 5%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #footer--left--logo {
-        width: 100px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 12px;
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 12px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 14px;
-        height: 14px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
+    .contact--item--title, .contact--item--email {
         font-size: 11px;
-        width: 100%;
-        text-align: left;
+        transition: font-size 0.2s ease-out;
     }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 5px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-        margin-top: 20px;
-    }
-
-    #footer--right--container {
-        top: -24px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: 2px;
-        font-size: 10px;
-    }
-
-
-
-}
-
-/* ----------- iPhone 4 and 4S ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-
-    #footer--right--container {
-        top: -22px;
-        position: relative;
-    }
-
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) {
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) {
-
-}
-
-
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 375px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-
-}
-
-
-/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 5%;
-        right: 7%;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 5px;
-    }
-
-    #homepage--scroll--down--bottom--arrow {
-        width: 20px;
-        height: 20px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .footer--link {
-        font-size: 15px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 16px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 30px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6%;
-    }
-
-}
-
-/* Galaxy Fold */
-@media only screen
-and (min-device-width: 265px)
-and (max-device-width: 320px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 14px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #next--page--text {
-        font-size: 10px;
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 120px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 13px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 15px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 13px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 20px;
-        height: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
-        font-size: 11px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-        margin-top: 20px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: 2px;
-        font-size: 10px;
-    }
-
-}
-
-
-/* Which device is this? */
-
-@media only screen
-and (min-device-width: 389px)
-and (max-device-width: 400px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-}
-
-/* ----------- iPhone SE ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 375px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 5%;
-        right: 7%;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .footer--link {
-        font-size: 14px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 10px;
-        margin-top: 15px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 10px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-}
-
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 370px)
-and (max-device-width: 380px)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 25px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 140px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 13px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 20px;
-        height: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -18px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-}
-
-
-/* Portrait */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) {
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) {
-
-}
-
-/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 667px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #footer--right--container {
-        top: -15px;
-        position: relative;
-    }
-
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 667px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 667px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) {
-
-}
-
-/* ----------- iPhone 6+, 7+ and 8+ ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 414px)
-and (max-device-width: 736px)
-and (-webkit-min-device-pixel-ratio: 3) {
-
-    #footer--right--container {
-        top: -22px;
-        position: relative;
-    }
-
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 414px)
-and (max-device-width: 736px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 414px)
-and (max-device-width: 736px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) {
-
-}
-
-/* ---------- Samsung Galaxy A51/71 ----------- */
-
-    /* Portrait and Landscape */
-@media only screen
-and (min-device-width: 400px)
-and (max-device-width: 420px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: 8px;
-    }
-
-
-}
-
-/* ----------- iPhone X ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-min-device-pixel-ratio: 3) {
-
-    #footer--right--container {
-        top: -22px;
-        position: relative;
-    }
-
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) {
-
-}
-
-/* ----------- Galaxy S8 ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 360px)
-and (max-device-width: 360px)
-/* and (-webkit-device-pixel-ratio: 2) */
-{
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 0px;
-        margin-top: 30px;
-        margin-right: 25px;
-        right: 0px;
-        width: 30px;
-        height: 30px;
-    }
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 14px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 0px;
-    }
-
-    #next--page--text {
-        font-size: 10px;
-    }
-
-    /* #toDo: add to make the text that says explore infinite garden wider */
-    #next--page--navigation--container {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 20%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 120px;
-        margin-bottom: 5px;
-    }
-
-    .footer--link {
-        font-size: 13px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 0px;
-        margin-bottom: 15px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 15px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 13px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 20px;
-        height: 20px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 100%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 0px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 20px;
-    }
-
-    .menu--content--text {
-        font-size: 18px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: -2px;
-    }
-
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-        margin-top: 20px;
-    }
-
-    #footer--right--container {
-        top: -24px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -6px;
-    }
-
-}
-
-/* ----------- Galaxy S3 ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 320px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 320px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation: landscape) {
-
-}
-
-/* ----------- Galaxy S4, S5 and Note 3 ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 320px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 320px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 320px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: landscape) {
-
-}
-
-/* ----------- Galaxy S6 ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 4) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 4)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 4)
-and (orientation: landscape) {
-
-}
-
-
-/* ----------- HTC One ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: landscape) {
-
-}
-
-/* ----------- Google Pixel ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: landscape) {
-
-}
-
-/* ----------- Google Pixel XL ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 4) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 4)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 4)
-and (orientation: landscape) {
-
-}
-
-/* ----------- Windows Phone ----------- */
-
-/* Portrait and Landscape */
-@media screen
-and (device-width: 480px)
-and (device-height: 800px) {
-
-}
-
-/* Portrait */
-@media screen
-and (device-width: 480px)
-and (device-height: 800px)
-and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media screen
-and (device-width: 480px)
-and (device-height: 800px)
-and (orientation: landscape) {
-
-}
-
-/* ----------- iPad 1, 2, Mini and Air ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: landscape)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: landscape)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* ----------- iPad Pro 10.5" ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 834px)
-and (max-device-width: 1112px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen
-and (min-device-width: 834px)
-and (max-device-width: 834px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-
-/* Portrait */
-/* Surface DUO */
-@media only screen
-and (min-device-width: 540px)
-and (max-device-width: 540px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-    #ethereum--foundation--logo--text {
-        width: 130px;
-        margin-top: 10px;
-        margin-left: 20px;
-    }
-
-    #hamburger--menu--container {
-        top: 5%;
-        right: 7%;
-    }
-
-
-    #main--content--general--paragraph, #main--content--general--paragraph--two {
-        text-align: justify;
-    }
-
-    #homepage--welcome--text--paragraph {
-        font-size: 15px;
-        text-align: justify;
-    }
-
-    #downward--arrow {
-        width: 25px;
-        height: 25px;
-        margin-top: 25px;
-    }
-
-    #homepage--scroll--down--bottom--arrow {
-        width: 20px;
-        height: 20px;
-    }
-
-    #main--content--inner--container {
-        /* width: 80%; */
-    }
-
-
-    #footer--outer--container.displayed {
-        opacity: 1;
-        height: 100%;
-        min-height: 100%;
-        transition: min-height 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
-        /* background-color: purple; */
-    }
-
-    #footer--inner--container {
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        /* background-color: red; */
-    }
-
-    #footer--transitory--container {
-        flex-direction: column;
-        /* height: 100%; */
-        width: 105%;
-    }
-
-    #footer--left--side--container {
-        flex-direction: column;
-        padding-top: 5%;
-        width: 100%;
-    }
-
-    #footer--right--side--container {
-        width: 100%;
-    }
-
-    #footer--links--container {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    #footer--column--left {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-    }
-
-    #footer--left--logo {
-        width: 140px;
-        margin-bottom: 10px;
-    }
-
-    .footer--link {
-        font-size: 15px;
-        /* background-color: orange; */
-    }
-
-    #footer--column--center {
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-
-    }
-
-    #footer--column--center::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--links--container::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        min-width: 100%;
-        background-color: white;
-        opacity: 0.38;
-    }
-
-    #footer--middle--container {
-        max-width: 500px;
-    }
-
-    .link--group--container {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 400px;
-    }
-
-    .footer--title {
-        font-size: 17px;
-        text-align: center;
-    }
-
-    .footer--subtitle {
-        font-size: 15px;
-        text-align: center;
-    }
-
-    #footer--description--container {
-        flex-direction: column;
-        align-items: center;
-        max-width: none;
-    }
-
-    #canari--bird--footer--container {
-        width: 30px;
-        height: 30px;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-
-    #footer--description {
-        font-size: 13px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .column--container {
-        width: 200px;
-    }
-
-    #footer--last--text {
-        margin-bottom: 16px;
-    }
-
-    #footer--link--final--text {
-        margin-bottom: 30px;
-    }
-
-    #footer--ethereum--foundation--text {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    /* Add all of these to make the footer more responsive on mobile devices */
-    #footer--arrow {
-        width: 15px;
-        height: 15px;
-    }
-
-    #footer--right--container {
-        top: -32px;
-        position: relative;
-    }
-
-    #footer--ethereum--foundation--text {
-        position: relative;
-        top: -20px;
-    }
-
-}
-
-
-@media only screen
-and (min-device-width: 412px)
-and (max-device-width: 412px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-#footer--description {
-    font-size: 15px;
-}
-
-}
-
-/* Iphone XR */
-
-@media only screen
-and (min-device-width: 414px)
-and (max-device-width: 414px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-#footer--description {
-    font-size: 15px;
-}
-
-}
-
-/* Landscape */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen
-and (min-device-width: 1112px)
-and (max-device-width: 1112px)
-and (orientation: landscape)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* ----------- iPad Pro 12.9" ----------- */
-
-/* Portrait and Landscape */
-@media only screen
-and (min-device-width: 1024px)
-and (max-device-width: 1366px)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Portrait */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen
-and (min-device-width: 1024px)
-and (max-device-width: 1024px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* Landscape */
-/* Declare the same value for min- and max-width to avoid colliding with desktops */
-/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
-@media only screen
-and (min-device-width: 1366px)
-and (max-device-width: 1366px)
-and (orientation: landscape)
-and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-@keyframes hover {
-0% {
-    transform: translateX(-50%) translateY(-3px);
-}
-50% {
-    transform: translateX(-50%) translateY(3px)
-}
-100% {
-    transform: translateX(-50%) translateY(-3px);
-}
-}
-
-
-@media only screen and (max-device-width: 550px) {
 
     #hamburger--menu--container {
         position: absolute;
@@ -3336,20 +1594,28 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 32px;
     }
 
+    #contact--list--container {
+        flex-direction: column;
+        margin-top: 7px;
+    }
+
+    .contact--item--container {
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    #canari--disclaimer {
+        font-size: 12px;
+        line-height: 12px;
+        transition: font-size 0.2s ease-out;
+    }
+
 }
 
-@media only screen and (max-device-width: 420px) {
 
-    #hamburger--menu--container {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        margin-top: 30px;
-        margin-right: 28px;
-        z-index: 109;
-        cursor: pointer;
-        user-select: none;
-    }
+/* Target smartphones */
+@media (max-width: 499px) {
+
 
     #ethereum--foundation--logo--text {
         position: absolute;
@@ -3367,18 +1633,288 @@ and (-webkit-min-device-pixel-ratio: 2) {
         width: 130px;
     }
 
+    #footer--outer--container {
+        height: 40px;
+        min-height: 40px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+
+    #footer--outer--container:hover {
+        height: 40px;
+        min-height: 40px;
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+
+    #footer--outer--container.displayed {
+        height: var(--doc-height);
+        min-height: var(--doc-height);
+        transition: height 0.2s ease-out, min-height 0.2s ease-out;
+    }
+
+    #main--content--title {
+        font-size: 34px;
+        transition: font-size 0.15s ease-out;
+    }
+
+    #homepage--welcome--text--paragraph, #homepage--welcome--text--paragraph--two {
+        font-size: 15px;
+        transition: font-size 0.15s ease-out;
+    }
+
+    .executive--board--member--container {
+        flex-direction: column;
+    }
+
+    h3 {
+        font-size: 27px;
+    }
+
+    /* New Footer Code */
+
+    /* We need to make it so that when we trigger
+    an increase in the footer outer container everything follows */
+    
+    /* Ensures that the container that holds the content and copyright
+    extends vertically to fill the footer completely */
+    #footer--content--container--desktop {
+        width: 100%;
+        padding-left: 0px;
+        transition: padding-left 0.2s ease-out;
+    }
+
+    /* Ensures that the CopyRight text is centered */
+    #footer--ethereum--copyright--container {
+        padding-right: 0px;
+        justify-content: center;
+        max-height: 40px;
+    }
+
+    /* Make position absolute will still keep it within the
+    footer outer container */
+    #footer--arrow--container--desktop {
+        position: absolute;
+        right: 10px;
+        pointer-events: none;
+        /* background-color: transparent; */
+        align-items: flex-start;
+    }
+
+    #footer--outer--container #footer--arrow--desktop {
+        top: 50%;
+        transform: translateY(50%) rotate(180deg);
+        transition: margin-top 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    #footer--outer--container.displayed #footer--arrow--desktop {
+        top: 0px;
+        margin-top: 50px;
+        transform: rotate(0deg);
+        transition: margin-top 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+    
+    #footer--main--content--container {
+        display: none;
+    }
+
+    #footer--outer--container.displayed #footer--inner--container--two {
+        opacity: 1;
+    }
+
+    #footer--outer--container.displayed #footer--main--content--container {
+        height: calc(var(--doc-height) - 40px);
+        /* background-color: black; */
+        flex-direction: column;
+        pointer-events: auto;
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        display: flex;
+    }
+
+    #footer--main--content {
+        width: 100%;
+        height: 100%;
+        /* background-color: magenta; */
+        flex-direction: column;
+    }
+
+    #footer--action--items--container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #footer--ethereum--logo {
+        height: 40px;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+        /* background-color: red; */
+        width: 100%;
+        display: inherit;
+    }
+
+    #logo--and--links--container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* background-color: blue; */
+    }
+    
+    #footer--links--container--two {
+        width: 100%;
+        flex-direction: column;
+     
+    }
+
+    .footer--link--two {
+        font-size: 15px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        text-align: center;
+    }
+
+    .dividing--line {
+        width: 100%;
+        background-color: white;
+        min-height: 1px;
+        opacity: 0.5;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+
+    #contact--list--container {
+        height: auto;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .contact--item--container {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .contact--item--title, .contact--item--email {
+        font-size: 15px;
+        transition: font-size 0.2s ease-out;
+        text-align: center;
+    }
+
+    /* We don't add margin top to it because it's container already has one*/
+
+    #footer--disclaimer--container {
+        width: 100%;
+        /* background-color: pink; */
+        padding-left: 0px;
+        padding-right: 0px;
+        display: flex;
+        flex-direction: column;
+        font-family: "Libre Franklin", serif;
+    }
+
+    #canari--icon--container {
+        padding-left: 0px;
+        padding-right: 0px;
+        height: auto;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        /* background-color: blue; */
+        padding-top: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #canari--icon {
+        height: 33px;
+        width: 33px;
+    }
+
+    #canari--disclaimer {
+        /* Color could be at top container */
+        margin-left: 0px;
+        width: 100%;
+        display: block;
+        font-family: "Libre Franklin", sans-serif;
+        line-height: 22px;
+        font-size: 15px;
+    }
+    
+}
+
+
+@media (max-width: 420px) {
+
+    #hamburger--menu--container {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin-top: 30px;
+        margin-right: 28px;
+        z-index: 109;
+        cursor: pointer;
+        user-select: none;
+    }
+
+
+    #main--content--inner--container {
+        padding-left: max(5vw, 15px);
+        padding-right: max(5vw, 15px);
+    }
+
+    #canari--disclaimer {
+        line-height: 22px;
+    }
 
 }
 
-#footer--right--container {
-    position: relative;
+
+@media (max-width: 300px) {
+
+    #canari--disclaimer {
+        line-height: 18px;
+        font-size: 14px;
+    }
+
+    .menu--content--text {
+        font-size: 17px;
+    }
+
 }
+
+
+/* MOBILE AND TABLET DEVICES */
+
+/* MOBILE DEVICES */
+
+
+
+/* Animation used for the arrow that faces downwards letting the user know that they should scroll */
+@keyframes hover {
+0% {
+    transform: translateX(-50%) translateY(-3px);
+}
+50% {
+    transform: translateX(-50%) translateY(3px)
+}
+100% {
+    transform: translateX(-50%) translateY(-3px);
+}
+}
+
+
 
 
 /* Hover Effects */
 
 #next--page--navigation--container:hover #downward--arrow {
     filter: invert(9%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
+    /* background-color: red; */
 }
 
 #next--page--navigation--container:hover #next--page--text {

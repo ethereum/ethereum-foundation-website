@@ -1,7 +1,7 @@
 import {
 	Triangle,
 	Vector3
-} from './assets/three.module.js';
+} from './three.module.js';
 
 /**
  * Utility class for sampling weighted random points on the surface of a mesh.
