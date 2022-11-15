@@ -868,7 +868,7 @@ function setLightInScene () {
 
 function createEquirectangularBackground () {
 
-    let webPFormatSupported = testWebP();
+    let webPFormatSupported = testIfBrowserWebPCompatible();
 
     // We download the relevant background based on the URL that is displayed
     let texture;
@@ -1219,7 +1219,7 @@ function renderWebPImages () {
 
     let mainMenuContainer = document.getElementById("main--menu--internal--container");
     
-    if (testWebP()) {
+    if (testIfBrowserWebPCompatible()) {
         mainMenuContainer.classList.add("webp--supported");
     } else {
         mainMenuContainer.classList.add("webp--not--supported");
@@ -1638,7 +1638,11 @@ function displayNewFooter () {
 
 /**
  * Hides or displays the footer depending on whether the user is hovering over the element
- * @called in @addEventListeners function
+ * 
+ * @invocation in @addEventListeners function
+ * 
+ * @comment We trigger this function whenever the user hovers (on destkop devices) or clicks on the footer (on mobile devices)
+ * 
  */
 function toggleNewFooter () {
 
@@ -1646,60 +1650,28 @@ function toggleNewFooter () {
     if (!footerDisplayed) {
         
         let footerContainer = document.getElementById("footer--outer--container");
-        // let footerInnerContainer = document.getElementById("footer--inner--container");
-        // let elementsContainer = document.getElementById("footer--transitory--container");
-        // let footerUpArrow = document.getElementById("footer--up--arrow");
-        // let footerDownArrow = document.getElementById("footer--down--arrow");
-        // let footerRightContainer = document.getElementById("footer--right--container");
-        // let footerArrow = document.getElementById("footer--arrow");
         let topLeftLogo = document.getElementById("ethereum--foundation--logo--text");
 
         footerContainer.classList.add("displayed");
-        // footerInnerContainer.classList.add("displayed");
-        // elementsContainer.classList.add("displayed");
-        // footerUpArrow.classList.add("hidden");
-        // footerDownArrow.classList.add("displayed");
         
         if (isMobileDevice()) {
             hideHamburgerMenu();
             topLeftLogo.classList.add("hidden");;
         }; 
-
-        if (isMobileDevice()) {
-            // footerRightContainer.classList.add("footer--displayed");
-            // footerArrow.classList.add("footer--displayed");
-            // changeNavigationElementsToLightColor();
-        };
         
         footerDisplayed = true; 
 
     } else {
 
         let footerContainer = document.getElementById("footer--outer--container");
-        // let footerInnerContainer = document.getElementById("footer--inner--container");
-        // let elementsContainer = document.getElementById("footer--transitory--container");
-        // let footerUpArrow = document.getElementById("footer--up--arrow");
-        // let footerDownArrow = document.getElementById("footer--down--arrow");        
-        // let footerRightContainer = document.getElementById("footer--right--container");
-        // let footerArrow = document.getElementById("footer--arrow");
         let topLeftLogo = document.getElementById("ethereum--foundation--logo--text");
         
         footerContainer.classList.remove("displayed");
-        // footerInnerContainer.classList.remove("displayed");
-        // elementsContainer.classList.remove("displayed");
-        // footerUpArrow.classList.remove("hidden");
-        // footerDownArrow.classList.remove("displayed");
         
         if (isMobileDevice()) {
             displayHamburgerMenu();
             topLeftLogo.classList.remove("hidden");;
         }
-        
-        if (!isMobileDevice()) {
-            // footerRightContainer.classList.remove("footer--displayed");
-            // footerArrow.classList.remove("footer--displayed");
-        };
-
 
         footerDisplayed = false;
 
@@ -1723,9 +1695,16 @@ function isMobileDevice () {
 
 }
 
-// Utility functions used in order to load webp image instead of other non-performant formats such as jpeg, png, etc.
-// Not used yet
-function testWebP () {
+/**
+ * 
+ * @returns {Boolean} Letting us know whether the current browser is webp compatible. 
+ * 
+ * @invocation Should be used in the functions that import specific scenes materials, like the background
+ * 
+ * @comment Currently #unnused #futureImprovement
+ * 
+ */
+function testIfBrowserWebPCompatible () {
     const canvas = typeof document === 'object' ? 
     document.createElement('canvas') : {};
     canvas.width = canvas.height = 1;
