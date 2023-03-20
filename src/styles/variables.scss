@@ -1,0 +1,38 @@
+// Color palette (naming is from figma, expand palette as necessary, and should keep matching the naming 1:1 from figma to here)
+$ef-dark: #36364C;
+$white: #FFFFFF;
+
+// Color application
+$footer-color: $ef-dark;
+$font-color-primary: var(--primary-font-color-override, $white); // Allows overriding default color if desired (for any part of the app, even subtrees), falls back to white
+
+// Font families
+$font-primary: "Libre Franklin", sans-serif;
+$font-secondary: "Abhaya Libre", serif;
+
+// Sizes (root relative) - use this mostly (allows us to scale entire app by changing root font size) 
+$very-small: 0.75rem;
+$small: 0.875rem;
+$medium: 1rem;
+$large: 1.25rem;
+$very-large: 2rem;
+$massive: 3rem;
+
+// Sizes (fixed)
+$very-small-fixed: 12px;
+$small-fixed: 14px;
+$medium-fixed: 16px;
+$large-fixed: 20px;
+$very-large-fixed: 32px;
+$massive-fixed: 48px;
+
+// Sizes (parent relative)
+$very-small-em: 0.75em;
+$small-em: 0.875rem;
+$medium-em: 1em;
+$large-em: 1.25em;
+$very-large-em: 2em;
+$massive-em: 3em;
+
+// Breakpoints
+$breakpoint-1: 1050px;
