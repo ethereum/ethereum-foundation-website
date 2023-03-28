@@ -140,6 +140,7 @@ a {
 #home #page-content-container,
 #home #page-content-container-visible {
   background-color: transparent !important;
+  animation:none;
 }
 
 @keyframes backgroundFade {
