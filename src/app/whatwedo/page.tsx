@@ -20,6 +20,7 @@ const EthereumFoundation = () => {
                 layout="responsive"
                 placeholder="blur"
                 blurDataURL="/assets/whatwedo-1-placeholder.png"
+                priority
                 />
 
 
@@ -37,6 +38,7 @@ const EthereumFoundation = () => {
                 layout="responsive"
                 placeholder="blur"
                 blurDataURL="/assets/whatwedo-2-placeholder.png"
+                priority
                  />
 
         <p>Not all came to build. Some had come merely to mine the Ether, or to seek profit through buying and selling it on an open market. Not all came with good intentions. Some sought to exploit flaws in the newly-built structures, to steal unguarded Ether, or to prey on the optimism and naivete of newcomers to the community. Not all who came understood the neutral entanglement of the Merkle tree root. Some sought to build cathedrals in the garden, and to surround them with walls and gates denying entry to undesirables.</p>
@@ -51,6 +53,7 @@ const EthereumFoundation = () => {
                 layout="responsive"
                 placeholder="blur"
                 blurDataURL="/assets/whatwedo-3-placeholder.png"
+                priority
                 />
 
         <p>After years, Ethereum was a <strong>metropolis <sup>3</sup></strong>. A vibrant, bustling city of not just builders, but also artists, designers, entrepreneurs, financiers, scholars, and even lawyers.</p>
@@ -65,6 +68,7 @@ const EthereumFoundation = () => {
                 layout="responsive" 
                 placeholder="blur"
                 blurDataURL="/assets/whatwedo-4-placeholder.png"
+                priority
                 />
 
         <p>The Foundation recognized that Serenity could only be realized as a natural, undirected process emerging from the collaboration of many community members. Ethereum flourishes when sufficient diversity ensures collective resilience, and when there are no indispensable actors in the ecosystem. Ethereum is (and will always be) a true public good: Directed by none, useful for all.</p>
