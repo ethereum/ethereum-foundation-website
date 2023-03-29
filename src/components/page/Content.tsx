@@ -25,19 +25,21 @@ const ContentBlock = (props: ContentBlockProps) => {
         // className={scrollDirection === ScrollDirection.UP ? 'page-content-animate' : 'page-content-animate.visible'}
         className={css['container']}
       >
-        <div
-          id={pageContentID}
-          className={(() => {
-            let className = css['content'];
+        <div id="page-content-container-inner">
+          <div
+            id={pageContentID}
+            className={(() => {
+              let className = css['content'];
 
-            if (props.isHomePage) {
-              className += ` homepage`;
-            }
+              if (props.isHomePage) {
+                className += ` homepage`;
+              }
 
-            return className;
-          })()}
-        >
-          {props.children}
+              return className;
+            })()}
+          >
+            {props.children}
+          </div>
         </div>
       </main>
 
