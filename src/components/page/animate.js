@@ -10,7 +10,7 @@ import firefliesFragmentShader from './animations/firefliesFragmentShader.glsl';
 
 export const Animate = (url) => {
     const generalSceneControls = {
-        ["ETH Rotation Speed"]: 0.0002,
+        ["ETH Rotation Speed"]: 0.00003,
     };
 
     /** Magic Variables **/
@@ -24,6 +24,7 @@ export const Animate = (url) => {
     let innerWidth = window.innerWidth
     let innerHeight = window.innerHeight
     let container = document.getElementById('canvas');
+    let controls;
 
     /** Fireflies **/
     let fireflies;
@@ -774,7 +775,7 @@ export const Animate = (url) => {
      * Allows user to look around the scene
      */
     function initControls() {
-        let controls = new OrbitControls(camera, document.body);
+        controls = new OrbitControls(camera, document.body);
         controls.listenToKeyEvents(window);
 
         /** If we're on a mobile device, we enable damping which slows down the #camera #movement */
@@ -793,6 +794,8 @@ export const Animate = (url) => {
         controls.maxDistance = 100;
         controls.maxPolarAngle = Math.PI * 0.5;
         controls.minPolarAngle = Math.PI * 0.5;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.03;
         controls.update();
     }
 
@@ -850,6 +853,7 @@ export const Animate = (url) => {
             } else if (FILE_TYPE === "obj") {
                 finalPoints.rotation.z += generalSceneControls["ETH Rotation Speed"];
             };
+            controls.update();
         };
 
         // Geometry with Surface Sampler
