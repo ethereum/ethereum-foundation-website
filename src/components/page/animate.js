@@ -795,7 +795,11 @@ export const Animate = (url) => {
         controls.maxPolarAngle = Math.PI * 0.5;
         controls.minPolarAngle = Math.PI * 0.5;
         controls.autoRotate = true;
-        controls.autoRotateSpeed = 0.03;
+        if (screen.width >= 500){
+            controls.autoRotateSpeed = 0.03;
+        } else {
+            controls.autoRotateSpeed = 0.06;
+        }
         controls.update();
     }
 
