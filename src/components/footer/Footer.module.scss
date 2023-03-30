@@ -23,13 +23,14 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
 
       .trigger {
         .chevron {
-          transform: rotateX(180deg) translate3d(0, 0, 0) !important;
+          //transform: rotateX(180deg) translate3d(0, 0, 0) !important;
+          transform:rotateX(180deg) translate3d(0, 0, 0);
         }
       }
 
       .unfold {
         opacity: 1;
-        transform: translateY(-100%);
+        transform: translateY(-96%);
       }
     }
   }
@@ -38,6 +39,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
     transition: all 0.2s ease-out;
     background: $footer-color;
     opacity: 0.5;
+    height:45px;
 
     .trigger {
       z-index: 2;
@@ -49,6 +51,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      position: fixed;
 
       @media (max-width: $breakpoint-1) {
         justify-content: center;
@@ -60,6 +63,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
       }
 
       .chevron {
+        //position: fixed;
         transition: transform 0.2s ease-out;
         transform: rotateX(0deg) translate3d(0, 0, 0);
       }
@@ -68,7 +72,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
     .unfold {
       z-index: -1;
       padding: 20px 0px;
-      padding-bottom: 0px;
+      padding-bottom: 10px;
       opacity: 0;
       width: 100%;
       background: $footer-color;
@@ -85,7 +89,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
       @media (max-width: $breakpoint-1) {
         height: var(--doc-height);
         top: auto;
-        padding-bottom: 64px;
+        padding-bottom: 4px;
       }
 
       .scroll-wrapper {
@@ -245,6 +249,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
         display: flex;
         font-family: $font-primary;
         padding-right: 30px;
+        line-height: 1.6em;
 
         @media (max-width: $breakpoint-1) {
           align-items: center;
