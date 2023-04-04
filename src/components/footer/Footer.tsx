@@ -67,7 +67,7 @@ const Footer = () => {
 
 
               <div className={css['canary']}>
-                <object data="/assets/canari-bird.svg" className={css['icon']} width="30" height="30" aria-labelledby="Canari Bird Icon">Canari Bird Icon</object>
+                <object data="/assets/canari-bird.svg" className={css['icon']} width="60" height="60" aria-labelledby="Canari Bird Icon">Canari Bird Icon</object>
 
                 <p>
                   The Ethereum Foundation (Stiftung Ethereum) has never been contacted by any agency anywhere in the world in a way which requires that contact not to be disclosed. Stiftung Ethereum will publicly disclose any sort of inquiry from government agencies that falls outside the scope of regular business operations.
