@@ -52,8 +52,12 @@ const Nav = () => {
               <span className={`${css['seven']} ${css['menu--content--dot']}`}> • </span>
               <MouseDownLink href="/ef" className={`${css['eight']} ${css['menu--content--text']}`}> What is the EF? </MouseDownLink>
               <span className={`${css['nine']} ${css['menu--content--dot']}`}> • </span>
+
+        {/*
               <MouseDownLink href="/whatwedo" className={`${css['eight']} ${css['menu--content--text']}`}> What We Do </MouseDownLink>
               <span className={`${css['nine']} ${css['menu--content--dot']}`}> • </span>
+        */}
+
               <MouseDownLink href="/philosophy" className={`${css['ten']} ${css['menu--content--text']}`}> EF Philosophy </MouseDownLink>
               <span className={`${css['eleven']} ${css['menu--content--dot']}`}> • </span>
             </div>
