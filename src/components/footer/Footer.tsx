@@ -26,7 +26,7 @@ const Footer = () => {
         <div className={css['content']}>
           <div className={css['trigger']} onTouchStart={() => setOpen(!open)}>
             <p className={css['copyright']}>
-              &copy; Ethereum Foundation, 2022
+              &copy; Ethereum Foundation, {new Date().getFullYear()}
             </p>
 
             <Chevron className={css['chevron']} />
