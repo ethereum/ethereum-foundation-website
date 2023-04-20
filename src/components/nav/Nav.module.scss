@@ -1,0 +1,285 @@
+@import 'styles/variables.scss';
+
+.header {
+  position: absolute;
+  top: 0px;
+
+  >* {
+    position: relative;
+  }
+}
+
+/* Main Menu */
+.main--menu--container {
+  position: absolute;
+  z-index: 108;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  pointer-events: none;
+  display: flex;
+  background-position: 50% 50%;
+  background-size: cover;
+  overflow: auto;
+  background-image: url("/new-ethereum-foundation-menu-background.svg");
+
+  &.open {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+    pointer-events: auto;
+
+    .menu--content--text,
+    .menu--content--dot,
+    .secondary--links--container {
+      pointer-events: auto;
+      $time: 0.075s;
+
+      &.one {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 1;
+      }
+
+      &.two {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 2;
+      }
+
+      &.three {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 3;
+      }
+
+      &.four {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 4;
+      }
+
+      &.five {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 5;
+      }
+
+      &.six {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 6;
+      }
+
+      &.seven {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 7;
+      }
+
+      &.eight {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 8;
+      }
+
+      &.nine {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 9;
+      }
+
+      &.ten {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 10;
+      }
+
+      &.eleven {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 11;
+      }
+
+      &.secondary--links--container {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 12;
+      }
+    }
+  }
+}
+
+.ef-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 24px;
+  color: white;
+  font-weight: 300;
+  font-size: 22px;
+  z-index: 110;
+  width: 200px;
+  height: 60px;
+  transition: opacity 0.1s ease-out;
+
+  @media (max-width: $breakpoint-1) {
+    margin-top: 12px;
+  }
+
+  path {
+    &:first-child {
+      fill: var(--fill-color, #{$ef-dark});
+    }
+  }
+
+  &.open {
+    path {
+      &:first-child {
+        fill: white !important;
+      }
+    }
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  @media (max-width: 499px) {
+    // margin-top: 9px;
+    // margin-left: 25px;
+    color: white;
+    font-weight: 400;
+    font-size: 22px;
+    z-index: 110;
+    height: 60px;
+    width: 130px;
+  }
+}
+
+.mask {
+  height: 100%;
+  width: 100%;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 88%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  overflow: auto;
+}
+
+.main--menu--internal--container {
+  width: 100%;
+  padding-top: 12vh;
+  padding-bottom: 12vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.menu--content--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secondary--links--container {
+  display: flex;
+  // justify-content: space-evenly;
+  align-items: center;
+  max-width: 250px;
+  border-top: 1px solid rgb(255, 255, 255, 0.3);
+  padding-top: 20px;
+  width: 100%;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+
+  >* {
+    display: flex;
+    justify-content: center;
+    flex-basis: 0px;
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    &:first-child {
+      justify-content: flex-end;
+    }
+
+    &:last-child {
+      justify-content: flex-start;
+    }
+  }
+
+  span {
+    flex-basis: 40px;
+    flex-grow: 0;
+  }
+}
+
+.main--menu--secondary--link {
+  color: white;
+  font-family: $font-secondary;
+  font-weight: 400;
+  font-size: 20px;
+  opacity: 1;
+  text-decoration: none  !important;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.menu--content--text {
+  min-width: 250px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: white;
+  font-family: $font-secondary;
+  font-weight: 400;
+  font-size: 24px;
+  opacity: 0;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.menu--content--dot {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+  display: inline;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  margin-top: 5px;
+  font-family: auto;
+  margin-bottom: 5px;
+  opacity: 0;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-top: 32px;
+  z-index: 110;
+  cursor: pointer;
+  user-select: none;
+  transition: fill 1s linear;
+
+  @media (max-width: $breakpoint-1) {
+    margin-right: 16px;
+  }
+
+  * {
+    fill: var(--fill-color, #{$ef-dark});
+  }
+
+  &.open {
+    * {
+      fill: white !important;
+    }
+  }
+}
+
+.menu--content--text:hover,
+.secondary--links--container a:hover {
+  color: #8FFFEB;
+}
