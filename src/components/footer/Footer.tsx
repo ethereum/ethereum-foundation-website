@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className={className} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <footer className={className}>
         <div className={css['scroll-indicator']} id="scroll-indicator">
           <p className={css['text']}> Scroll </p>
           <svg width="37" height="37" className={css['arrow']} viewBox="0 0 52 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@ const Footer = () => {
           </svg>
         </div>
 
-        <div className={css['content']}>
+        <div className={css['content']} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
           <div className={css['trigger']} onTouchStart={() => setOpen(!open)}>
             <p className={css['copyright']}>
               &copy; Ethereum Foundation, {new Date().getFullYear()}
