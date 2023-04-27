@@ -23,8 +23,8 @@ const Footer = () => {
           </svg>
         </div>
 
-        <div className={css['content']}>
-          <div className={css['trigger']} onTouchStart={() => setOpen(!open)}  onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+        <div className={css['content']} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+          <div className={css['trigger']} onTouchStart={() => setOpen(!open)}>
             <p className={css['copyright']}>
               &copy; Ethereum Foundation, {new Date().getFullYear()}
             </p>
