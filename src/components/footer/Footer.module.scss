@@ -292,7 +292,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
 // Scroll indicator 
 .scroll-indicator {
   position: absolute;
-  top: -100px;
+  bottom: 800px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -304,7 +304,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  z-index: -1;
+  z-index: 1;
 
   .text {
     margin-top: 8px;
