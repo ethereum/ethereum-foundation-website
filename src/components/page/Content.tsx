@@ -1,18 +1,19 @@
-'use client'
-import React from 'react';
-import css from './Content.module.scss';
-import useScrollDirection, { ScrollDirection } from '../../utils/useScrollDirection';
+"use client"
+import React from "react"
+import css from "./Content.module.scss"
+import useScrollDirection, {
+  ScrollDirection,
+} from "../../utils/useScrollDirection"
 
-
-export const pageContentID = 'page-content';
+export const pageContentID = "page-content"
 
 type ContentBlockProps = {
-  isHomePage?: boolean,
+  isHomePage?: boolean
   children?: React.ReactNode
 }
 
 const ContentBlock = (props: ContentBlockProps) => {
-  const scrollDirection = useScrollDirection();
+  const scrollDirection = useScrollDirection()
 
   return (
     <>
@@ -21,21 +22,25 @@ const ContentBlock = (props: ContentBlockProps) => {
       </div>
 
       <main
-        id={scrollDirection === ScrollDirection.UP ? 'page-content-container' : 'page-content-container-visible'}
+        id={
+          scrollDirection === ScrollDirection.UP
+            ? "page-content-container"
+            : "page-content-container-visible"
+        }
         // className={scrollDirection === ScrollDirection.UP ? 'page-content-animate' : 'page-content-animate.visible'}
-        className={css['container']}
+        className={css["container"]}
       >
         <div id="page-content-container-inner">
           <div
             id={pageContentID}
             className={(() => {
-              let className = css['content'];
+              let className = css["content"]
 
               if (props.isHomePage) {
-                className += ` homepage`;
+                className += ` homepage`
               }
 
-              return className;
+              return className
             })()}
           >
             {props.children}
@@ -44,10 +49,8 @@ const ContentBlock = (props: ContentBlockProps) => {
       </main>
 
       <div id="canvas"></div>
-
-
     </>
   )
 }
 
-export default ContentBlock;
+export default ContentBlock
