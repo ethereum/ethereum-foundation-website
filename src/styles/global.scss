@@ -459,8 +459,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   color: #8FFFEB;
 }
 #home #next-navigation:hover p {
-  color: #FFF;
-  text-shadow: 0 0 5px #36364C;
+  color: #01826b;
 }
 
 #next-navigation:hover object {
@@ -473,7 +472,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   filter: invert(70%) sepia(20%) saturate(482%) hue-rotate(200deg) brightness(101%);
 }
 #home #next-navigation:hover object {
-  filter: invert(0%) ;
+  filter: invert(50%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
 }
 
 // Utility to bound content to max 1680px (e.g. to prevent huge distances between header items on very wide screens)
