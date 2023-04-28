@@ -305,7 +305,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  z-index: 1;
+  z-index: 4;
   cursor: pointer;
 
   .text {
