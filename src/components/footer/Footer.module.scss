@@ -100,6 +100,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
         padding: 0px 32px;
 
         @media (max-width: $breakpoint-1) {
+          padding: 24px 32px;
           display: block;
           margin: auto;
           justify-content: center;
@@ -305,6 +306,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   z-index: 1;
+  cursor: pointer;
 
   .text {
     margin-top: 8px;
@@ -313,7 +315,19 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
     font-weight: 400;
     font-size: 10px;
     text-transform: uppercase;
-    color: #36364C
+    color: #36364C;
+
+    .hover-text {
+      @media (hover: hover) {
+        display: none;
+      }
+    }
+
+    .click-text {
+      @media (hover: none) {
+        display: none;
+      }
+    }
   }
 
   .arrow {
