@@ -16,10 +16,11 @@ const Footer = () => {
       <div className={css["scroll-indicator"]} id="scroll-indicator">
         <p className={css["text"]}>
           <span className={css["click-text"]}>
-            Scroll down or click here to begin
+            Scroll down or click here <br />
+            to begin
           </span>
           <span className={css["hover-text"]}>
-            Swipe up or tap here to begin
+            Swipe up or tap here <br /> to begin
           </span>
         </p>
         <svg
