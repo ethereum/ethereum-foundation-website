@@ -7,94 +7,83 @@ const EthereumFoundation = () => {
   return (
     <ContentBlock>
       <div id="content-body" className="disable--selection">
-        <h1>What We Do</h1>
-        <h4>An origin story for the Ethereum Foundation</h4>
-        <p>In the beginning, Ethereum was a <strong>frontier <sup>1</sup></strong>. </p>
-        <p>It was a vast open space full of possibility, and settled by only a handful of people with vision, purpose, and a willingness to accept the risks of the unknown. Together they planted a Merkle tree – a special flora that thrives in the fertile soil of consensus.</p>
-        <p>Ether, a substance scattered across the landscape, was the only resource at hand for the settlers, but it was enough. Mining for Ether was very easy at first, and although it consumed power, the act enriched the soil in which the Merkle trees were to thrive.</p>
+        <h1>Our Story</h1>
+        <p>In less than a decade, <MouseDownLink  href="https://ethereum.org/en/history/">Ethereum has grown</MouseDownLink> from a single seed into a vast forest of entangled roots.  What began as experimental software run by a handful of cryptography enthusiasts is now a network of tens of thousands of computers around the world. The Ethereum protocol is a global commons &ndash; a shared space on the open internet that is secure and robust enough to build things of real value on &ndash; things of great importance to human society, like currency, identity, and governance systems. </p>
+        <p>Ethereum is no longer fragile, but it is not yet mature. Through grants, research, and other initiatives, the Ethereum Foundation nurtures the vitality of the ecosystem and supports benevolent actors, working so that Ethereum remains a true public good: Directed by none, useful for all.</p>
+        <p>The Ethereum Foundation has changed quite a bit over the years, but has always been a character in the story of Ethereum...</p>
         
-        <Image  src="/assets/whatwedo-1.png" 
+        <Image  src="/assets/ourstory-1.jpg" 
                 width={2000} 
-                height={1333} 
+                height={1125} 
                 alt="Frontier"
                 layout="responsive"
-                placeholder="blur"
-                blurDataURL="/assets/whatwedo-1-placeholder.png"
+//                placeholder="blur"
+//                blurDataURL="/assets/whatwedo-1-placeholder.png"
                 priority
                 />
 
 
-        <p>Ether and the Merkle tree were (and still are) inseparable elements in the ecosystem called Ethereum; two parts dancing together in concert to create a whole. The founders and early settlers of Ethereum shaped their world using a curious property of Merkle trees: Using just the right words and a small amount of ether, anyone can instruct a Merkle tree how to grow. By passing the right instructions to the seedlings, the settlers could direct the roots, branches, and leaves of the Merkle tree in any way they desired.</p>
-        <p>They built simple things at first. The first tools for the safekeeping of Ether. Clever instructions that allowed the leaves of the tree to act as a ledger, or to tabulate sums. Useful adapters to make the trees work together with older, more familiar technologies.</p>
-        <p>To those that came to build it was apparent that these wondrous trees had the potential to create complex and extraordinary structures – structures robust enough to trust with real value; durable enough to support a living community.</p>
-        <p>Though influenced heavily by the designs and dreams of the early builders, Ethereum was (and still is) a common garden shared by all, owned by none. In those early days, the Ethereum Foundation was essential to building all that was needed for a larger population yet to arrive.</p>
-        <p>Many did arrive. Enticed by the possibility of creation, new builders came to Ethereum to make their own structures intertwined with the living Merkle tree. People discovered ways to hang art from the leaves of the tree, to use its sturdiness in times of uncertainty, to inscribe in its immutable history records of ownership for loved items. Academies, guilds, and bazaars were founded amidst the tangle of its branches.</p>
-        <p>Gradually, Ethereum became a <strong>homestead <sup>2</sup></strong>.</p>
+        <p>In the beginning Ethereum was a <em>frontier</em>.</p>
+        <p>It was a vast and sparsely populated space created from axioms and first principles.  Ethereum's existence was (and still is) rooted in the credibility and neutrality of <strong>consensus</strong> &ndash; the agreement between all, for all, over a set of rules (of protocol) that apply equally to all. From consensus emerged the possibility of a shared common state (of memory). This state was enshrined in the living Merkle Tree, a special data structure designed to grow and change according to the will of all humans that chose to read and write upon its leaves. No individual or organization would ever 'own' Ethereum, but all could contribute to its growth and build upon it.</p>
+        <p>Those that first came to this new paradigm saw enormous potential, tempered by incalculable risks and unknown unknowns. In that era, the Ethereum Foundation was set up to create the conditions necessary for survival. The Ethereum Foundation organized the first gatherings of Ethereum enthusiasts and visionaries, provided funding for early infrastructure, supported R&D, and generally helped to protect and nurture the fragile experiments starting to take root in the fertile soil of consensus. </p>
+        <p>Many of the early contributors to Ethereum joined the Foundation in order to lay the groundwork for newcomers enticed by the same spark of curiosity and hope of what could be built here with time. They did so with the conviction that, under the right conditions and with some nurturing, Ethereum would grow and flourish into a tool robust enough to be used and relied upon by all humans, far into the future. </p>
 
-        <Image  src="/assets/whatwedo-2.png" 
-                width={2000}
-                height={1333}
+        <Image  src="/assets/ourstory-2.jpg" 
+                width={2000} 
+                height={1125} 
                 alt="Homestead"
                 layout="responsive"
-                placeholder="blur"
-                blurDataURL="/assets/whatwedo-2-placeholder.png"
+//                placeholder="blur"
+//                blurDataURL="/assets/whatwedo-2-placeholder.png"
                 priority
                  />
 
-        <p>Not all came to build. Some had come merely to mine the Ether, or to seek profit through buying and selling it on an open market. Not all came with good intentions. Some sought to exploit flaws in the newly-built structures, to steal unguarded Ether, or to prey on the optimism and naivete of newcomers to the community. Not all who came understood the neutral entanglement of the Merkle tree root. Some sought to build cathedrals in the garden, and to surround them with walls and gates denying entry to undesirables.</p>
-        <p>Together with a larger community, the Ethereum Foundation worked to spread knowledge about the interconnectedness of the trees, and to understand that the vitality of the garden emerged from the freedom of unconstrained creation. Ethereum was (and still is) a permissionless garden, open to all, restricted by none.</p>
-        <p>Still more people arrived with new ideas, dreams, and motivations. They built together with those who had settled before, or struck out on their own to explore new frontiers deeper into the garden, which had grown out past the edges of the town, and become a forest.</p>
-        <p>The forest was vast, and contained multitudes. Unimaginable and rogue creatures lurked deep in the dense trees stretching out into the unknown. Without seeking to hinder the balance of life in the forest, and with the assistance of many, the Foundation worked against the darkness, helping those living in the garden to avoid danger and malfeasance, educating new builders on safety, and researching better ways to nurture an ecosystem that was no longer fragile, but not yet mature.</p>
+        <p>Gradually at first, but quicker with the passing seasons, people from many other worlds came to see Ethereum as a place worth exploring. As the Merkle Tree grew larger and more firmly rooted, they built more complex and intriguing structures intertwined with its leaves and branches. The shared, common state of Ethereum provided a fixed point of trust in a universe filled with uncertainty and change. Things that had seemed impossibly complex to build in unbounded digital space <MouseDownLink  href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/">became accessible</MouseDownLink> to anyone willing to learn a new language, and usable to anyone with a willingness to try.</p>
+        <p>What had started as a small homestead was fast becoming a <em>metropolis</em>. To those with experience in other worlds, the rapid growth during this era was exciting. The beautiful, sometimes strange creations that emerged from the prodigious growth of the Ethereum commons became more complex and fit with each passing day. </p>
+        <p>As a steward of protocol development, the Foundation faced enormous pressure to scale in order to meet the needs of more and more users, as was the custom for companies selling products. But an organization is a very different thing from a protocol, and the Foundation needed a different way.</p>
+        <p>For Ethereum, the protocol, to thrive and scale well, it must not be dependent on any one person or organization, even a benevolent one. Ethereum's growth and value as a network comes from the general will of humans to form consensus. Consensus cannot be manufactured; it must grow naturally from seeds of trust with the light of verification. A healthy collective of contributors to a consensus protocol should be characterized by diversity and plurality, not hegemony. Were the Foundation to claim a central role in the Ethereum ecosystem, it would be at odds with the core values enshrined in the protocol code -- at odds with the vision of Ethereum's future called serenity. </p>
+        <p>In the midst of that tension between leading and following, between growth and resilience, between nature and nurture – the Foundation began to develop and practice the discipline of Subtraction. </p>
 
-        <Image  src="/assets/whatwedo-3.png" 
-                width={2000}
-                height={1333}
-                alt="Metropolis"
+        <Image  src="/assets/ourstory-3.jpg" 
+                width={2000} 
+                height={1125} 
+                alt="Bazaar"
                 layout="responsive"
-                placeholder="blur"
-                blurDataURL="/assets/whatwedo-3-placeholder.png"
+//                placeholder="blur"
+//                blurDataURL="/assets/whatwedo-3-placeholder.png"
                 priority
                 />
 
-        <p>After years, Ethereum was a <strong>metropolis <sup>3</sup></strong>. A vibrant, bustling city of not just builders, but also artists, designers, entrepreneurs, financiers, scholars, and even lawyers.</p>
-        <p>The garden (which was a forest) had growing pains. The Merkle trees were limited by their own weight, struggling to support the disparate and varying needs of all the ecosystem at once. Mining, which was once necessary for the fertile soil of consensus, was burdened by heavy power consumption and would ultimately exact a heavy toll on all life in the realm.</p>
-        <p>Ecologists, economists, and rangers of and outside the Foundation researched new methods to maintain the longevity of the garden, and to prepare for still more people. Some found solutions in new varieties of Merkle tree that grew faster and used less Ether, all while being supported by their slower, sturdier counterparts. Others researched the viability of newly-discovered Verkle trees to graft onto the existing roots of the garden. Some proposed a  <strong>ceremony <sup>4</sup></strong> to summon new life from the entropy of the universe that would bind to the roots of the garden.</p>
-        <p>Many focused on a long-envisioned fundamental change to Ethereum, which would end the wasteful practice of Ether mining altogether. It was foretold that this event would mark the beginning of <strong>Serenity <sup>5</sup></strong> – an era when the infinite garden would be ready to strive toward being a home for all humans.</p>
+        <p>After years, Ethereum grew by leaps and bounds. Newcomers arrived to build companies, to <MouseDownLink  href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/">create art</MouseDownLink> that would be traded in bazaars, to <MouseDownLink  href="https://ethereum.org/en/developers/docs/bridges/">build bridges</MouseDownLink> with other distant worlds. The number of people entangled with the roots of the Merkle Tree doubled, and doubled yet again. </p>
+        <p>Such growth came at a heavy cost, however. The unbridled growth of the Merkle Tree was making Ethereum difficult and expensive for users and builders alike. Furthermore, the practice of mining Ether, which underpinned the consensus of the state, was perpetuating an unacceptable and catastrophic waste of energy. It had long been clear that Ethereum would have to change significantly to meet the needs of all users, present and future. But the Merkle tree was (and still is) rooted in consensus. Changes to the core Ethereum protocol would have to come from the general will of the whole ecosystem. The Ethereum Foundation might have had the ability to push through the necessary changes quickly, to leverage power and dictate a new plan for the growth of Ethereum. But this was not the way of subtraction. </p>
+        <p>Instead, the Ethereum Foundation took on a role of coordination. A <MouseDownLink  href="https://blog.ethereum.org/2018/03/07/announcing-beneficiaries-ethereum-foundation-grants">new grants program</MouseDownLink> was created to help seed independent teams working towards the same goals as those <MouseDownLink  href="https://blog.ethereum.org/2019/06/21/ef-supported-teams-development-report-2019-pt-1">within the</MouseDownLink> Ethereum Foundation. A <MouseDownLink  href="https://blog.ethereum.org/2019/04/30/beginning-a-new-ethereum-org">community-driven hub for learners and teachers</MouseDownLink> was created to give all newcomers the ability to contribute to the long-term vision of Ethereum in time. <MouseDownLink  href="https://blog.ethereum.org/2019/08/20/announcing-the-devcon-scholars-program">Scholarships</MouseDownLink> were created to make the largest and most vibrant Ethereum gatherings a little bit more accessible to everyone. All these efforts of coordination were to strengthen the capacity of the ecosystem itself, rather than the Foundation. The way of subtraction is longer, less efficient, more uncertain &ndash; but in keeping with Ethereum's highest value of decentralization. </p>
+        <p>A <MouseDownLink  href="https://protocol-guild.readthedocs.io/en/latest/index.html">guild of contributors</MouseDownLink> formed to research and implement much-needed improvements to the core protocol. Gradually, research coalesced around proof-of-stake - a new consensus that the roots of the Merkle tree could be grafted to. Rather than 2 weeks&trade;, the undirected work <MouseDownLink  href="https://claim.zkdrop.io/mergooor-pass">of more than a hundred minds</MouseDownLink> to research, implement, and test this major protocol upgrade took nearly 2 years.</p>
+        <p>But on 'block #15537393', Ethereum successfully upgraded away from mining, and into <MouseDownLink  href="https://ethereum.org/en/roadmap/merge/">a new, more sustainable consensus</MouseDownLink>. 
+</p>
 
-        <Image  src="/assets/whatwedo-4.png" 
-                width={2000}
-                height={1333}
+        <Image  src="/assets/ourstory-4.jpg" 
+                width={2000} 
+                height={1125} 
                 alt="Serenity"
                 layout="responsive" 
-                placeholder="blur"
-                blurDataURL="/assets/whatwedo-4-placeholder.png"
+//                placeholder="blur"
+//                blurDataURL="/assets/whatwedo-4-placeholder.png"
                 priority
                 />
 
-        <p>The Foundation recognized that Serenity could only be realized as a natural, undirected process emerging from the collaboration of many community members. Ethereum flourishes when sufficient diversity ensures collective resilience, and when there are no indispensable actors in the ecosystem. Ethereum is (and will always be) a true public good: Directed by none, useful for all.</p>
-        <p>So a long-term strategy was adopted: Serenity through subtraction. Instead of growing power and becoming more essential, the strategy of subtraction entails cultivating plurality and decentralization in the infinite garden, so that Ethereum never depends on single, isolated agents to thrive. Subtraction is seldom the easiest or most efficient approach, but Ethereum’s future must be arrived at together, independently – as humans loosely coupled yet highly aligned.</p>
-        <p>The Foundation still does much to support Ethereum. We endeavor for the long-term health of Ethereum without control or direct influence. We allocate funds to promote pluralism and independent cooperation. We support efforts to grow and develop new communities of builders working in the interest of public good. We are infinite gardeners and rangers of <strong>the dark forest <sup>6</sup></strong>  – planting seeds, nurturing growth, and continuing to play.</p>
+        <p>Ethereum will continue to grow and evolve in the coming years, striving to meet the needs and challenges of an ever-larger ensemble of human relationships unified by consensus. The Ethereum Foundation will remain a benevolent actor in this ecosystem, as arborists of the infinite garden or rangers of the dark forest: Planting seeds. Mapping territory. Building with uncut wood. </p>
+        <p>Serenity is a process of becoming &ndash; a vision of the future that must be arrived at together, independently, as humans loosely coupled yet highly aligned. When Ethereum is ready to meet the needs of billions, the Ethereum Foundation's chapter in the story of Ethereum will be over, but the values it protected will persist in the soul of the protocol, and all those who helped create it. </p>
+        <blockquote>
+        To live till you die<br />
+        is to live long enough.<br />
+        &ndash; Lao Tzu
+        </blockquote>
 
         <MouseDownLink href="/philosophy" id="next-navigation">
           <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
           <p> Sit with our philosophy </p>
         </MouseDownLink>
 
-        <div id="reference-list">
-          <ol>
-            <li><MouseDownLink  href="https://blog.ethereum.org/2015/07/22/frontier-is-coming-what-to-expect-and-how-to-prepare">Frontier</MouseDownLink> was the first mainnet release of Ethereum, in 2015.</li>
-            <li><MouseDownLink  href="https://blog.ethereum.org/2016/02/29/homestead-release">Homestead</MouseDownLink> was the first major upgrade to the Ethereum network.</li>
-            <li>Starting with <MouseDownLink  href="https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement">Metropolis</MouseDownLink>, Ethereum network upgrades adopted a naming scheme of major cities in the history of civilization.</li>
-            <li><MouseDownLink  href="https://ceremony.ethereum.org/">The KZG ceremony</MouseDownLink> is an important milestone in the scalability of Ethereum. You, dear reader, can donate entropy to the ceremony until Mar 14, 2023.</li>
-            <li>Serenity was the original name for upgrades to Ethereum that included switching to Proof-of-Stake, which occurred in September 2022, but many upgrades once considered part of ‘Serenity’ such as sharding are still planned.</li>
-            <li>The dark forest is an allegory coined by Cixin Liu about the Fermi Paradox, but it is often applied to Ethereum, referring to the adversarial environment of smart contracts on a public, permissionless blockchain.</li>
-          </ol>
-        </div>
-
-        <MouseDownLink href="/philosophy" id="next-navigation">
-          <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> Sit with our philosophy </p>
-        </MouseDownLink>
 
       </div>
     </ContentBlock>
