@@ -7,7 +7,7 @@ const EthereumFoundation = () => {
     <ContentBlock>
       <div id="content-body" className="disable--selection">
         <h1>What is the EF?</h1>
-        <p>The Ethereum Foundation (EF) is a non-profit that supports the Ethereum ecosystem. We are part of a larger community of organizations and individuals that fund protocol development, <MouseDownLink id="grow--ecosystem--link" href="https://esp.ethereum.foundation/">grow the ecosystem</MouseDownLink>, and advocate for Ethereum.</p>
+        <p>The Ethereum Foundation (EF) is a non-profit that supports the Ethereum ecosystem. We are part of a larger community of organizations and individuals that fund protocol development, <MouseDownLink href="https://esp.ethereum.foundation/">grow the ecosystem</MouseDownLink>, and advocate for Ethereum.</p>
 
         <p>Behind that simple description, the EF is hard to categorize. We are not a tech company, or a “normal” non-profit. Just as Ethereum requires new concepts and technologies, it has spawned new kinds of organizations.</p>
 

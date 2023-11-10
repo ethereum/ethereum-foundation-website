@@ -230,7 +230,7 @@ main h4{
   margin-top: 10px;
 }
 
-main p {
+main p, blockquote {
   line-height: 1.8;
   font-size: 18px;
   opacity: 1;
@@ -240,7 +240,12 @@ main p {
   }
 }
 main img{
-  width:100%;
+  width: 120% !important;
+  margin: 0px -10%;
+  @media (max-width: 499px) {
+    width: 112% !important;
+    margin: 0px -6%;
+  }
 }
 
 main a {
@@ -447,13 +452,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   background-size: 20px 20px;
 }
 
-#grow--ecosystem--link {
-  color: white;
-}
-
-#grow--ecosystem--link:hover,
 .social-link:hover,
-.menu--content--text:hover,
 #secondary--links--container a:hover,
 #next-navigation:hover p {
   color: #8FFFEB;
