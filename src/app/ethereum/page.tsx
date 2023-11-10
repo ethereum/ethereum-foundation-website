@@ -27,7 +27,7 @@ const Ethereum = (props: any) => {
           </ol>
         </div>
         <MouseDownLink href="/ef" id="next-navigation">
-          <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
+          <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
           <p>What is the EF?</p>
         </MouseDownLink>
       </div>

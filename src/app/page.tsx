@@ -9,7 +9,7 @@ const HomePage = (props: any) => {
       <div id="content-body" className="disable--selection">
         <h1>Welcome to the Infinite Garden</h1>
         <MouseDownLink href="/infinitegarden" id="next-navigation">
-          <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
+          <object data="/assets/double-spirale.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
           <p> Explore </p>
         </MouseDownLink>
       </div>

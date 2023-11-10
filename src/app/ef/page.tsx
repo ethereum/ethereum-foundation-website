@@ -53,9 +53,9 @@ const EthereumFoundation = () => {
         </MouseDownLink>
         */}
 
-        <MouseDownLink href="/philosophy" id="next-navigation">
-          <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> Sit with our philosophy </p>
+        <MouseDownLink href="/ourstory" id="next-navigation">
+          <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
+          <p>Read our story</p>
         </MouseDownLink>
       </div>
     </ContentBlock>
