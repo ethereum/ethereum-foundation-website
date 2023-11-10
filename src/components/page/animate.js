@@ -443,6 +443,9 @@ export const Animate = (url) => {
         if (url.indexOf("ethereum") !== -1) {
             mesh.rotation.y = - Math.PI / 1.55;
         } 
+        if (url.indexOf("ourstory") !== -1) {
+            mesh.rotation.y = - Math.PI / 0.8;
+        } 
 
         scene.add(mesh);
     }
