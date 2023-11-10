@@ -239,6 +239,7 @@ main p, blockquote {
     font-size: 16px;
   }
 }
+
 main img{
   width: 120% !important;
   margin: 0px -10%;
@@ -427,7 +428,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 }
 
 #executive-board img {
-  width: 150px;
+  width: 150px !important;
   height: 150px;
   margin-right: 30px;
   @media (max-width: 499px) {
