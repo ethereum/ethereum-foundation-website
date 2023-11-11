@@ -20,8 +20,8 @@
 .content {
   width: 100vw;
   max-height: 100vh;
-  padding-left: max(20vw, 100px);
-  padding-right: max(20vw, 100px);
+/*  padding-left: max(20vw, 100px);
+  padding-right: max(20vw, 100px);*/
   padding-top: 15vh;
   padding-bottom: 15vh;
   display: flex;
@@ -34,7 +34,11 @@
   overflow-y: clip;
 
   @media (max-width: 500px) {
+    /*
     padding-left: max(5vw, 15px);
     padding-right: max(5vw, 15px);
+    */
+    padding-left: 0;
+    padding-right: 0;
   }
 }

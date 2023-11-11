@@ -25,7 +25,7 @@ const Philosophy = (props: any) => {
 
         <MouseDownLink href="/" id="next-navigation">
           <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> Back Home </p>
+          <span> Back Home </span>
         </MouseDownLink>
       </div>
     </ContentBlock>

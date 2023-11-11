@@ -22,7 +22,7 @@ const EthereumFoundation = () => {
             <img src="/assets/portrait-aya-miyaguchi.png" alt="Aya Miyaguchi, the Executive Director of Ethereum" height="150" width="150" />
             <div className="info">
               <h4 className="name">Aya Miyaguchi</h4>
-              <p className="title">Executive Director</p>
+              <span className="title">Executive Director</span>
               <MouseDownLink href="https://twitter.com/ayamiyagotchi" className="social-link">@AyaMiyagotchi</MouseDownLink>
             </div>
           </div>
@@ -31,7 +31,7 @@ const EthereumFoundation = () => {
             <img src="/assets/portrait-vitalik-buterin.png" alt="Vitalik Buterin, the Co-founder of Ethereum" height="150" width="150" />
             <div className="info">
               <h4 className="name">Vitalik Buterin</h4>
-              <p className="title">Co-founder of Ethereum</p>
+              <span className="title">Co-founder of Ethereum</span>
               <MouseDownLink href="https://twitter.com/VitalikButerin" className="social-link">@VitalikButerin</MouseDownLink>
             </div>
           </div>
@@ -40,7 +40,7 @@ const EthereumFoundation = () => {
             <img src="/assets/portrait-patrick-storchenegger.png" alt="Patrick Storchenegger, one of Ethereum's board members" height="150" width="150" />
             <div className="info">
               <h4 className="name">Patrick Storchenegger</h4>
-              <p className="title">Board Member</p>
+              <span className="title">Board Member</span>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ const EthereumFoundation = () => {
 
         <MouseDownLink href="/ourstory" id="next-navigation">
           <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p>Read our story</p>
+          <span>Read our story</span>
         </MouseDownLink>
       </div>
     </ContentBlock>

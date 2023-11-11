@@ -14,8 +14,8 @@ const Ethereum = (props: any) => {
 
         <p>Ethereum is not owned by anybody, and it is built and maintained by thousands of people, organizations, and users all over the world; it is a commons from which everyone can benefit. In the code, there are incentives for participants to help secure the system. Access to Ethereum is open to everyone; no permission is required. The network is powered by <strong>nodes<sup>4</sup></strong> that anyone can run. The global network of Ethereum nodes all together work to maintain a shared <strong>state <sup>5</sup></strong> - a foundation of trust upon which more complex human relationships can grow.</p>
         <MouseDownLink href="/ef" id="next-navigation">
-          <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> What is the EF? </p>
+          <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
+          <span>What is the EF?</span>
         </MouseDownLink>
         <div id="reference-list">
           <ol>
@@ -28,7 +28,7 @@ const Ethereum = (props: any) => {
         </div>
         <MouseDownLink href="/ef" id="next-navigation">
           <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p>What is the EF?</p>
+          <span>What is the EF?</span>
         </MouseDownLink>
       </div>
     </ContentBlock>

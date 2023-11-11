@@ -80,7 +80,7 @@ const EthereumFoundation = () => {
 
         <MouseDownLink href="/philosophy" id="next-navigation">
           <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> Sit with our philosophy </p>
+          <span> Sit with our philosophy </span>
         </MouseDownLink>
 
 

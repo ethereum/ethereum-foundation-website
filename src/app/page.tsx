@@ -10,7 +10,7 @@ const HomePage = (props: any) => {
         <h1>Welcome to the Infinite Garden</h1>
         <MouseDownLink href="/infinitegarden" id="next-navigation">
           <object data="/assets/double-spirale.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> Explore </p>
+          <span> Explore </span>
         </MouseDownLink>
       </div>
     </ContentBlock>

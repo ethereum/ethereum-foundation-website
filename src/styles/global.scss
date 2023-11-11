@@ -235,17 +235,13 @@ main p, blockquote {
   font-size: 18px;
   opacity: 1;
   margin: 35px 0;
-  @media (max-width: 499px) {
-    font-size: 16px;
+  padding:0 100px;
+  @media (max-width: 900px) {
+    padding:0 50px;
   }
-}
-
-main img{
-  width: 120% !important;
-  margin: 0px -10%;
-  @media (max-width: 499px) {
-    width: 112% !important;
-    margin: 0px -6%;
+  @media (max-width: 500px) {
+    font-size: 16px;
+    padding:0 20px;
   }
 }
 
@@ -261,7 +257,8 @@ main a:hover {
   border-top: 1px solid rgba(255, 255, 255, .3);
   margin-top: 60px;
   padding-top: 10px;
-  padding-left: 15px;
+  padding-left: 25px;
+  padding-right: 15px;
 }
 
 #reference-list li {
@@ -322,7 +319,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 }
 
 #content-body {
-  max-width: 700px;
+  max-width: 900px;
 }
 #home #content-body{
   color: #36364C;
@@ -449,6 +446,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 #executive-board .title {
   margin-top: 0px;
   margin-bottom: 10px;
+  display: block;
 }
 
 .social-link {
@@ -464,7 +462,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 
 .social-link:hover,
 #secondary--links--container a:hover,
-#next-navigation:hover p {
+#next-navigation:hover span {
   color: #8FFFEB;
 }
 #home #next-navigation{
@@ -474,14 +472,14 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   border:1px solid #8FFFEB;
   background-color:rgba(54,54,76, 0.5);
 }
-#home #next-navigation:hover p {
+#home #next-navigation:hover span {
   color: #8FFFEB;
 }
 
 #next-navigation:hover object {
   filter: invert(9%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
 }
-#home #next-navigation p{
+#home #next-navigation span{
   color: #36364C;
 }
 #home #next-navigation:hover object {

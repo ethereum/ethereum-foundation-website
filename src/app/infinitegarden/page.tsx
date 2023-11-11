@@ -18,7 +18,7 @@ const InfiniteGarden = (props: any) => {
 
         <MouseDownLink href="/ethereum" id="next-navigation">
           <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> What is Ethereum? </p>
+          <span> What is Ethereum? </span>
         </MouseDownLink>
       </div>
     </ContentBlock>
