@@ -72,7 +72,7 @@ const EthereumFoundation = () => {
                 />
 
         <p>Ethereum will continue to grow and evolve in the coming years, striving to meet the needs and challenges of an ever-larger ensemble of human relationships unified by consensus. The Ethereum Foundation will remain a cast of benevolent characters in the story in this ecosystem, acting as arborists of the infinite garden or rangers of the dark forest: Planting seeds. Mapping territory. Building with uncut wood. </p>
-        <p>Serenity is a process of becoming &ndash; a vision of the future that must be arrived at together, independently, as humans loosely coupled yet highly aligned. When Ethereum is ready to meet the needs of billions, the Ethereum Foundation's chapter in the story of Ethereum may be over, but the values it protected will persist in the soul of the protocol, and all those who enact it. </p>
+        <p>Serenity is a process of becoming &ndash; a vision of the future that must be arrived at together, independently, as humans loosely coupled yet highly aligned. There will come a time when the Foundation's chapter in the story of Ethereum will be over, but the values it protected will persist in the soul of the protocol, and all those who enact it. </p>
         <blockquote>
         <em>“To live till you die<br />
         is to live long enough.”</em> &ndash; Lao Tzu
