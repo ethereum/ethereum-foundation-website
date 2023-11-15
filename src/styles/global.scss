@@ -230,17 +230,19 @@ main h4{
   margin-top: 10px;
 }
 
-main p {
+main p, blockquote {
   line-height: 1.8;
   font-size: 18px;
   opacity: 1;
   margin: 35px 0;
-  @media (max-width: 499px) {
-    font-size: 16px;
+  padding:0 100px;
+  @media (max-width: 900px) {
+    padding:0 50px;
   }
-}
-main img{
-  width:100%;
+  @media (max-width: 500px) {
+    font-size: 16px;
+    padding:0 20px;
+  }
 }
 
 main a {
@@ -255,7 +257,8 @@ main a:hover {
   border-top: 1px solid rgba(255, 255, 255, .3);
   margin-top: 60px;
   padding-top: 10px;
-  padding-left: 15px;
+  padding-left: 25px;
+  padding-right: 15px;
 }
 
 #reference-list li {
@@ -274,15 +277,25 @@ main a:hover {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 60px;
   text-decoration: none;
   cursor: pointer;
+  border:1px solid #FFF;
+  border-radius: 10px;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+#next-navigation:hover{
+  border:1px solid #8FFFEB;
+  background-color:rgba(255,255,255,0.05)
+/*  -webkit-box-shadow: 0 0 5px 5px #8FFFEB;
+box-shadow: 0 0 5px 5px #8FFFEB;*/
 }
 
 #next-navigation object {
   width: 40px;
   height: 40px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 100px;
   margin: 0px auto 10px auto;
 }
@@ -292,7 +305,6 @@ main a:hover {
   font-size: 14px;
   letter-spacing: 0.5px;
   font-weight: 400;
-  text-transform: uppercase;
   margin: 0 auto;
   text-decoration: none;
   color: white;
@@ -307,7 +319,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 }
 
 #content-body {
-  max-width: 700px;
+  max-width: 900px;
 }
 #home #content-body{
   color: #36364C;
@@ -413,7 +425,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 }
 
 #executive-board img {
-  width: 150px;
+  width: 150px !important;
   height: 150px;
   margin-right: 30px;
   @media (max-width: 499px) {
@@ -434,6 +446,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 #executive-board .title {
   margin-top: 0px;
   margin-bottom: 10px;
+  display: block;
 }
 
 .social-link {
@@ -447,32 +460,30 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   background-size: 20px 20px;
 }
 
-#grow--ecosystem--link {
-  color: white;
-}
-
-#grow--ecosystem--link:hover,
 .social-link:hover,
-.menu--content--text:hover,
 #secondary--links--container a:hover,
-#next-navigation:hover p {
+#next-navigation:hover span {
   color: #8FFFEB;
 }
-#home #next-navigation:hover p {
-  color: #01826b;
+#home #next-navigation{
+  border:1px solid #36364c;
+}
+#home #next-navigation:hover{
+  border:1px solid #8FFFEB;
+  background-color:rgba(54,54,76, 0.5);
+}
+#home #next-navigation:hover span {
+  color: #8FFFEB;
 }
 
 #next-navigation:hover object {
   filter: invert(9%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
 }
-#home #next-navigation p{
+#home #next-navigation span{
   color: #36364C;
 }
-#home #next-navigation object {
-  filter: invert(70%) sepia(20%) saturate(482%) hue-rotate(200deg) brightness(101%);
-}
 #home #next-navigation:hover object {
-  filter: invert(50%) sepia(20%) saturate(482%) hue-rotate(106deg) brightness(101%) contrast(103%);
+  filter: invert(80%)  saturate(600%) hue-rotate(106deg) brightness(150%) contrast(100%);
 }
 
 // Utility to bound content to max 1680px (e.g. to prevent huge distances between header items on very wide screens)

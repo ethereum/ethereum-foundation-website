@@ -24,8 +24,8 @@ const Philosophy = (props: any) => {
         <p>A set of strong core values such as a commitment to decentralization, open access, and many more have guided the development of Ethereum since the beginning. These values have come to be the soul of Ethereum. We do not try to control or force the natural processes of the ecosystem, but we do try to help the community preserve its values, and in doing so help Ethereum to maintain its soul.</p>
 
         <MouseDownLink href="/" id="next-navigation">
-          <object data="/assets/bottom-arrow.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
-          <p> Back Home </p>
+          <object data="/assets/double-spirale-white.svg" width="50" height="50" aria-labelledby="Next"> Next</object>
+          <span> Back Home </span>
         </MouseDownLink>
       </div>
     </ContentBlock>

@@ -443,6 +443,9 @@ export const Animate = (url) => {
         if (url.indexOf("ethereum") !== -1) {
             mesh.rotation.y = - Math.PI / 1.55;
         } 
+        if (url.indexOf("ourstory") !== -1) {
+            mesh.rotation.y = - Math.PI / 0.8;
+        } 
 
         scene.add(mesh);
     }
@@ -624,22 +627,22 @@ export const Animate = (url) => {
                             texture = backgroundLoader.load("assets/EF-website-landscape-infinite-garden-03-12000px.jpg");
                         }
                     }
-                } else if (url === "/whatwedo") {
+                } else if (url === "/ourstory") {
                     if (webPFormatSupported) {
                         if (screen.width < 500) {
-                            texture = backgroundLoader.load("assets/EF-website-landscape-whatwedo-01-6000px.webp");
+                            texture = backgroundLoader.load("assets/EF-website-landscape-ourstory-01-6000px.webp");
                         } else if (screen.width >= 500 && screen.width <= 1700) {
-                            texture = backgroundLoader.load("assets/EF-website-landscape-whatwedo-01-8000px.webp");
+                            texture = backgroundLoader.load("assets/EF-website-landscape-ourstory-01-8000px.webp");
                         } else if (screen.width > 1700) {
-                            texture = backgroundLoader.load("assets/EF-website-landscape-whatwedo-01-12000px.webp");
+                            texture = backgroundLoader.load("assets/EF-website-landscape-ourstory-01-12000px.webp");
                         }
                     } else {
                         if (screen.width < 500) {
-                            texture = backgroundLoader.load("assets/EF-website-landscape-whatwedo-01-6000px.jpg");
+                            texture = backgroundLoader.load("assets/EF-website-landscape-ourstory-01-6000px.jpg");
                         } else if (screen.width >= 500 && screen.width <= 1700) {
-                            texture = backgroundLoader.load("assets/EF-website-landscape-whatwedo-01-8000px.jpg");
+                            texture = backgroundLoader.load("assets/EF-website-landscape-ourstory-01-8000px.jpg");
                         } else if (screen.width > 1700) {
-                            texture = backgroundLoader.load("assets/EF-website-landscape-whatwedo-01-12000px.jpg");
+                            texture = backgroundLoader.load("assets/EF-website-landscape-ourstory-01-12000px.jpg");
                         }
                     }
                 } else if (isHomePage()) {
