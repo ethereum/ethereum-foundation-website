@@ -17,9 +17,9 @@ const ContentBlock = (props: ContentBlockProps) => {
 
   return (
     <>
-      <div id="transition-container">
+      {/* <div id="transition-container">
         <p>One moment...</p>
-      </div>
+      </div> */}
 
       <main
         id={
