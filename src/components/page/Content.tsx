@@ -17,10 +17,9 @@ type ContentBlockProps = {
 }
 
 const ContentBlock = (props: ContentBlockProps) => {
-  const scrollDirection = useScrollDirectionContext()
   const [assetsLoaded, setAssetsLoaded] = React.useState(false)
   const animationRan = React.useRef(false)
-
+  const scrollDirection = useScrollDirectionContext()
   const pathname = usePathname()
 
   React.useEffect(() => {
