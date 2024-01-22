@@ -1,5 +1,5 @@
 import React from "react"
-import MouseDownLink from "../MouseDownLink"
+import Link from "../Link"
 import css from "./Footer.module.scss"
 import EFLogo from "assets/images/ef-logo.svg"
 import Chevron from "assets/icons/chevron.svg"
@@ -64,50 +64,50 @@ const Footer = () => {
                   <EFLogo className={css["logo"]} />
 
                   <div className={css["links"]}>
-                    <MouseDownLink
+                    <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://devcon.org/"
                       className={css["link"]}
                     >
                       Devcon
-                    </MouseDownLink>
+                    </Link>
                     <div className={css["separator"]}>:</div>
-                    <MouseDownLink
+                    <Link
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://blog.ethereum.org/"
                       className={css["link"]}
                     >
                       Blog
-                    </MouseDownLink>
+                    </Link>
                     <div className={css["break"]}>
-                      <MouseDownLink
+                      <Link
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://ethereum.org/en/terms-of-use/"
                         className={css["link"]}
                       >
                         Terms of Use
-                      </MouseDownLink>
+                      </Link>
                       <div className={css["separator"]}>:</div>
-                      <MouseDownLink
+                      <Link
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://ethereum.org/en/privacy-policy/"
                         className={css["link"]}
                       >
                         Privacy Policy
-                      </MouseDownLink>
+                      </Link>
                       <div className={css["separator"]}>:</div>
-                      <MouseDownLink
+                      <Link
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://ethereum.org/en/cookie-policy/"
                         className={css["link"]}
                       >
                         Cookie Policy
-                      </MouseDownLink>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -115,21 +115,21 @@ const Footer = () => {
                 <div className={css["contacts"]}>
                   <div>
                     <h4 className={css["title"]}>General Contact</h4>
-                    <MouseDownLink
+                    <Link
                       href="mailto:info@ethereum.org?subject=Hello"
                       className={css["email"]}
                     >
                       info@ethereum.org
-                    </MouseDownLink>
+                    </Link>
                   </div>
                   <div>
                     <h4 className={css["title"]}>Press Contact</h4>
-                    <MouseDownLink
+                    <Link
                       href="mailto:press@ethereum.org?subject=Hello"
                       className={css["email"]}
                     >
                       press@ethereum.org
-                    </MouseDownLink>
+                    </Link>
                   </div>
                 </div>
               </div>

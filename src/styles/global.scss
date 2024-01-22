@@ -315,19 +315,56 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
 
 #page-content {
   transform: translateY(100vh);
-  transition: transform $transition-curve $transition-time;
+}
+
+.animate-transitions {
+  #page-content {
+    transition: transform $transition-curve $transition-time;
+  }
 }
 
 #content-body {
   max-width: 900px;
 }
+
 #home #content-body{
+  position: relative;
   color: #36364C;
+  padding: 32px;
+
+  > * {
+    font-weight: bold;
+  }
+
+  h1 {
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+
+  #next-navigation {
+    border-color: rgb(118, 117, 117);
+    margin-top: 32px;
+  }
 }
+
+@keyframes welcomeToGardenFadeIn {
+  from  {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(2px);
+  }
+}
+
 
 .content-scrolled {
   // --fill-color is used downstream by components that need to change color when content is scrolled
   --fill-color: white;
+
+  #content-body > * {
+    animation: welcomeToGardenFadeIn 1s linear forwards;
+    animation-delay: 1s;
+  }
 
   #scroll-indicator {
     opacity: 0;
@@ -352,7 +389,9 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
+  pointer-events: none;
   background-color: white;
+  color: white;
   opacity: 1;
   transition: opacity 0.8s ease-in;
   z-index: 120;
