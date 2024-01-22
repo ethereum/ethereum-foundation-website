@@ -390,7 +390,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   min-width: 100vw;
   min-height: 100vh;
   pointer-events: none;
-  background-color: white;
+  // background-color: white;
   color: white;
   opacity: 1;
   transition: opacity 0.8s ease-in;
