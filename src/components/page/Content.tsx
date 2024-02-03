@@ -40,7 +40,9 @@ const ContentBlock = (props: ContentBlockProps) => {
   return (
     <>
       <div id="transition-container" className={assetsLoaded ? "removed" : ""}>
-        <p>One moment...</p>
+        <div className="boundary">
+          <p className="indicator">One Moment...</p>
+        </div>
       </div>
 
       <main
@@ -70,7 +72,7 @@ const ContentBlock = (props: ContentBlockProps) => {
         </div>
       </main>
 
-      <div id="canvas"></div>
+      {/* <div id="canvas"></div> */}
     </>
   )
 }

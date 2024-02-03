@@ -36,7 +36,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         } ${transitionAnimated ? "animate-transitions" : ""}`}
       >
         <ScrollDirectionContext.Provider value={scrollDirection}>
-          {children}
+          <>
+            {children}
+            <div id="canvas"></div>
+          </>
         </ScrollDirectionContext.Provider>
         <Nav />
         <Footer />

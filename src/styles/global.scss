@@ -399,6 +399,34 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   align-items: center;
   justify-content: center;
   display: flex;
+
+  .boundary {
+    height: 100%;
+    position: relative;
+
+    @media (max-width: $breakpoint-1) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  p {
+    @media (min-width: $breakpoint-1 + 1) {
+      position: absolute;
+      bottom: calc(45px + 12px);
+      display: flex;
+      background-size: 60%;
+      padding-top: 80px;
+    }
+  
+    font-size: 14px;
+    color: black;
+    padding-top: 120px;
+    background: url(assets/ETH-loading.svg) no-repeat 0% 50%;
+    background-position: center;
+  }
 }
 
 #transition-container.removed {
@@ -413,15 +441,9 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   pointer-events: none;
 }
 
-#transition-container p {
-  font-size: 15px;
-  color: black;
-  padding-top: 120px;
-  background: url(assets/ETH-loading.svg) no-repeat 0% 50%;
-}
 
 #transition-container p.hidden {
-  display: none;
+  // display: none;
 }
 
 #executive-board {
