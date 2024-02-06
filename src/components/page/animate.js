@@ -22,6 +22,8 @@ let mainObjectModel;
 let dotTexture;
 const textures = {};
 
+THREE.Cache.enabled = true;
+
 const getTextureIdentifierByUrl = (url) => {
   const backgroundImagePath = (() => {
     if (screen.width < 500) {
