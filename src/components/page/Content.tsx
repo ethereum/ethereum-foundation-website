@@ -6,7 +6,7 @@ import useScrollDirection, {
   useScrollDirectionContext,
 } from "../../utils/useScrollDirection"
 import { usePathname } from "next/navigation"
-import animate, { loadAssets, loadAndCacheTexture } from "./animate"
+import animate, { loadAssets } from "./animate"
 
 export const pageContentID = "page-content"
 

@@ -9,6 +9,21 @@ import useScrollDirection, {
 } from "../utils/useScrollDirection"
 import "../styles/global.scss"
 import "../styles/reset.scss"
+import { Libre_Franklin, Abhaya_Libre } from "next/font/google"
+
+const fontPrimary = Libre_Franklin({
+  subsets: ["latin"],
+  variable: "--font-primary",
+  display: "swap",
+  weight: ["200", "400"],
+})
+
+const fontSecondary = Abhaya_Libre({
+  subsets: ["latin"],
+  variable: "--font-secondary",
+  display: "swap",
+  weight: ["400"],
+})
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const [transitionAnimated, setTransitionAnimated] = React.useState(true)
@@ -28,7 +43,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const scrollDirection = useScrollDirection()
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${fontPrimary.variable} ${fontSecondary.variable}`}
+    >
       <body
         id={pathname === "/" ? "home" : ""}
         className={`${
