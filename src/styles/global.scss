@@ -275,7 +275,7 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   // --fill-color is used downstream by components that need to change color when content is scrolled
   --fill-color: white;
 
-  #content-body > * {
+  #content-body > a {
     animation: welcomeToGardenFadeIn 1s linear forwards;
     animation-delay: 1s;
   }

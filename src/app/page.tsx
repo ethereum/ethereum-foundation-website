@@ -23,7 +23,7 @@ const HomePage = () => {
             {" "}
             Next
           </object>
-          <span> Explore </span>
+          <span> Click to explore </span>
         </Link>
       </div>
     </ContentBlock>
