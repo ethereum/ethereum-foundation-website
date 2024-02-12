@@ -1,12 +1,13 @@
 "use client"
 import React from "react"
 import css from "./Content.module.scss"
-import useScrollDirection, {
+import {
   ScrollDirection,
   useScrollDirectionContext,
 } from "../../utils/useScrollDirection"
 import { usePathname } from "next/navigation"
 import animate, { loadAssets } from "./animate"
+import { useAnimationContext } from "./animation-context"
 
 export const pageContentID = "page-content"
 
@@ -20,12 +21,16 @@ const ContentBlock = (props: ContentBlockProps) => {
   const [assetsLoaded, setAssetsLoaded] = React.useState(false)
   const animationRan = React.useRef(false)
   const scrollDirection = useScrollDirectionContext()
+  const { setAnimationIsLoading } = useAnimationContext()
   const pathname = usePathname()
 
   React.useEffect(() => {
+    setAnimationIsLoading(true)
+
     // Load animation assets
     loadAssets(pathname).then(() => {
       setAssetsLoaded(true)
+      setAnimationIsLoading(false)
     })
   }, [pathname])
 
@@ -51,7 +56,6 @@ const ContentBlock = (props: ContentBlockProps) => {
             ? "page-content-container"
             : "page-content-container-visible"
         }
-        // className={scrollDirection === ScrollDirection.UP ? 'page-content-animate' : 'page-content-animate.visible'}
         className={css["container"]}
       >
         <div id="page-content-container-inner">
@@ -64,6 +68,10 @@ const ContentBlock = (props: ContentBlockProps) => {
                 className += ` homepage`
               }
 
+              if (assetsLoaded) {
+                className += ` ${css["loaded"]}`
+              }
+
               return className
             })()}
           >
@@ -71,8 +79,6 @@ const ContentBlock = (props: ContentBlockProps) => {
           </div>
         </div>
       </main>
-
-      {/* <div id="canvas"></div> */}
     </>
   )
 }

@@ -10,6 +10,7 @@ import useScrollDirection, {
 import "../styles/global.scss"
 import "../styles/reset.scss"
 import { Libre_Franklin, Abhaya_Libre } from "next/font/google"
+import { AnimationContext } from "components/page/animation-context"
 
 const fontPrimary = Libre_Franklin({
   subsets: ["latin"],
@@ -25,21 +26,9 @@ const fontSecondary = Abhaya_Libre({
   weight: ["400"],
 })
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const [transitionAnimated, setTransitionAnimated] = React.useState(true)
+const RootLayout = ({ children }: { children: React.ReactElement }) => {
+  const [animationIsLoading, setAnimationIsLoading] = React.useState(true)
   const pathname = usePathname()
-
-  // Disable text animation when navigating between pages (makes for a cleaner transition)
-  React.useEffect(() => {
-    setTimeout(() => {
-      setTransitionAnimated(true)
-    }, 10)
-
-    return () => {
-      setTransitionAnimated(false)
-    }
-  }, [pathname])
-
   const scrollDirection = useScrollDirection()
 
   return (
@@ -51,16 +40,20 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         id={pathname === "/" ? "home" : ""}
         className={`${
           scrollDirection === ScrollDirection.UP ? "" : "content-scrolled"
-        } ${transitionAnimated ? "animate-transitions" : ""}`}
+        }`}
       >
-        <ScrollDirectionContext.Provider value={scrollDirection}>
-          <>
-            {children}
-            <div id="canvas"></div>
-          </>
-        </ScrollDirectionContext.Provider>
-        <Nav />
-        <Footer />
+        <AnimationContext.Provider
+          value={{ animationIsLoading, setAnimationIsLoading }}
+        >
+          <ScrollDirectionContext.Provider value={scrollDirection}>
+            <>
+              {children}
+              <div id="canvas"></div>
+            </>
+          </ScrollDirectionContext.Provider>
+          <Nav />
+          <Footer />
+        </AnimationContext.Provider>
       </body>
     </html>
   )

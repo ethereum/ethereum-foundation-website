@@ -2,9 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    appDir: true
-  },
   webpack: (config, { webpack }) => {
     return {
       ...config,
