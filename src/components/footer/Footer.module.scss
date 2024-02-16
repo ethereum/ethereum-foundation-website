@@ -6,7 +6,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 3;
+  z-index: 100;
   width: 100vw;
   cursor: default;
   transition: height 0.2s ease-out, max-height 0.2s ease-out, min-height 0.2s ease-out;
@@ -307,6 +307,11 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   animation-timing-function: ease-in-out;
   z-index: 4;
   cursor: pointer;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
 
   .text {
     margin-top: 8px;
@@ -330,9 +335,5 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
         display: none;
       }
     }
-  }
-
-  .arrow {
-    // cursor: ew-resize;
   }
 }
