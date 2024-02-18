@@ -18,73 +18,75 @@ function testWebP() {
     : false
 }
 
-let mainObjectModel;
-let dotTexture;
-const textures = {};
+let mainObjectModel
+let dotTexture
+const textures = {}
 
-THREE.Cache.enabled = true;
+THREE.Cache.enabled = true
 
 const getTextureIdentifierByUrl = (url) => {
   const backgroundImagePath = (() => {
     if (screen.width < 500) {
-      return urlToTextureMap[url].small;
+      return urlToTextureMap[url].small
     } else if (screen.width >= 500 && screen.width <= 1700) {
-      return urlToTextureMap[url].medium;
+      return urlToTextureMap[url].medium
     } else {
-      return urlToTextureMap[url].large;
+      return urlToTextureMap[url].large
     }
-  })();
+  })()
 
-  const webpSupported = testWebP();
-  const fullIdentifier = webpSupported ? backgroundImagePath + '.webp' : backgroundImagePath + '.jpg';
+  const webpSupported = testWebP()
+  const fullIdentifier = webpSupported
+    ? backgroundImagePath + ".webp"
+    : backgroundImagePath + ".jpg"
 
-  return fullIdentifier;
+  return fullIdentifier
 }
 
 export const loadAndCacheTexture = async (url) => {
-  const fullIdentifier = getTextureIdentifierByUrl(url);
-  const texture = textures[fullIdentifier];
+  const fullIdentifier = getTextureIdentifierByUrl(url)
+  const texture = textures[fullIdentifier]
 
-  if (texture) return texture;
+  if (texture) return texture
 
   return new Promise((resolve) => {
-    backgroundLoader.load(`assets/${fullIdentifier}`, texture => {
-      textures[fullIdentifier] = texture;
-      resolve();
-    });
+    backgroundLoader.load(`assets/${fullIdentifier}`, (texture) => {
+      textures[fullIdentifier] = texture
+      resolve()
+    })
   })
 }
 
 export const urlToTextureMap = {
-  '/': {
-    small: 'EF-website-landscape-landing-03-6000px',
-    medium: 'EF-website-landscape-landing-03-8000px',
-    large: 'EF-website-landscape-landing-03-12000px'
+  "/": {
+    small: "EF-website-landscape-landing-03-6000px",
+    medium: "EF-website-landscape-landing-03-8000px",
+    large: "EF-website-landscape-landing-03-12000px",
   },
-  '/philosophy': {
-    small: 'EF-website-landscape-philosophy-03-6000px',
-    medium: 'EF-website-landscape-philosophy-03-8000px',
-    large: 'EF-website-landscape-philosophy-03-12000px'
+  "/philosophy": {
+    small: "EF-website-landscape-philosophy-03-6000px",
+    medium: "EF-website-landscape-philosophy-03-8000px",
+    large: "EF-website-landscape-philosophy-03-12000px",
   },
-  '/ef': {
-    small: 'EF-website-landscape-ef-03-6000px',
-    medium: 'EF-website-landscape-ef-03-8000px',
-    large: 'EF-website-landscape-ef-03-12000px'
+  "/ef": {
+    small: "EF-website-landscape-ef-03-6000px",
+    medium: "EF-website-landscape-ef-03-8000px",
+    large: "EF-website-landscape-ef-03-12000px",
   },
-  '/ethereum': {
-    small: 'EF-website-landscape-ethereum-03-6000px',
-    medium: 'EF-website-landscape-ethereum-03-8000px',
-    large: 'EF-website-landscape-ethereum-03-12000px'
+  "/ethereum": {
+    small: "EF-website-landscape-ethereum-03-6000px",
+    medium: "EF-website-landscape-ethereum-03-8000px",
+    large: "EF-website-landscape-ethereum-03-12000px",
   },
-  '/infinitegarden': {
-    small: 'EF-website-landscape-infinite-garden-03-6000px',
-    medium: 'EF-website-landscape-infinite-garden-03-8000px',
-    large: 'EF-website-landscape-infinite-garden-03-12000px'
+  "/infinitegarden": {
+    small: "EF-website-landscape-infinite-garden-03-6000px",
+    medium: "EF-website-landscape-infinite-garden-03-8000px",
+    large: "EF-website-landscape-infinite-garden-03-12000px",
   },
-  '/ourstory': {
-    small: 'EF-website-landscape-ourstory-01-6000px',
-    medium: 'EF-website-landscape-ourstory-01-8000px',
-    large: 'EF-website-landscape-ourstory-01-12000px'
+  "/ourstory": {
+    small: "EF-website-landscape-ourstory-01-6000px",
+    medium: "EF-website-landscape-ourstory-01-8000px",
+    large: "EF-website-landscape-ourstory-01-12000px",
   },
 }
 
@@ -95,42 +97,46 @@ export function loadAssets(url) {
     // Dot texture
     new Promise((resolve) => {
       if (dotTexture) {
-        resolve();
+        resolve()
       } else {
         dotLoader.load("assets/dotTexture.png", (texture) => {
-          dotTexture = texture;
+          dotTexture = texture
           resolve()
         })
       }
     }),
     new Promise((resolve) => {
       if (mainObjectModel) {
-        resolve();
+        resolve()
       } else {
         glbLoader.load("assets/ether.glb", function (object) {
-          mainObjectModel = object;
+          mainObjectModel = object
           resolve()
         })
       }
-    })
+    }),
   ]
 
   return Promise.all(assetLoaders)
 }
 
-const isClient = typeof window !== 'undefined';
+const isClient = typeof window !== "undefined"
 
 // The renderer and loaded textures should be global for performance and cache related reasons
-let renderer = isClient ? new THREE.WebGLRenderer({
-  antialias: true,
-  preserveDrawingBuffer: true,
-  alpha: true,
-}) : null;
+let renderer = isClient
+  ? new THREE.WebGLRenderer({
+      antialias: true,
+      preserveDrawingBuffer: true,
+      alpha: true,
+    })
+  : null
 
-const loadingManager = isClient ? new THREE.LoadingManager() : null;
-const backgroundLoader = isClient ? new THREE.TextureLoader(loadingManager) : null;
-const dotLoader = isClient ? new THREE.TextureLoader(loadingManager) : null;
-const glbLoader = isClient ? new GLTFLoader.GLTFLoader() : null;
+const loadingManager = isClient ? new THREE.LoadingManager() : null
+const backgroundLoader = isClient
+  ? new THREE.TextureLoader(loadingManager)
+  : null
+const dotLoader = isClient ? new THREE.TextureLoader(loadingManager) : null
+const glbLoader = isClient ? new GLTFLoader.GLTFLoader() : null
 
 export const Animate = (url) => {
   const generalSceneControls = {
@@ -239,7 +245,7 @@ export const Animate = (url) => {
   }
 
   function load3DModelObject() {
-    const object = mainObjectModel;
+    const object = mainObjectModel
 
     /**
      * Depending on the object loaded, change the size of the particles by modifying the variable below
@@ -269,10 +275,7 @@ export const Animate = (url) => {
       scaleArray[i] = 0.01
     }
 
-    geometry.setAttribute(
-      "aScale",
-      new THREE.BufferAttribute(scaleArray, 1)
-    )
+    geometry.setAttribute("aScale", new THREE.BufferAttribute(scaleArray, 1))
 
     finalPointsShaderMaterial = new THREE.ShaderMaterial({
       vertexShader: firefliesVertexShaderETHLogo,
@@ -309,11 +312,11 @@ export const Animate = (url) => {
 
       newPositions.push(
         Math.ceil(Math.random() * 150 * distance) *
-        Math.sin(theta) *
-        Math.cos(phi), // Sets particles within the sphere
+          Math.sin(theta) *
+          Math.cos(phi), // Sets particles within the sphere
         Math.ceil(Math.random() * 150 * distance) *
-        Math.sin(theta) *
-        Math.sin(phi), // Sets particles within the sphere
+          Math.sin(theta) *
+          Math.sin(phi), // Sets particles within the sphere
         Math.ceil(Math.random() * 150 * distance) * Math.cos(theta) // Sets particles within the sphere
       )
     }
@@ -342,7 +345,7 @@ export const Animate = (url) => {
    * cubic shape, which did not look good when the particles expanded.
    **/
   function loadDegenerateParticleMesh() {
-    const object = mainObjectModel;
+    const object = mainObjectModel
 
     // This variable affects the size of the particles
     animatedModelParticleSize = 0.9
@@ -355,7 +358,6 @@ export const Animate = (url) => {
       depthWrite: false,
       toneMapped: false,
     })
-
 
     const mesh = object.scene.children[0]
     const geometry = mesh.geometry
@@ -374,11 +376,11 @@ export const Animate = (url) => {
       newPositions.push(
         // Spherical Rendering Algorithm
         Math.ceil(Math.random() * 50 * distance) *
-        Math.sin(theta) *
-        Math.cos(phi), // Sets particles within the sphere
+          Math.sin(theta) *
+          Math.cos(phi), // Sets particles within the sphere
         Math.ceil(Math.random() * 50 * distance) *
-        Math.sin(theta) *
-        Math.sin(phi), // Sets particles within the sphere
+          Math.sin(theta) *
+          Math.sin(phi), // Sets particles within the sphere
         Math.ceil(Math.random() * 50 * distance) * Math.cos(theta) // Sets particles within the sphere
       )
 
@@ -408,10 +410,7 @@ export const Animate = (url) => {
       new THREE.BufferAttribute(scaleArray, 3)
     )
 
-    let points = new THREE.Points(
-      bufferGeometry,
-      animatedModelPointsMaterial
-    )
+    let points = new THREE.Points(bufferGeometry, animatedModelPointsMaterial)
     points.scale.x = points.scale.y = points.scale.z = 2
     finalPoints = points
     points.rotation.x = Math.PI / 2
@@ -538,11 +537,11 @@ export const Animate = (url) => {
     for (let i = 0; i < positionAttribute?.length; i++) {
       newPositions.push(
         Math.ceil(Math.random() * distance * 20) *
-        (Math.round(Math.random()) ? 1 : -1),
+          (Math.round(Math.random()) ? 1 : -1),
         Math.ceil(Math.random() * distance * 30) *
-        (Math.round(Math.random()) ? 1 : -1),
+          (Math.round(Math.random()) ? 1 : -1),
         Math.ceil(Math.random() * distance * 50) *
-        (Math.round(Math.random()) ? 1 : -1)
+          (Math.round(Math.random()) ? 1 : -1)
       )
     }
 
@@ -662,7 +661,7 @@ export const Animate = (url) => {
     backgroundPlaneMesh.scale.x =
       backgroundPlaneMesh.scale.y =
       backgroundPlaneMesh.scale.z =
-      1
+        1
     backgroundPlaneMesh.position.x = 0
     backgroundPlaneMesh.position.y = 0
     backgroundPlaneMesh.position.z = 0
@@ -726,13 +725,10 @@ export const Animate = (url) => {
     }
 
     animate()
-    // TODO: Calling the animation loop twice because that's how it was (probably accidentally done) before - this effectively "doubles" the animation speed
-    // Should just speed up the animation the proper way, when there's time to figure out how
-    animate()
 
     return () => {
-      disposeRendererElement();
-      controls.dispose();
+      disposeRendererElement()
+      controls.dispose()
     }
   }
 
@@ -762,7 +758,7 @@ export const Animate = (url) => {
     // initializes the color buffer to the current clear color value
     renderer.clear()
     container.appendChild(renderer.domElement)
-    renderer.domElement.style['pointer-events'] = 'none';
+    renderer.domElement.style["pointer-events"] = "none"
 
     // Return disposal function to clear out the canvas
     return () => {
@@ -807,9 +803,9 @@ export const Animate = (url) => {
     controls.minPolarAngle = Math.PI * 0.5
     controls.autoRotate = true
     if (screen.width >= 500) {
-      controls.autoRotateSpeed = 0.03
-    } else {
       controls.autoRotateSpeed = 0.06
+    } else {
+      controls.autoRotateSpeed = 0.12
     }
     controls.update()
   }
@@ -886,18 +882,18 @@ export const Animate = (url) => {
 
     if (contentVisible) {
       // if (backgroundPlaneMesh.material.opacity < 0.7) {
-      //     backgroundPlaneMesh.material.opacity += 0.004;
+      //   backgroundPlaneMesh.material.opacity += 0.004
       // } else {
-      //     meshOpacityAnimationEnded = true;
-      // };
+      //   meshOpacityAnimationEnded = true
+      // }
 
       if (homePage) {
         let morphValue = finalPoints.morphTargetInfluences[0]
 
         if (morphValue < 0.0001) {
-          deltaY = 0.0000012
+          deltaY = 0.0000024
         } else {
-          deltaY = 0.0000012
+          deltaY = 0.0000024
         }
 
         if (morphValue <= finalStopPoint) {
@@ -920,9 +916,9 @@ export const Animate = (url) => {
         const currentMorphTargetInfluence = finalPoints.morphTargetInfluences[0]
 
         if (currentMorphTargetInfluence > 0.001) {
-          deltaY = -0.0000025
-        } else {
           deltaY = -0.000005
+        } else {
+          deltaY = -0.00001
         }
 
         let morphTarget = finalPoints.morphTargetInfluences[0]
