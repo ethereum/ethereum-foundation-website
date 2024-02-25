@@ -1,4 +1,4 @@
-@import 'styles/variables.scss';
+@import "styles/variables.scss";
 
 $footer-height: 43px; // Can make this dynamic but probably overkill
 
@@ -9,7 +9,8 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   z-index: 3;
   width: 100vw;
   cursor: default;
-  transition: height 0.2s ease-out, max-height 0.2s ease-out, min-height 0.2s ease-out;
+  transition: height 0.2s ease-out, max-height 0.2s ease-out,
+    min-height 0.2s ease-out;
   color: white;
   font-size: $small;
   font-family: $font-primary;
@@ -24,7 +25,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
       .trigger {
         .chevron {
           //transform: rotateX(180deg) translate3d(0, 0, 0) !important;
-          transform:rotateX(180deg) translate3d(0, 0, 0);
+          transform: rotateX(180deg) translate3d(0, 0, 0);
         }
       }
 
@@ -39,7 +40,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
     transition: all 0.2s ease-out;
     background: $footer-color;
     opacity: 0.5;
-    height:45px;
+    height: 45px;
 
     .trigger {
       z-index: 2;
@@ -93,8 +94,6 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
       }
 
       .scroll-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
         overflow: auto;
         flex-grow: 1;
         padding: 0px 32px;
@@ -110,6 +109,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
 
       .direction-wrapper {
         display: flex;
+        justify-content: space-between;
         flex-basis: 50%;
         flex-shrink: 0;
 
@@ -163,7 +163,6 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
             flex-basis: 100%;
             flex-shrink: 0;
 
-
             @media (max-width: $breakpoint-1) {
               display: contents;
             }
@@ -195,7 +194,6 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
 
       .contacts {
         display: flex;
-        flex-grow: 1;
         flex-shrink: 0;
         flex-direction: column;
         font-size: $medium;
@@ -205,9 +203,8 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
         @media (max-width: $breakpoint-1) {
           align-items: center;
 
-          &:after,
           &:before {
-            content: '';
+            content: "";
             margin-bottom: 18px;
             max-width: 400px;
             margin-top: 18px;
@@ -218,7 +215,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
           }
         }
 
-        >* {
+        > * {
           margin-bottom: 16px;
 
           @media (max-width: $breakpoint-1) {
@@ -238,38 +235,9 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
           .email {
             display: block;
             margin-top: 4px;
-            color: #FFFFFF;
+            color: #ffffff;
             font-size: $small;
           }
-        }
-      }
-
-      .canary {
-        flex-grow: 1;
-        margin-bottom: 12px;
-        display: flex;
-        font-family: $font-primary;
-        padding-right: 30px;
-        line-height: 1.6em;
-
-        @media (max-width: $breakpoint-1) {
-          align-items: center;
-          flex-direction: column;
-          padding-right: 0px;
-          flex-grow: 0;
-          text-align: center;
-
-          p {
-            max-width: 400px;
-          }
-
-          .icon {
-            margin-bottom: 12px;
-          }
-        }
-
-        .icon {
-          margin-right: 12px;
         }
       }
     }
@@ -282,7 +250,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   }
 
   50% {
-    transform: translateX(-50%) translateY(3px)
+    transform: translateX(-50%) translateY(3px);
   }
 
   100% {
@@ -290,7 +258,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
   }
 }
 
-// Scroll indicator 
+// Scroll indicator
 .scroll-indicator {
   position: absolute;
   bottom: 80px;
@@ -317,7 +285,7 @@ $footer-height: 43px; // Can make this dynamic but probably overkill
     line-height: 18px;
     text-align: center;
     text-transform: uppercase;
-    color: #36364C;
+    color: #36364c;
 
     .hover-text {
       @media (hover: hover) {
