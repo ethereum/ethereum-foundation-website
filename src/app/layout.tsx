@@ -47,7 +47,7 @@ const RootLayout = ({ children }: { children: React.ReactElement }) => {
         >
           <ScrollDirectionContext.Provider value={scrollDirection}>
             <>
-              {children}
+              <React.Fragment key={pathname}>{children}</React.Fragment>
               <div id="canvas"></div>
             </>
           </ScrollDirectionContext.Provider>
