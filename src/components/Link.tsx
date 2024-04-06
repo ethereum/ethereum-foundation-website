@@ -20,7 +20,6 @@ const Link = React.forwardRef(
     // Detects fully qualified domain name
     const isExternal = href.match(/^([a-z0-9]*:|.{0})\/\/.*$/)
 
-    // External links have no use of next Link component
     if (isExternal) {
       return (
         <NextLink
