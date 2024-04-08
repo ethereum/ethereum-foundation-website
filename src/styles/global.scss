@@ -1,91 +1,5 @@
 @import 'styles/variables.scss';
 
-/** Imported Fonts **/
-
-/* libre-franklin-200 - latin */
-@font-face {
-  font-family: 'Libre Franklin';
-  font-style: normal;
-  font-weight: 200;
-  src: url('fonts/libre-franklin-v13-latin-200.eot');
-  /* IE9 Compat Modes */
-  src: local(''),
-    url('fonts/libre-franklin-v13-latin-200.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/libre-franklin-v13-latin-200.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/libre-franklin-v13-latin-200.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/libre-franklin-v13-latin-200.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/libre-franklin-v13-latin-200.svg#LibreFranklin') format('svg');
-  /* Legacy iOS */
-}
-
-/* libre-franklin-regular - latin */
-@font-face {
-  font-family: 'Libre Franklin';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/libre-franklin-v13-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local(''),
-    url('fonts/libre-franklin-v13-latin-regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/libre-franklin-v13-latin-regular.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/libre-franklin-v13-latin-regular.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/libre-franklin-v13-latin-regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/libre-franklin-v13-latin-regular.svg#LibreFranklin') format('svg');
-  /* Legacy iOS */
-}
-
-/* libre-franklin-600 - latin */
-@font-face {
-  font-family: 'Libre Franklin';
-  font-style: normal;
-  font-weight: 600;
-  src: url('fonts/libre-franklin-v13-latin-600.eot');
-  /* IE9 Compat Modes */
-  src: local(''),
-    url('fonts/libre-franklin-v13-latin-600.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/libre-franklin-v13-latin-600.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/libre-franklin-v13-latin-600.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/libre-franklin-v13-latin-600.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/libre-franklin-v13-latin-600.svg#LibreFranklin') format('svg');
-  /* Legacy iOS */
-}
-
-/* abhaya-libre-regular - latin */
-@font-face {
-  font-family: 'Abhaya Libre';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/abhaya-libre-v13-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local(''),
-    url('fonts/abhaya-libre-v13-latin-regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/abhaya-libre-v13-latin-regular.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/abhaya-libre-v13-latin-regular.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/abhaya-libre-v13-latin-regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/abhaya-libre-v13-latin-regular.svg#AbhayaLibre') format('svg');
-  /* Legacy iOS */
-}
-
-// :root {
-//   --doc-height: 100%;
-// }
-
 /* Higher Level CSS */
 html {
   font-size: $medium-fixed;
@@ -288,8 +202,6 @@ main a:hover {
 #next-navigation:hover{
   border:1px solid #8FFFEB;
   background-color:rgba(255,255,255,0.05)
-/*  -webkit-box-shadow: 0 0 5px 5px #8FFFEB;
-box-shadow: 0 0 5px 5px #8FFFEB;*/
 }
 
 #next-navigation object {
@@ -310,24 +222,53 @@ box-shadow: 0 0 5px 5px #8FFFEB;*/
   color: white;
 }
 
-$transition-time: 2s;
-$transition-curve: cubic-bezier(.37, 0, .01, 1);
 
 #page-content {
   transform: translateY(100vh);
-  transition: transform $transition-curve $transition-time;
 }
 
 #content-body {
   max-width: 900px;
 }
+
 #home #content-body{
+  position: relative;
   color: #36364C;
+  padding: 32px;
+
+  > * {
+    font-weight: bold;
+  }
+
+  h1 {
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+
+  #next-navigation {
+    border-color: rgb(118, 117, 117);
+    margin-top: 32px;
+  }
 }
+
+@keyframes welcomeToGardenFadeIn {
+  from  {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(2px);
+  }
+}
+
 
 .content-scrolled {
   // --fill-color is used downstream by components that need to change color when content is scrolled
   --fill-color: white;
+
+  #content-body > a {
+    animation: welcomeToGardenFadeIn 1s linear forwards;
+    animation-delay: 1s;
+  }
 
   #scroll-indicator {
     opacity: 0;
@@ -352,14 +293,26 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
+  pointer-events: none;
   background-color: white;
+  color: white;
   opacity: 1;
   transition: opacity 0.8s ease-in;
-  z-index: 120;
-  pointer-events: auto;
+  z-index: 5;
+  // pointer-events: auto;
   align-items: center;
   justify-content: center;
   display: flex;
+
+  p {
+    display: flex;
+    background-size: 40%;
+    padding-top: 120px;
+    font-size: 14px;
+    color: black;
+    background: url(assets/ETH-loading.svg) no-repeat 0% 50%;
+    background-position: center;
+  }
 }
 
 #transition-container.removed {
@@ -372,17 +325,6 @@ $transition-curve: cubic-bezier(.37, 0, .01, 1);
   opacity: 1;
   transition: opacity 0.8s ease-in;
   pointer-events: none;
-}
-
-#transition-container p {
-  font-size: 15px;
-  color: black;
-  padding-top: 120px;
-  background: url(assets/ETH-loading.svg) no-repeat 0% 50%;
-}
-
-#transition-container p.hidden {
-  display: none;
 }
 
 #executive-board {

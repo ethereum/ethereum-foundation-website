@@ -17,11 +17,12 @@
   }
 }
 
+$transition-time: 2s;
+$transition-curve: cubic-bezier(.37, 0, .01, 1);
+
 .content {
   width: 100vw;
   max-height: 100vh;
-/*  padding-left: max(20vw, 100px);
-  padding-right: max(20vw, 100px);*/
   padding-top: 15vh;
   padding-bottom: 180px;
   display: flex;
@@ -32,12 +33,14 @@
   scrollbar-width: none;
   align-items: center;
   overflow-y: clip;
+  transition: transform $transition-curve $transition-time;
+
+  &:not(.loaded) {
+    transition: none !important;
+    transform: translateY(100vh) !important;
+  }
 
   @media (max-width: 500px) {
-    /*
-    padding-left: max(5vw, 15px);
-    padding-right: max(5vw, 15px);
-    */
     padding-left: 0;
     padding-right: 0;
   }

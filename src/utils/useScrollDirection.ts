@@ -1,9 +1,18 @@
 import React from "react"
 import { pageContentID } from "components/page/Content"
+import { usePathname } from "next/navigation"
 
 export enum ScrollDirection {
   UP = "up",
   DOWN = "down",
+}
+
+export const ScrollDirectionContext = React.createContext<ScrollDirection>(
+  ScrollDirection.UP
+)
+
+export function useScrollDirectionContext() {
+  return React.useContext(ScrollDirectionContext)
 }
 
 let xDown = 0
@@ -23,9 +32,14 @@ function getTouches(event: any) {
 
 // TODO: Should probably rethink this and make it more "reacty" - e.g. use a gesture library and apply the listeners to the components that need them directly rather than using window listeners
 const useScrollDirection = () => {
+  const pathname = usePathname()
   const [scrollDirection, setScrollDirection] = React.useState<ScrollDirection>(
     ScrollDirection.UP
   )
+
+  React.useEffect(() => {
+    setScrollDirection(ScrollDirection.UP)
+  }, [pathname])
 
   React.useEffect(() => {
     const scrollIndicator = document.getElementById("scroll-indicator")
