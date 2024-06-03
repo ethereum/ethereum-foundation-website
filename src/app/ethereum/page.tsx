@@ -82,7 +82,7 @@ const Ethereum = (props: any) => {
             <li>
               Cryptography is the science of &apos;secret writing&apos; – using
               mathematical techniques, cryptography enables the encoding and
-              decoding information between parties, so that communication can
+              decoding of information between parties, so that communication can
               take place over public channels securely.{" "}
             </li>
             <li>
