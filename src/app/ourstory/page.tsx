@@ -60,10 +60,14 @@ const EthereumFoundation = (props: any) => {
           the agreement between all, for all, over a set of rules (of protocol)
           that apply equally to all. From consensus emerged the possibility of a
           shared common state (of memory). This state was enshrined in the
-          living Merkle Tree, a special data structure designed to grow and
-          change according to the will of all humans able to read and write upon
-          its leaves. No individual or organization would ever 'own' Ethereum,
-          but all could contribute to its growth and build upon it.
+          living{" "}
+          <Link href="https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/">
+            Merkle Tree
+          </Link>
+          , a special data structure designed to grow and change according to
+          the will of all humans able to read and write upon its leaves. No
+          individual or organization would ever 'own' Ethereum, but all could
+          contribute to its growth and build upon it.
         </p>
         <p>
           Those that first came to this new paradigm saw enormous potential,
@@ -77,11 +81,11 @@ const EthereumFoundation = (props: any) => {
         </p>
         <p>
           Many of the early contributors to Ethereum joined the Foundation in
-          order to lay the groundwork for newcomers enticed by the same spark of
+          order to lay groundwork for newcomers enticed by the same spark of
           curiosity and hope of what could be built here with time. They did so
           with the conviction that, under the right conditions and with some
-          nurturing, Ethereum would grow and flourish into a tool robust enough
-          to be used and relied upon by all humans, far into the future.{" "}
+          nurturing, Ethereum would grow into a living structure robust enough
+          to be trusted by all humans, far into the future.{" "}
         </p>
 
         <Image
@@ -113,15 +117,15 @@ const EthereumFoundation = (props: any) => {
           What had started as a small homestead was fast becoming a{" "}
           <em>metropolis</em>. To those with experience in other worlds, the
           rapid growth during this era was exciting. The beautiful, sometimes
-          strange creations that emerged from the prodigious growth of the
-          Ethereum commons became more complex and fit with each passing day.{" "}
+          strange creations that emerged from the prodigious innovation in the
+          Ethereum commons became more complex by the day.{" "}
         </p>
         <p>
           As a steward of protocol development, the Foundation faced enormous
-          pressure to scale in order to meet the needs of more and more users,
-          as was the custom for companies selling products. But an organization
-          is a very different thing from a protocol, and the Foundation needed a
-          different way.
+          pressure to help Ethereum scale in order to meet the needs of more and
+          more users, as was the custom for companies selling products or
+          services. But an organization is a very different thing from a
+          protocol, and the Foundation needed a different way.
         </p>
         <p>
           For Ethereum, the protocol, to thrive and scale well, it must not be
@@ -175,10 +179,10 @@ const EthereumFoundation = (props: any) => {
           would have to change significantly to meet the needs of all users,
           present and future. But the Merkle tree was (and still is) rooted in
           consensus. Changes to the core Ethereum protocol would have to come
-          from the general will of the whole ecosystem. The Ethereum Foundation
-          might have had the ability to push through the necessary changes
-          quickly, to leverage power and dictate a new plan for the growth of
-          Ethereum. But this was not the way of subtraction.{" "}
+          from the general will of the whole ecosystem, not from any individual
+          or faction's will to power. However anyone encouraged change, it would
+          have to be one that worked within the pluralist constraints of public
+          consensus.
         </p>
         <p>
           Instead, the Ethereum Foundation took on a role of coordination. A{" "}
@@ -196,7 +200,7 @@ const EthereumFoundation = (props: any) => {
           </Link>{" "}
           was built to give all newcomers the ability to contribute to the
           long-term vision of Ethereum in time.{" "}
-          <Link href="https://blog.ethereum.org/2019/08/20/announcing-the-devcon-scholars-program">
+          <Link href="https://nxbn.ethereum.foundation/scholars">
             Scholarships
           </Link>{" "}
           were given to make the largest and most vibrant Ethereum gatherings a
@@ -251,19 +255,17 @@ const EthereumFoundation = (props: any) => {
         <p>
           Ethereum will continue to grow and evolve in the coming years,
           striving to meet the needs and challenges of an ever-larger ensemble
-          of human relationships unified by consensus. The Ethereum Foundation
-          will remain a cast of benevolent characters in the story in this
-          ecosystem, acting as arborists of the infinite garden or rangers of
-          the dark forest: Planting seeds. Mapping territory. Building with
-          uncut wood.{" "}
+          of human relationships. The Ethereum Foundation will remain a cast of
+          benevolent characters in the story in this ecosystem, acting as
+          arborists of the infinite garden or rangers of the dark forest:
+          Planting seeds. Mapping territory. Building with uncut wood.{" "}
         </p>
         <p>
           Serenity is a process of becoming &ndash; a vision of the future that
-          must be arrived at together, independently, as humans loosely coupled
-          yet highly aligned. There will come a time when the Foundation's
-          chapter in the story of Ethereum will be over, but the values it
-          protected will persist in the soul of the protocol, and all those who
-          enact it.{" "}
+          must be arrived at together as humans loosely coupled yet highly
+          aligned. There will come a time when the Foundation's chapter in the
+          story of Ethereum will be over, but the values it protected will
+          persist in the soul of the protocol, and all those who enact it.{" "}
         </p>
         <blockquote>
           <em>
