@@ -150,7 +150,7 @@ const Nav = () => {
 
               <Link
                 prefetch={false}
-                href="/report-2022-04.pdf"
+                href="/report-2024.pdf"
                 id="report--2024--link"
                 target="_blank"
                 rel="noopener noreferrer"
