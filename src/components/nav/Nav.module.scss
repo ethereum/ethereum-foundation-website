@@ -1,4 +1,4 @@
-@import 'styles/variables.scss';
+@import "styles/variables.scss";
 
 .header {
   position: absolute;
@@ -8,7 +8,7 @@
     transition: all 0.3s ease;
   }
 
-  >* {
+  > * {
     position: relative;
   }
 }
@@ -38,6 +38,9 @@
     .menu-content-text,
     .menu-content-dot,
     .secondary--links--container {
+      display: flex;
+      flex-direction: column;
+
       pointer-events: auto;
       $time: 0.075s;
 
@@ -154,7 +157,11 @@
 .mask {
   height: 100%;
   width: 100%;
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 88%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
   display: flex;
   overflow: auto;
 }
@@ -187,7 +194,7 @@
   opacity: 0;
   transition: opacity 0.3s ease-in;
 
-  >* {
+  > * {
     display: flex;
     justify-content: center;
     flex-basis: 0px;
@@ -202,11 +209,6 @@
       justify-content: flex-start;
     }
   }
-
-  span {
-    flex-basis: 40px;
-    flex-grow: 0;
-  }
 }
 
 .main--menu--secondary--link {
@@ -215,9 +217,14 @@
   font-weight: 400;
   font-size: 20px;
   opacity: 1;
-  text-decoration: none  !important;
+  text-decoration: none !important;
   cursor: pointer;
   transition: opacity 0.3s ease-in;
+
+  &--old {
+    font-size: 18px;
+    color: rgb(255, 255, 255, 0.6);
+  }
 }
 
 @keyframes fade-in {
@@ -285,5 +292,5 @@
 
 .menu-content-text:hover,
 .secondary--links--container a:hover {
-  color: #8FFFEB;
+  color: #8fffeb;
 }

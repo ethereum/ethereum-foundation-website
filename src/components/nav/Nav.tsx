@@ -142,17 +142,39 @@ const Nav = () => {
                 {" "}
                 EF Blog{" "}
               </Link>
-              <span className={css["main--menu--secondary--link"]}> : </span>
+
+              <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+
               <Link
                 prefetch={false}
-                href="/report-2022-04.pdf"
-                id="report--link"
+                href="/report-2024.pdf"
+                id="report--2024--link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={css["main--menu--secondary--link"]}
               >
                 {" "}
-                EF Report{" "}
+                EF Report 2024{" "}
+              </Link>
+
+              <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+
+              <Link
+                prefetch={false}
+                href="/report-2022-04.pdf"
+                id="report--2022--link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${css["main--menu--secondary--link"]} ${css["main--menu--secondary--link--old"]}`}
+              >
+                {" "}
+                EF Report 2022{" "}
               </Link>
             </div>
           </div>
