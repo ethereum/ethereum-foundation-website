@@ -1,5 +1,4 @@
 .silviculture-container {
-  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,10 +67,6 @@
 }
 
 @media (max-width: 768px) {
-  .silviculture-container {
-    padding: 1rem;
-  }
-  
   .member-avatar {
     width: 40px;
     height: 40px;
