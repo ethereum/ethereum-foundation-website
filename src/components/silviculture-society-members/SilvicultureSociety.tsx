@@ -170,7 +170,7 @@ const SilvicultureSociety = () => {
               <Link href={profile.link} className={css["member-link"]}>
                 <div
                   className={css["member-avatar"]}
-                  style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+                  // style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
                 >
                   <Image
                     src={profile.avatar}
