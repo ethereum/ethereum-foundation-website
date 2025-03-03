@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
 import css from "./SilvicultureSociety.module.scss"
 import Link from "next/link"
 import Image from "next/image"
@@ -10,134 +10,189 @@ interface SilvicultureMember {
   link: string
 }
 
-// TODO: Sample members data, replace with actual members
+// Members data with actual names
 const members: SilvicultureMember[] = [
   {
     id: 1,
-    name: "Member 1",
-    // TODO: Add avatar images
-    // avatar: "/assets/silviculture-society/members/avatar-1.jpg",
+    name: "Yu Guo",
     avatar: "/assets/ourstory-1.jpg",
     link: "/member-1",
   },
   {
     id: 2,
-    name: "Member 2",
+    name: "kassandra.eth",
     avatar: "/assets/ourstory-2.jpg",
     link: "/member-2",
   },
   {
     id: 3,
-    name: "Member 3",
+    name: "Millie",
     avatar: "/assets/ourstory-3.jpg",
     link: "/member-3",
   },
   {
     id: 4,
-    name: "Member 4",
+    name: "alpeh_v",
     avatar: "/assets/ourstory-4.jpg",
     link: "/member-4",
   },
   {
     id: 5,
-    name: "Member 5",
+    name: "Julian Zawistowski",
     avatar: "/assets/ourstory-1.jpg",
     link: "/member-5",
   },
   {
     id: 6,
-    name: "Member 6",
+    name: "Tim Clancy",
     avatar: "/assets/ourstory-2.jpg",
     link: "/member-6",
   },
   {
     id: 7,
-    name: "Member 7",
+    name: "Matthew Green",
     avatar: "/assets/ourstory-3.jpg",
     link: "/member-7",
   },
   {
     id: 8,
-    name: "Member 8",
+    name: "Fatalmeh",
     avatar: "/assets/ourstory-4.jpg",
     link: "/member-8",
   },
   {
     id: 9,
-    name: "Member 9",
+    name: "ml_sudo",
     avatar: "/assets/ourstory-1.jpg",
     link: "/member-9",
   },
   {
     id: 10,
-    name: "Member 10",
+    name: "dystopiabreaker",
     avatar: "/assets/ourstory-2.jpg",
     link: "/member-10",
   },
   {
     id: 11,
-    name: "Member 11",
+    name: "vectorized",
     avatar: "/assets/ourstory-3.jpg",
     link: "/member-11",
   },
   {
     id: 12,
-    name: "Member 12",
+    name: "Dr. Paul Dylan-Ennis",
     avatar: "/assets/ourstory-4.jpg",
     link: "/member-12",
   },
   {
     id: 13,
-    name: "Member 13",
+    name: "pcaversaccio",
     avatar: "/assets/ourstory-1.jpg",
     link: "/member-13",
   },
   {
     id: 14,
-    name: "Member 14",
+    name: "LefterisJP",
     avatar: "/assets/ourstory-2.jpg",
     link: "/member-14",
   },
   {
     id: 15,
-    name: "Member 15",
+    name: "mashbean",
     avatar: "/assets/ourstory-3.jpg",
     link: "/member-15",
   },
 ]
 
 const SilvicultureSociety = () => {
-  return (
-    <div className={css["silviculture-container"]}>
-      <ul className={css["silviculture-society"]}>
-        {members.map((member, index) => {
-          const rotation = (360 / members.length) * index - 90
-          const style = {
-            "--rotation": `${rotation}deg`,
-            "--counter-rotation": `${rotation * -1}deg`,
-          } as React.CSSProperties
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState({ width: 0, height: 0 })
 
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect()
+        setSize({
+          width: rect.width,
+          height: rect.width, // Use width for both to maintain aspect ratio
+        })
+      }
+    }
+
+    // Initial size calculation
+    updateSize()
+    
+    // Update on resize
+    window.addEventListener('resize', updateSize)
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
+
+  // Calculate positions on a perfect circle
+  const calculatePositions = () => {
+    if (size.width === 0) return []
+    
+    // Use fixed radius based on container size
+    const circleRadius = (size.width / 2) * 0.8 // 80% of half width
+    const centerX = size.width / 2
+    const centerY = size.width / 2 // Use width to maintain perfect circle
+    
+    return members.map((member, index) => {
+      // Start from the top (- Math.PI/2) and go clockwise
+      const angle = (index / members.length) * 2 * Math.PI - Math.PI/2
+      const x = centerX + circleRadius * Math.cos(angle)
+      const y = centerY + circleRadius * Math.sin(angle)
+      
+      return {
+        ...member,
+        position: { x, y }
+      }
+    })
+  }
+
+  const profilesWithPositions = calculatePositions()
+  const showNames = size.width >= 480
+
+  return (
+    <div 
+      ref={containerRef}
+      className={css["silviculture-container"]}
+    >
+      <div className={css["silviculture-society-circle"]}>
+        {profilesWithPositions.map((profile) => {
+          // Fixed size for avatars
+          const imageSize = 50 // Use consistent size
+          
           return (
-            <li key={member.id} className={css["member-item"]} style={style}>
-              <div className={css["member-content"]}>
-                <Link href={member.link} className={css["member-link"]}>
-                  <div className={css["member-avatar"]}>
-                    <Image
-                      src={member.avatar}
-                      alt={`${member.name}'s avatar`}
-                      width={100}
-                      height={100}
-                      className={css["avatar-image"]}
-                      style={{ aspectRatio: "1/1" }}
-                    />
-                  </div>
-                  <span className={css["member-name"]}>{member.name}</span>
-                </Link>
-              </div>
-            </li>
+            <div
+              key={profile.id}
+              className={css["member-position"]}
+              style={{
+                top: profile.position.y,
+                left: profile.position.x,
+              }}
+            >
+              <Link href={profile.link} className={css["member-link"]}>
+                <div 
+                  className={css["member-avatar"]}
+                  style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+                >
+                  <Image
+                    src={profile.avatar}
+                    alt={`${profile.name}'s avatar`}
+                    width={100}
+                    height={100}
+                    className={css["avatar-image"]}
+                    style={{ aspectRatio: "1/1" }}
+                  />
+                </div>
+                {showNames && (
+                  <span className={css["member-name"]}>{profile.name}</span>
+                )}
+              </Link>
+            </div>
           )
         })}
-      </ul>
+      </div>
     </div>
   )
 }
