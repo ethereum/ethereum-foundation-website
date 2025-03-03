@@ -83,6 +83,12 @@ export const urlToTextureMap = {
     medium: "EF-website-landscape-infinite-garden-03-8000px",
     large: "EF-website-landscape-infinite-garden-03-12000px",
   },
+  "/silviculture-society": {
+    // TODO: Add silviculture society images
+    small: "EF-website-landscape-infinite-garden-03-6000px",
+    medium: "EF-website-landscape-infinite-garden-03-8000px",
+    large: "EF-website-landscape-infinite-garden-03-12000px",
+  },
   "/ourstory": {
     small: "EF-website-landscape-ourstory-01-6000px",
     medium: "EF-website-landscape-ourstory-01-8000px",

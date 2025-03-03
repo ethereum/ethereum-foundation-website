@@ -99,6 +99,18 @@ const Nav = () => {
                 {" "}
                 What is the EF?{" "}
               </Link>
+              <span className={`${css["seven"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/silviculture-society"
+                className={`${css["eight"]} ${css["menu-content-text"]}`}
+              >
+                {" "}
+                EF Silviculture Society{" "}
+              </Link>
               <span className={`${css["nine"]} ${css["menu-content-dot"]}`}>
                 {" "}
                 •{" "}
