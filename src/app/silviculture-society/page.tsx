@@ -1,13 +1,14 @@
 "use client"
+
 import React, { useEffect } from "react"
 import Link from "../../components/Link"
 import ContentBlock from "../../components/page/Content"
 import { loadAndCacheTexture } from "components/page/animate"
 import SilvicultureSocietyMembers from "../../components/silviculture-society-members/SilvicultureSociety"
 
-const SilvicultureSociety = (props: any) => {
+const SilvicultureSociety = () => {
   useEffect(() => {
-    loadAndCacheTexture("/")
+    loadAndCacheTexture("/ef")
   }, [])
 
   return (

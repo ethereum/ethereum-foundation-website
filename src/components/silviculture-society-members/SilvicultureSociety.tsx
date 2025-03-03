@@ -3,7 +3,6 @@ import css from "./SilvicultureSociety.module.scss"
 import Link from "next/link"
 import Image from "next/image"
 
-// Define member type for better type safety
 interface SilvicultureMember {
   id: number
   name: string
@@ -11,7 +10,7 @@ interface SilvicultureMember {
   link: string
 }
 
-// Sample members data (you can move this to a separate data file later)
+// TODO: Sample members data, replace with actual members
 const members: SilvicultureMember[] = [
   {
     id: 1,
@@ -106,7 +105,6 @@ const members: SilvicultureMember[] = [
     link: "/member-15",
   },
 ]
-// ... existing imports and interfaces ...
 
 const SilvicultureSociety = () => {
   return (
