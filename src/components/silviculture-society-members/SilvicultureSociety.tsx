@@ -26,9 +26,9 @@ const members: SilvicultureMember[] = [
   },
   {
     id: 3,
-    name: "Millie",
-    avatar: "/assets/silviculture/llamaonthebrink.jpg",
-    link: "https://twitter.com/llamaonthebrink",
+    name: "Julian Zawistowski",
+    avatar: "/assets/silviculture/julianzawist.jpg",
+    link: "https://twitter.com/julianzawist",
   },
   {
     id: 4,
@@ -38,9 +38,9 @@ const members: SilvicultureMember[] = [
   },
   {
     id: 5,
-    name: "Julian Zawistowski",
-    avatar: "/assets/silviculture/julianzawist.jpg",
-    link: "https://twitter.com/julianzawist",
+    name: "Millie",
+    avatar: "/assets/silviculture/llamaonthebrink.jpg",
+    link: "https://twitter.com/llamaonthebrink",
   },
   {
     id: 6,
@@ -80,9 +80,9 @@ const members: SilvicultureMember[] = [
   },
   {
     id: 12,
-    name: "Dr. Paul Dylan-Ennis",
-    avatar: "/assets/silviculture/post_polar_.jpg",
-    link: "https://twitter.com/post_polar_",
+    name: "LefterisJP",
+    avatar: "/assets/silviculture/LefterisJP.jpg",
+    link: "https://twitter.com/LefterisJP",
   },
   {
     id: 13,
@@ -92,9 +92,9 @@ const members: SilvicultureMember[] = [
   },
   {
     id: 14,
-    name: "LefterisJP",
-    avatar: "/assets/silviculture/LefterisJP.jpg",
-    link: "https://twitter.com/LefterisJP",
+    name: "Dr. Paul Dylan-Ennis",
+    avatar: "/assets/silviculture/post_polar_.jpg",
+    link: "https://twitter.com/post_polar_",
   },
   {
     id: 15,
