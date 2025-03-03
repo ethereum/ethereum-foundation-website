@@ -37,7 +37,7 @@
   margin: -50px;
   transform: 
     rotate(var(--rotation))
-    translateX(var(--translate-distance, 400px));
+    translateX(var(--translate-distance, 350px));
 
   @media (max-width: 1024px) {
     --translate-distance: 300px;
