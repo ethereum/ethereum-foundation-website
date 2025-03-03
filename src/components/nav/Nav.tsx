@@ -99,18 +99,6 @@ const Nav = () => {
                 {" "}
                 What is the EF?{" "}
               </Link>
-              <span className={`${css["seven"]} ${css["menu-content-dot"]}`}>
-                {" "}
-                •{" "}
-              </span>
-              <Link
-                onClick={() => setOpen(false)}
-                href="/silviculture-society"
-                className={`${css["eight"]} ${css["menu-content-text"]}`}
-              >
-                {" "}
-                EF Silviculture Society{" "}
-              </Link>
               <span className={`${css["nine"]} ${css["menu-content-dot"]}`}>
                 {" "}
                 •{" "}
@@ -134,6 +122,18 @@ const Nav = () => {
               >
                 {" "}
                 EF Philosophy{" "}
+              </Link>
+              <span className={`${css["ten"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/silviculture-society"
+                className={`${css["eleven"]} ${css["menu-content-text"]}`}
+              >
+                {" "}
+                EF Silviculture Society{" "}
               </Link>
               <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
                 {" "}

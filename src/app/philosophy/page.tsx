@@ -70,7 +70,7 @@ const Philosophy = (props: any) => {
           values, and in doing so help Ethereum to maintain its soul.
         </p>
 
-        <Link href="/" id="next-navigation">
+        <Link href="/silviculture-society" id="next-navigation">
           <object
             data="/assets/double-spirale-white.svg"
             width="50"
@@ -80,7 +80,7 @@ const Philosophy = (props: any) => {
             {" "}
             Next
           </object>
-          <span> Back Home </span>
+          <span> Silviculture Society </span>
         </Link>
       </div>
     </ContentBlock>
