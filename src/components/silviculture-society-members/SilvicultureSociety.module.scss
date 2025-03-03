@@ -20,9 +20,8 @@
     min-height: auto;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 2rem;
-    padding: 1rem;
     min-width: 100%;
     max-width: 100%;
   }
