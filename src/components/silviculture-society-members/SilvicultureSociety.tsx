@@ -121,47 +121,43 @@ const SilvicultureSociety = () => {
 
     // Initial size calculation
     updateSize()
-    
+
     // Update on resize
-    window.addEventListener('resize', updateSize)
-    return () => window.removeEventListener('resize', updateSize)
+    window.addEventListener("resize", updateSize)
+    return () => window.removeEventListener("resize", updateSize)
   }, [])
 
   // Calculate positions on a perfect circle
   const calculatePositions = () => {
     if (size.width === 0) return []
-    
+
     // Use fixed radius based on container size
     const circleRadius = (size.width / 2) * 0.8 // 80% of half width
     const centerX = size.width / 2
     const centerY = size.width / 2 // Use width to maintain perfect circle
-    
+
     return members.map((member, index) => {
       // Start from the top (- Math.PI/2) and go clockwise
-      const angle = (index / members.length) * 2 * Math.PI - Math.PI/2
+      const angle = (index / members.length) * 2 * Math.PI - Math.PI / 2
       const x = centerX + circleRadius * Math.cos(angle)
       const y = centerY + circleRadius * Math.sin(angle)
-      
+
       return {
         ...member,
-        position: { x, y }
+        position: { x, y },
       }
     })
   }
 
   const profilesWithPositions = calculatePositions()
-  const showNames = size.width >= 480
 
   return (
-    <div 
-      ref={containerRef}
-      className={css["silviculture-container"]}
-    >
-      <div className={css["silviculture-society-circle"]}>
+    <div className={css["silviculture-container"]}>
+      <div ref={containerRef} className={css["silviculture-society-circle"]}>
         {profilesWithPositions.map((profile) => {
           // Fixed size for avatars
           const imageSize = 50 // Use consistent size
-          
+
           return (
             <div
               key={profile.id}
@@ -172,7 +168,7 @@ const SilvicultureSociety = () => {
               }}
             >
               <Link href={profile.link} className={css["member-link"]}>
-                <div 
+                <div
                   className={css["member-avatar"]}
                   style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
                 >
@@ -185,9 +181,7 @@ const SilvicultureSociety = () => {
                     style={{ aspectRatio: "1/1" }}
                   />
                 </div>
-                {showNames && (
-                  <span className={css["member-name"]}>{profile.name}</span>
-                )}
+                <span className={css["member-name"]}>{profile.name}</span>
               </Link>
             </div>
           )
