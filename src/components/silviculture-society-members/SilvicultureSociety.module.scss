@@ -1,5 +1,5 @@
 .silviculture-container {
-  padding: 1rem;
+  // padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,6 +75,7 @@
   
   .member-name {
     font-size: 12px;
+    position: relative;
   }
 }
 

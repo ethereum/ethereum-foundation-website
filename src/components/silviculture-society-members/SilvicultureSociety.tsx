@@ -8,6 +8,7 @@ interface SilvicultureMember {
   name: string
   avatar: string
   link: string
+  style?: React.CSSProperties
 }
 
 // Members data with actual names
@@ -35,6 +36,9 @@ const members: SilvicultureMember[] = [
     name: "Dr. Paul Dylan-Ennis",
     avatar: "/assets/silviculture/post_polar_.jpg",
     link: "https://twitter.com/post_polar_",
+    style: {
+      right: "15px",
+    },
   },
   {
     id: 15,
@@ -53,18 +57,27 @@ const members: SilvicultureMember[] = [
     name: "kassandra.eth",
     avatar: "/assets/silviculture/kassandraETH.jpg",
     link: "https://twitter.com/kassandraETH",
+    style: {
+      left: "10px",
+    },
   },
   {
     id: 3,
-    name: "Julian Zawistowski",
+    name: "J. Zawistowski",
     avatar: "/assets/silviculture/julianzawist.jpg",
     link: "https://twitter.com/julianzawist",
+    style: {
+      left: "10px",
+    },
   },
   {
     id: 4,
     name: "alpeh_v",
     avatar: "/assets/silviculture/alpeh_v.jpg",
     link: "https://twitter.com/alpeh_v",
+    style: {
+      right: "10px",
+    },
   },
   {
     id: 5,
@@ -77,12 +90,18 @@ const members: SilvicultureMember[] = [
     name: "Tim Clancy",
     avatar: "/assets/silviculture/_Enoch.jpg",
     link: "https://twitter.com/_Enoch",
+    style: {
+      right: "10px",
+    },
   },
   {
     id: 7,
     name: "Matthew Green",
     avatar: "/assets/silviculture/matthew_d_green.jpg",
     link: "https://twitter.com/matthew_d_green",
+    style: {
+      left: "10px",
+    },
   },
   {
     id: 8,
@@ -101,6 +120,9 @@ const members: SilvicultureMember[] = [
     name: "dystopiabreaker",
     avatar: "/assets/silviculture/dystopiabreaker.jpg",
     link: "https://twitter.com/dystopiabreaker",
+    style: {
+      left: "15px",
+    },
   },
 ]
 
@@ -181,7 +203,9 @@ const SilvicultureSociety = () => {
                     style={{ aspectRatio: "1/1" }}
                   />
                 </div>
-                <span className={css["member-name"]}>{profile.name}</span>
+                <span className={css["member-name"]} style={profile.style}>
+                  {profile.name}
+                </span>
               </Link>
             </div>
           )
