@@ -133,7 +133,7 @@ const Nav = () => {
                 className={`${css["eleven"]} ${css["menu-content-text"]}`}
               >
                 {" "}
-                EF Silviculture Society{" "}
+                Silviculture Society{" "}
               </Link>
               <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
                 {" "}
