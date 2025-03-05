@@ -13,6 +13,36 @@ interface SilvicultureMember {
 // Members data with actual names
 const members: SilvicultureMember[] = [
   {
+    id: 11,
+    name: "vectorized",
+    avatar: "/assets/silviculture/optimizoor.jpg",
+    link: "https://twitter.com/optimizoor",
+  },
+  {
+    id: 12,
+    name: "LefterisJP",
+    avatar: "/assets/silviculture/LefterisJP.jpg",
+    link: "https://twitter.com/LefterisJP",
+  },
+  {
+    id: 13,
+    name: "pcaversaccio",
+    avatar: "/assets/silviculture/pcaversaccio.jpg",
+    link: "https://twitter.com/pcaversaccio",
+  },
+  {
+    id: 14,
+    name: "Dr. Paul Dylan-Ennis",
+    avatar: "/assets/silviculture/post_polar_.jpg",
+    link: "https://twitter.com/post_polar_",
+  },
+  {
+    id: 15,
+    name: "mashbean",
+    avatar: "/assets/silviculture/mashbean.jpg",
+    link: "https://twitter.com/mashbean",
+  },
+  {
     id: 1,
     name: "Yu Guo",
     avatar: "/assets/silviculture/1dot2.jpg",
@@ -71,36 +101,6 @@ const members: SilvicultureMember[] = [
     name: "dystopiabreaker",
     avatar: "/assets/silviculture/dystopiabreaker.jpg",
     link: "https://twitter.com/dystopiabreaker",
-  },
-  {
-    id: 11,
-    name: "vectorized",
-    avatar: "/assets/silviculture/optimizoor.jpg",
-    link: "https://twitter.com/optimizoor",
-  },
-  {
-    id: 12,
-    name: "LefterisJP",
-    avatar: "/assets/silviculture/LefterisJP.jpg",
-    link: "https://twitter.com/LefterisJP",
-  },
-  {
-    id: 13,
-    name: "pcaversaccio",
-    avatar: "/assets/silviculture/pcaversaccio.jpg",
-    link: "https://twitter.com/pcaversaccio",
-  },
-  {
-    id: 14,
-    name: "Dr. Paul Dylan-Ennis",
-    avatar: "/assets/silviculture/post_polar_.jpg",
-    link: "https://twitter.com/post_polar_",
-  },
-  {
-    id: 15,
-    name: "mashbean",
-    avatar: "/assets/silviculture/mashbean.jpg",
-    link: "https://twitter.com/mashbean",
   },
 ]
 
