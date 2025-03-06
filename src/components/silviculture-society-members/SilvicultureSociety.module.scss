@@ -1,23 +1,39 @@
-.silviculture-container {
-  // padding: 1rem;
+.silviculture-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.silviculture-container-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
   padding: 35px 0;
+}
+
+.silviculture-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  
+  @media (max-width: 580px) {
+    display: none;
+  }
+}
+
+.silviculture-container-list {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  
+  @media (max-width: 580px) {
+    display: flex;
+  }
 }
 
 .members-heading {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import css from "./SilvicultureSociety.module.scss"
 import Link from "next/link"
 import Image from "next/image"
@@ -129,7 +129,6 @@ const members: SilvicultureMember[] = [
 const SilvicultureSociety = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [size, setSize] = useState({ width: 0, height: 0 })
-  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const updateSize = () => {
@@ -139,9 +138,6 @@ const SilvicultureSociety = () => {
           width: rect.width,
           height: rect.width, // Use width for both to maintain aspect ratio
         })
-        
-        // Check if screen is mobile size
-        setIsMobile(window.innerWidth <= 768)
       }
     }
 
@@ -177,46 +173,14 @@ const SilvicultureSociety = () => {
 
   const profilesWithPositions = calculatePositions()
 
-  // Render as a list on mobile
-  if (isMobile) {
-    return (
-      <div className={css["silviculture-container-list"]}>
-        <h3 className={css["members-heading"]}>Members</h3>
-        <div className={css["silviculture-society-list"]}>
-          {members.map((profile) => (
-            <div key={profile.id} className={css["member-item"]}>
-              <Link href={profile.link} className={css["member-link-list"]}>
-                <div className={css["member-avatar"]}>
-                  <Image
-                    src={profile.avatar}
-                    alt={`${profile.name}'s avatar`}
-                    width={100}
-                    height={100}
-                    className={css["avatar-image"]}
-                    style={{ aspectRatio: "1/1" }}
-                  />
-                </div>
-                <span className={css["member-name-list"]} style={profile.style}>
-                  {profile.name}
-                </span>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  // Render as a circle on desktop
   return (
-    <div className={css["silviculture-container"]}>
+    <div className={css["silviculture-wrapper"]}>
       <h3 className={css["members-heading"]}>Members</h3>
-      <div ref={containerRef} className={css["silviculture-society-circle"]}>
-        {profilesWithPositions.map((profile) => {
-          // Fixed size for avatars
-          const imageSize = 50 // Use consistent size
-
-          return (
+      
+      {/* Circle view (desktop) */}
+      <div className={css["silviculture-container"]}>
+        <div ref={containerRef} className={css["silviculture-society-circle"]}>
+          {profilesWithPositions.map((profile) => (
             <div
               key={profile.id}
               className={css["member-position"]}
@@ -241,8 +205,33 @@ const SilvicultureSociety = () => {
                 </span>
               </Link>
             </div>
-          )
-        })}
+          ))}
+        </div>
+      </div>
+      
+      {/* List view (mobile) */}
+      <div className={css["silviculture-container-list"]}>
+        <div className={css["silviculture-society-list"]}>
+          {members.map((profile) => (
+            <div key={profile.id} className={css["member-item"]}>
+              <Link href={profile.link} className={css["member-link-list"]}>
+                <div className={css["member-avatar"]}>
+                  <Image
+                    src={profile.avatar}
+                    alt={`${profile.name}'s avatar`}
+                    width={100}
+                    height={100}
+                    className={css["avatar-image"]}
+                    style={{ aspectRatio: "1/1" }}
+                  />
+                </div>
+                <span className={css["member-name-list"]} style={profile.style}>
+                  {profile.name}
+                </span>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
