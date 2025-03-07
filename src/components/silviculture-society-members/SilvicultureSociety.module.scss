@@ -1,0 +1,184 @@
+.silviculture-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 35px 0;
+}
+
+.silviculture-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  
+  @media (max-width: 580px) {
+    display: none;
+  }
+}
+
+.silviculture-container-list {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  
+  @media (max-width: 580px) {
+    display: flex;
+  }
+}
+
+.members-heading {
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+
+.silviculture-society-circle {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.silviculture-society-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 100px;
+}
+
+.member-position {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.member-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.member-link-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.member-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #fff;
+  padding: 2px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
+  
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.avatar-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.member-name {
+  display: block;
+  margin-top: 3px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  color: white;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.member-name-list {
+  display: block;
+  margin-left: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: white;
+  font-size: 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .member-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .member-name {
+    font-size: 12px;
+    position: relative;
+  }
+  
+  .member-name-list {
+    font-size: 16px;
+  }
+  
+  .silviculture-society-list {
+    padding: 0 50px;
+  }
+  
+  .member-link-list .member-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .members-heading {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-avatar {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .member-link-list .member-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .silviculture-society-list {
+    padding: 0 20px;
+  }
+  
+  .members-heading {
+    margin-bottom: 20px;
+  }
+}
