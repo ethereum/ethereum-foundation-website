@@ -36,7 +36,7 @@ const SilvicultureSociety = () => {
         <div className="silviculture-society-members">
           <SilvicultureSocietyMembers />
         </div>
-        <Link href="/" id="next-navigation">
+        <Link href="/conflict-policy" id="next-navigation">
           <object
             data="/assets/double-spirale-white.svg"
             width="50"
@@ -46,7 +46,7 @@ const SilvicultureSociety = () => {
             {" "}
             Next
           </object>
-          <span> Back Home </span>
+          <span> Conflict of Interest Policy </span>
         </Link>
       </div>
     </ContentBlock>
