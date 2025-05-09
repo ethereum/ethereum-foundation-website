@@ -141,7 +141,7 @@ const Nav = () => {
               </span>
               <Link
                 onClick={() => setOpen(false)}
-                href="/conflictofinterest"
+                href="/conflict-policy"
                 className={`${css["twelve"]} ${css["menu-content-text"]}`}
               >
                 {" "}
