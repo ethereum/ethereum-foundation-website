@@ -115,6 +115,20 @@ main h1 {
   }
 }
 
+h2 {
+  font-family: $font-secondary;
+  font-size: 32px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
+  color: white;
+  margin-bottom: 20px;
+
+  @media (max-width: 499px) {
+    font-size: 28px;
+  }
+}
+
 h3 {
   font-weight: 400;
   font-family: $font-secondary;
@@ -144,7 +158,7 @@ main h4{
   margin-top: 10px;
 }
 
-main p, blockquote {
+main p, ul, blockquote {
   line-height: 1.8;
   font-size: 18px;
   opacity: 1;

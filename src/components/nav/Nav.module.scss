@@ -99,9 +99,14 @@
         animation-delay: $time * 11;
       }
 
-      &.secondary--links--container {
+      &.twelve {
         animation: fade-in 0.3s ease-in forwards;
         animation-delay: $time * 12;
+      }
+
+      &.secondary--links--container {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 13;
       }
     }
   }
