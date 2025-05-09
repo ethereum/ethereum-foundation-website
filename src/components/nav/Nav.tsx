@@ -139,6 +139,18 @@ const Nav = () => {
                 {" "}
                 •{" "}
               </span>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/conflictofinterest"
+                className={`${css["twelve"]} ${css["menu-content-text"]}`}
+              >
+                {" "}
+                Conflict of Interest Policy{" "}
+              </Link>
+              <span className={`${css["twelve"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
             </div>
             <div
               className={css["secondary--links--container"]}
