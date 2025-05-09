@@ -42,7 +42,7 @@ const ConflictOfInterestPolicyPage = () => {
         }
       `}</style>
       <div id="content-body" className="disable--selection">
-        <h1>Ethereum Foundation Conflict of Interest Policy</h1>
+        <h1>Ethereum Foundation <br />Conflict of Interest Policy</h1>
         <p>
           In order to serve the Ethereum ecosystem the EF must have high
           integrity. This means that our actions must be sincerely motivated by
