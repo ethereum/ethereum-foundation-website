@@ -68,13 +68,13 @@ const EthereumFoundation = (props: any) => {
           <div className="member">
             <img
               src="/assets/portrait-vitalik-buterin.png"
-              alt="Vitalik Buterin, the Co-founder of Ethereum"
+              alt="Vitalik Buterin, the Inventor of Ethereum"
               height="150"
               width="150"
             />
             <div className="info">
               <h4 className="name">Vitalik Buterin</h4>
-              <span className="title">Co-founder of Ethereum</span>
+              <span className="title">Inventor of Ethereum</span>
               <Link
                 href="https://twitter.com/VitalikButerin"
                 className="social-link"
