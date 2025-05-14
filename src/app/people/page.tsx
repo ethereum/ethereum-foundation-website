@@ -9,18 +9,29 @@ const EthereumFoundation = (props: any) => {
     <ContentBlock>
       <div id="content-body" className="disable--selection">
         <h1>Ethereum Foundation Organization Chart</h1>
-        <p>
+        <p>A high-level overview of the Ethereum Foundation's teams, coordinators, and focus areas.
+
+
           
         </p>
-        <Image
-          src="/assets/ef-org-chart.png"
-          width={5392}
-          height={3744}
-          alt="Organizational Chart of the Ethereum Foundation"
-          layout="responsive"
-          priority
-        />
-        <Link href="/philosophy" id="next-navigation">
+        <a 
+          href="/assets/ef-org-chart.png" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          style={{ cursor: 'pointer', display: 'block' }}
+          className="people-org-chart-link"
+        >
+          <Image
+            src="/assets/ef-org-chart.png"
+            width={5392}
+            height={3744}
+            alt="Organizational Chart of the Ethereum Foundation"
+            layout="responsive"
+            priority
+          />
+        </a>
+
+        <Link href="/ourstory" id="next-navigation">
           <object
             data="/assets/double-spirale-white.svg"
             width="50"
@@ -30,7 +41,7 @@ const EthereumFoundation = (props: any) => {
             {" "}
             Next
           </object>
-          <span> Sit with our philosophy </span>
+          <span>Read our story</span>
         </Link>
       </div>
     </ContentBlock>

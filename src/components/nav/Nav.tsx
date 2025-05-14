@@ -109,7 +109,7 @@ const Nav = () => {
                 className={`${css["ten"]} ${css["menu-content-text"]}`}
               >
                 {" "}
-                People{" "}
+                EF Organization{" "}
               </Link>
               <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
                 {" "}
