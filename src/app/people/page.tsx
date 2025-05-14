@@ -44,6 +44,17 @@ const EthereumFoundation = (props: any) => {
           <span>Read our story</span>
         </Link>
       </div>
+      <style jsx>{`
+        .people-org-chart-link {
+          /* No styles by default, only apply on mobile */
+        }
+        @media (max-width: 1050px) { /* Using 1050px directly */
+          .people-org-chart-link {
+            margin-left: 15px;
+            margin-right: 15px;
+          }
+        }
+      `}</style>
     </ContentBlock>
   )
 }

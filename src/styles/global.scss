@@ -476,12 +476,3 @@ main a:hover {
 html.webp--not--supported .webp--only {
   display: none;
 }
-
-// Style for the people page org chart image link
-.people-org-chart-link {
-  // No styles by default, only apply on mobile
-  @media (max-width: $breakpoint-1) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-}
