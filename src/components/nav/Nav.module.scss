@@ -104,9 +104,44 @@
         animation-delay: $time * 12;
       }
 
-      &.secondary--links--container {
+      &.thirteen {
         animation: fade-in 0.3s ease-in forwards;
         animation-delay: $time * 13;
+      }
+
+      &.fourteen {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 14;
+      }
+
+      &.fifteen {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 15;
+      }
+
+      &.sixteen {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 16;
+      }
+
+      &.seventeen {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 17;
+      }
+
+      &.eighteen {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 18;
+      }
+
+      &.nineteen {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 19;
+      }
+
+      &.secondary--links--container {
+        animation: fade-in 0.3s ease-in forwards;
+        animation-delay: $time * 20;
       }
     }
   }
