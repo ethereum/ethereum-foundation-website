@@ -9,11 +9,7 @@ const EthereumFoundation = (props: any) => {
     <ContentBlock>
       <div id="content-body" className="disable--selection">
         <h1>Ethereum Foundation Organization Chart</h1>
-        <p>A high-level overview of the Ethereum Foundation's teams, coordinators, and focus areas.
-
-
-          
-        </p>
+        <p>A high-level overview of the Ethereum Foundation's teams, coordinators, and focus areas.</p>
         <a 
           href="/assets/ef-org-chart.png" 
           target="_blank" 
@@ -23,8 +19,8 @@ const EthereumFoundation = (props: any) => {
         >
           <Image
             src="/assets/ef-org-chart.png"
-            width={5392}
-            height={3744}
+            width={3000}
+            height={2083}
             alt="Organizational Chart of the Ethereum Foundation"
             layout="responsive"
             priority
