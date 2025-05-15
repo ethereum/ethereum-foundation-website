@@ -19,8 +19,8 @@ const EthereumFoundation = (props: any) => {
         >
           <Image
             src="/assets/ef-org-chart.png"
-            width={3000}
-            height={2083}
+            width={2500}
+            height={1785}
             alt="Organizational Chart of the Ethereum Foundation"
             layout="responsive"
             priority
