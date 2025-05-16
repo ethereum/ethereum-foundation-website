@@ -100,6 +100,12 @@ export const urlToTextureMap = {
     medium: "EF-website-landscape-ourstory-01-8000px",
     large: "EF-website-landscape-ourstory-01-12000px",
   },
+  "/people": {
+    // TODO: Add people page images
+    small: "EF-website-landscape-infinite-garden-03-6000px",
+    medium: "EF-website-landscape-infinite-garden-03-8000px",
+    large: "EF-website-landscape-infinite-garden-03-12000px",
+  },
 }
 
 export function loadAssets(url) {
@@ -730,7 +736,7 @@ export const Animate = (url) => {
     // as morph targets, which in turn allows us to morph the object in between different shapes.
     // createDegenerateParticles();
 
-    // This is the cylinder that goes between the ETH logo and the camera, which in turn allows us to create an illusion of increasing "background opacity"
+    // This is the cylinder that goes between the ETH logo and the camera, which in turn allows us to create an illusion of increasing "background opacity"
     // in the whole 3D environment.
     if (backgroundPlaneMeshDisplayed) {
       //createHomePageCylinder();

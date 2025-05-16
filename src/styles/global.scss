@@ -472,3 +472,7 @@ main a:hover {
     overflow: hidden;
   }
 }
+
+html.webp--not--supported .webp--only {
+  display: none;
+}

@@ -6,7 +6,7 @@ import { loadAndCacheTexture } from "components/page/animate"
 
 const EthereumFoundation = (props: any) => {
   useEffect(() => {
-    loadAndCacheTexture("/ourstory")
+    loadAndCacheTexture("/people")
   }, [])
 
   return (
@@ -25,7 +25,7 @@ const EthereumFoundation = (props: any) => {
 
         <p>
           Behind that simple description, the EF is hard to categorize. We are
-          not a tech company, or a “normal” non-profit. Just as Ethereum
+          not a tech company, or a "normal" non-profit. Just as Ethereum
           requires new concepts and technologies, it has spawned new kinds of
           organizations.
         </p>
@@ -124,7 +124,7 @@ const EthereumFoundation = (props: any) => {
         </Link>
         */}
 
-        <Link href="/ourstory" id="next-navigation">
+        <Link href="/people" id="next-navigation">
           <object
             data="/assets/double-spirale-white.svg"
             width="50"
@@ -134,7 +134,7 @@ const EthereumFoundation = (props: any) => {
             {" "}
             Next
           </object>
-          <span>Read our story</span>
+          <span>View EF Organization</span>
         </Link>
       </div>
     </ContentBlock>

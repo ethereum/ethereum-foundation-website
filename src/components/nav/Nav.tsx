@@ -105,35 +105,11 @@ const Nav = () => {
               </span>
               <Link
                 onClick={() => setOpen(false)}
-                href="/ourstory"
-                className={`${css["eight"]} ${css["menu-content-text"]}`}
-              >
-                {" "}
-                Our Story{" "}
-              </Link>
-              <span className={`${css["nine"]} ${css["menu-content-dot"]}`}>
-                {" "}
-                •{" "}
-              </span>
-              <Link
-                onClick={() => setOpen(false)}
-                href="/philosophy"
+                href="/people"
                 className={`${css["ten"]} ${css["menu-content-text"]}`}
               >
                 {" "}
-                EF Philosophy{" "}
-              </Link>
-              <span className={`${css["ten"]} ${css["menu-content-dot"]}`}>
-                {" "}
-                •{" "}
-              </span>
-              <Link
-                onClick={() => setOpen(false)}
-                href="/silviculture-society"
-                className={`${css["eleven"]} ${css["menu-content-text"]}`}
-              >
-                {" "}
-                Silviculture Society{" "}
+                EF Organization{" "}
               </Link>
               <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
                 {" "}
@@ -141,13 +117,49 @@ const Nav = () => {
               </span>
               <Link
                 onClick={() => setOpen(false)}
-                href="/conflict-policy"
+                href="/ourstory"
                 className={`${css["twelve"]} ${css["menu-content-text"]}`}
+              >
+                {" "}
+                Our Story{" "}
+              </Link>
+              <span className={`${css["thirteen"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/philosophy"
+                className={`${css["fourteen"]} ${css["menu-content-text"]}`}
+              >
+                {" "}
+                EF Philosophy{" "}
+              </Link>
+              <span className={`${css["fifteen"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/silviculture-society"
+                className={`${css["sixteen"]} ${css["menu-content-text"]}`}
+              >
+                {" "}
+                Silviculture Society{" "}
+              </Link>
+              <span className={`${css["seventeen"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+              <Link
+                onClick={() => setOpen(false)}
+                href="/conflict-policy"
+                className={`${css["eighteen"]} ${css["menu-content-text"]}`}
               >
                 {" "}
                 Conflict of Interest Policy{" "}
               </Link>
-              <span className={`${css["twelve"]} ${css["menu-content-dot"]}`}>
+              <span className={`${css["nineteen"]} ${css["menu-content-dot"]}`}>
                 {" "}
                 •{" "}
               </span>
