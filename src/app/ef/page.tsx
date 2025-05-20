@@ -44,7 +44,7 @@ const EthereumFoundation = (props: any) => {
         </p>
 
         <div id="executive-board">
-          <h3>Meet our Foundation Council</h3>
+          <h3>Meet our Ethereum Foundation Board</h3>
 
           <div className="member">
             <img
