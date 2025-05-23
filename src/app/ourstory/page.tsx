@@ -4,11 +4,16 @@ import Link from "../../components/Link"
 import ContentBlock from "../../components/page/Content"
 import Image from "next/image"
 import { loadAndCacheTexture } from "components/page/animate"
+import { usePageOptions } from "../../contexts/PageOptionsContext"
 
 const EthereumFoundation = (props: any) => {
+  const { setShowScrollPrompt, setStartPageAsScrolled } = usePageOptions()
+
   useEffect(() => {
     loadAndCacheTexture("/philosophy")
-  }, [])
+    setShowScrollPrompt(false)
+    setStartPageAsScrolled(true)
+  }, [setShowScrollPrompt, setStartPageAsScrolled])
 
   return (
     <ContentBlock>
@@ -269,9 +274,9 @@ const EthereumFoundation = (props: any) => {
         </p>
         <blockquote>
           <em>
-            “To live till you die
+            "To live till you die
             <br />
-            is to live long enough.”
+            is to live long enough."
           </em>{" "}
           &ndash; Lao Tzu
         </blockquote>

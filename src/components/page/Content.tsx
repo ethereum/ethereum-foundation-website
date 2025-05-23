@@ -8,6 +8,7 @@ import {
 import { usePathname } from "next/navigation"
 import animate, { loadAssets } from "./animate"
 import { useAnimationContext } from "./animation-context"
+import { usePageOptions } from "../../contexts/PageOptionsContext"
 
 export const pageContentID = "page-content"
 
@@ -22,6 +23,7 @@ const ContentBlock = (props: ContentBlockProps) => {
   const animationRan = React.useRef(false)
   const scrollDirection = useScrollDirectionContext()
   const { setAnimationIsLoading } = useAnimationContext()
+  const { startPageAsScrolled } = usePageOptions()
   const pathname = usePathname()
 
   React.useEffect(() => {
@@ -50,7 +52,9 @@ const ContentBlock = (props: ContentBlockProps) => {
 
       <main
         id={
-          scrollDirection === ScrollDirection.UP
+          startPageAsScrolled
+            ? "page-content-container-visible"
+            : scrollDirection === ScrollDirection.UP
             ? "page-content-container"
             : "page-content-container-visible"
         }
