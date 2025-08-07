@@ -35,7 +35,7 @@ const InfiniteGarden = (props: any) => {
         <p>
           Ethereum is a protocol for human coordination. Coordination is a game,
           but not one that is played to win. Coordination is more like tending a
-          garden, where one works only that the garden may continue to thrive.
+          garden, where one works only so that the garden may continue to thrive.
         </p>
 
         <p>
