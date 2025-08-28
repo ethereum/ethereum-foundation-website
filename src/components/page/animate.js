@@ -106,6 +106,12 @@ export const urlToTextureMap = {
     medium: "EF-website-landscape-infinite-garden-03-8000px",
     large: "EF-website-landscape-infinite-garden-03-12000px",
   },
+  "/ef-social-requests": {
+    // Use EF background images for social requests page
+    small: "EF-website-landscape-ef-03-6000px",
+    medium: "EF-website-landscape-ef-03-8000px",
+    large: "EF-website-landscape-ef-03-12000px",
+  },
 }
 
 export function loadAssets(url) {

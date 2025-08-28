@@ -185,6 +185,21 @@ const Nav = () => {
               </span>
 
               <Link
+                onClick={() => setOpen(false)}
+                href="/ef-social-requests"
+                id="ef--social--requests--link"
+                className={css["main--menu--secondary--link"]}
+              >
+                {" "}
+                EF Social Requests{" "}
+              </Link>
+
+              <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
+                {" "}
+                •{" "}
+              </span>
+
+              <Link
                 prefetch={false}
                 href="/report-2024.pdf"
                 id="report--2024--link"
