@@ -124,9 +124,6 @@ const EFSocialRequestsPage = () => {
             <li>We'll contact you via Telegram if accepted</li>
           </ul>
 
-          <p>
-            For questions about these guidelines, please contact [your contact method].
-          </p>
         </section>
 
         <Link href="/" id="next-navigation">
