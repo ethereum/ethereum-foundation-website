@@ -1,11 +1,10 @@
 import React from "react"
 import NextLink, { LinkProps } from "next/link"
 
-const Link = React.forwardRef(
-  (
-    props: LinkProps & { children?: React.ReactNode; [key: string]: any },
-    ref: any
-  ) => {
+type LinkComponentProps = LinkProps & { children?: React.ReactNode; [key: string]: any }
+
+const Link = React.forwardRef<HTMLAnchorElement, LinkComponentProps>(
+  (props, ref) => {
     const href = props.href.toString()
     const isMailTo = href.startsWith("mailto:")
 
@@ -34,7 +33,7 @@ const Link = React.forwardRef(
       )
     }
 
-    return <NextLink {...props}>{props.children}</NextLink>
+    return <NextLink {...props} href={props.href} ref={ref}>{props.children}</NextLink>
   }
 )
 
