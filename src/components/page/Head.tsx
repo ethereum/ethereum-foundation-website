@@ -14,7 +14,7 @@ const Head = (props: HeadProps) => {
       />
 
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
       <link rel='shortcut icon' sizes='196x196' href='/eth-colorful-icon.svg' />
       <link rel='stylesheet' href='https://use.typekit.net/akf2vsf.css' />
