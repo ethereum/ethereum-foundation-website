@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@socialgouv/matomo-next": "^1.13.1",
+    "@socialgouv/matomo-next": "1.11.0",
     "@types/node": "18.11.9",
     "@types/react": "18.3.27",
     "@types/react-dom": "18.3.7",
