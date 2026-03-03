@@ -1,6 +1,7 @@
 "use client"
 import { usePathname } from "next/navigation"
-import React, { useReducer } from "react"
+import React, { Suspense, useReducer } from "react"
+import MatomoAnalytics from "./matomo"
 import Footer from "../components/footer/Footer"
 import Nav from "../components/nav/Nav"
 import useScrollDirection, {
@@ -53,6 +54,9 @@ const RootLayout = ({ children }: { children: React.ReactElement }) => {
           </ScrollDirectionContext.Provider>
           <Nav />
           <Footer />
+          <Suspense fallback={null}>
+            <MatomoAnalytics />
+          </Suspense>
         </AnimationContext.Provider>
       </body>
     </html>
