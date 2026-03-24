@@ -185,13 +185,15 @@ const Nav = () => {
               </span>
 
               <Link
-                onClick={() => setOpen(false)}
-                href="/ef-social-requests"
-                id="ef--social--requests--link"
+                prefetch={false}
+                href="/ef-mandate.pdf"
+                id="ef--mandate--link"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={css["main--menu--secondary--link"]}
               >
                 {" "}
-                EF Social Requests{" "}
+                EF Mandate{" "}
               </Link>
 
               <span className={`${css["eleven"]} ${css["menu-content-dot"]}`}>
