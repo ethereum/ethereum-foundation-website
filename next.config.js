@@ -2,6 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  async redirects() {
+    return [
+      {
+        source: '/mandate',
+        destination: '/ef-mandate.pdf',
+        permanent: false,
+      },
+    ]
+  },
   webpack: (config, { webpack }) => {
     return {
       ...config,
