@@ -27,7 +27,7 @@ const fontSecondary = Abhaya_Libre({
   weight: ["400"],
 })
 
-const RootLayout = ({ children }: { children: React.ReactElement }) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const [animationIsLoading, setAnimationIsLoading] = React.useState(true)
   const pathname = usePathname()
   const scrollDirection = useScrollDirection()
