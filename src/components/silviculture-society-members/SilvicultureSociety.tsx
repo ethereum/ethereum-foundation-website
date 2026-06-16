@@ -113,7 +113,7 @@ const members: SilvicultureMember[] = [
     id: 9,
     name: "ml_sudo",
     avatar: "/assets/silviculture/ml_sudo.jpg",
-    link: "https://twitter.com/ml_sudo",
+    link: "https://x.com/sudo_ml",
   },
   {
     id: 10,
