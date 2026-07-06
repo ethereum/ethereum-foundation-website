@@ -96,25 +96,6 @@ const EthereumFoundation = (props: any) => {
               <span className="title">Board Member</span>
             </div>
           </div>
-
-          <div className="member">
-            <img
-              src="/assets/portrait-hsiao-wei.png"
-              alt="Hsiao-Wei, one of the Ethereum Foundation's board members"
-              height="150"
-              width="150"
-            />
-            <div className="info">
-              <h4 className="name">Hsiao-Wei Wang</h4>
-              <span className="title">Co-Executive Director</span>
-              <Link
-                href="https://twitter.com/hwwonx"
-                className="social-link"
-              >
-                @hwwonx
-              </Link>
-            </div>
-          </div>
         </div>
 
         {/*
