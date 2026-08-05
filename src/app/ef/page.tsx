@@ -57,7 +57,7 @@ const EthereumFoundation = (props: any) => {
               <h4 className="name">Aya Miyaguchi</h4>
               <span className="title">President</span>
               <Link
-                href="https://twitter.com/ayamiyagotchi"
+                href="https://x.com/ayamiyagotchi"
                 className="social-link"
               >
                 @AyaMiyagotchi
@@ -76,10 +76,29 @@ const EthereumFoundation = (props: any) => {
               <h4 className="name">Vitalik Buterin</h4>
               <span className="title">Inventor of Ethereum</span>
               <Link
-                href="https://twitter.com/VitalikButerin"
+                href="https://x.com/VitalikButerin"
                 className="social-link"
               >
                 @VitalikButerin
+              </Link>
+            </div>
+          </div>
+
+          <div className="member">
+            <img
+              src="/assets/portrait-pcaversaccio.png"
+              alt="pcaversaccio, one of the Ethereum Foundation's board members"
+              height="150"
+              width="150"
+            />
+            <div className="info">
+              <h4 className="name">pcaversaccio</h4>
+              <span className="title">Board Member</span>
+              <Link
+                href="https://x.com/pcaversaccio"
+                className="social-link"
+              >
+                @pcaversaccio
               </Link>
             </div>
           </div>
