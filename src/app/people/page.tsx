@@ -11,16 +11,16 @@ const EthereumFoundation = (props: any) => {
         <h1>Ethereum Foundation Organization Chart</h1>
         <p>A high-level overview of the Ethereum Foundation's teams, coordinators, and focus areas.</p>
         <a 
-          href="/assets/ef-org-chart.png" 
+          href="/assets/ef-org-chart.webp"
           target="_blank" 
           rel="noopener noreferrer" 
           style={{ cursor: 'pointer', display: 'block' }}
           className="people-org-chart-link"
         >
           <Image
-            src="/assets/ef-org-chart.png"
+            src="/assets/ef-org-chart.webp"
             width={2500}
-            height={2128}
+            height={2307}
             alt="Organizational Chart of the Ethereum Foundation"
             layout="responsive"
             priority
