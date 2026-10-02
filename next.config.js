@@ -4,9 +4,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/mandate',
-        destination: '/ef-mandate.pdf',
+        source: "/mandate",
+        destination: "/ef-mandate.pdf",
         permanent: false,
+      },
+      {
+        source: "/ef-social-requests",
+        destination: "/",
+        permanent: true,
       },
     ]
   },
@@ -21,12 +26,12 @@ const nextConfig = {
             issuer: { not: /\.(css|scss|sass)$/ },
             use: [
               {
-                loader: '@svgr/webpack',
+                loader: "@svgr/webpack",
                 options: {
                   svgoConfig: {
                     plugins: [
                       {
-                        name: 'preset-default',
+                        name: "preset-default",
                         params: {
                           overrides: {
                             removeViewBox: false,
@@ -43,13 +48,13 @@ const nextConfig = {
           {
             test: /\.(glsl|vs|fs|vert|frag)$/,
             exclude: /node_modules/,
-            use: ['raw-loader', 'glslify-loader'],
+            use: ["raw-loader", "glslify-loader"],
           },
           ...config.module.rules,
-        ]
-      }
+        ],
+      },
     }
-  }
+  },
 }
 
 module.exports = nextConfig
