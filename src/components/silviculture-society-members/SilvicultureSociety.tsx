@@ -233,23 +233,6 @@ const SilvicultureSociety = () => {
           ))}
         </div>
       </div>
-
-      {/* Powered by etherium image */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "40px",
-        }}
-      >
-        <Image
-          src="/assets/powered-by-etherium.jpeg"
-          alt="Powered by Ethereum"
-          width={325} 
-          height={144} 
-        />
-      </div>
     </div>
   )
 }
